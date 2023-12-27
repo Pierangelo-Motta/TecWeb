@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="login.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+        
+    </div>
+    <div class="container">
+        <a href="register.php">Register</a>
+    </div>
+    <!--
+    <?php
+    /**
+     * We just want to hash our password using the current DEFAULT algorithm.
+     * This is presently BCRYPT, and will produce a 60 character result.
+     *
+     * Beware that DEFAULT may change over time, so you would want to prepare
+     * By allowing your storage to expand past 60 characters (255 would be good)
+     */
+    echo password_hash("rasmuslerdorf", PASSWORD_DEFAULT);
+    ?>
+    <?php
+    // See the password_hash() example to see where this came from.
+    $hash = '$2y$10$ZIj8SYucT8/LS1gC4Ws9nedLD0Bmk3qb6168hEPQRHMEVqkN2vLoG';
+    
+    if (password_verify('rasmuslerdorf', $hash)) {
+        echo 'Password is valid!';
+    } else {
+        echo 'Invalid password.';
+    }
+    ?>
+    -->
+</body>
+</html>
