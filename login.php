@@ -1,5 +1,6 @@
 <?php
-include 'config.php';
+session_start();
+require 'config.php';
 
 
 // Set parameters and execute
@@ -16,7 +17,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-    session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
     $_SESSION['id'] = $result->fetch_assoc()['id'];
