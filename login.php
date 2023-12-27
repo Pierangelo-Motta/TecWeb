@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config.php';
+require 'include/config.php';
 
 
 // Set parameters and execute
