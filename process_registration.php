@@ -6,7 +6,28 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 
-if ($password === $confirm_password) {
+
+function checkUser($user){
+    $sql = "SELECT username from users WHERE username = ?";
+    global $conn;
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+    //$conn->close();
+    
+    if ($result->num_rows == 0){
+        return true;
+    } 
+    else{
+        //return false;
+        die("Error: username already present");
+    }
+}
+
+
+if ($password === $confirm_password && checkUser($username)) {
     // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (username, pwd) VALUES (?, ?)";
