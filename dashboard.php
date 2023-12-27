@@ -5,11 +5,12 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
-if (isset($_COOKIE['username'])) {
-    unset($_COOKIE['username']); 
+
+// if (isset($_COOKIE['username'])) {
+//     unset($_COOKIE['username']); 
 //    setcookie('username', '', -1, '/'); 
 //return true;
-} //else {
+// } //else {
 //return false;
 //}
 $user_id = $_SESSION['id'];
@@ -36,20 +37,18 @@ $user_name = $_SESSION['username'];
         echo "\$_SESSION: ";
         var_dump($_SESSION);
         print "</br>";
+        print "</br>";
         echo "\$_SESSION['username']: ";
         var_dump($_SESSION['username']);
+        print "</br>";
         print "</br>";
         echo "\$_COOKIE: ";
         var_dump($_COOKIE);
         print "</br>";
+        print "</br>";
         echo "\$GLOBALS: ";
         var_dump($GLOBALS);
-        // if(!isset($_COOKIE[$cookie_name])) {
-        //     echo "Cookie named '" . $cookie_name . "' is not set!";
-        // } else {
-        //     echo "Cookie '" . $cookie_name . "' is set!<br>";
-        //     echo  "Value is: " . $_COOKIE[$cookie_name];
-        // }
+        
     ?>
     <div id="timeLoggedIn"></div>
     <!-- First JS script! -->
