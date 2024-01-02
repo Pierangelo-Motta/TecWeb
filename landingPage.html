@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      width: 99%;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #logo {
+      display: flex;
+      align-items: center;
+    }
+
+    #logo img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    #search-bar {
+      flex-grow: 1;
+      margin: 0 10px;
+    }
+
+    #user-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    #user-icons img {
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+    }
+
+    .post{
+        margin: 50px 0 0 30px;
+        border: 1px solid;
+        height: 200px;
+        width: 200px;
+    }
+
+    .post img {
+        width: 25px;
+        height: 25px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <img src="defaultImages\logoLetturePremiate.png" alt="Logo del sito">
+    </div>
+    
+    <div id="search-bar">
+      <input type="text" placeholder="Cerca...">
+    </div>
+
+    <div id="user-icons">
+      <img src="defaultImages\notifyLogo.png" alt="Icona notifiche">
+      <img src="defaultImages\settingLogo.png" alt="Icona impostazioni">
+      <img src="defaultImages\discoveryLogo.png" alt="Icona discovery">
+      <img src="defaultImages\userLogo.png" alt="Icona utente">
+    </div>
+  </header>
+
+  <main>
+    <section class="post">
+        <img src="defaultImages\userLogo.png" alt="Icona utente">
+        <p>Username</p>
+    </section>
+  </main>
+
+</body>
+</html>
