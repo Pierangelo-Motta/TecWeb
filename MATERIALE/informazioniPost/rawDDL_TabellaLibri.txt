@@ -1,8 +1,8 @@
-EAN/titoloLibro/autore
-9788806247614/Questo immenso non sapere/Chandra Candiani
+EAN/titoloLibro/autore#
+9788806247614/Questo immenso non sapere/Chandra Candiani#
 9788806257644/Sacro minore/Franco Arminio#
 9788807035579/Il magnifico studio fotografico di Hirasaka/Sanaka Hiiragi#
 9788807701658/L' abito di piume/Banana Yoshimoto#
-9788806254476/Un buon posto in cui fermarsi/Matteo Bussola
+9788806254476/Un buon posto in cui fermarsi/Matteo Bussola#
 
 
