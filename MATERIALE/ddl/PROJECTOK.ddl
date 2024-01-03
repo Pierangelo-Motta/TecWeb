@@ -51,7 +51,7 @@ create table NOTIFICA (
      IdIncrementale char(1) not null,
      DataOra date not null,
      Descrizione varchar(255) not null,
-     Tipo ENUM("Like", "Love", "Commento", "Follow")
+     Tipo ENUM("Like", "Love", "Commento", "Follow"),
      Ric_IdIncrementale char(1) not null,
      Rif_UIdIncrementale char(1),
      Rif_DataOra date,
