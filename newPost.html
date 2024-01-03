@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <style>
     body {
       margin: 0;
@@ -63,7 +64,7 @@
 <body>
   <header>
     <div id="logo">
-      <img src="defaultImages\logoLetturePremiate.png" alt="Logo del sito">
+      <img src="images\logoLetturePremiate.png" alt="Logo del sito">
     </div>
     
     <div id="search-bar">
@@ -71,19 +72,43 @@
     </div>
 
     <div id="user-icons">
-      <img src="defaultImages\notifyLogo.png" alt="Icona notifiche">
-      <img src="defaultImages\settingLogo.png" alt="Icona impostazioni">
-      <img src="defaultImages\discoveryLogo.png" alt="Icona discovery">
-      <img src="defaultImages\userLogo.png" alt="Icona utente">
+      <img src="images\notifyLogo.png" alt="Icona notifiche">
+      <img src="images\settingLogo.png" alt="Icona impostazioni">
+      <img src="images\discoveryLogo.png" alt="Icona discovery">
+      <img src="images\userLogo.png" alt="Icona utente">
     </div>
   </header>
 
   <main>
+    <h1>Crea un nuovo post!</h1>
+    <form id="newPostForm" action="" method="post">
+        <div id="newPostForm_pt1">
+            <label for="html">Nome libro</label>
+            <input type="text" id="nomeLibro" value="">
+            <br>
 
+            <!-- <label for="html">Nome libro</label> -->
+            <input type="textarea" id="citazioneText" placeholder="Inserisci qui la citazione">
+            <br>
+            <input type="textarea" id="pensieroText" placeholder="Inserisci qui il tuo pensiero">
+            <br>
+        </div>
+
+        <div id="newPostForm_pt2">
+            <p>Inserisci qui sotto una foto:</p>
+            <div id="img1">
+                <img src="images\caricaFoto.png" alt="Carica la foto">
+            </div>
+        </div>
+        
+    </form>
   </main>
-  
-  <footer>
 
+  <footer>
+    <div id="img1">
+        <img src="images\caricaFoto.png" alt="Carica la foto">
+    </div>
+    <button form="newPostForm" type="submit">Condividi</button>
   </footer>
 
 
