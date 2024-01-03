@@ -1,51 +1,49 @@
 -- *********************************************
--- * Standard SQL generation                   
+-- * SQL MySQL generation                      
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.2              
 -- * Generator date: Sep 14 2021              
--- * Generation date: Tue Jan  2 19:35:28 2024 
+-- * Generation date: Wed Jan  3 01:53:10 2024 
 -- * LUN file: C:\Users\jacop\source\repos\progetti_vsunibo_elaborati\3_anno\web\proggg\prog\TecWeb\MATERIALE\ddl\PROJECT.lun 
--- * Schema: letturePremiateLog10/SQL 
+-- * Schema: letturePremiateOK/10 
 -- ********************************************* 
 
 
 -- Database Section
 -- ________________ 
 
-create database letturePremiate;
-
-
--- DBSpace Section
--- _______________
+create database letturePremiateOK;
+use letturePremiateOK;
 
 
 -- Tables Section
 -- _____________ 
 
 create table AUTORE (
-     IdIncrementale numeric(8) not null,
+     IdIncrementale int not null,
      Nome varchar(255) not null,
      constraint ID_AUTORE_ID primary key (IdIncrementale));
 
 create table COMMENTI (
-     Post_DataOra date not null,
+     Pos_UIdIncrementale char(1) not null,
+     Pos_DataOra date not null,
      UIdIncrementale char(1) not null,
      DataOra date not null,
      Commento varchar(1023) not null,
-     constraint ID_COMMENTI_ID primary key (Post_DataOra, UIdIncrementale, DataOra));
+     constraint ID_COMMENTI_ID primary key (Pos_UIdIncrementale, Pos_DataOra, UIdIncrementale, DataOra));
 
 create table Compone (
-     MIdIncrementale numeric(8) not null,
-     LIdIncrementale numeric(8) not null,
+     MIdIncrementale int not null,
+     LIdIncrementale int not null,
      constraint ID_Compone_ID primary key (LIdIncrementale, MIdIncrementale));
 
 create table LIBRO (
-     IdIncrementale numeric(8) not null,
+     IdIncrementale int not null,
      Titolo varchar(255) not null,
      constraint ID_LIBRO_ID primary key (IdIncrementale));
 
 create table MEDAGLIERE (
-     IdIncrementale numeric(8) not null,
+     IdIncrementale int not null,
      Titolo varchar(255) not null,
      constraint ID_MEDAGLIERE_ID primary key (IdIncrementale));
 
@@ -53,25 +51,26 @@ create table NOTIFICA (
      IdIncrementale char(1) not null,
      DataOra date not null,
      Descrizione varchar(255) not null,
-     Tipo char(1) not null,
+     Tipo ENUM("Like", "Love", "Commento", "Follow")
      Ric_IdIncrementale char(1) not null,
+     Rif_UIdIncrementale char(1),
      Rif_DataOra date,
      constraint ID_NOTIFICA_ID primary key (IdIncrementale, DataOra));
 
 create table POST (
+     UIdIncrementale char(1) not null,
      DataOra date not null,
      CitazioneTestuale varchar(255),
      FotoCitazione varchar(127),
      Riflessione varchar(2047) not null,
-     CounterMiPiace numeric(6) not null,
-     CounterAdoro numeric(6) not null,
-     LIdIncrementale numeric(8) not null,
-     UIdIncrementale char(1) not null,
-     constraint ID_POST_ID primary key (DataOra));
+     CounterMiPiace int not null,
+     CounterAdoro int not null,
+     LIdIncrementale int not null,
+     constraint ID_POST_ID primary key (UIdIncrementale, DataOra));
 
 create table ScrittoDa (
-     LIdIncrementale numeric(8) not null,
-     AIdIncrementale numeric(8) not null,
+     LIdIncrementale int not null,
+     AIdIncrementale int not null,
      constraint ID_ScrittoDa_ID primary key (AIdIncrementale, LIdIncrementale));
 
 create table Segue (
@@ -81,13 +80,14 @@ create table Segue (
 
 create table Sottoscrive (
      UIdIncrementale char(1) not null,
-     MIdIncrementale numeric(8) not null,
+     MIdIncrementale int not null,
      constraint ID_Sottoscrive_ID primary key (MIdIncrementale, UIdIncrementale));
 
 create table TAGPERPOST (
+     UIdIncrementale char(1) not null,
      DataOra date not null,
      Id char(1) not null,
-     constraint ID_TAGPERPOST_ID primary key (DataOra, Id));
+     constraint ID_TAGPERPOST_ID primary key (UIdIncrementale, DataOra, Id));
 
 create table TAGS (
      Id char(1) not null,
@@ -102,92 +102,99 @@ create table UTENTE (
      IsAdmin char(1) not null,
      Descrizione varchar(150),
      Stato char(1) not null,
-     NumeroFollow numeric(8) not null,
+     NumeroFollow int not null,
      constraint ID_UTENTE_ID primary key (IdIncrementale));
 
 
 -- Constraints Section
 -- ___________________ 
 
-alter table AUTORE add constraint ID_AUTORE_CHK
-     check(exists(select * from ScrittoDa
-                  where ScrittoDa.AIdIncrementale = IdIncrementale)); 
+-- Not implemented
+-- alter table AUTORE add constraint ID_AUTORE_CHK
+--     check(exists(select * from ScrittoDa
+--                  where ScrittoDa.AIdIncrementale = IdIncrementale)); 
 
 alter table COMMENTI add constraint REF_COMME_UTENT_FK
      foreign key (UIdIncrementale)
-     references UTENTE;
+     references UTENTE (IdIncrementale);
 
 alter table COMMENTI add constraint REF_COMME_POST
-     foreign key (Post_DataOra)
-     references POST;
+     foreign key (Pos_UIdIncrementale, Pos_DataOra)
+     references POST (UIdIncrementale, DataOra);
 
 alter table Compone add constraint REF_Compo_LIBRO
      foreign key (LIdIncrementale)
-     references LIBRO;
+     references LIBRO (IdIncrementale);
 
 alter table Compone add constraint EQU_Compo_MEDAG_FK
      foreign key (MIdIncrementale)
-     references MEDAGLIERE;
+     references MEDAGLIERE (IdIncrementale);
 
-alter table LIBRO add constraint ID_LIBRO_CHK
-     check(exists(select * from ScrittoDa
-                  where ScrittoDa.LIdIncrementale = IdIncrementale)); 
+-- Not implemented
+-- alter table LIBRO add constraint ID_LIBRO_CHK
+--     check(exists(select * from ScrittoDa
+--                  where ScrittoDa.LIdIncrementale = IdIncrementale)); 
 
-alter table MEDAGLIERE add constraint ID_MEDAGLIERE_CHK
-     check(exists(select * from Compone
-                  where Compone.MIdIncrementale = IdIncrementale)); 
+-- Not implemented
+-- alter table MEDAGLIERE add constraint ID_MEDAGLIERE_CHK
+--     check(exists(select * from Compone
+--                  where Compone.MIdIncrementale = IdIncrementale)); 
 
 alter table NOTIFICA add constraint REF_NOTIF_UTENT_1
      foreign key (IdIncrementale)
-     references UTENTE;
+     references UTENTE (IdIncrementale);
 
 alter table NOTIFICA add constraint REF_NOTIF_UTENT_FK
      foreign key (Ric_IdIncrementale)
-     references UTENTE;
+     references UTENTE (IdIncrementale);
 
 alter table NOTIFICA add constraint REF_NOTIF_POST_FK
-     foreign key (Rif_DataOra)
-     references POST;
+     foreign key (Rif_UIdIncrementale, Rif_DataOra)
+     references POST (UIdIncrementale, DataOra);
+
+alter table NOTIFICA add constraint REF_NOTIF_POST_CHK
+     check((Rif_UIdIncrementale is not null and Rif_DataOra is not null)
+           or (Rif_UIdIncrementale is null and Rif_DataOra is null)); 
 
 alter table POST add constraint REF_POST_LIBRO_FK
      foreign key (LIdIncrementale)
-     references LIBRO;
+     references LIBRO (IdIncrementale);
 
-alter table POST add constraint REF_POST_UTENT_FK
+alter table POST add constraint REF_POST_UTENT
      foreign key (UIdIncrementale)
-     references UTENTE;
+     references UTENTE (IdIncrementale);
 
 alter table ScrittoDa add constraint EQU_Scrit_AUTOR
      foreign key (AIdIncrementale)
-     references AUTORE;
+     references AUTORE (IdIncrementale);
 
 alter table ScrittoDa add constraint EQU_Scrit_LIBRO_FK
      foreign key (LIdIncrementale)
-     references LIBRO;
+     references LIBRO (IdIncrementale);
 
 alter table Segue add constraint REF_Segue_UTENT_1_FK
      foreign key (IdIncrementaleSeguente)
-     references UTENTE;
+     references UTENTE (IdIncrementale);
 
 alter table Segue add constraint REF_Segue_UTENT
      foreign key (IdIncrementaleSeguito)
-     references UTENTE;
+     references UTENTE (IdIncrementale);
 
 alter table Sottoscrive add constraint REF_Sotto_MEDAG
      foreign key (MIdIncrementale)
-     references MEDAGLIERE;
+     references MEDAGLIERE (IdIncrementale);
 
 alter table Sottoscrive add constraint REF_Sotto_UTENT_FK
      foreign key (UIdIncrementale)
-     references UTENTE;
+     references UTENTE (IdIncrementale);
 
 alter table TAGPERPOST add constraint REF_TAGPE_TAGS_FK
      foreign key (Id)
-     references TAGS;
+     references TAGS (Id);
 
 alter table TAGPERPOST add constraint REF_TAGPE_POST
-     foreign key (DataOra)
-     references POST;
+     foreign key (UIdIncrementale, DataOra)
+     references POST (UIdIncrementale, DataOra);
 
 
 -- Index Section
@@ -197,7 +204,7 @@ create unique index ID_AUTORE_IND
      on AUTORE (IdIncrementale);
 
 create unique index ID_COMMENTI_IND
-     on COMMENTI (Post_DataOra, UIdIncrementale, DataOra);
+     on COMMENTI (Pos_UIdIncrementale, Pos_DataOra, UIdIncrementale, DataOra);
 
 create index REF_COMME_UTENT_IND
      on COMMENTI (UIdIncrementale);
@@ -221,16 +228,13 @@ create index REF_NOTIF_UTENT_IND
      on NOTIFICA (Ric_IdIncrementale);
 
 create index REF_NOTIF_POST_IND
-     on NOTIFICA (Rif_DataOra);
+     on NOTIFICA (Rif_UIdIncrementale, Rif_DataOra);
 
 create index REF_POST_LIBRO_IND
      on POST (LIdIncrementale);
 
 create unique index ID_POST_IND
-     on POST (DataOra);
-
-create index REF_POST_UTENT_IND
-     on POST (UIdIncrementale);
+     on POST (UIdIncrementale, DataOra);
 
 create unique index ID_ScrittoDa_IND
      on ScrittoDa (AIdIncrementale, LIdIncrementale);
@@ -251,7 +255,7 @@ create index REF_Sotto_UTENT_IND
      on Sottoscrive (UIdIncrementale);
 
 create unique index ID_TAGPERPOST_IND
-     on TAGPERPOST (DataOra, Id);
+     on TAGPERPOST (UIdIncrementale, DataOra, Id);
 
 create index REF_TAGPE_TAGS_IND
      on TAGPERPOST (Id);
