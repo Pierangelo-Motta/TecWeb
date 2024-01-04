@@ -140,10 +140,6 @@ alter table Compone add constraint EQU_Compo_MEDAG_FK
 --     check(exists(select * from Compone
 --                  where Compone.MedagliereId = Id)); 
 
-alter table NOTIFICA add constraint REF_NOTIF_UTENT_1
-     foreign key (Id)
-     references UTENTE (Id);
-
 alter table NOTIFICA add constraint REF_NOTIF_UTENT_FK
      foreign key (UtenteId)
      references UTENTE (Id);
