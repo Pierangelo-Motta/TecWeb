@@ -33,7 +33,7 @@ if ($password === $confirm_password && checkUser($username)) {
     
 	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO utente (username, password, email) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO utente (username, pwd, email) VALUES (?, ?, ?)";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         // mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);

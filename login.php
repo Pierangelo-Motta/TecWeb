@@ -11,7 +11,7 @@ $password = $_POST['password'];
 if (isLoginOk($conn, $username, $password)) {
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
-    $_SESSION['Id'] = getUserId($conn, $username, $password);
+    $_SESSION['id'] = getUserId($conn, $username, $password);
     header("Location: dashboard.php");
 } else {
     echo "Nome utente o password non corretti. Riprova per favore.";

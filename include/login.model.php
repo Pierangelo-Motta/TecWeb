@@ -19,7 +19,7 @@ function getUserId(object $conn, string $username){
 }
 
 function checkUserPassword(object $conn, string $username, string $password){
-    $sql = "SELECT id, password FROM users WHERE username = ?";
+    $sql = "SELECT id, pwd FROM utente WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
 
@@ -27,7 +27,7 @@ function checkUserPassword(object $conn, string $username, string $password){
 
     $result = $stmt->get_result();
 
-    if (password_verify($password, $result->fetch_assoc()['password'])) {
+    if (password_verify($password, $result->fetch_assoc()['pwd'])) {
         return true;
     }
     else{
