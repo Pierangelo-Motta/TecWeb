@@ -8,7 +8,7 @@ $confirm_password = $_POST['confirm_password'];
 
 
 function checkUser($user){
-    $sql = "SELECT username from users WHERE username = ?";
+    $sql = "SELECT username from utente WHERE username = ?";
     global $conn;
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $user);
@@ -28,13 +28,14 @@ function checkUser($user){
 
 
 if ($password === $confirm_password && checkUser($username)) {
-    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
+	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (username, pwd) VALUES (?, ?)";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         // mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
-        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+        mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
 
         if (mysqli_stmt_execute($stmt)) {
             echo "<p>New user registered successfully.</>";
