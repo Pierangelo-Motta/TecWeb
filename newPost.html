@@ -11,6 +11,8 @@
     }
 
     header {
+      background-color: white;
+
       color: #fff;
       padding: 10px;
       position: fixed;
@@ -97,13 +99,17 @@
         <div id="newPostForm_pt2">
             <p>Inserisci qui sotto una foto:</p>
             <div id="img1">
-                <img src="images\caricaFoto.png" alt="Carica la foto">
+              <label for="file"><img src="images\caricaFoto.png" alt="Carica la foto" ></label>
+              <input id="file" name="file" type="file" />
             </div>
         </div>
     </form>
   </main>
 
   <footer>
+    <p show="hidden">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href="#">Per più informazioni</a></p>
+
+    <button type="button">Indietro</button>
     <button form="newPostForm" type="submit">Condividi</button>
   </footer>
 
