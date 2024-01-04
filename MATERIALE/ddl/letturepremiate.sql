@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2024 at 04:49 PM
+-- Generation Time: Jan 04, 2024 at 05:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -93,7 +93,7 @@ CREATE TABLE `notifica` (
   `utenteId` char(1) NOT NULL,
   `utenteIdPost` char(1) DEFAULT NULL,
   `dataOraPost` date DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ CREATE TABLE `post` (
   `counterMiPiace` decimal(6,0) NOT NULL,
   `counterAdoro` decimal(6,0) NOT NULL,
   `libroId` int(8) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -175,7 +175,7 @@ CREATE TABLE `tags` (
 --
 
 CREATE TABLE `utente` (
-  `id` int(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(8) NOT NULL,
   `username` varchar(80) NOT NULL,
   `email` varchar(80) NOT NULL,
   `pwd` varchar(120) NOT NULL,
@@ -185,6 +185,15 @@ CREATE TABLE `utente` (
   `stato` char(1) NOT NULL,
   `numeroFollow` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `utente`
+--
+
+INSERT INTO `utente` (`id`, `username`, `email`, `pwd`, `immagineProfilo`, `isAdmin`, `descrizione`, `stato`, `numeroFollow`) VALUES
+(1, 'pier', 'pier@tecweb.com', '$2y$10$gFrPumcEaL5CcXvtGXM9xuMJXNf/UQ01qwAzFXR5XPwsPXbtJV.B6', '', '', NULL, '', 0),
+(2, 'luca', 'luca@webtec.it', '$2y$10$YU5cUJ4u1mijevPHw6/eA.HpBmhiy.V6b/GQ7Ft9XaYWsIuZKW7He', '', '', NULL, '', 0),
+(3, 'jacopo', 'jacopo@webtec.it', '$2y$10$42RzrrImDVkkEM3LsluT0ekx6hGZPWod7kTXa/S6.9dhct8TcxskS', '', '', NULL, '', 0);
 
 --
 -- Indexes for dumped tables
@@ -278,7 +287,21 @@ ALTER TABLE `tagperpost`
 ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `utente`
+--
+ALTER TABLE `utente`
+  ADD PRIMARY KEY (`id`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `utente`
+--
+ALTER TABLE `utente`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
