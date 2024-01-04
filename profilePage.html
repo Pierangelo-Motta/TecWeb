@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: white;
+
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      width: 99%;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #logo {
+      display: flex;
+      align-items: center;
+    }
+
+    #logo img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    #search-bar {
+      flex-grow: 1;
+      margin: 0 10px;
+    }
+
+    #user-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    #user-icons img {
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+    }
+
+    .post{
+        margin: 50px 0 0 30px;
+        border: 1px solid;
+        height: 200px;
+        width: 200px;
+    }
+
+    .post img {
+        width: 25px;
+        height: 25px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <img src="images\logoLetturePremiate.png" alt="Logo del sito">
+    </div>
+    
+    <div id="search-bar">
+      <input type="text" placeholder="Cerca...">
+    </div>
+
+    <div id="user-icons">
+      <img src="images\notifyLogo.png" alt="Icona notifiche">
+      <img src="images\settingLogo.png" alt="Icona impostazioni">
+      <img src="images\discoveryLogo.png" alt="Icona discovery">
+      <img src="images\userLogo.png" alt="Icona utente">
+    </div>
+  </header>
+
+  <main>
+    <div id="mainInfos"> 
+        <div id="img">
+            <img id="propic" src="images\userLogo.png" alt="Foto profilo" />
+        </div>
+        <div id="textInfo">
+            <h1 id="username"> Username </h1>
+            <p id="counterFollower"> Follower: x </p>
+            <p id="counterFollower"> Seguiti: x </p>
+            <p id="counterMedaglieri"> Medaglieri completati: x</p>
+        </div>
+    </div>
+    
+    <div id="portal">
+        <p> Clicca sul libro per passare alla sezione dei medaglieri!</p>
+        <img id="libroMedaglieri" src="images\libroMedaglieri.png" alt="Clicca qui per passare al libro dei medaglieri di username" />
+    </div>
+  </main>
+
+  <section id="selfDescription">
+    <h2> About me...</h2>
+    <p>Ciao! sono Jacopo e mi piace tanto leggere (o quasi)</p>
+  </section>
+
+  <footer>
+   
+  </footer>
+
+  
+
+
+</body>
+</html>
