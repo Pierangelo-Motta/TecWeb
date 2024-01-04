@@ -12,7 +12,8 @@
 -- Database Section
 -- ________________ 
 
-create database a;
+--create database letturepremiate; 
+USE letturepremiate;
 
 
 -- DBSpace Section
