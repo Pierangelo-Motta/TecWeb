@@ -14,7 +14,7 @@ if (isLoginOk($conn, $username, $password)) {
     $_SESSION['Id'] = getUserId($conn, $username, $password);
     header("Location: dashboard.php");
 } else {
-    echo "Invalid username or password. Please try again.";
+    echo "Nome utente o password non corretti. Riprova per favore.";
 }
 
 ?>
