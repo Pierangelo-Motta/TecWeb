@@ -12,7 +12,9 @@
 -- Database Section
 -- ________________ 
 
-create database letturePremiateChecked1;
+-- create database letturePremiate;
+
+use letturePremiate;
 
 
 -- DBSpace Section
