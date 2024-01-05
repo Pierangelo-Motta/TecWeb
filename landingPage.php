@@ -1,14 +1,14 @@
-    <?php
-    session_start();
-    //require_once 'include/config.php';
-    //require_once 'include/login.controller.php';
-    //require_once 'include/login.model.php';
-    
-    if (!($_SESSION['loggedin'] === true)) {
-        //user is not logged in 
-        header("Location: index.html");
-    } else {
-        echo '
+<?php
+session_start();
+//require_once 'include/config.php';
+//require_once 'include/login.controller.php';
+//require_once 'include/login.model.php';
+
+if (!($_SESSION['loggedin'] === true)) {
+    //user is not logged in 
+    header("Location: index.html");
+} 
+?>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -22,19 +22,17 @@
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
     
     </head>
-    <body>';
-    
-    //echo "Ciao utente: " . $_SESSION['username'];
-    echo '
+    <body>
+        
         <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid"> <!--div contenitore-->
-                <a href="landingPage.html"> <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia"> </a>
+                <a href="landingPage.php"> <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia"> </a>
                 <form class="d-flex me-auto">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-primary" type="submit">Search</button>
                 </form>
-              <div id="username" class="d-flex">'; echo "Ciao " . ucfirst($_SESSION["username"]); echo '</div>
+              <div id="username" class="d-flex"><?php echo "Ciao " . ucfirst($_SESSION["username"]);?></div>
               <div id="icone" class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
                 <ul class="navbar-nav">
                   <li class="nav-item">
@@ -47,7 +45,7 @@
                     <img src="images/discoveryLogo.png" alt="Scopri">
                   </li>
                   <li class="nav-item">
-                    <a href="profilePage.html"> <img src="images/'; echo '/users/' .$_SESSION['username']; echo '.png" alt="Profilo"> </a>
+                    <a href="profilePage.html"><img src="images/users/<?php echo $_SESSION["username"]; ?>.png" alt="Profilo"> </a>
                   </li>
                     <li class="nav-item">
                     <a href="logout.php"><img src="images/log-out.png" alt="Logout"></a>
@@ -110,7 +108,3 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
-
-';
-    }
-?>
