@@ -12,7 +12,7 @@ if (isLoginOk($conn, $username, $password)) {
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
     $_SESSION['id'] = getUserId($conn, $username, $password);
-    header("Location: dashboard.php");
+    header("Location: landingPage.php");
 } else {
     echo "Nome utente o password non corretti. Riprova per favore.";
 }
