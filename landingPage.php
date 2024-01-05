@@ -1,11 +1,8 @@
 <?php
 session_start();
-//require_once 'include/config.php';
-//require_once 'include/login.controller.php';
-//require_once 'include/login.model.php';
 
 if (!($_SESSION['loggedin'] === true)) {
-    //user is not logged in 
+    //user is not logged in go to login page
     header("Location: index.html");
 } 
 ?>
