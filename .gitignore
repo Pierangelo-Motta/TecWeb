@@ -52,3 +52,7 @@ Thumbs.db
 !.gitignore
 !.nvmrc
 !.phpcs.xml.dist
+
+# ignore Pier test file
+sample.html
+sample2.html

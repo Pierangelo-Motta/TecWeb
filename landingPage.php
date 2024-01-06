@@ -21,11 +21,12 @@ if (!($_SESSION['loggedin'] === true)) {
     </head>
     <body>
         
-        <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <header>
+        <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="container-fluid"> <!--div contenitore-->
                 <a href="landingPage.php"> <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia"> </a>
                 <form class="d-flex me-auto">
+                    <!-- TODO: sostittuire con immagine lente: meno spazio occupato-->
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-primary" type="submit">Search</button>
                 </form>
@@ -53,11 +54,11 @@ if (!($_SESSION['loggedin'] === true)) {
           </nav>
     </header>
     
-   <main>
+    <main>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -102,6 +103,7 @@ if (!($_SESSION['loggedin'] === true)) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 </body>
 </html>
