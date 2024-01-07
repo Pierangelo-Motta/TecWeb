@@ -4,7 +4,7 @@ session_start();
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
     header("Location: index.html");
-} 
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +17,10 @@ if (!($_SESSION['loggedin'] === true)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-    
+
     </head>
     <body>
-        
+
     <header>
         <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="container-fluid"> <!--div contenitore-->
@@ -53,7 +53,7 @@ if (!($_SESSION['loggedin'] === true)) {
             </div>
           </nav>
     </header>
-    
+
     <main>
         <div class="row">
             <div class="col-md-3">
@@ -65,10 +65,28 @@ if (!($_SESSION['loggedin'] === true)) {
                             <div class="col-md-1 text-right post">
                                 <img src="images/userLogo.png" alt="Immagine profilo" />
                             </div>
-                            <div class="col-md-2 text-left">
+                            <div class="col-md-9 text-left">
                                 <p>Username</p>
                             </div>
+                            <div class="col-md-2 text-right">
+                                <p>1m fa</p>
+                            </div>
                         </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-md-10">
+                              <div class="card">
+                                <div class="card-body">
+                                  <p>Post utente</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                        <br/>
                         <div class="row">
                             <p>Libro:</p>
                         </div>
@@ -88,6 +106,12 @@ if (!($_SESSION['loggedin'] === true)) {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
                                   </svg>
+                            </div>
+                            <div class="col-md-9">
+                              <p>Commenta</p>
+                            </div>
+                            <div class="col-md-1">
+                              <p>...</p>
                             </div>
                         </div>
                     </div>
