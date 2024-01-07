@@ -26,7 +26,7 @@
                     <button class="btn btn-primary" type="submit">Search</button>
                 </form>
                 
-                <div id="icone" class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
+                <div class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <img src="images/settingLogo.png" alt="Impostazioni">
@@ -51,9 +51,9 @@
         
         <div id="mainCont" class="col-10">
             <h1>Crea un nuovo post!</h1>
-            <form id="newPostForm" class="d-flex form-group" action="" method="get">
+            <form id="newPostForm" class="form-group" method="get">
                     
-                    <div class="col-6" id="newPostForm_pt1">
+                    <div class="col-md-6 col-12" id="newPostForm_pt1">
                         
                         <label for="nomeLibro">Nome libro: </label>
                         <input type="text" id="nomeLibro" name="nomeLibro" value="">
@@ -68,15 +68,14 @@
                         <!-- <label for="html">Nome libro</label> -->
                         <!-- <textarea id="citazioneText" name="citazione" rows="10" cols="100" placeholder="Inserisci qui la citazione"></textarea>
                         <textarea id="pensieroText" name="pensiero" rows="10" cols="100" placeholder="Inserisci qui il tuo pensiero"></textarea> -->
-
                     </div>
 
                     <!-- <div class="col-1"></div> -->
 
-                    <div class="col-6" id="newPostForm_pt2">
+                    <div class="col-md-6 col-12" id="newPostForm_pt2">
                         <p>Inserisci qui sotto una foto:</p>
                         <div id="img1">
-                            <label id="imgLabel" for="file"> <img src="images\caricaFoto.png" alt="Carica la foto" > </label>
+                            <label id="imgLabel" for="file"> <img src="images/caricaFoto.png" alt="Carica la foto" /> </label>
                             <input id="file" name="file" type="file" />
                         </div>
                     </div>
@@ -87,8 +86,8 @@
             <footer>
                 <p>Rendi il contenuto del tuo pensiero accessibile a tutti! <a href="#">Per più informazioni</a></p>
         
-                <button type="button">Indietro</button>
-                <button form="newPostForm" type="submit">Condividi</button>
+                <button class="btn btn-secondary" type="button">Indietro</button>
+                <button class="btn btn-secondary" type="submit">Condividi</button>
             </footer>
         </div>
 

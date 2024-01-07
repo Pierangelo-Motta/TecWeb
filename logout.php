@@ -10,6 +10,7 @@
 <body>
     <h1>See you</h1>
     <p>Come back as soon as you can</p>
+    <p><a href="index.html">Go to login</a></p>
    
 </body>
 </html>

@@ -8,7 +8,7 @@
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
           <div id="username" class="d-flex"><?php echo "Ciao " . ucfirst($_SESSION["username"]);?></div>
-          <div id="icone" class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
+          <div class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a href="settingPage.php"><img src="images/settingLogo.png" alt="Impostazioni"></a>

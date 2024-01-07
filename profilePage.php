@@ -26,8 +26,8 @@ if (!($_SESSION['loggedin'] === true)) {
 
 </head>
 <body>
-  <?php require('navbar.php'); ?>
-
+    <?php require('navbar.php'); ?>
+    
     <main class="d-flex">
         <div class="col-1"></div>
         <div class="col-10">
@@ -69,6 +69,7 @@ if (!($_SESSION['loggedin'] === true)) {
         <div class="col-10">
             <h2> About me... </h2>
             <p> Ipsum sit amet vulputate efficitur, nulla erat placerat tortor, at iaculis eros elit ac risus. Proin aliquam erat in quam luctus pretium. Nullam non libero lobortis, rhoncus felis at, hendrerit mi. Aenean turpis orci, vestibulum ultricies pellentesque non, malesuada cursus neque. Donec blandit tempus vestibulum. Integer scelerisque eros ac aliquam pulvinar. Donec at arcu pharetra, porttitor ipsum id, sagittis turpis</p>
+            <p><a href="newPost.php">AggiungiPost</a></p>
         </div>
         <div class="col-1"></div>
     </section>
