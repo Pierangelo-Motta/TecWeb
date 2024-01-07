@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!($_SESSION['loggedin'] === true)) {
+    //user is not logged in go to login page
+    header("Location: index.html");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -5,61 +14,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>profile page</title>
 
-  
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  
+
   <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
   <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp1.css">
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-  
+
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid"> <!--div contenitore-->
-                <a href="landingPage.php"> <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia"> </a>
-                <form class="d-flex me-auto">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
-                
-                <div id="icone" class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <img src="images/settingLogo.png" alt="Impostazioni">
-                        </li>
-                        <li class="nav-item">
-                            <img src="images/notifyLogo.png" alt="Notifiche">
-                        </li>
-                        <li class="nav-item dropdown">
-                            <img src="images/discoveryLogo.png" alt="Scopri">
-                        </li>
-                        <li class="nav-item">
-                            <a href="profilePage.html"> <img src="images/userLogo.png" alt="Profilo"> </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <?php require('navbar.php'); ?>
 
     <main class="d-flex">
         <div class="col-1"></div>
         <div class="col-10">
             <div class="card">
-                
+
                 <div class="card-body">
-                    
+
                     <div class="d-flex">
                         <div id="mainInfos" class="d-inline-flex flex-wrap align-items-center "> <!-- <div > -->
                             <div id="img" class="p-3">
                                 <img id="propic" src="images\userLogo.png" class="rounded float-left" alt="Foto profilo" width="100px">
                                 <!-- <img  src="" alt="" width="100px" /> -->
                             </div>
-                        
+
                             <div id="textInfo" class="p-3">
                                 <h1 id="username"> Username </h1>
                                 <p class="card-text" id="counterFollower"> Follower: x </p>
@@ -69,13 +51,13 @@
                             </div>
                         </div>
                         <br/>
-        
+
                         <div id="portal" class="auto p-3">
                             <!-- <p class="card-text"> Clicca sul libro per passare alla sezione dei medaglieri!</p> -->
                             <abbr lang=it title="Passa alla sezione dei medaglieri!"> <img id="libroMedaglieri" class="flex-wrap align-items-center" src="images\libroMedaglieri.png" alt="Clicca qui per passare al libro dei medaglieri di username" width="100px"/></abbr>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -114,11 +96,11 @@
                             <img id="propic" src="images/post/user1__2024_01_01__23_26_40.jpeg" class="rounded float-left" alt="Foto profilo" width="100px">
                             <!-- <img  src="" alt="" width="100px" /> -->
                         </div>
-                        
+
                         <div class="row">
                             <p>Tags: #empty</p>
                         </div>
-                        
+
                         <div class="row">
                             <p>Questo post ha x riflessioni, y "mi piace" e z "WOW"</p>
                         </div>
@@ -135,17 +117,17 @@
                                     </svg>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </article>
         </div>
-        
+
         <div class="col-2"></div>
     </section>
 
-<!-- 
-        <div id="mainInfos"> 
+<!--
+        <div id="mainInfos">
             <div id="img">
                 <img id="propic" src="images\userLogo.png" alt="Foto profilo" />
             </div>
@@ -156,7 +138,7 @@
                 <p id="counterMedaglieri"> Medaglieri completati: x</p>
             </div>
         </div>
-        
+
         <div id="portal">
             <p> Clicca sul libro per passare alla sezione dei medaglieri!</p>
             <img id="libroMedaglieri" src="images\libroMedaglieri.png" alt="Clicca qui per passare al libro dei medaglieri di username" />
@@ -169,10 +151,13 @@
     </section>
 
     <footer>
-    
+
     </footer> -->
 
-  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous">
+    </script>
 
 
 </body>
