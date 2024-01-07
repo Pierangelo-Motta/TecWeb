@@ -11,7 +11,7 @@
           <div id="icone" class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <img src="images/settingLogo.png" alt="Impostazioni">
+                <a href="settingPage.php"><img src="images/settingLogo.png" alt="Impostazioni"></a>
               </li>
               <li class="nav-item">
                 <img src="images/notifyLogo.png" alt="Notifiche">
@@ -20,7 +20,7 @@
                 <img src="images/discoveryLogo.png" alt="Scopri">
               </li>
               <li class="nav-item">
-                <a href="profilePage.html"><img src="images/users/<?php echo $_SESSION["username"]; ?>.png" alt="Profilo"> </a>
+                <a href="profilePage.php"><img src="images/users/<?php echo $_SESSION["username"]; ?>.png" alt="Profilo"> </a>
               </li>
                 <li class="nav-item">
                 <a href="logout.php"><img src="images/log-out.png" alt="Logout"></a>
