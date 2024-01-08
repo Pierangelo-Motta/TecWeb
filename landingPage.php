@@ -20,7 +20,7 @@ if (!($_SESSION['loggedin'] === true)) {
 
     </head>
     <body>
-      <?php require('navbar.php'); ?>
+      <?php require('navbarSelect.php'); ?>
     <main class="container">
         <div class="row">
             <div class="col-md-3">
