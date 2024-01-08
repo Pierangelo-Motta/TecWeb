@@ -63,10 +63,10 @@ class PostAdder {
 
 
     enableButt(){
-        this.submitButton.disabled = false;
-        // this.submitButton.disabled = ((!this.isSetText) && (!this.isSetPhoto)) || 
-        //     this.isTextinputEmpty(this.textAreaPen) || 
-        //     this.isTextinputEmpty(this.nomeLibro);
+        // this.submitButton.disabled = false;
+        this.submitButton.disabled = ((!this.isSetText) && (!this.isSetPhoto)) || 
+            this.isTextinputEmpty(this.textAreaPen) || 
+            this.isTextinputEmpty(this.nomeLibro);
     }
 
 
@@ -75,7 +75,7 @@ class PostAdder {
         this.accMess.style.display = this.isSetPhoto && (!this.isSetText) ? "block" : "none";
     }
 
-    
+
     textAreaChangeEventCommon(){
         this.enableButt();
     }
