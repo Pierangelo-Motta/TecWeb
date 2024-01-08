@@ -37,7 +37,8 @@ function checkUserPassword(object $conn, string $username, string $password){
 
 
 function getUserImage(string $username){
-$sql = "SELECT immagineProfilo FROM utente WHERE username = ?";
+    global $conn;
+    $sql = "SELECT immagineProfilo FROM utente WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
 
@@ -45,16 +46,20 @@ $sql = "SELECT immagineProfilo FROM utente WHERE username = ?";
 
     $result = $stmt->get_result();
     $imageName = $result->fetch_assoc()['immagineProfilo'];
+    $defaultProfileImage = "images/users/default.png";
     $image = "images/users/" . $imageName;
-    if (file_exists($image)) {
-        if (getimagesize($image) !== false) {
-            return $image;
-        }
-        else{
-            return "";
-        }
+    try {
+        if (is_file($image) && (getimagesize($image) !== false)) {
+                return $image;
+            }
     }
+    catch (Exception $e) {
+        // qualcosa è andato storto
+        echo '<script>';
+        echo 'console.log("Errore nel reperire l\'immagine del profilo utente da db");';
+        echo '</script>';   
+        }
+    return $defaultProfileImage;
 }
-
 
 ?>

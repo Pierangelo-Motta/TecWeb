@@ -1,3 +1,6 @@
+<?php
+include 'include/login.model.php';
+?>
 <header>
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid"> <!--div contenitore-->
@@ -20,7 +23,7 @@
                 <img src="images/discoveryLogo.png" alt="Scopri">
               </li>
               <li class="nav-item">
-                <a href="profilePage.php"><img src="images/users/<?php echo $_SESSION["username"]; ?>.png" alt="Profilo"> </a>
+                <a href="profilePage.php"><img src=<?php echo getUserImage($_SESSION["username"]); ?> alt="Immagine Profilo"> </a>
               </li>
                 <li class="nav-item">
                 <a href="logout.php"><img src="images/log-out.png" alt="Logout"></a>
