@@ -56,9 +56,9 @@ if (!($_SESSION['loggedin'] === true)) {
 
                     <div class="col-md-6 col-12" id="newPostForm_pt2">
                         <p>Inserisci qui sotto una foto:</p>
-                        <div id="img1">
-                            <label id="imgLabel" for="file"> <img src="images/caricaFoto.png" alt="Carica la foto" /> </label>
-                            <input id="file" name="file" type="file" />
+                        <div id="imgPrev">
+                            <label id="imgLabel" for="imgP"> <img id="imgPrev" src="images/caricaFoto.png" alt="Carica la foto" /> </label>
+                            <input type="file" id="imgPrevInput" name="imgPrevInputName" accept="image/png, image/jpeg"/>
                         </div>
                     </div>
 
@@ -66,20 +66,28 @@ if (!($_SESSION['loggedin'] === true)) {
             </form>
 
             <footer>
-                <p>Rendi il contenuto del tuo pensiero accessibile a tutti! <a href="#">Per più informazioni</a></p>
+                <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href="#">Per più informazioni</a></p>
         
-                <button class="btn btn-secondary" type="button">Indietro</button>
-                <button class="btn btn-secondary" type="submit">Condividi</button>
+                <button class="btn btn-secondary" type="button" id="test">Indietro</button>
+                <button class="btn btn-secondary" form="newPostForm" type="submit" id="submitButton">Condividi</button>
             </footer>
         </div>
 
         <div class="col-1"></div>
     </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous">
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous">
+    </script>
+
+    <script src="add_new_post.js" type="text/javascript"></script>
+
+    <!-- <script type="text/javascript">
+    document.getElementById("test").onclick = function () {
+        location.href = "profilePage.php";
+    };
+    </script> -->
 
 
 </body>

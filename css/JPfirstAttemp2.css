@@ -2,11 +2,15 @@ body main div > form{
     display: flex;
 }
 
+body main div form div#newPostForm_pt1 textarea{
+    resize: none;
+}
+
 body main div form div#newPostForm_pt2 p{
     text-align: center;
 }
 
-body main div form div#newPostForm_pt2 div#img1{
+body main div form div#newPostForm_pt2 div#imgPrev{
     /* height: 70%; */
     aspect-ratio: 1;
     /* width: 20%; */
@@ -18,15 +22,22 @@ body main div form div#newPostForm_pt2 div#img1{
     vertical-align: middle;
 }
 
-body main div form div#newPostForm_pt2 div#img1 label img{
-    /* aspect-ratio: 1; */
+body main div form div#newPostForm_pt2 div#imgPrev label{
     width: 20%;
-    /* margin: auto;
-    display: block; */
+    height: 20%;
+    /* margin: auto; */
+    display: block;
+    margin: auto;
 }
 
-body main div form div#newPostForm_pt2 div#img1 input{
-    visibility: hidden;
+body main div form div#newPostForm_pt2 div#imgPrev label img{
+    aspect-ratio: 1;
+    width: 100%;
+}
+
+body main div form div#newPostForm_pt2 div#imgPrev input{
+    display: none;
+    width: 1px;
 }
 
 
