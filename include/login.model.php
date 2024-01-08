@@ -36,4 +36,25 @@ function checkUserPassword(object $conn, string $username, string $password){
 }
 
 
+function getUserImage(string $username){
+$sql = "SELECT immagineProfilo FROM utente WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $imageName = $result->fetch_assoc()['immagineProfilo'];
+    $image = "images/users/" . $imageName;
+    if (file_exists($image)) {
+        if (getimagesize($image) !== false) {
+            return $image;
+        }
+        else{
+            return "";
+        }
+    }
+}
+
+
 ?>
