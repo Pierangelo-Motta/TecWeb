@@ -48,4 +48,18 @@ function getDbImageName(string $username){
     return $result->fetch_assoc()['immagineProfilo'];
 }
 
+function uploadImageName($username, $imageName){
+    global $conn;
+    $sql = "UPDATE utente SET immagineProfilo = ? WHERE username = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $imageName,$username);
+    $stmt->execute();
+    $stmt->close();
+    
+}
+
+
+
+
 ?>
