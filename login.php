@@ -9,10 +9,10 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Check if the cookie is set and has the value "accept"
-if (!((isset($_COOKIE['cookie_consent']) && $_COOKIE['cookie_consent'] === 'accept') )) {
-    header("Location: index.html");
-    exit;
-}
+// if (!((isset($_COOKIE['cookie_consent']) && $_COOKIE['cookie_consent'] === 'accept') )) {
+//     header("Location: index.html");
+//     exit;
+// }
 
 if (isLoginOk($conn, $username, $password)) {
     $_SESSION['loggedin'] = true;
