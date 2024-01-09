@@ -49,24 +49,29 @@ header("Location: index.html");
             <div id="passwordContent" style="display: none;">
                 <!-- Content for changing password -->
                 <p>PWD</p>
+                <?php include('include/changeUserPassword.php'); ?>
             </div>
 
             <!-- Content for "Modifica la tua descrizione utente" -->
             <div id="descriptionContent" style="display: none;">
                 <!-- Content for modifying user description -->
                 <p>User descr</p>
+                <?php include('include/changeUserDescription.php'); ?>
             </div>
 
             <!-- Content for "Cambia immagine del profilo" -->
             <div id="profileContent" style="display: none;">
                 <!-- Content for changing profile image -->
                 <p>Profile content</p>
+                <?php include('include/changeUserImage.php'); ?>
             </div>
 
             <!-- Content for "Elimina account" -->
             <div id="deleteContent" style="display: none;">
                 <!-- Content for deleting account -->
                 <p>delete user</p>
+                <?php include('include/deleteUser.php'); ?>
+
             </div>
       </div>
     </main>
