@@ -57,8 +57,12 @@ if (!($_SESSION['loggedin'] === true)) {
                     <div class="col-md-6 col-12" id="newPostForm_pt2">
                         <p>Inserisci qui sotto una foto:</p>
                         <div id="imgPrev">
-                            <label id="imgLabel" for="imgP"> <img id="imgPrev" src="images/caricaFoto.png" alt="Carica la foto" /> </label>
-                            <input type="file" id="imgPrevInput" name="imgPrevInputName" accept="image/png, image/jpeg"/>
+                        <!-- <button type="button" id="imgPrevInput"> <img id="imgPrev" src="images/caricaFoto.png" alt="Carica la foto" /> </button> -->
+                            <label id="imgLabel" for="imgPrevInput"> <img id="imgPrev" src="images/caricaFoto.png" alt="Carica la foto" /> </label>
+                            <input type="file" id="imgPrevInput" name="imgPrevInputName" accept="image/png, image/jpeg" />
+                        </div>
+                        <div id="imgPrevMods">
+                            <button type="button" id="imgRem">delete</button>
                         </div>
                     </div>
 

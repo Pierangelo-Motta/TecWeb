@@ -16,16 +16,37 @@ body main div form div#newPostForm_pt2 div#imgPrev{
     /* width: 20%; */
     width: 80%;
     border: black 1px solid;
-    margin: 10% 10%;
+    margin: 10% 10% 0%;
     display: flex;
     justify-content: center;
     vertical-align: middle;
 }
 
-body main div form div#newPostForm_pt2 div#imgPrev label{
+body main div form div#newPostForm_pt2 div#imgPrevMods{
+    /* margin-bottom: 10%; */
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+/* body main div form div#newPostForm_pt2 div#imgPrev button{
     width: 20%;
     height: 20%;
-    /* margin: auto; */
+    display: block;
+    margin: auto;
+    padding: 0;
+    border: 0px black solid;
+}
+
+body main div form div#newPostForm_pt2 div#imgPrev button img{
+    aspect-ratio: 1;
+    width: 100%;
+} */
+
+
+body main div form div#newPostForm_pt2 div#imgPrev label{
+    /* display: none; */
+    width: 20%;
+    height: 20%;
     display: block;
     margin: auto;
 }
@@ -37,7 +58,12 @@ body main div form div#newPostForm_pt2 div#imgPrev label img{
 
 body main div form div#newPostForm_pt2 div#imgPrev input{
     display: none;
-    width: 1px;
+    /* width: 1px; */
+    /* width: 20%;
+    height: 20%;
+    display: flex;
+    vertical-align: middle;
+    margin: auto; */
 }
 
 
@@ -46,6 +72,7 @@ body main div form div#newPostForm_pt2 div#imgPrev input{
 
 body main div footer{
     /* margin: 0 5% 0; */
+    margin-top: 90px;
     margin-bottom: 90px;
 }
 
