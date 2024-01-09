@@ -10,4 +10,23 @@ function isLoginOk(object $conn, string $username, string $password){
     }
     
 }
+
+function getUserImage(string $username){
+    $defaultProfileImage = "images/users/default.png";
+    $image = "images/users/" . getDbImageName($username);
+    try {
+        if (is_file($image) && (getimagesize($image) !== false)) {
+                return $image;
+            }
+    }
+    catch (Exception $e) {
+        // qualcosa è andato storto
+        echo '<script>';
+        echo 'console.log("Errore nel reperire l\'immagine del profilo utente da db");';
+        echo '</script>';   
+        }
+    return $defaultProfileImage;
+}
+
+
 ?>
