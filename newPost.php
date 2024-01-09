@@ -14,29 +14,29 @@ if (!($_SESSION['loggedin'] === true)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>profile page</title>
 
-  
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  
+
   <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
   <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp2.css">
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-  
+
 
 </head>
 <body>
-  <?php require('navbar.php'); ?>
+  <?php require('navbarSelect.php'); ?>
 
   <main class="d-flex">
         <div class="col-1"></div>
-        
+
         <div id="mainCont" class="col-10">
             <h1>Crea un nuovo post!</h1>
             <form id="newPostForm" class="form-group" method="get">
-                    
+
                     <div class="col-md-6 col-12" id="newPostForm_pt1">
-                        
+
                         <label for="nomeLibro">Nome libro: </label>
                         <input type="text" id="nomeLibro" name="nomeLibro" value="">
                         <br/>
@@ -71,7 +71,7 @@ if (!($_SESSION['loggedin'] === true)) {
 
             <footer>
                 <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href="#">Per più informazioni</a></p>
-        
+
                 <button class="btn btn-secondary" type="button" id="test">Indietro</button>
                 <button class="btn btn-secondary" form="newPostForm" type="submit" id="submitButton">Condividi</button>
             </footer>

@@ -19,7 +19,8 @@ header("Location: index.html");
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   </head>
   <body>
-    <?php require('navbar.php'); ?>
+    <?php require('navbarSelect.php'); ?>
+
     <main class="container">
       <div class="row">
         <div class="col-md-4">

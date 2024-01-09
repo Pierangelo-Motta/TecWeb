@@ -3,9 +3,14 @@
     <div class="container-fluid">
       <a href="landingPage.php"> <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia"> </a>
       <form class="d-flex me-auto">
-          <!-- TODO: sostittuire con immagine lente: meno spazio occupato-->
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary" type="submit">Search</button>
+          <!-- Utilizzo dell'icona di ricerca come input -->
+          <label for="search" class="visually-hidden">Search</label>
+          <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary" type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+              </svg>
+          </button>
       </form>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
