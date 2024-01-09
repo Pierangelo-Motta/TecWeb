@@ -62,7 +62,6 @@ header("Location: index.html");
             <!-- Content for "Cambia immagine del profilo" -->
             <div id="profileContent" style="display: none;">
                 <!-- Content for changing profile image -->
-                <p>Profile content</p>
                 <?php include('include/changeUserImage.php'); ?>
             </div>
 
