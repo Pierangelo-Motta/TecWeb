@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // test echo the image name
             // echo "Image uploaded successfully. Image name: $imageName";
+            header("Location: ../settingPage.php");
         } else {
             echo $_FILES["image"]["tmp_name"] . "<br />";
             echo $uploadPath . "<br />";
