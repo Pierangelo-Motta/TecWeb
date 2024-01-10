@@ -28,5 +28,16 @@ function getUserImage(string $username){
     return $defaultProfileImage;
 }
 
+function deleteOldImage(string $pathToImage,string $imageName){
+    //echo "PATH:" . $pathToImage . " NAME:" . $imageName;
+    //echo "<br>" . $fp;
+    if ($imageName !== "default.png") {
+        try {
+            unlink($pathToImage.$imageName);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+}
 
 ?>
