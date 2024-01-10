@@ -50,7 +50,12 @@ header("Location: index.html");
             <div id="passwordContent" style="display: none;" class="col-md-12 text-center">
                 <!-- Content for changing password -->
                 <p>Pannello Cambio Password</p>
-                <?php include('include/changeUserPassword.php'); ?>
+                <?php
+                include('include/changePassword.php');
+                if (isset($_GET['password_changed']) && $_GET['password_changed'] == 1) {
+                  echo '<p class="success-message">La Password è stata cambiata!</p>';
+                }
+                ?>
             </div>
 
             <!-- Content for "Modifica la tua descrizione utente" -->
