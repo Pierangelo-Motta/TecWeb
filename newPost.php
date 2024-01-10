@@ -46,17 +46,17 @@ if(isPresentImg($imgInterestedName)){
 
 </head>
 <body>
-  <?php require('navbar.php'); ?>
+  <?php require('navbarSelect.php'); ?>
 
   <main class="d-flex">
         <div class="col-1"></div>
-        
+
         <div id="mainCont" class="col-10">
             <h1>Crea un nuovo post!</h1>
             <form id="newPostForm" class="form-group" action="newPost.php" method="post" enctype="multipart/form-data">
                     
                     <div class="col-md-6 col-12" id="newPostForm_pt1">
-                        
+
                         <label for="nomeLibro">Nome libro: </label>
                         <input type="text" 
                             id="nomeLibro" 
@@ -112,7 +112,7 @@ if(isPresentImg($imgInterestedName)){
 
             <footer>
                 <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href="#">Per più informazioni</a></p>
-        
+
                 <button class="btn btn-secondary" type="button" id="test">Indietro</button>
                 <button class="btn btn-secondary" 
                     form="newPostForm" 

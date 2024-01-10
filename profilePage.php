@@ -26,8 +26,9 @@ if (!($_SESSION['loggedin'] === true)) {
 
 </head>
 <body>
-    <?php require('navbar.php'); ?>
-    
+  <?php require('navbarSelect.php'); ?>
+
+
     <main class="d-flex">
         <div class="col-1"></div>
         <div class="col-10">
