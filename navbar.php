@@ -1,6 +1,6 @@
 <?php
-include 'include/login.controller.php';
-include 'include/login.model.php';
+include_once("include/login.controller.php");
+include_once("include/login.model.php");
 ?>
 <header>
     <nav class="navbar navbar-expand navbar-light bg-light">

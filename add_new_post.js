@@ -1,26 +1,21 @@
 class PostAdder {
 
     constructor(thereIsText, thereIsPhoto){
-        this.isSetText = thereIsText;
-        this.isSetPhoto= thereIsPhoto;
-        this.actImgName = "";
+        this.newPostForm = document.getElementById("newPostForm");
 
-        this.submitButton = document.getElementById("submitButton");
+        this.shareButton = document.getElementById("shareButton");
         this.accMess = document.getElementById("accessibilityMessage");
 
         this.textAreaCit = document.getElementById("citazioneText");
         this.textAreaPen = document.getElementById("pensieroText");
         this.nomeLibro = document.getElementById("nomeLibro");
 
-        // this.imgPrev = document.getElementById("imgPrev");
-        // this.startImgPrevName = this.imgPrev.getAttribute("src");
-        // this.actImgPrevName = this.imgPrev.getAttribute("src");
-        
-        // this.imgPrevInput = document.getElementById("imgPrevInput");
-        // this.startLabelImgPrev = this.getFileName(this.imgPrevInput);//this.imgPrev.getAttribute("value");
-        // this.startLabelImgPrev = this.getFileName(this.imgPrevInput);//this.imgPrev.getAttribute("value");
 
+        this.imgLabel = document.getElementById("imgLabel");
+        this.imgPrev = document.getElementById("imgPrev");
         this.imgPrevInput = document.getElementById("imgPrevInput");
+        
+
 
 
         this.imgPrevMods = document.getElementById("imgPrevMods");
@@ -38,23 +33,44 @@ class PostAdder {
 
         this.imgRem.addEventListener("click", () => this.removeImg());
 
+        
+        
+        document.getElementById("test").addEventListener("click", () => location.href = "profilePage.php");
+
+        // document.querySelectorAll("footer button").forEach(element => {
+        //     // console.log("selected " + element.getAttribute("type") + " / " + element.getAttribute("id"));
+            
+        //     element.addEventListener("click", function() {
+        //         // document.getElementById("demo").innerHTML = "Hello World";
+        //         // console.log("pressed " + element.getAttribute("type"));
+                
+        //         location.href = "profilePage.php";
+        //     });
+        // });
+
+        this.isSetText = this.configTextPresence(thereIsText);
+        this.isSetPhoto = this.configPhotoPresence(thereIsPhoto);
+
+        if(this.isSetPhoto) {
+            this.imgPrevMods.style.display = "flex";
+            this.imgLabel.style.width = "80%";
+        }
+
         this.enableButt();
         this.showAccessibilityMessage();
 
-
-
-        document.querySelectorAll("footer button").forEach(element => {
-            // console.log("selected " + element.getAttribute("type") + " / " + element.getAttribute("id"));
-            
-            element.addEventListener("click", function() {
-                // document.getElementById("demo").innerHTML = "Hello World";
-                // console.log("pressed " + element.getAttribute("type"));
-                
-                location.href = "profilePage.php";
-            });
-        });
-
         console.log("go");
+    }
+
+    configTextPresence(thereIsText){
+        return this.isTextinputEmpty(this.textAreaCit) ? thereIsText : true;
+    }
+
+    configPhotoPresence(thereIsPhoto){
+        let actImgName = this.imgPrev.getAttribute("src");
+        let tmp = actImgName.split("/");
+        actImgName = tmp[tmp.length-1];
+        return (actImgName === "caricaFoto.png") ? thereIsPhoto : true;
     }
 
 
@@ -65,7 +81,7 @@ class PostAdder {
 
     enableButt(){
         // this.submitButton.disabled = false;
-        this.submitButton.disabled = ((!this.isSetText) && (!this.isSetPhoto)) || 
+        this.shareButton.disabled = ((!this.isSetText) && (!this.isSetPhoto)) || 
             this.isTextinputEmpty(this.textAreaPen) || 
             this.isTextinputEmpty(this.nomeLibro);
     }
@@ -74,6 +90,7 @@ class PostAdder {
     showAccessibilityMessage(){
         // this.accMess.style.display = "block";
         // this.accMess.style.display = "none";
+        console.log(this.isSetPhoto + " " + this.isSetText);
         this.accMess.style.display = this.isSetPhoto && (!this.isSetText) ? "block" : "none";
     }
 
@@ -99,13 +116,11 @@ class PostAdder {
 
     manageImgChange(){
         try {
-            this.actImgName = this.imgPrevInput.files[0].name;
-            this.isSetPhoto = true;
-            this.imgPrevMods.style.display = "flex";
             console.log("OK");
+
+            this.newPostForm.submit();
+
         } catch (error) {
-            this.imgPrevMods.style.display = "none";
-            this.isSetPhoto = false;
             console.log("ERR");
         }
         this.showAccessibilityMessage();
@@ -123,18 +138,6 @@ class PostAdder {
     }
 
 
-
-    // getFileName(inputFile){
-    //     try {
-    //         return inputFile.files.item(0).name;
-    //     } catch (error) {
-    //         return "";
-    //     }
-        
-    //     // const files = event.target.files;
-    //     // const fileName = files[0].name;
-    //     // console.log("file name: ", fileName);
-    // }
 }
 
-a = new PostAdder(false, false);
+a = new PostAdder(false, false); //default values
