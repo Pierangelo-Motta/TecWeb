@@ -22,7 +22,8 @@ if (checkUserPassword($conn, $_SESSION['username'], $oldPassword)) {
         mysqli_stmt_bind_param($stmt, "ss", $hashed_password, $_SESSION['username']);
 
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: settingPage.php?password_changed=1");
+            $_SESSION['password_changed'] = 1;
+            header("Location: settingPage.php");
             exit();
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn);
