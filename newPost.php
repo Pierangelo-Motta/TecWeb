@@ -1,17 +1,20 @@
 <?php
+
 session_start();
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
     header("Location: index.html");
 }
 
-require_once('include/uploadImage.php');
-require_once('include/insertOnDB.php');
+require_once('include/uploadImage.php'); //per gestire il caricamento della foto
+require_once('include/insertOnDB.php'); //per gestire la query di INSERT INTO
 
 
+//tag name del campo input per la foto
 $imgInterestedName = "imgPrevInputName";
 
 
+//gestisco il passaggio dei valori testuali tra un post e l'altro
 $nomeLibroName = "nomeLibro";
 $nomeLibroNameValue = isset($_POST[$nomeLibroName]) ? $_POST[$nomeLibroName] : "";
 $citazioneName = "citazione";
@@ -19,46 +22,71 @@ $citazioneNameValue = isset($_POST[$citazioneName]) ? $_POST[$citazioneName] : "
 $pensieroName = "pensiero";
 $pensieroNameValue = isset($_POST[$pensieroName]) ? $_POST[$pensieroName] : "";
 
-print_r($_FILES);
+// print_r($_FILES);
+
 
 if(isPresentImg($imgInterestedName)){
+    //gestisci caricamento della foto nella cartella tmp
     updateImg('post', $imgInterestedName);
 } 
+// else {
+//     // cancella "tutte le foto" (quelle dell'utente) attualmente presenti
+//     $dirPath = "images/post/tmp";
+//     $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
+//     foreach ($files as $file) {
+//         if (is_file($file)) {
+//             unlink($file);
+//         }
+//     }
+// }
+// else {
+//     //foto eliminata: resetta tmp
+//     $dirPath = "images/post/tmp";
+//     $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
+//     foreach ($files as $file) {
+//         unlink($file);
+//     }
+// }
 
 
 if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
-    $userIDtmp = $_SESSION["id"];
-    $date = date("Y-m-d H:i:s", time());
-    
-    ///get name of photo
 
+    $userIDtmp = $_SESSION["id"]; //chi
+    $date = date("Y-m-d H:i:s", time()); //quando
+    
+    /////////get name of photo
     $dirPath = "images/post/tmp";
     $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
     $actImgName = "";
     $newImgName = "";
+
     foreach ($files as $file) {
         $actImgName = $file;
     }
-    echo("<br>");
-    echo ("newPost.actImgName: " . $actImgName);
-    echo("<br>");
 
-    if(strcmp($actImgName, "") != 0){ //isPresentImg($imgInterestedName)){
-        // // $imgName = $actImgName;//$_FILES[$imgInterestedName]["name"];
-        // echo "<br>";
-        // echo ("newPost.imgName: " . $imgName);
-        // // echo $imgName;
-        // echo "<br>";
+    // TODO : tanto ce n'è solo 1, ma si può migliorare?
+
+    // echo("<br>");
+    // echo ("newPost.actImgName: " . $actImgName);
+    // echo("<br>");
+
+    if(strcmp($actImgName, "") != 0){ 
         $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);
     }
 
-    ///
+    ////////////
+
+
+    // echo("<br>");
+    //echo ("newImg: " . $newImgName);
+    // echo("<br>");
     
-    echo ("newImg: " . $newImgName);
-    createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, 0); //l'ultimo 0 deve essere convertito in un id del libro!!
+    // TODO l'ultimo 0 deve essere convertito in un id del libro!!
+    createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, 0); 
+    
     
     header("Location: profilePage.php");
-}
+} 
 
 // print_r($_POST);
 // echo "    " . isPresentImg("imgPrev");

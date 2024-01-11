@@ -1,34 +1,29 @@
 <?php
 require_once('login.model.php');
 
-
-
 function isPresentImg(string $idImgInput){
     return isset($_FILES[$idImgInput]) && $_FILES[$idImgInput]["error"] == 0;
 }
 
 //NOTA BENE: in idImgInput bisogna mettere il name del campo!
 function updateOnFileSystem(string $where, string $idImgInput, string $newImgName) {
+    
     // Check if the form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Check if a file is selected
         if (isset($_FILES[$idImgInput]) && $_FILES[$idImgInput]["error"] == 0) {
 
-
-            ///erasing old photo
-
-            $dirPath = "images/post/tmp";
-            $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
-            foreach ($files as $file) {
-                if (is_file($file)) {
-                    unlink($file);
-                }
-            }
-
+            ///erasing old photo : ci pensa la chiamante
+            // $dirPath = "images/post/tmp";
+            // $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
+            // foreach ($files as $file) {
+            //     if (is_file($file)) {
+            //         unlink($file);
+            //     }
+            // }
             ///
 
-            //echo "DAJE ROMA DAJEEEEEE";
             // Get the absolute path to the current directory
             $currentDirectory = __DIR__;
 
@@ -46,18 +41,19 @@ function updateOnFileSystem(string $where, string $idImgInput, string $newImgNam
             // se non voglio dare un nuovo nome mantengo quello vecchio
             $imageName = strcmp($newImgName, "") == 0 ? $_FILES[$idImgInput]["name"] : ($newImgName . "." . $extension);
 
-
             // Generate a unique name for the uploaded image
             $_FILES[$idImgInput]["name"] = $imageName;
-            echo "<br>";
-            echo strcmp($newImgName, "");
+            
+            // echo "<br>";
+            // echo strcmp($newImgName, "");
+
             $sourcePath = $_FILES[$idImgInput]["tmp_name"]; //getAtcPos;
 
             // Set the path for the uploaded image
             $destinationPath = $uploadDirectory . $imageName;//'C:/xampp/htdocs/TecWeb/images/users/' . $imageName;
 
 
-            // Move the uploaded file to the specified folder
+            // Move the uploaded file to the specified folder TODO: tutta roba di debug
             if (move_uploaded_file($sourcePath, $destinationPath)) {
 
                 // Image upload successful; save $imageName to the database
@@ -68,7 +64,7 @@ function updateOnFileSystem(string $where, string $idImgInput, string $newImgNam
                 //header("Location: ../settingPage.php");
 
             } else {
-                echo $_FILES[$idImgInput]["tmp_name"] . "<br />";
+                echo $_FILES[$idImgInput]["tmp_name"] . "<br />"; 
                 echo $uploadDirectory . "<br />";
                 echo "Error uploading the image.";
             }

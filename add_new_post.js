@@ -1,6 +1,7 @@
 class PostAdder {
 
     constructor(thereIsText, thereIsPhoto){
+
         this.newPostForm = document.getElementById("newPostForm");
 
         this.shareButton = document.getElementById("shareButton");
@@ -15,8 +16,6 @@ class PostAdder {
         this.imgPrev = document.getElementById("imgPrev");
         this.imgPrevInput = document.getElementById("imgPrevInput");
         
-
-
 
         this.imgPrevMods = document.getElementById("imgPrevMods");
         this.imgPrevMods.style.display = "none";
@@ -33,25 +32,22 @@ class PostAdder {
 
         this.imgRem.addEventListener("click", () => this.removeImg());
 
-        
-        
-        document.getElementById("test").addEventListener("click", () => location.href = "profilePage.php");
-
-        // document.querySelectorAll("footer button").forEach(element => {
-        //     // console.log("selected " + element.getAttribute("type") + " / " + element.getAttribute("id"));
+        // //document.getElementById("test").addEventListener("click", () => location.href = "profilePage.php");
+        // // document.querySelectorAll("footer button").forEach(element => {
+        // //     // console.log("selected " + element.getAttribute("type") + " / " + element.getAttribute("id"));
             
-        //     element.addEventListener("click", function() {
-        //         // document.getElementById("demo").innerHTML = "Hello World";
-        //         // console.log("pressed " + element.getAttribute("type"));
+        // //     element.addEventListener("click", function() {
+        // //         // document.getElementById("demo").innerHTML = "Hello World";
+        // //         // console.log("pressed " + element.getAttribute("type"));
                 
-        //         location.href = "profilePage.php";
-        //     });
-        // });
+        // //         location.href = "profilePage.php";
+        // //     });
+        // // });
 
         this.isSetText = this.configTextPresence(thereIsText);
         this.isSetPhoto = this.configPhotoPresence(thereIsPhoto);
 
-        if(this.isSetPhoto) {
+        if (this.isSetPhoto) {
             this.imgPrevMods.style.display = "flex";
             this.imgLabel.style.width = "80%";
         }
@@ -80,60 +76,47 @@ class PostAdder {
 
 
     enableButt(){
-        // this.submitButton.disabled = false;
         this.shareButton.disabled = ((!this.isSetText) && (!this.isSetPhoto)) || 
             this.isTextinputEmpty(this.textAreaPen) || 
             this.isTextinputEmpty(this.nomeLibro);
     }
 
-
     showAccessibilityMessage(){
-        // this.accMess.style.display = "block";
-        // this.accMess.style.display = "none";
-        console.log(this.isSetPhoto + " " + this.isSetText);
+        // console.log(this.isSetPhoto + " " + this.isSetText);
         this.accMess.style.display = this.isSetPhoto && (!this.isSetText) ? "block" : "none";
     }
-
 
     textAreaChangeEventCommon(){
         this.enableButt();
     }
 
-
     textAreaCitChangeEvent(){
         this.isSetText = this.isTextinputEmpty(this.textAreaCit) ? false : true;
         this.showAccessibilityMessage();
-
         this.textAreaChangeEventCommon();
     }
 
-
     textAreaPenChangeEvent(){
         this.textAreaChangeEventCommon();
-        // console.log("AHAHAH");
     }
 
 
     manageImgChange(){
         try {
             console.log("OK");
-
             this.newPostForm.submit();
-
         } catch (error) {
             console.log("ERR");
         }
-        this.showAccessibilityMessage();
-        this.enableButt();
+        // this.showAccessibilityMessage();
+        // this.enableButt();
     }
 
     removeImg(){
         try {
             this.imgPrevInput.value = "";
-            // this.imgPrevInput.files[0] = null;
         } catch (error) {
         }
-        
         this.manageImgChange();
     }
 
