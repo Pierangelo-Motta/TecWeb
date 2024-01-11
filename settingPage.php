@@ -44,6 +44,11 @@ header("Location: index.html");
                     <li><a href="#" class='description'>Modifica la tua descrizione utente</a></li>
                     <li><a href="#" class='profile'>Cambia immagine del profilo</a></li>
                     <li><a href="#" class='delete'>Elimina account</a></li>
+                    <?php
+                    if (isUserAdmin($_SESSION['username'])==='s') {
+                        echo '<li><a href="#" class=\'manage\'>Gestisci Utenti</a></li>';
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -64,7 +69,7 @@ header("Location: index.html");
             <!-- Content for "Modifica la tua descrizione utente" -->
             <div id="descriptionContent" style="display: none;" class="col-md-12 text-center content">
                 <!-- Content for modifying user description -->
-                <p>Modifica Descrizione Utente</p>
+                <!-- <p>Modifica Descrizione Utente</p> -->
                 <?php include('include/changeUserDescription.php'); ?>
             </div>
 
