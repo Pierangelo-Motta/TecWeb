@@ -39,9 +39,10 @@ if (!($_SESSION['loggedin'] === true)) {
 
                 <div class="card-body">
 
-                    <div class="d-md-inline-flex d-flex">
-                        <div id="mainInfos" class="d-inline-flex align-items-center"> <!-- <div class="d-inline-flex flex-wrap align-items-center"> -->
-                            <div id="divContainerImg" class="p-3"><!-- class="p-3" -->  
+                    <div class="d-md-inline-flex d-flex align-items-center col-12">
+                        
+                        <div id="mainInfos" class="d-inline-flex align-items-center col-6"> <!-- <div class="p-6 d-inline-flex flex-wrap align-items-center"> -->
+                            <div id="divContainerImg" class="col-6"><!-- class="p-3" -->  
                                 <img id="propic" 
                                     src=<?php echo getUserImage($_SESSION["username"]); ?> 
                                     alt="Immagine Profilo" 
@@ -50,7 +51,7 @@ if (!($_SESSION['loggedin'] === true)) {
                                 <!-- <img  src="" alt="" width="100px" /> -->
                             </div>
 
-                            <div id="textInfo" class="p-3">
+                            <div id="textInfo" class="col-6">
                                 <h1 id="username"> <?php echo $_SESSION["username"] ?> </h1>
                                 <p class="card-text" id="counterFollower"> Follower: x </p> <!--- TODO query 1 --->
                                 <p class="card-text" id="counterFollower"> Seguiti: x </p> <!--- TODO query 2 --->
@@ -60,9 +61,23 @@ if (!($_SESSION['loggedin'] === true)) {
                         </div>
                         <!-- <br/> -->
 
-                        <div id="portal" class="auto p-3">
-                            <!-- <p class="card-text"> Clicca sul libro per passare alla sezione dei medaglieri!</p> -->
-                            <abbr lang=it title="Passa alla sezione dei medaglieri!"> <img id="libroMedaglieri" class="flex-wrap align-items-center" src="images\libroMedaglieri.png" alt="Clicca qui per passare al libro dei medaglieri di username" width="100px"/></abbr>
+                        <div id="portals" class="col-3">
+
+                            <div id="addInfos" class="col-3">
+                                <p><a href="newPost.php">AggiungiPost</a></p>
+                            </div>
+
+                            <div id="portal" class="col-3">
+                                <!-- <p class="card-text"> Clicca sul libro per passare alla sezione dei medaglieri!</p> -->
+                                <abbr lang=it title="Passa alla sezione dei medaglieri!"> 
+                                    <img 
+                                        id="libroMedaglieri" 
+                                        class="flex-wrap align-items-center" 
+                                        src="images\libroMedaglieri.png" 
+                                        alt="Clicca qui per passare al libro dei medaglieri di username" 
+                                        width="100px"/>
+                                </abbr>
+                            </div>
                         </div>
                     </div>
 
@@ -77,7 +92,6 @@ if (!($_SESSION['loggedin'] === true)) {
         <div class="col-10">
             <h2> About me... </h2>
             <p> Ipsum sit amet vulputate efficitur, nulla erat placerat tortor, at iaculis eros elit ac risus. Proin aliquam erat in quam luctus pretium. Nullam non libero lobortis, rhoncus felis at, hendrerit mi. Aenean turpis orci, vestibulum ultricies pellentesque non, malesuada cursus neque. Donec blandit tempus vestibulum. Integer scelerisque eros ac aliquam pulvinar. Donec at arcu pharetra, porttitor ipsum id, sagittis turpis</p>
-            <p><a href="newPost.php">AggiungiPost</a></p>
         </div>
         <div class="col-1"></div>
     </section>

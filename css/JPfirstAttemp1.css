@@ -42,10 +42,14 @@ div#textInfo h1{
 }
 
 img#propic{
-    width: 20%;
+    width: 150px;
     aspect-ratio: 1;
 }
 
 div#mainInfos img{
     border: 1px black solid;
+}
+
+body main{
+    margin: 15px 0;
 }
