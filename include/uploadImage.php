@@ -15,7 +15,18 @@ function updateOnFileSystem(string $where, string $idImgInput, string $newImgNam
         // Check if a file is selected
         if (isset($_FILES[$idImgInput]) && $_FILES[$idImgInput]["error"] == 0) {
 
-            
+
+            ///erasing old photo
+
+            $dirPath = "images/post/tmp";
+            $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
+            foreach ($files as $file) {
+                if (is_file($file)) {
+                    unlink($file);
+                }
+            }
+
+            ///
 
             //echo "DAJE ROMA DAJEEEEEE";
             // Get the absolute path to the current directory
@@ -32,12 +43,15 @@ function updateOnFileSystem(string $where, string $idImgInput, string $newImgNam
             $tmp1 = explode(".", $_FILES[$idImgInput]["name"]);
             $extension = $tmp1[sizeof($tmp1)-1];
 
+            // se non voglio dare un nuovo nome mantengo quello vecchio
             $imageName = strcmp($newImgName, "") == 0 ? $_FILES[$idImgInput]["name"] : ($newImgName . "." . $extension);
 
 
             // Generate a unique name for the uploaded image
             $_FILES[$idImgInput]["name"] = $imageName;
-            $sourcePath = $_FILES[$idImgInput]["tmp_name"];
+            echo "<br>";
+            echo strcmp($newImgName, "");
+            $sourcePath = $_FILES[$idImgInput]["tmp_name"]; //getAtcPos;
 
             // Set the path for the uploaded image
             $destinationPath = $uploadDirectory . $imageName;//'C:/xampp/htdocs/TecWeb/images/users/' . $imageName;
@@ -67,21 +81,23 @@ function updateOnFileSystem(string $where, string $idImgInput, string $newImgNam
 function updateImg(string $where, string $idImgInput) {
 
     $userNickname = $_SESSION["username"];
-
+    
     switch ($where) {
         case 'post':
-            $a = date("Y-m-d H:i:s", time());
-            // echo $a . "<br>";
-            $b = str_replace(" ","__",$a);
-            $b = str_replace(":","_",$b);
-            $b = str_replace("-","_",$b);
-            // echo $b;
-            $imgName = $userNickname . "__" . $b;
+            // $a = date("Y-m-d H:i:s", time());
+            // // echo $a . "<br>";
+            // $b = str_replace(" ","__",$a);
+            // $b = str_replace(":","_",$b);
+            // $b = str_replace("-","_",$b);
+            // // echo $b;
+            // $imgName = $userNickname . "__" . $b;
+            $imgName = $userNickname;
             updateOnFileSystem("images/post/tmp/", $idImgInput, $imgName);
             break;
     }
 
 }
+
 
 
 ?>

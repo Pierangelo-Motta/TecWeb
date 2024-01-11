@@ -180,7 +180,7 @@ DROP TABLE IF EXISTS `post`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `post` (
   `utenteId` int(8) NOT NULL,
-  `dataOra` date NOT NULL,
+  `dataOra` datetime NOT NULL,
   `citazioneTestuale` varchar(255) DEFAULT NULL,
   `fotoCitazione` varchar(127) DEFAULT NULL,
   `riflessione` varchar(2047) NOT NULL,
@@ -199,6 +199,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` VALUES (3,'2024-01-11 16:53:44','Esercitarsi a non sapere e a meravigliarsi','jacopo__2024_01_11__16_53_44.jpeg','Leggendo questa frase ho meditato su quanto fosse importante questo banale aspetto della vita che ci permette di essere felici con poco e che non lo si dà così per scontato',0,0,0),(3,'2024-01-11 16:54:38','al mio funerale vengano un sacco di animali, che gli umani restino a bocca aperta, spinti di qua e di là da un bel gruppetto folto di animali','jacopo__2024_01_11__16_54_38.jpeg','Questa mi è piaciuta perché vorrei che il mio funerale fosse così!',0,0,0),(3,'2024-01-11 16:57:33','Una buona pratica, preliminare a qualunque altra, è la pratica della meraviglia. La pratica della meraviglia è una pratica che cura anche il cuore più ferito della terra',NULL,'Mi è piaciuta perché vorrei imparare la pratica della meraviglia',0,0,0),(3,'2024-01-11 16:58:32',NULL,'jacopo__2024_01_11__16_58_32.jpeg','Mi è piaciuta perché così non dimentico le persone a cui volevo bene e che non sono più qui',0,0,0);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -362,4 +363,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-10  3:02:23
+-- Dump completed on 2024-01-11 17:02:03
