@@ -1,0 +1,8 @@
+.card {
+    /* width */
+    max-width: 400px;
+    /* for vertical centering */
+    margin: 2rem auto;
+    /* for spaces*/
+    padding: 2rem;
+}
