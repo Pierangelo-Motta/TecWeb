@@ -71,5 +71,38 @@ function getUserPasswod(string $username){
     return $result->fetch_assoc()['pwd'];
 }
 
+function getUserDescription(string $username){
+    global $conn;
+    $sql = "SELECT descrizione FROM utente WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    return $result->fetch_assoc()['descrizione'];
+}
+
+function updateUserDescription(string $username, string $text){
+    global $conn;
+    $sql = "UPDATE utente SET descrizione = ? WHERE username = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $text,$username);
+    $stmt->execute();
+    $stmt->close();
+}
+
+function isUserAdmin(string $username){
+    global $conn;
+    $sql = "SELECT isAdmin FROM utente WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    return $result->fetch_assoc()['isAdmin'];
+}
 
 ?>
