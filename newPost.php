@@ -6,8 +6,11 @@ if (!($_SESSION['loggedin'] === true)) {
 }
 
 require_once('include/uploadImage.php');
+require_once('include/insertOnDB.php');
+
 
 $imgInterestedName = "imgPrevInputName";
+
 
 $nomeLibroName = "nomeLibro";
 $nomeLibroNameValue = isset($_POST[$nomeLibroName]) ? $_POST[$nomeLibroName] : "";
@@ -16,14 +19,50 @@ $citazioneNameValue = isset($_POST[$citazioneName]) ? $_POST[$citazioneName] : "
 $pensieroName = "pensiero";
 $pensieroNameValue = isset($_POST[$pensieroName]) ? $_POST[$pensieroName] : "";
 
-// print_r($_FILES);
+print_r($_FILES);
 
 if(isPresentImg($imgInterestedName)){
     updateImg('post', $imgInterestedName);
+} 
+
+
+if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
+    $userIDtmp = $_SESSION["id"];
+    $date = date("Y-m-d H:i:s", time());
+    
+    ///get name of photo
+
+    $dirPath = "images/post/tmp";
+    $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
+    $actImgName = "";
+    $newImgName = "";
+    foreach ($files as $file) {
+        $actImgName = $file;
+    }
+    echo("<br>");
+    echo ("newPost.actImgName: " . $actImgName);
+    echo("<br>");
+
+    if(strcmp($actImgName, "") != 0){ //isPresentImg($imgInterestedName)){
+        // // $imgName = $actImgName;//$_FILES[$imgInterestedName]["name"];
+        // echo "<br>";
+        // echo ("newPost.imgName: " . $imgName);
+        // // echo $imgName;
+        // echo "<br>";
+        $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);
+    }
+
+    ///
+    
+    echo ("newImg: " . $newImgName);
+    createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, 0); //l'ultimo 0 deve essere convertito in un id del libro!!
+    
+    header("Location: profilePage.php");
 }
 
-//print_r($_POST);
+// print_r($_POST);
 // echo "    " . isPresentImg("imgPrev");
+
 
 ?>
 
@@ -116,7 +155,7 @@ if(isPresentImg($imgInterestedName)){
                 <button class="btn btn-secondary" type="button" id="test">Indietro</button>
                 <button class="btn btn-secondary" 
                     form="newPostForm" 
-                    type="button" 
+                    type="submit" 
                     id="shareButton"
                     name="sB"
                     value="ok">Condividi</button>
