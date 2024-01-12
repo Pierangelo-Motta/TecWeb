@@ -11,25 +11,16 @@ if (!($_SESSION['loggedin'] === true)) {
 }
 
 
-
 $visitPost=true;
-// $getValues = array("mode", "id");
 $modes = array("post", "goal");
-
 
 //$modified = 0;
 $newValues = array();
 if(!isset($_GET["mode"]) || !in_array($_GET["mode"], $modes)){
     $newValues["post"] = "post";
-    //$modeV = "post";
-    //$modified = $modified +1;
-    // header("Location: profilePage.php?mode=post");
 }
 if(!isset($_GET["id"]) || (existIdUser($_GET["id"]) == -1)){
     $newValues["id"] = getUserId1($_SESSION["username"]);
-    // $idV = $_SESSION["username"];
-    // $modified = $modified +1;
-    // header("Location: profilePage.php?mode=" . $_GET["mode"] . "&id=" . getUserId1($_SESSION["username"]));
 }
 
 if(sizeof($newValues) > 0){
@@ -58,6 +49,18 @@ if (strcmp($_GET["mode"],"post") == 0){
 
 $tmpKey = tmpGetUsernameById($_GET["id"]);
 $userDescription = getUserDescription($tmpKey);
+
+
+$userId = $_GET["id"];
+
+$allMeds = getAllMedOfUserId($userId);
+$completeMeds = getMedCompletatiByUserId($userId);
+$notCompleteMeds = array_diff($allMeds, $completeMeds);
+
+$medIndex = array_merge($completeMeds,$notCompleteMeds);
+
+$amountComplete = sizeof($completeMeds);
+
 
 ?>
 
@@ -109,7 +112,7 @@ $userDescription = getUserDescription($tmpKey);
                                 <h1 id="username"> <?php echo $tmpKey ?> </h1>
                                 <p class="card-text" id="counterFollower"> Follower: x </p> <!--- TODO query 1 --->
                                 <p class="card-text" id="counterFollower"> Seguiti: x </p> <!--- TODO query 2 --->
-                                <p class="card-text" id="counterMedaglieri"> Medaglieri completati: x</p> <!--- TODO query 2 IN REALTà FATTA DEVO SOLO AGGIUSTARE --->
+                                <p class="card-text" id="counterMedaglieri"> Medaglieri completati: <?php echo $amountComplete?> </p> <!--- TODO query 2 IN REALTà FATTA DEVO SOLO AGGIUSTARE --->
                                 <!-- <a href="#" class="btn btn-primary">Button</a> -->
                             </div>
                         </div>
