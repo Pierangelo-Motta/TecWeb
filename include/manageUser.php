@@ -58,7 +58,7 @@ require_once('login.model.php');
                     <label for="manageThisUser">Seleziona Utente:</label>
                     <div class="autocomplete-container">
                         <input type="text" id="manageThisUser" name="manageThisUser"
-                            oninput="showAutocomplete(this.value)">
+                            oninput="showAutocomplete2(this.value)">
                         <div id="autocompleteResults" class="autocomplete-results"></div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ require_once('login.model.php');
 </div>
 
 <script>
-function showAutocomplete(inputValue) {
+function showAutocomplete2(inputValue) {
     // Fetch data from the server based on the input value
     // This could be an AJAX request to a PHP script that queries the database
     // For simplicity, we'll use a static array here
