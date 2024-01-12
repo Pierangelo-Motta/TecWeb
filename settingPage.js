@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('deleteContent').style.display = 'block';
     });
 
+    // Click event for "Cambia password"
+    document.querySelector('.manage').addEventListener('click', function () {
+        hideAllContent();
+        document.getElementById('manageContent').style.display = 'block';
+    });
+
     function hideAllContent() {
         // Hide all content divs
         let contentDivs = document.querySelectorAll('.content');

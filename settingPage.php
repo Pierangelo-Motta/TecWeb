@@ -44,11 +44,9 @@ header("Location: index.html");
                     <li><a href="#" class='description'>Modifica la tua descrizione utente</a></li>
                     <li><a href="#" class='profile'>Cambia immagine del profilo</a></li>
                     <li><a href="#" class='delete'>Elimina account</a></li>
-                    <?php
-                    if (isUserAdmin($_SESSION['username'])==='s') {
-                        echo '<li><a href="#" class=\'manage\'>Gestisci Utenti</a></li>';
-                    }
-                    ?>
+                    <?php if (isUserAdmin($_SESSION['username'])==='s') {?>
+                    <li><a href="#" class='manage'>Gestisci Utenti</a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -56,7 +54,7 @@ header("Location: index.html");
             <!-- Content for "Cambia password" -->
             <div id="passwordContent" style="display: none;" class="col-md-12 text-center content">
                 <!-- Content for changing password -->
-                <!-- <p>Pannello Cambio Password</p> -->
+                <strong>Cambia la tua Password</strong>
                 <?php
                 include('include/changePassword.php');
                 ?>
@@ -69,23 +67,31 @@ header("Location: index.html");
             <!-- Content for "Modifica la tua descrizione utente" -->
             <div id="descriptionContent" style="display: none;" class="col-md-12 text-center content">
                 <!-- Content for modifying user description -->
-                <!-- <p>Modifica Descrizione Utente</p> -->
+                <strong>Modifica Descrizione Utente</strong>
                 <?php include('include/changeUserDescription.php'); ?>
             </div>
 
             <!-- Content for \"Cambia immagine del profilo\" -->
             <div id="profileContent" style="display: none;" class="col-md-12 text-center content">
                 <!-- Content for changing profile image -->
-                <!-- <p>Modifica Immagine Profilo</p> -->
+                <strong>Modifica Immagine Profilo</strong>
                 <?php include('include/changeUserImage.php'); ?>
             </div>
 
             <!-- Content for "Elimina account" -->
             <div id="deleteContent" style="display: none;" class="col-md-12 text-center content">
                 <!-- Content for deleting account -->
-                <p>Elimina Profilo Utente</p>
+                <strong>Elimina Profilo Utente</strong>
                 <?php include('include/deleteUser.php'); ?>
 
+            </div>
+
+            <!-- Content for "GEstisci account" -->
+            <div id="manageContent" style="display: none;" class="col-md-12 text-center content">
+                <!-- Content for deleting account -->
+                <strong>Gestisci Profilo Utente</strong>
+
+                <?php include('include/manageUser.php'); ?>
             </div>
         </div>
     </main>
