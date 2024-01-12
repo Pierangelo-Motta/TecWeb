@@ -8,12 +8,12 @@ if (!($_SESSION['loggedin'] === true)) {
 
 require_once('include/uploadImage.php'); //per gestire il caricamento della foto
 require_once('include/insertOnDB.php'); //per gestire la query di INSERT INTO
-
+require("include/selectors.php");
 
 //tag name del campo input per la foto
 $imgInterestedName = "imgPrevInputName";
 
-
+// print_r($_POST);
 //gestisco il passaggio dei valori testuali tra un post e l'altro
 $nomeLibroName = "nomeLibro";
 $nomeLibroNameValue = isset($_POST[$nomeLibroName]) ? $_POST[$nomeLibroName] : "";
@@ -28,7 +28,7 @@ $pensieroNameValue = isset($_POST[$pensieroName]) ? $_POST[$pensieroName] : "";
 if(isPresentImg($imgInterestedName)){
     //gestisci caricamento della foto nella cartella tmp
     updateImg('post', $imgInterestedName);
-} 
+}
 // else {
 //     // cancella "tutte le foto" (quelle dell'utente) attualmente presenti
 //     $dirPath = "images/post/tmp";
@@ -82,7 +82,7 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
     // echo("<br>");
     
     // TODO l'ultimo 0 deve essere convertito in un id del libro!!
-    createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, 0); 
+    createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, getLibroIdFromLibroWhereTitle($nomeLibroNameValue)); 
     
     
     header("Location: profilePage.php");
@@ -127,9 +127,12 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
                         <label for="nomeLibro">Nome libro: </label>
                         <input type="text" 
                             id="nomeLibro" 
-                            name=<?php echo "'".$nomeLibroName."'"?>
-                            value=<?php echo "'".$nomeLibroNameValue."'"?>>
+                            name="<?php echo $nomeLibroName ?>"
+                            value="<?php echo $nomeLibroNameValue ?>"
+                            />
                         <br/>
+                        <!-- name=<?php echo "'".$nomeLibroName."'"?>
+                            value="<?php echo "'".$nomeLibroNameValue."'"?>" > -->
 
                         <label for="citazioneText"></label>
                         <textarea class="form-control" 
