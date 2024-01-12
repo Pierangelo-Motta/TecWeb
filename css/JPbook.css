@@ -5,27 +5,30 @@ section#userGoal {
     margin: 0;
     display: flex;
     height: 100dvh;
-    perspective: 1000px;
+    perspective: 999999px;
     font: 16px/1.4 sans-serif;
     overflow: hidden;
-    background-color: #232425;
+    background-color: #4b4c4e;
 }
   
 .book {
-display: flex;
-margin: auto;
-width: 300px;
-/*1* let pointer event go trough pages of lower Z than .book */
-pointer-events: none;
-transform-style: preserve-3d;
-transition: translate 1s;
-translate: calc(min(var(--c), 1) * 50%) 0%;
-/* DEMO ONLY: incline on the X axis for pages preview */
-rotate: 1 0 0 30deg;
+    --sizing: 45%;
+
+    display: flex;
+    margin: auto;
+    width: var(--sizing);
+    height: var(--sizing)*1.61803;
+    /*1* let pointer event go trough pages of lower Z than .book */
+    pointer-events: none;
+    transform-style: preserve-3d;
+    transition: translate 1s;
+    translate: calc(min(var(--c), 1) * 50%) 0%;
+    /* DEMO ONLY: incline on the X axis for pages preview */
+    rotate: 1 0 0 30deg;
 }
 
 .page {
---thickness: 5;
+--thickness: 3;
 /* PS: Don't go below thickness 0.4 or the pages might transpare */
 flex: none;
 display: flex;
@@ -65,4 +68,14 @@ translate: 0px;
 background-image: linear-gradient(to right, #fff 80%, #ddd 100%);
 translate: -100% 0;
 rotate: 0 1 0 180deg;
+}
+
+
+
+#copertinaAvanti{
+    background-color: #123456;
+}
+
+#copertinaIndietro{
+    background-color: #123456;
 }

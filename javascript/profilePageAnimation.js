@@ -15,18 +15,29 @@ class Swapper{
         
     }
 
-    adaptPortal(portalImg, abbrPortalImg, link, altText){
+    adaptPortal(portalImg, abbrPortalImg, link, altText, otherImg){
         abbrPortalImg.setAttribute("title", altText);
         portalImg.setAttribute("alt", altText);
         portalImg.addEventListener("click", () => location.replace("profilePage.php?mode=" + link));
+        let actImg = portalImg.getAttribute("src");
+
+        abbrPortalImg.addEventListener('mouseover', () => {
+            // Change the button's background color
+            portalImg.setAttribute("src",otherImg);
+        });
+        
+        abbrPortalImg.addEventListener('mouseout', () => {
+            // Change the button's background color
+            portalImg.setAttribute("src",actImg);
+        });
     }
 
     adaptPortalByPostToGoal(portalImg, abbrPortalImg){
-        this.adaptPortal(portalImg, abbrPortalImg, "goal", "Clicca qui per passare al libro dei medaglieri di username");
+        this.adaptPortal(portalImg, abbrPortalImg, "goal", "Clicca qui per passare al libro dei medaglieri di username", "images/logoLetturePremiate.png");
     }
 
     adaptPortalByGoalToPost(portalImg, abbrPortalImg){
-        this.adaptPortal(portalImg, abbrPortalImg, "post", "Clicca qui per tornare ai post dell'utente");
+        this.adaptPortal(portalImg, abbrPortalImg, "post", "Clicca qui per tornare ai post dell'utente", "images/libroMedaglieri.png");
     }
 }
 

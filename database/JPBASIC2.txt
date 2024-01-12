@@ -1,1 +1,1 @@
-libro scrittoda autore medagliere compone
+autore compone libro medagliere post scrittoda sottoscrive

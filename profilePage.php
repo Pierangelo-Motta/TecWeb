@@ -1,7 +1,8 @@
 <?php
 session_start();
-include_once("include/login.controller.php");
-include_once("include/login.model.php");
+require_once("include/login.controller.php");
+require_once("include/login.model.php");
+require("include/selectors.php");
 
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
@@ -34,6 +35,10 @@ if (strcmp($_GET["mode"],"post") == 0){
 }
 // setcookie($nameTmpCookie, $valueTmpCookie, $timeExpire);
 // print_r($_COOKIE);
+
+
+// echo getLibroIdFromLibroWhereTitle("L'uomo che cammina");
+
 ?>
 
 <!DOCTYPE html>
