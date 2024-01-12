@@ -9,6 +9,42 @@ require_once('login.model.php');
     margin: 2rem auto;
     padding: 2rem;
 }
+
+/* Additional style for better spacing */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.manageThisUser {
+    width: 100px;
+}
+
+.autocomplete-container {
+    position: relative;
+}
+
+.autocomplete-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-top: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.autocomplete-results div {
+    padding: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.autocomplete-results div:hover {
+    background-color: #f0f0f0;
+}
 </style>
 
 <div class="card">
@@ -43,19 +79,19 @@ function showAutocomplete(inputValue) {
     // Fetch data from the server based on the input value
     // This could be an AJAX request to a PHP script that queries the database
     // For simplicity, we'll use a static array here
-    var userList = <?php echo json_encode(getListaElencoUtenti()); ?>;
+    let userList = <?php echo json_encode(getListaElencoUtenti()); ?>;
 
     // Filter the user list based on the input value
-    var filteredUsers = userList.filter(function(user) {
+    let filteredUsers = userList.filter(function(user) {
         return user.username.toLowerCase().includes(inputValue.toLowerCase());
     });
 
     // Display the autocomplete results
-    var autocompleteResults = document.getElementById('autocompleteResults');
+    let autocompleteResults = document.getElementById('autocompleteResults');
     autocompleteResults.innerHTML = '';
 
     filteredUsers.forEach(function(user) {
-        var option = document.createElement('div');
+        let option = document.createElement('div');
         option.textContent = user.username;
         option.addEventListener('click', function() {
             document.getElementById('userSelect').value = user.username;
@@ -70,8 +106,8 @@ function showAutocomplete(inputValue) {
 
 // Close the autocomplete results when clicking outside the input and results
 document.addEventListener('click', function(event) {
-    var autocompleteContainer = document.querySelector('.autocomplete-container');
-    var autocompleteResults = document.getElementById('autocompleteResults');
+    let autocompleteContainer = document.querySelector('.autocomplete-container');
+    let autocompleteResults = document.getElementById('autocompleteResults');
 
     if (!autocompleteContainer.contains(event.target)) {
         autocompleteResults.style.display = 'none';
