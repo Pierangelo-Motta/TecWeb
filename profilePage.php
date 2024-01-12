@@ -2,6 +2,7 @@
 session_start();
 include_once("include/login.controller.php");
 include_once("include/login.model.php");
+include_once("include/myPost.php");
 
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
@@ -52,7 +53,7 @@ if (strcmp($_GET["mode"],"post") == 0){
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp1.css">
   <link rel="stylesheet" type="text/css" href="css/JPBook.css">
-  
+
 
 
 </head>
@@ -68,13 +69,13 @@ if (strcmp($_GET["mode"],"post") == 0){
                 <div class="card-body">
 
                     <div class="d-md-inline-flex bd-highlight"> <!--- "d-md-inline-flex d-flex align-items-center col-12" --->
-                        
+
                         <!-- <div id="mainInfos" class="d-md-inline-flex justify-content-start align-items-center "> <div class="p-6 d-inline-flex flex-wrap align-items-center"> -->
                         <div id="mainInfos" class="bd-highlight p-1 d-md-inline-flex justify-content-start align-items-center float-left">
-                            <div id="divContainerImg" class=""><!-- class="p-3" -->  
-                                <img id="propic" 
-                                    src=<?php echo getUserImage($_SESSION["username"]); ?> 
-                                    alt="Immagine Profilo" 
+                            <div id="divContainerImg" class=""><!-- class="p-3" -->
+                                <img id="propic"
+                                    src=<?php echo getUserImage($_SESSION["username"]); ?>
+                                    alt="Immagine Profilo"
                                     class="rounded float-left">
                                 <!-- <img id="propic" src="images\userLogo.png" class="rounded float-left" alt="Foto profilo" width="100px"> -->
                                 <!-- <img  src="" alt="" width="100px" /> -->
@@ -101,10 +102,10 @@ if (strcmp($_GET["mode"],"post") == 0){
 
                             <div id="portalDiv" class="">
                                 <!-- <p class="card-text"> Clicca sul libro per passare alla sezione dei medaglieri!</p> -->
-                                <abbr id="portalAbbr" lang=it title="Passa alla sezione dei medaglieri!"> 
-                                    <img 
-                                        id="portal" 
-                                        class="flex-wrap align-items-center" 
+                                <abbr id="portalAbbr" lang=it title="Passa alla sezione dei medaglieri!">
+                                    <img
+                                        id="portal"
+                                        class="flex-wrap align-items-center"
                                         src="<?php echo $portalImg; ?>"
                                         />
                                 </abbr>
@@ -145,7 +146,7 @@ if (strcmp($_GET["mode"],"post") == 0){
     </script>
     <script src="javascript/profilePageAnimation.js"></script>
 
-     
+
 
 </body>
 </html>
