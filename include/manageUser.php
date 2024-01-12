@@ -55,9 +55,10 @@ require_once('login.model.php');
 
                 <!-- Dropdown menu for selecting a user -->
                 <div class="form-group">
-                    <label for="userSelect">Seleziona Utente:</label>
+                    <label for="manageThisUser">Seleziona Utente:</label>
                     <div class="autocomplete-container">
-                        <input type="text" id="userSelect" name="userSelect" oninput="showAutocomplete(this.value)">
+                        <input type="text" id="manageThisUser" name="manageThisUser"
+                            oninput="showAutocomplete(this.value)">
                         <div id="autocompleteResults" class="autocomplete-results"></div>
                     </div>
                 </div>
@@ -105,7 +106,7 @@ function showAutocomplete(inputValue) {
         let option = document.createElement('div');
         option.textContent = user.username;
         option.addEventListener('click', function() {
-            document.getElementById('userSelect').value = user.username;
+            document.getElementById('manageThisUser').value = user.username;
             autocompleteResults.innerHTML = '';
         });
         autocompleteResults.appendChild(option);

@@ -19,11 +19,11 @@ require_once('login.model.php');
     width: 100px;
 }
 
-.autocomplete-container {
+.du-autocomplete-container {
     position: relative;
 }
 
-.autocomplete-results {
+.deleteUserAutocomplete-results {
     position: absolute;
     top: 100%;
     left: 0;
@@ -35,14 +35,14 @@ require_once('login.model.php');
     overflow-y: auto;
 }
 
-.autocomplete-results div {
+.deleteUserAutocomplete-results div {
     padding: 8px;
     cursor: pointer;
     background-color: #fff;
     border-bottom: 1px solid #ccc;
 }
 
-.autocomplete-results div:hover {
+.deleteUserAutocomplete-results div:hover {
     background-color: #f0f0f0;
 }
 </style>
@@ -56,9 +56,9 @@ require_once('login.model.php');
                 <!-- Dropdown menu for selecting a user -->
                 <div class="form-group">
                     <label for="userSelect">Seleziona Utente:</label>
-                    <div class="autocomplete-container">
+                    <div class="du-autocomplete-container">
                         <input type="text" id="userSelect" name="userSelect" oninput="showAutocomplete(this.value)">
-                        <div id="autocompleteResults" class="autocomplete-results"></div>
+                        <div id="deleteUserAutocompleteResults" class="deleteUserAutocomplete-results"></div>
                     </div>
 
                 </div>
@@ -87,30 +87,30 @@ function showAutocomplete(inputValue) {
     });
 
     // Display the autocomplete results
-    let autocompleteResults = document.getElementById('autocompleteResults');
-    autocompleteResults.innerHTML = '';
+    let deleteUserAutocompleteResults = document.getElementById('deleteUserAutocompleteResults');
+    deleteUserAutocompleteResults.innerHTML = '';
 
     filteredUsers.forEach(function(user) {
         let option = document.createElement('div');
         option.textContent = user.username;
         option.addEventListener('click', function() {
             document.getElementById('userSelect').value = user.username;
-            autocompleteResults.innerHTML = '';
+            deleteUserAutocompleteResults.innerHTML = '';
         });
-        autocompleteResults.appendChild(option);
+        deleteUserAutocompleteResults.appendChild(option);
     });
 
     // Show/hide the autocomplete results container based on the number of results
-    autocompleteResults.style.display = filteredUsers.length > 0 ? 'block' : 'none';
+    deleteUserAutocompleteResults.style.display = filteredUsers.length > 0 ? 'block' : 'none';
 }
 
 // Close the autocomplete results when clicking outside the input and results
 document.addEventListener('click', function(event) {
-    let autocompleteContainer = document.querySelector('.autocomplete-container');
-    let autocompleteResults = document.getElementById('autocompleteResults');
+    let autocompleteContainer = document.querySelector('.du-autocomplete-container');
+    let deleteUserAutocompleteResults = document.getElementById('deleteUserAutocompleteResults');
 
     if (!autocompleteContainer.contains(event.target)) {
-        autocompleteResults.style.display = 'none';
+        deleteUserAutocompleteResults.style.display = 'none';
     }
 });
 </script>
