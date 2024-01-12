@@ -1,25 +1,28 @@
 #logo {
-    width: 30px; 
-    height: auto; 
+    width: 30px;
+    height: auto;
     margin-right: 5px;
 }
 
 #navbarSupportedContent img {
-    width: 30px; 
-    height: auto; 
+    width: 30px;
+    height: auto;
     margin: 0 6px;
 }
 
 .post img {
-    width: 30px; 
-    height: auto;    
+    width: 30px;
+    height: auto;
 }
 
 .post p {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .post {
     margin: 0;
 }
 
+.fotoCit img{
+  width: 250px;
+}
