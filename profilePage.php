@@ -13,51 +13,48 @@ if (!($_SESSION['loggedin'] === true)) {
 
 
 $visitPost=true;
+// $getValues = array("mode", "id");
 $modes = array("post", "goal");
 
-// print_r($_GET);
-// sleep(0.1);
-$modified = 0;
-// $newValues = array();
+
+//$modified = 0;
+$newValues = array();
 if(!isset($_GET["mode"]) || !in_array($_GET["mode"], $modes)){
-    $modeV = "post";
-    $modified = $modified +1;
+    $newValues["post"] = "post";
+    //$modeV = "post";
+    //$modified = $modified +1;
     // header("Location: profilePage.php?mode=post");
 }
 if(!isset($_GET["id"]) || (existIdUser($_GET["id"]) == -1)){
-    $idV = $_SESSION["username"];
-    $modified = $modified +1;
+    $newValues["id"] = getUserId1($_SESSION["username"]);
+    // $idV = $_SESSION["username"];
+    // $modified = $modified +1;
     // header("Location: profilePage.php?mode=" . $_GET["mode"] . "&id=" . getUserId1($_SESSION["username"]));
 }
-if($modified > 0){
-    $modeVOk = isset($modeV) ? $_GET["mode"] : $modeV;
-    $idVOk = isset($idV) ? $_GET["id"] : $idV;
+
+if(sizeof($newValues) > 0){
+    $modeVOk = array_key_exists("post", $newValues) ? $newValues["post"] : $_GET["mode"];
+    $idVOk = array_key_exists("id", $newValues) ? $newValues["id"] : $_GET["id"];
     $okLink = "profilePage.php?mode=" . $modeVOk . "&id=" . $idVOk;
     header("Location: " . $okLink);
 }
 
-// $nameTmpCookie="mode";
-// $valueTmpCookie=$_GET["mode"];
-// $timeExpire=time()+30;
+
+
+
+
+
+
+
 $portalImg="images/";
-// print_r($_GET);
-// echo "<br>";
 
 if (strcmp($_GET["mode"],"post") == 0){
-    // $nameTmpCookie="mode";
-    //$valueTmpCookie="post";
     $portalImg = $portalImg . "libroMedaglieri.png";
 } else {
-    // $nameTmpCookie="";
-    //$valueTmpCookie="goal";
-    $visitPost=false;
+    $visitPost = false;
     $portalImg = $portalImg . "logoLetturePremiate.png";
 }
-// setcookie($nameTmpCookie, $valueTmpCookie, $timeExpire);
-// print_r($_COOKIE);
 
-
-// echo getLibroIdFromLibroWhereTitle("L'uomo che cammina");
 
 $tmpKey = tmpGetUsernameById($_GET["id"]);
 $userDescription = getUserDescription($tmpKey);

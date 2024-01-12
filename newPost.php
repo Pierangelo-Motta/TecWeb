@@ -203,7 +203,7 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
 
     <!-- <script src="add_new_post.js" type="text/javascript"></script> -->
     <script src="add_new_post.js"></script>
-
+    
     <!-- <script type="text/javascript">
     document.getElementById("test").onclick = function () {
         location.href = "profilePage.php";

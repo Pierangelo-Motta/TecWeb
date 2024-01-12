@@ -2,6 +2,26 @@
 require_once 'config.php';
 
 function getUserId(object $conn, string $username){
+    
+    $sql = "SELECT id FROM utente WHERE username = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+        
+    if ($result->num_rows > 0) {
+        return  $result->fetch_assoc()['id'];
+    } else {
+        return -1;
+    }
+    
+}
+
+function getUserId1(string $username) {
+    global $conn;
     $sql = "SELECT id FROM utente WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
@@ -119,5 +139,18 @@ function getListaElencoUtenti(){
 
 }
 
+
+
+function tmpGetUsernameById($userid){
+    global $conn;
+    $sql = "SELECT username FROM utente WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userid);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    return $result->fetch_assoc()['username'];
+}
 
 ?>
