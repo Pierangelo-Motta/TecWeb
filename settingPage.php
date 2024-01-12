@@ -43,8 +43,8 @@ header("Location: index.html");
                     <li><a href="#" class='password'>Cambia password</a></li>
                     <li><a href="#" class='description'>Modifica la tua descrizione utente</a></li>
                     <li><a href="#" class='profile'>Cambia immagine del profilo</a></li>
-                    <li><a href="#" class='delete'>Elimina account</a></li>
                     <?php if (isUserAdmin($_SESSION['username'])==='s') {?>
+                    <li><a href="#" class='delete'>Elimina account</a></li>
                     <li><a href="#" class='manage'>Gestisci Utenti</a></li>
                     <?php } ?>
                 </ul>
