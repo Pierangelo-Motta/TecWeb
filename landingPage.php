@@ -38,11 +38,11 @@ require_once 'include/post.php';
                                 <a href=<?php echo "profilePage.php?id=" . $post["username"] ?> >
                                 <img src=<?php echo getUserImage($post["username"]); ?> alt="Immagine Profilo"> </a>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <p><?php echo $post['username']; ?></p>
                             </div>
-                            <div class="col-md-2 text-right">
-                                <p><?php echo $post['dataOra']; ?></p>
+                            <div class="col-md-3">
+                              <p><?php echo time_elapsed_string($post['dataOra']); ?></p>
                             </div>
                         </div>
                         <br/>
