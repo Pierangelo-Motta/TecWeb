@@ -13,18 +13,30 @@ require_once('login.model.php');
     margin: 2rem auto;
     /* for spaces*/
     padding: 2rem;
+
+}
+
+.textarea {
+    width: 500px;
 }
 </style>
+
+
 <div class="card">
     <div class="row justify-content-center">
         <div class="col-md-6">
 
             <form action="updateUserDescription.php" method="post">
-                <label for="userDescription">Descrizione Utente</label>
-                <textarea id="userDescription"
-                    name="userDescription"><?php echo getUserDescription($_SESSION['username']); ?></textarea>
-                <!-- You can add a submit button and update.php to handle form submission -->
-                <input type="submit" value="Salva le modifiche">
+
+                <div class="form-group">
+                    <label for="userDescription">Descrizione Utente</label>
+                    <textarea id="userDescription"
+                        name="userDescription"><?php echo getUserDescription($_SESSION['username']); ?></textarea>
+                    <!-- You can add a submit button and update.php to handle form submission -->
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Salva le modifiche">
+                </div>
             </form>
 
         </div>
