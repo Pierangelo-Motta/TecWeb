@@ -88,7 +88,7 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
     header("Location: profilePage.php");
 } 
 
-// print_r($_POST);
+// print_r($_FILES);
 // echo "    " . isPresentImg("imgPrev");
 
 
@@ -163,7 +163,7 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
                                         if (!isPresentImg($imgInterestedName)){
                                             echo "images/caricaFoto.png";
                                         } else {
-                                             echo "images/post/tmp/" . $_FILES[$imgInterestedName]["name"];
+                                            echo "images/post/tmp/" . $_FILES[$imgInterestedName]["name"];
                                         }?>
                                     alt="Carica la foto" /> 
                             </label>

@@ -41,9 +41,10 @@ div#textInfo h1{
     line-height: 2;
 }
 
-img#propic{
-    width: 150px;
-    aspect-ratio: 1;
+main img{
+    max-width: 150px;
+    width: 80%;
+    min-width: 100px;
 }
 
 div#mainInfos img{

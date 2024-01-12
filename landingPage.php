@@ -35,7 +35,8 @@ require_once 'include/post.php';
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-1 post">
-                                <a href="profilePage.php"><img src=<?php echo getUserImage($post["username"]); ?> alt="Immagine Profilo"> </a>
+                                <a href=<?php echo "profilePage.php?id=" . $post["username"] ?> >
+                                <img src=<?php echo getUserImage($post["username"]); ?> alt="Immagine Profilo"> </a>
                             </div>
                             <div class="col-md-9">
                                 <p><?php echo $post['username']; ?></p>
