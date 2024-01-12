@@ -27,6 +27,7 @@ require_once('login.model.php');
     position: absolute;
     top: 100%;
     left: 0;
+    width: 100%;
     border: 1px solid #ccc;
     border-top: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -43,7 +44,6 @@ require_once('login.model.php');
 
 .autocomplete-results div:hover {
     background-color: #f0f0f0;
-
 }
 </style>
 
@@ -60,10 +60,9 @@ require_once('login.model.php');
                         <input type="text" id="userSelect" name="userSelect" oninput="showAutocomplete(this.value)">
                         <div id="autocompleteResults" class="autocomplete-results"></div>
                     </div>
-
                 </div>
 
-                <!-- Checkbox iAdmin field -->
+                <!-- Checkbox for checking isAdmin field -->
                 <div class="form-group">
                     <label for="isAdminCheckbox">Amministratore:</label>
                     <input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">
