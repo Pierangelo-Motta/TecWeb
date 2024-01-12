@@ -105,4 +105,19 @@ function isUserAdmin(string $username){
     return $result->fetch_assoc()['isAdmin'];
 }
 
+
+function getListaElencoUtenti(){
+    global $conn;
+    $sql = "SELECT id,username FROM utente";
+    $stmt = $conn->prepare($sql);
+    //$stmt->bind_param("s", $username);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+
+}
+
+
 ?>
