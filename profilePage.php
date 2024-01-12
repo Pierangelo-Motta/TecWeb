@@ -10,20 +10,39 @@ if (!($_SESSION['loggedin'] === true)) {
     header("Location: index.html");
 }
 
-$userDescription = getUserDescription($_SESSION["username"]);
+
 
 $visitPost=true;
 $modes = array("post", "goal");
 
+// print_r($_GET);
+// sleep(0.1);
+$modified = 0;
+// $newValues = array();
 if(!isset($_GET["mode"]) || !in_array($_GET["mode"], $modes)){
-    header("Location: profilePage.php?mode=post");
+    $modeV = "post";
+    $modified = $modified +1;
+    // header("Location: profilePage.php?mode=post");
 }
+if(!isset($_GET["id"]) || (existIdUser($_GET["id"]) == -1)){
+    $idV = $_SESSION["username"];
+    $modified = $modified +1;
+    // header("Location: profilePage.php?mode=" . $_GET["mode"] . "&id=" . getUserId1($_SESSION["username"]));
+}
+if($modified > 0){
+    $modeVOk = isset($modeV) ? $_GET["mode"] : $modeV;
+    $idVOk = isset($idV) ? $_GET["id"] : $idV;
+    $okLink = "profilePage.php?mode=" . $modeVOk . "&id=" . $idVOk;
+    header("Location: " . $okLink);
+}
+
 // $nameTmpCookie="mode";
 // $valueTmpCookie=$_GET["mode"];
 // $timeExpire=time()+30;
 $portalImg="images/";
 // print_r($_GET);
 // echo "<br>";
+
 if (strcmp($_GET["mode"],"post") == 0){
     // $nameTmpCookie="mode";
     //$valueTmpCookie="post";
@@ -39,6 +58,9 @@ if (strcmp($_GET["mode"],"post") == 0){
 
 
 // echo getLibroIdFromLibroWhereTitle("L'uomo che cammina");
+
+$tmpKey = tmpGetUsernameById($_GET["id"]);
+$userDescription = getUserDescription($tmpKey);
 
 ?>
 
@@ -79,7 +101,7 @@ if (strcmp($_GET["mode"],"post") == 0){
                         <div id="mainInfos" class="bd-highlight p-1 d-md-inline-flex justify-content-start align-items-center float-left">
                             <div id="divContainerImg" class=""><!-- class="p-3" -->
                                 <img id="propic"
-                                    src=<?php echo getUserImage($_SESSION["username"]); ?>
+                                    src="<?php echo getUserImage($tmpKey); ?>"
                                     alt="Immagine Profilo"
                                     class="rounded float-left">
                                 <!-- <img id="propic" src="images\userLogo.png" class="rounded float-left" alt="Foto profilo" width="100px"> -->
@@ -87,10 +109,10 @@ if (strcmp($_GET["mode"],"post") == 0){
                             </div>
 
                             <div id="textInfo" class="">
-                                <h1 id="username"> <?php echo $_SESSION["username"] ?> </h1>
+                                <h1 id="username"> <?php echo $tmpKey ?> </h1>
                                 <p class="card-text" id="counterFollower"> Follower: x </p> <!--- TODO query 1 --->
                                 <p class="card-text" id="counterFollower"> Seguiti: x </p> <!--- TODO query 2 --->
-                                <p class="card-text" id="counterMedaglieri"> Medaglieri completati: x</p> <!--- TODO query 2 --->
+                                <p class="card-text" id="counterMedaglieri"> Medaglieri completati: x</p> <!--- TODO query 2 IN REALTà FATTA DEVO SOLO AGGIUSTARE --->
                                 <!-- <a href="#" class="btn btn-primary">Button</a> -->
                             </div>
                         </div>
@@ -107,10 +129,11 @@ if (strcmp($_GET["mode"],"post") == 0){
 
                             <div id="portalDiv" class="">
                                 <!-- <p class="card-text"> Clicca sul libro per passare alla sezione dei medaglieri!</p> -->
-                                <abbr id="portalAbbr" lang=it title="Passa alla sezione dei medaglieri!">
+                                <abbr id="portalAbbr" lang="it" title="<?php echo tmpGetUsernameById($_GET["id"]); ?>" >
                                     <img
                                         id="portal"
                                         class="flex-wrap align-items-center"
+                                        alt="<?php echo tmpGetUsernameById($_GET["id"]); ?>"
                                         src="<?php echo $portalImg; ?>"
                                         />
                                 </abbr>

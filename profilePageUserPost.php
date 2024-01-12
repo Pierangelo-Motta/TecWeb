@@ -19,7 +19,7 @@
                         </div>
 
                         <div id="img">
-                            <img id="propic" src="<?php echo $post['immagineProfilo']; ?>" class="rounded float-left" alt="Foto profilo" width="100px">
+                            <img id="propic" src="<?php echo getUserImage($post["username"]); ?>" class="rounded float-left" alt="Foto profilo" width="100px">
                         </div>
 
                         <div class="row">
