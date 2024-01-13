@@ -60,7 +60,7 @@ require_once('login.model.php');
                     <label for="userSelect">Seleziona Utente:</label>
                     <div class="du-autocomplete-container">
                         <input type="text" id="userSelect" name="userSelect"
-                            oninput="showAutocomplete(this.value, 'userSelect')">
+                            oninput="showAutocomplete(this.value, 'userSelect','deleteUserAutocompleteResults')">
                         <div id="deleteUserAutocompleteResults" class="deleteUserAutocomplete-results"></div>
                     </div>
 
@@ -77,4 +77,4 @@ require_once('login.model.php');
     </div>
 </div>
 
-<script src="javascript/deleteUser.js"></script>
+<script src="javascript/userList.js"></script>

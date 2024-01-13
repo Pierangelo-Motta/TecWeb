@@ -58,7 +58,7 @@ require_once('login.model.php');
                     <label for="manageThisUser">Seleziona Utente:</label>
                     <div class="autocomplete-container">
                         <input type="text" id="manageThisUser" name="manageThisUser"
-                            oninput="showAutocomplete2(this.value)">
+                            oninput="showAutocomplete(this.value,'manageThisUser','autocompleteResults')">
                         <div id="autocompleteResults" class="autocomplete-results"></div>
                     </div>
                 </div>
@@ -86,43 +86,4 @@ require_once('login.model.php');
     </div>
 </div>
 
-<script>
-function showAutocomplete2(inputValue) {
-    // Fetch data from the server based on the input value
-    // This could be an AJAX request to a PHP script that queries the database
-    // For simplicity, we'll use a static array here
-    let userList = <?php echo json_encode(getListaElencoUtenti()); ?>;
-
-    // Filter the user list based on the input value
-    let filteredUsers = userList.filter(function(user) {
-        return user.username.toLowerCase().includes(inputValue.toLowerCase());
-    });
-
-    // Display the autocomplete results
-    let autocompleteResults = document.getElementById('autocompleteResults');
-    autocompleteResults.innerHTML = '';
-
-    filteredUsers.forEach(function(user) {
-        let option = document.createElement('div');
-        option.textContent = user.username;
-        option.addEventListener('click', function() {
-            document.getElementById('manageThisUser').value = user.username;
-            autocompleteResults.innerHTML = '';
-        });
-        autocompleteResults.appendChild(option);
-    });
-
-    // Show/hide the autocomplete results container based on the number of results
-    autocompleteResults.style.display = filteredUsers.length > 0 ? 'block' : 'none';
-}
-
-// Close the autocomplete results when clicking outside the input and results
-document.addEventListener('click', function(event) {
-    let autocompleteContainer = document.querySelector('.autocomplete-container');
-    let autocompleteResults = document.getElementById('autocompleteResults');
-
-    if (!autocompleteContainer.contains(event.target)) {
-        autocompleteResults.style.display = 'none';
-    }
-});
-</script>
+<script src="javascript/userList.js"></script>
