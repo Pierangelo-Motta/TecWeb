@@ -215,4 +215,78 @@ function ottieniSegue($userIdFrom){
     return gestisciFollowerFollowed($userIdFrom, $isOttieniFollower);
 }
 
+function getAllMeds(){
+    global $conn;
+    $sql = "SELECT id
+            From medagliere M";
+    
+    $stmt = $conn->prepare($sql);
+    // $stmt->bind_param("iii", $idUser, $idUser, $idUser);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    // echo "<br>";
+    // print_r($result);
+    // echo "<br>";
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+
+    return array_column($tmp, 'id');
+    //print_r(array_column($tmp, 'id'));
+    // return isset($tmp["id"]) ? $tmp["id"] : 0;
+}
+
+function getMedsChallengedByUserId($idUser){
+    global $conn;
+    $sql = "SELECT medagliereId
+            From sottoscrive
+            where utenteId = ?";
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idUser);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+
+    return array_column($tmp, 'id');
+    //print_r(array_column($tmp, 'id'));
+    // return isset($tmp["id"]) ? $tmp["id"] : 0;
+}
+
+function getMedThatUserNotChallenge($idUser){
+    global $conn;
+    $sql = "SELECT M.id 
+            From medagliere M
+            where M.id not in(select S.medagliereId
+                        from sottoscrive S
+                        where S.utenteId = ?);";
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idUser);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+
+    return array_column($tmp, 'id');
+    //print_r(array_column($tmp, 'id'));
+    // return isset($tmp["id"]) ? $tmp["id"] : 0;
+}
+
+function getMedInfo($medId){
+    global $conn;
+    $sql = "SELECT * FROM medagliere M WHERE M.id=?;";
+
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $medId);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+    return $tmp;
+}
+
 ?>

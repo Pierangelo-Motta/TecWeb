@@ -90,7 +90,7 @@ if($isMyProfilePage) {
     if ($visitPost){
         $redirectTo = "newPost.php";
     } else {
-        $redirectTo = "#";
+        $redirectTo = "newMedagliere.php";
     }
 
 

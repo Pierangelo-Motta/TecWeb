@@ -1,0 +1,39 @@
+body footer{
+    /* border: red 1px solid;
+    margin: 5%;
+    padding: 0 5%; */
+    /* display: none; */
+}
+
+body footer button#retBut{
+    position: fixed;
+    /* bottom: 500px; */
+    bottom:5%;
+    left: 5%;
+    /* left: 100px;  */
+}
+
+body section div div.medContainer{
+    margin: 5% 0;
+    /* padding: 5% 0; */
+}
+
+body section div div.medContainer div footer button{
+    position: relative;
+    float:right;
+    /* margin: 5% 0; */
+    /* padding: 5% 0; */
+}
+
+div.infocontainer{
+    max-height: 300px;
+    width: 80%;
+    max-width: 700px;
+    overflow-y: scroll;
+    margin-left: 5%;
+}
+
+img.imgmedagliere{
+    max-width: 200px;
+    aspect-ratio: 1;
+}
