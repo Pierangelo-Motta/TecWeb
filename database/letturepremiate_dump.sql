@@ -111,6 +111,12 @@ CREATE TABLE `libro` (
 -- Dumping data for table `libro`
 --
 
+LOCK TABLES `libro` WRITE;
+/*!40000 ALTER TABLE `libro` DISABLE KEYS */;
+INSERT INTO `libro` VALUES (0,'defult');
+/*!40000 ALTER TABLE `libro` ENABLE KEYS */;
+UNLOCK TABLES;
+
 --
 -- Table structure for table `medagliere`
 --
@@ -194,7 +200,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (3,'2024-01-11 16:53:44','Esercitarsi a non sapere e a meravigliarsi','jacopo__2024_01_11__16_53_44.jpeg','Leggendo questa frase ho meditato su quanto fosse importante questo banale aspetto della vita che ci permette di essere felici con poco e che non lo si dà così per scontato',0,0,0),(3,'2024-01-11 16:54:38','al mio funerale vengano un sacco di animali, che gli umani restino a bocca aperta, spinti di qua e di là da un bel gruppetto folto di animali','jacopo__2024_01_11__16_54_38.jpeg','Questa mi è piaciuta perché vorrei che il mio funerale fosse così!',0,0,0),(3,'2024-01-11 16:57:33','Una buona pratica, preliminare a qualunque altra, è la pratica della meraviglia. La pratica della meraviglia è una pratica che cura anche il cuore più ferito della terra',NULL,'Mi è piaciuta perché vorrei imparare la pratica della meraviglia',0,0,0),(3,'2024-01-11 16:58:32',NULL,'jacopo__2024_01_11__16_58_32.jpeg','Mi è piaciuta perché così non dimentico le persone a cui volevo bene e che non sono più qui',0,0,0),(3,'2024-01-11 18:18:50','Quando ti svegli la mattina, Puh, chiese infine Porcelletto, \"qual è la prima cosa che pensi?\". \"Che cosa c\'è per colazione?\" rispose Puh. \"E tu, Porcelletto?\". \"Io penso: chissà che cosa succederà oggi di emozionante?\" risposte Porcelletto. Puh annuì con','jacopo__2024_01_11__18_18_50.jpeg','La colazione allora è veramente la cosa più importante della giornata!',0,0,0),(3,'2024-01-11 22:36:18','aa','jacopo__2024_01_11__22_36_18.jpeg','aa',0,0,0);
+INSERT INTO `post` VALUES (2,'2024-01-12 14:27:37','l',NULL,'l',0,0,0),(2,'2024-01-12 15:08:56','cit',NULL,'PENS',0,0,0),(2,'2024-01-12 15:36:42','cit',NULL,'pens',0,0,0),(3,'2024-01-11 16:53:44','Esercitarsi a non sapere e a meravigliarsi','jacopo__2024_01_11__16_53_44.jpeg','Leggendo questa frase ho meditato su quanto fosse importante questo banale aspetto della vita che ci permette di essere felici con poco e che non lo si dà così per scontato',0,0,0),(3,'2024-01-11 16:54:38','al mio funerale vengano un sacco di animali, che gli umani restino a bocca aperta, spinti di qua e di là da un bel gruppetto folto di animali','jacopo__2024_01_11__16_54_38.jpeg','Questa mi è piaciuta perché vorrei che il mio funerale fosse così!',0,0,0),(3,'2024-01-11 16:57:33','Una buona pratica, preliminare a qualunque altra, è la pratica della meraviglia. La pratica della meraviglia è una pratica che cura anche il cuore più ferito della terra',NULL,'Mi è piaciuta perché vorrei imparare la pratica della meraviglia',0,0,0),(3,'2024-01-11 16:58:32',NULL,'jacopo__2024_01_11__16_58_32.jpeg','Mi è piaciuta perché così non dimentico le persone a cui volevo bene e che non sono più qui',0,0,0);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,7 +342,7 @@ CREATE TABLE `utente` (
   `stato` char(1) NOT NULL,
   `numeroFollow` int(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -345,7 +351,7 @@ CREATE TABLE `utente` (
 
 LOCK TABLES `utente` WRITE;
 /*!40000 ALTER TABLE `utente` DISABLE KEYS */;
-INSERT INTO `utente` VALUES (1,'pier','pier@tecweb.com','$2y$10$gFrPumcEaL5CcXvtGXM9xuMJXNf/UQ01qwAzFXR5XPwsPXbtJV.B6','659daef3d34db_Screenshot_20230111_105443.png','',NULL,'',0),(2,'luca','luca@webtec.it','$2y$10$YU5cUJ4u1mijevPHw6/eA.HpBmhiy.V6b/GQ7Ft9XaYWsIuZKW7He','luca.png','',NULL,'',0),(3,'jacopo','jacopo@webtec.it','$2y$10$42RzrrImDVkkEM3LsluT0ekx6hGZPWod7kTXa/S6.9dhct8TcxskS','659df9bbcb885_incisione.jpg','','','',0),(4,'user1','user1@tecweb.it','$2y$10$xTlnGZDq.deb1ZDaJdrpT.G7amPo1OH74wWkkmX2upyGf1PDcdMeS','','',NULL,'',0),(5,'sara','sara@tecweb.it','$2y$10$YuoPVQMqbSz390utkBmV6.Csh4aDxGO5fyALnG3/xhDbSGkOSunh.','','',NULL,'',0),(6,'lory','lory.casa.it','$2y$10$pBfSQJJBR60xqPkhLqi5yuCZC2dagqhc56SPMmRI4qNoEgsfVbLgm','','',NULL,'',0);
+INSERT INTO `utente` VALUES (1,'pier','pier@tecweb.com','$2y$10$gFrPumcEaL5CcXvtGXM9xuMJXNf/UQ01qwAzFXR5XPwsPXbtJV.B6','659daef3d34db_Screenshot_20230111_105443.png','',NULL,'',0),(2,'luca','luca@webtec.it','$2y$10$YU5cUJ4u1mijevPHw6/eA.HpBmhiy.V6b/GQ7Ft9XaYWsIuZKW7He','luca.png','',NULL,'',0),(3,'jacopo','jacopo@webtec.it','$2y$10$42RzrrImDVkkEM3LsluT0ekx6hGZPWod7kTXa/S6.9dhct8TcxskS','659df9bbcb885_incisione.jpg','',NULL,'',0),(4,'user1','user1@tecweb.it','$2y$10$xTlnGZDq.deb1ZDaJdrpT.G7amPo1OH74wWkkmX2upyGf1PDcdMeS','','',NULL,'',0),(5,'sara','sara@tecweb.it','$2y$10$YuoPVQMqbSz390utkBmV6.Csh4aDxGO5fyALnG3/xhDbSGkOSunh.','','',NULL,'',0),(6,'lory','lory.casa.it','$2y$10$pBfSQJJBR60xqPkhLqi5yuCZC2dagqhc56SPMmRI4qNoEgsfVbLgm','','',NULL,'',0),(7,'admin','admin@tecweb.it','$2y$10$dWgSfm/BFYEApQ14reNr9eXq.2Z4/53nkJaIPfj1BexbBmXYMRugi','65a25733abf6d_root.jpg','s',NULL,'',0);
 /*!40000 ALTER TABLE `utente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -358,4 +364,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-12  0:35:05
+-- Dump completed on 2024-01-13 10:26:59

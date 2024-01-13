@@ -78,6 +78,10 @@ header("Location: index.html");
                 <?php include('include/changeUserImage.php'); ?>
             </div>
 
+            <!-- TODO: aggiungere link pagina gestioneLibri.php
+            TODO: check aggiunta libri da calibre
+            TODO: aggiungere link pagina gestioneMedaglieri.php -->
+
             <!-- Content for "Elimina account" -->
             <div id="deleteContent" style="display: none;" class="col-md-12 text-center content">
                 <!-- Content for deleting account -->
