@@ -154,6 +154,32 @@ function savePostedPhoto($imgRelPath, $userName){
     return $newImgName;
 }
 
+function manageFollow($userIDFrom, $userIDTo, $query){
+    global $conn;
+
+    if ($stmt = mysqli_prepare($conn, $query)) {
+        mysqli_stmt_bind_param($stmt, "ii", $userIDFrom, $userIDTo);
+
+        if (mysqli_stmt_execute($stmt)) {
+            // echo "<p>Nuovo utente registrato correttamente</>";
+            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+        } else {
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function createFollow($userIDFrom, $userIDTo) {
+    $sql = "INSERT INTO segue(seguenteId, seguitoId) VALUES (?,?);";
+    manageFollow($userIDFrom, $userIDTo, $sql);
+}
+
+function destroyFollow($userIDFrom, $userIDTo) {
+    $sql = "DELETE FROM segue WHERE seguenteId=? AND seguitoId=?;";
+    manageFollow($userIDFrom, $userIDTo, $sql);
+}
 
 
 ?>

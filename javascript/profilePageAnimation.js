@@ -50,6 +50,7 @@ class Swapper{
         } else {
             this.adaptPortalByGoalToPost(this.portalImg, this.portalAbbr);
         }
+        
 
         
     }

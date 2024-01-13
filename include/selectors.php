@@ -166,4 +166,53 @@ function checkIfUserReadBook($userId, $libroId){
     }
 }
 
+function checkIfUserFollowUser($userIdFrom, $userIdTo){
+    global $conn;
+
+    $sql = "SELECT * FROM segue S WHERE S.seguenteId=? and S.seguitoId=?;";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $userIdFrom, $userIdTo);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+        
+    if ($result->num_rows > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function gestisciFollowerFollowed($userIdFrom, $isOttieniFollower){
+    global $conn;
+    $sql = "";
+
+    if($isOttieniFollower){
+        $sql = "SELECT * FROM segue S WHERE S.seguitoId=?;"; 
+    } else {
+        $sql = "SELECT * FROM segue S WHERE S.seguenteId=?;";
+    }
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userIdFrom);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+    return $tmp;
+}
+
+function ottieniFollower($userIdFrom){
+    $isOttieniFollower = true;
+    return gestisciFollowerFollowed($userIdFrom, $isOttieniFollower);
+}
+
+function ottieniSegue($userIdFrom){
+    $isOttieniFollower = false;
+    return gestisciFollowerFollowed($userIdFrom, $isOttieniFollower);
+}
+
 ?>
