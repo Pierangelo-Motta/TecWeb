@@ -1,5 +1,7 @@
 <?php
 require_once('login.model.php');
+//require_once('userList.php');
+
 ?>
 
 
@@ -57,7 +59,8 @@ require_once('login.model.php');
                 <div class="form-group">
                     <label for="userSelect">Seleziona Utente:</label>
                     <div class="du-autocomplete-container">
-                        <input type="text" id="userSelect" name="userSelect" oninput="showAutocomplete(this.value)">
+                        <input type="text" id="userSelect" name="userSelect"
+                            oninput="showAutocomplete(this.value, 'userSelect')">
                         <div id="deleteUserAutocompleteResults" class="deleteUserAutocomplete-results"></div>
                     </div>
 
@@ -74,43 +77,4 @@ require_once('login.model.php');
     </div>
 </div>
 
-<script>
-function showAutocomplete(inputValue) {
-    // Fetch data from the server based on the input value
-    // This could be an AJAX request to a PHP script that queries the database
-    // For simplicity, we'll use a static array here
-    let userList = <?php echo json_encode(getListaElencoUtenti()); ?>;
-
-    // Filter the user list based on the input value
-    let filteredUsers = userList.filter(function(user) {
-        return user.username.toLowerCase().includes(inputValue.toLowerCase());
-    });
-
-    // Display the autocomplete results
-    let deleteUserAutocompleteResults = document.getElementById('deleteUserAutocompleteResults');
-    deleteUserAutocompleteResults.innerHTML = '';
-
-    filteredUsers.forEach(function(user) {
-        let option = document.createElement('div');
-        option.textContent = user.username;
-        option.addEventListener('click', function() {
-            document.getElementById('userSelect').value = user.username;
-            deleteUserAutocompleteResults.innerHTML = '';
-        });
-        deleteUserAutocompleteResults.appendChild(option);
-    });
-
-    // Show/hide the autocomplete results container based on the number of results
-    deleteUserAutocompleteResults.style.display = filteredUsers.length > 0 ? 'block' : 'none';
-}
-
-// Close the autocomplete results when clicking outside the input and results
-document.addEventListener('click', function(event) {
-    let autocompleteContainer = document.querySelector('.du-autocomplete-container');
-    let deleteUserAutocompleteResults = document.getElementById('deleteUserAutocompleteResults');
-
-    if (!autocompleteContainer.contains(event.target)) {
-        deleteUserAutocompleteResults.style.display = 'none';
-    }
-});
-</script>
+<script src="javascript/deleteUser.js"></script>
