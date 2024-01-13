@@ -1,3 +1,5 @@
+# per evitare che il nostro tmp venga committato
+*tmp
 
 # ignore all files starting with . or ~
 .*
