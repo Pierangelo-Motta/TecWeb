@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('profileContent').style.display = 'block';
     });
 
+    // Click event for "Gestisci Libri"
+    document.querySelector('.book').addEventListener('click', function () {
+        hideAllContent();
+        document.getElementById('bookContent').style.display = 'block';
+    });
+
+    // Click event for "Gestisci Medagliere"
+    document.querySelector('.goal').addEventListener('click', function () {
+        hideAllContent();
+        document.getElementById('goalContent').style.display = 'block';
+    });
+
     // Click event for "Elimina account"
     document.querySelector('.delete').addEventListener('click', function () {
         hideAllContent();
@@ -37,4 +49,5 @@ document.addEventListener('DOMContentLoaded', function () {
             contentDivs[i].style.display = 'none';
         }
     }
+
 });

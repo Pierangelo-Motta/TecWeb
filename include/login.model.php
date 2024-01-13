@@ -122,7 +122,20 @@ function isUserAdmin(string $username){
     $stmt->execute();
 
     $result = $stmt->get_result();
-    return $result->fetch_assoc()['isAdmin'];
+    return $result->fetch_assoc()['isAdmin'] ? 1 : 0;
+    
+}
+
+function isUserBanned($username){
+    global $conn;
+    $sql = "SELECT stato FROM utente WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    return $result->fetch_assoc()['stato'] ? 1 : 0;
 }
 
 
@@ -139,8 +152,6 @@ function getListaElencoUtenti(){
 
 }
 
-
-
 function tmpGetUsernameById($userid){
     global $conn;
     $sql = "SELECT username FROM utente WHERE id = ?";
@@ -151,6 +162,21 @@ function tmpGetUsernameById($userid){
 
     $result = $stmt->get_result();
     return $result->fetch_assoc()['username'];
+}
+
+function updateUserData(string $selectedUser, string $isAdmin, string $userBanned){
+    global $conn;
+    $sql = "UPDATE utente SET isAdmin = ?, stato = ? WHERE username = ?";
+    
+    // Log the query and parameters to a file
+    $logMessage = "Query: $sql, Parameters: [isAdmin=$isAdmin, stato=$userBanned,username=$selectedUser]";
+    error_log($logMessage, 3, "phplogfile.log");
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sis", $isAdmin, $userBanned, $selectedUser);
+    $stmt->execute();
+    $stmt->close();
+
 }
 
 ?>

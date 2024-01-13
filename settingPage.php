@@ -44,7 +44,9 @@ header("Location: index.html");
                     <li><a href="#" class='password'>Cambia password</a></li>
                     <li><a href="#" class='description'>Modifica la tua descrizione utente</a></li>
                     <li><a href="#" class='profile'>Cambia immagine del profilo</a></li>
-                    <?php if (isUserAdmin($_SESSION['username'])==='s') {?>
+                    <?php if (isUserAdmin($_SESSION['username'])) {?>
+                    <li><a href="#" class='book'>Gestione Libri</a></li>
+                    <li><a href="#" class='goal'>Gestione Medagliere</a></li>
                     <li><a href="#" class='delete'>Elimina account</a></li>
                     <li><a href="#" class='manage'>Gestisci Utenti</a></li>
                     <?php } ?>
@@ -79,9 +81,21 @@ header("Location: index.html");
                 <?php include('include/changeUserImage.php'); ?>
             </div>
 
-            <!-- TODO: aggiungere link pagina gestioneLibri.php
-            TODO: check aggiunta libri da calibre
-            TODO: aggiungere link pagina gestioneMedaglieri.php -->
+            <!-- Content for "Gestisci Libri" -->
+            <div id="bookContent" style="display: none;" class="col-md-12 text-center content">
+                <!-- Content for books -->
+                <strong>Gestisci Libri</strong>
+                <?php include('include/bookManagement.php'); ?>
+
+            </div>
+
+            <!-- Content for "Gestisci Medagliere" -->
+            <div id="goalContent" style="display: none;" class="col-md-12 text-center content">
+                <!-- Content for goals -->
+                <strong>Gestione Medagliere</strong>
+                <?php include('include/MedagliereManagement.php'); ?>
+
+            </div>
 
             <!-- Content for "Elimina account" -->
             <div id="deleteContent" style="display: none;" class="col-md-12 text-center content">

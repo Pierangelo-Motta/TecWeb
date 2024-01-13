@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-body">
-                <form action="updatePassword.php" method="post">
+                <form action="include/updatePassword.php" method="post">
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label col-form-label-sm text-end" for="oldPassword">Vecchia
                             Password:</label>

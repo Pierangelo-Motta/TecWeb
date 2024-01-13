@@ -14,6 +14,10 @@ $password = $_POST['password'];
 //     exit;
 // }
 
+if (isUserBanned($username)) {
+    die("<h1>Utente Bannato!</h1><h2><a href=\"mailto:admin@tecweb.it?subject=Utente%20Bannato\">Contatta l'amministratore</a></h2>");
+}
+
 if (isLoginOk($conn, $username, $password)) {
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;

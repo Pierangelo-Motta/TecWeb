@@ -1,7 +1,7 @@
 <?php
 session_start();
-require 'include/config.php';
-require 'include/login.model.php';
+require 'config.php';
+require 'login.model.php';
 
 
 $oldPassword = $_POST['oldPassword'];
@@ -23,7 +23,7 @@ if (checkUserPassword($conn, $_SESSION['username'], $oldPassword)) {
 
         if (mysqli_stmt_execute($stmt)) {
             $_SESSION['password_changed'] = 1;
-            header("Location: settingPage.php");
+            header("Location: ../settingPage.php");
             exit();
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn);
