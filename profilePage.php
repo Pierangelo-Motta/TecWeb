@@ -2,7 +2,7 @@
 session_start();
 include_once("include/login.controller.php");
 include_once("include/login.model.php");
-include_once("include/myPost.php");
+include_once("include/post.php");
 require("include/selectors.php");
 
 if (!($_SESSION['loggedin'] === true)) {
@@ -31,12 +31,6 @@ if(sizeof($newValues) > 0){
 }
 
 
-
-
-
-
-
-
 $portalImg="images/";
 
 if (strcmp($_GET["mode"],"post") == 0){
@@ -61,6 +55,8 @@ $medIndex = array_merge($completeMeds,$notCompleteMeds);
 
 $amountComplete = sizeof($completeMeds);
 
+$post = new Post($conn);
+$posts = $post->getPost($_GET["id"]);
 
 ?>
 

@@ -48,7 +48,9 @@ main img{
 }
 
 div#mainInfos img{
-    border: 1px black solid;
+    box-shadow: -15px 15px 16px -16px #0a65d56a;
+    /* background-color: #000000; */
+    /* border: 1px black solid; */
 }
 
 body main{

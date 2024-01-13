@@ -1,5 +1,5 @@
 const flipBook = (elBook) => {
-    elBook.style.setProperty("--c", 0); // Set current page
+    elBook.style.setProperty("--c", 1); // Set current page
 
     elBook.querySelectorAll(".page").forEach((page, idx) => {
         page.style.setProperty("--i", idx);
@@ -8,6 +8,6 @@ const flipBook = (elBook) => {
             elBook.style.setProperty("--c", curr);
         });
     });
-  };
-  
-  document.querySelectorAll(".book").forEach(flipBook);
+};
+
+document.querySelectorAll(".book").forEach(flipBook);

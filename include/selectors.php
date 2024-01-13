@@ -17,24 +17,30 @@ function getLibroIdFromLibroWhereTitle($title){
     return isset($tmp["id"]) ? $tmp["id"] : 0;
 }
 
+
 function getMedCompletatiByUserId($idUser){
     global $conn;
-    $sql = "SELECT M.id
-            FROM medagliere M
-            WHERE M.id not in(
-                SELECT MM.id
-                FROM medagliere MM, compone C, libro L, sottoscrive S
-                WHERE L.id = C.libroId
-                AND C.medagliereId = MM.id
-                AND MM.id = S.medagliereId
-                AND S.utenteId = ?
-                and L.id not in (
-                    SELECT P.libroId
-                    FROM post P
-                    WHERE P.utenteId = ?))";
+    $sql = "SELECT MMM.id
+            From medagliere MMM, sottoscrive SSS
+            WHERE SSS.utenteId = ?
+            and SSS.medagliereId = MMM.id
+            and MMM.id in(
+                SELECT M.id
+                FROM medagliere M
+                WHERE M.id not in(
+                    SELECT MM.id
+                    FROM medagliere MM, compone C, libro L, sottoscrive S
+                    WHERE L.id = C.libroId
+                    AND C.medagliereId = MM.id
+                    AND MM.id = S.medagliereId
+                    AND S.utenteId = ?
+                        and L.id not in (
+                        SELECT P.libroId
+                        FROM post P
+                        WHERE P.utenteId = ?)))";
+    
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $idUser, $idUser);
-
+    $stmt->bind_param("iii", $idUser, $idUser, $idUser);
     $stmt->execute();
 
     $result = $stmt->get_result();
@@ -72,6 +78,13 @@ function getAllMedOfUserId($idUser){
     // return isset($tmp["id"]) ? $tmp["id"] : 0;
 }
 
+
+
+// Array ( 
+//     [0] => Array ( [titolo] => L'uomo che cammina [nome] => Christian Bobin ) 
+//     [1] => Array ( [titolo] => Winnie Puh [nome] => A.A. Milne ) 
+//     [2] => Array ( [titolo] => Il primo caffè della giornata [nome] => Toshikazu Kawaguchi ) 
+//     )
 function getLibroEAutoreByMedagliereId($medID){
     global $conn;
     $sql = "SELECT L.titolo, A.nome
@@ -92,10 +105,26 @@ function getLibroEAutoreByMedagliereId($medID){
     // print_r($result);
     // echo "<br>";
     $tmp = $result->fetch_all(MYSQLI_ASSOC);
-    echo "<br> AAA:";
-    print_r($tmp);
-    // return array_column($tmp, 'id');
+    return $tmp;
 }
+
+function getMedagliereInfo($medID){
+    global $conn;
+    $sql = "SELECT *
+            from medagliere
+            WHERE id=?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $medID);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+    return $tmp;
+}
+
 
 
 function existIdUser(string $userId) {
@@ -114,6 +143,27 @@ function existIdUser(string $userId) {
         return -1;
     }
     
+}
+
+function checkIfUserReadBook($userId, $libroId){
+    global $conn;
+    $sql = "SELECT *
+            from Post P 
+            where p.utenteId = ?
+            and p.libroId = ?;";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $userId, $libroId);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+        
+    if ($result->num_rows > 0) {
+        // return $result->fetch_assoc()['id'];
+        return true;
+    } else {
+        return false;
+    }
 }
 
 ?>

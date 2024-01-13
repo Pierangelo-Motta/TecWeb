@@ -1,14 +1,18 @@
 /* https://stackoverflow.com/questions/76972952/how-to-make-a-flip-page-effect-in-book-without-using-absolute-position-or-make */
 
-section#userGoal {
+section#userGoal{
     /* or any other parent wrapper */
     margin: 0;
     display: flex;
     height: 100dvh;
-    perspective: 999999px;
-    font: 16px/1.4 sans-serif;
+    font-family: 'Times New Roman', Times, serif;
+    font: 16px; 
+
+    /* sans-serif; */
     overflow: hidden;
-    background-color: #4b4c4e;
+    /* background-color: linear-gradient(top to bottom, #57585a 80%, black 100%) ; */
+    background-color: #57585a;
+     /* linear-gradient(to top, #57585a 20%) ; */
 }
   
 .book {
@@ -17,18 +21,20 @@ section#userGoal {
     display: flex;
     margin: auto;
     width: var(--sizing);
-    height: var(--sizing)*1.61803;
+    height: var(--sizing) * 2.5; 
+    /* 1.61803; */
     /*1* let pointer event go trough pages of lower Z than .book */
     pointer-events: none;
     transform-style: preserve-3d;
     transition: translate 1s;
     translate: calc(min(var(--c), 1) * 50%) 0%;
+
     /* DEMO ONLY: incline on the X axis for pages preview */
     rotate: 1 0 0 30deg;
 }
 
 .page {
---thickness: 3;
+--thickness: 4;
 /* PS: Don't go below thickness 0.4 or the pages might transpare */
 flex: none;
 display: flex;
@@ -48,9 +54,24 @@ rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
 }
 
 .page img {
-width: 100%;
-height: 100%;
+/* width: 100%;
+height: 100%; */
 object-fit: cover;
+}
+
+div#copertinaAvanti{
+    background-color: #123456;
+    text-align: center;
+}
+div#copertinaAvanti h1{
+    color: #CACACA;
+    margin-top: 10%;
+}
+
+div#copriCopertina{
+    /* backface-visibility: visible; così non si chiude */
+    background-color: #123456;
+    display: block;
 }
 
 .front,
@@ -70,12 +91,35 @@ translate: -100% 0;
 rotate: 0 1 0 180deg;
 }
 
-
-
-#copertinaAvanti{
-    background-color: #123456;
+.front{
+    /* background-image: linear-gradient(to left, #fff 80%, #ddd 100%); */
 }
 
-#copertinaIndietro{
-    background-color: #123456;
+
+
+
+
+img.imgObtainedMed{
+    width: 150px;
+    max-width: 150px;
+    height: 150px;
+    max-height: 150px;
+}
+
+article.titoloMedagliere{
+    display: flex;
+    vertical-align: middle;
+}
+
+article.titoloMedagliere img{
+    margin-right: 30px;
+}
+article.descrizioneMedagliere img{
+    display: block;
+    margin-top: 30px;
+}
+
+p.libroLetto{
+    text-decoration: line-through;
+    font-style: italic;
 }
