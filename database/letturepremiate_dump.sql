@@ -49,9 +49,9 @@ DROP TABLE IF EXISTS `commenti`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `commenti` (
   `utenteIdPost` int(8) NOT NULL,
-  `dataOraPost` date NOT NULL,
+  `dataOraPost` datetime NOT NULL,
   `utenteIdComm` int(8) NOT NULL,
-  `dataOraComm` date NOT NULL,
+  `dataOraComm` datetime NOT NULL,
   `commento` varchar(1023) NOT NULL,
   PRIMARY KEY (`utenteIdPost`,`dataOraPost`,`utenteIdComm`,`dataOraComm`),
   UNIQUE KEY `ID_COMMENTI_IND` (`utenteIdPost`,`dataOraPost`,`utenteIdComm`,`dataOraComm`),
@@ -154,12 +154,12 @@ DROP TABLE IF EXISTS `notifica`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `notifica` (
   `id` int(8) NOT NULL,
-  `dataOra` date NOT NULL,
+  `dataOra` datetime NOT NULL,
   `descrizione` varchar(255) NOT NULL,
   `tipo` char(1) NOT NULL,
   `utenteId` char(1) NOT NULL,
   `utenteIdPost` char(1) DEFAULT NULL,
-  `dataOraPost` date DEFAULT NULL,
+  `dataOraPost` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ID_NOTIFICA_IND` (`id`),
   KEY `REF_NOTIF_UTENT_IND` (`utenteId`),
@@ -293,7 +293,7 @@ DROP TABLE IF EXISTS `tagperpost`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tagperpost` (
   `utenteIdPost` char(1) NOT NULL,
-  `dataOraPost` date NOT NULL,
+  `dataOraPost` datetime NOT NULL,
   `tagId` char(1) NOT NULL,
   PRIMARY KEY (`utenteIdPost`,`dataOraPost`,`tagId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
