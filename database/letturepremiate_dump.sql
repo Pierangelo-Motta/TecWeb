@@ -36,7 +36,7 @@ CREATE TABLE `autore` (
 
 LOCK TABLES `autore` WRITE;
 /*!40000 ALTER TABLE `autore` DISABLE KEYS */;
-INSERT INTO `autore` VALUES (0,'unknow'),(1,'Christian Bobin'),(2,'A.A. Milne'),(3,'Toshikazu Kawaguchi');
+INSERT INTO `autore` VALUES (0,'unknow'),(1,'Christian Bobin'),(2,'A.A. Milne'),(3,'Toshikazu Kawaguchi'),(4,'Chandra Candiani'),(5,'Franco Arminio'),(6,'Sanaka Hiiragi'),(7,'Banana Yoshimoto'),(8,'Matteo Bussola'),(9,'Tahar Ben Jelloun'),(10,'Gianrico Carofiglio'),(11,'Francesco Occhetta'),(13,'Satoshi Yagisawa'),(14,'Alan Bradley'),(15,'Flavia de Luce'),(16,'Elisa Rocchi'),(17,'Guus Kuijer'),(19,'Patricia MacLachlan');
 /*!40000 ALTER TABLE `autore` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `compone` (
 
 LOCK TABLES `compone` WRITE;
 /*!40000 ALTER TABLE `compone` DISABLE KEYS */;
-INSERT INTO `compone` VALUES (0,7),(1,7),(1,10),(1,18),(2,18);
+INSERT INTO `compone` VALUES (4,2),(5,2),(4,3),(5,3),(3,4),(4,4),(5,4),(3,5),(4,5),(5,5),(3,6),(4,6),(5,6),(0,7),(1,7),(3,7),(5,7),(3,8),(4,8),(5,8),(5,9),(1,10),(4,10),(5,10),(5,11),(4,12),(5,12),(5,13),(4,14),(5,14),(5,15),(4,16),(5,16),(5,17),(1,18),(2,18),(4,18),(5,18),(5,19);
 /*!40000 ALTER TABLE `compone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +230,7 @@ CREATE TABLE `scrittoda` (
 
 LOCK TABLES `scrittoda` WRITE;
 /*!40000 ALTER TABLE `scrittoda` DISABLE KEYS */;
-INSERT INTO `scrittoda` VALUES (7,1),(18,2),(10,3);
+INSERT INTO `scrittoda` VALUES (7,1),(16,1),(18,2),(10,3),(1,4),(2,5),(9,6),(19,6),(3,7),(4,8),(5,9),(6,10),(8,11),(11,13),(12,14),(13,15),(14,16),(15,17),(17,19);
 /*!40000 ALTER TABLE `scrittoda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -371,4 +371,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-14 12:29:28
+-- Dump completed on 2024-01-14 14:38:13

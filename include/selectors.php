@@ -289,4 +289,21 @@ function getMedInfo($medId){
     return $tmp;
 }
 
+function getLibriLettiDaUserId($idUser){
+    global $conn;
+    $sql = "SELECT libroId
+            From post
+            where utenteID=?";
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idUser);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+
+    return array_column($tmp, 'libroId');
+
+}
+
 ?>

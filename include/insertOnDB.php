@@ -19,12 +19,12 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
     //creazione completa per specificare cosa inserisco
     $tmp = " ";
     $isSetText = false;
-    if (strcmp($citTex, "") != 0){
+    if (strcmp($citTex, "") != 0) {
         $tmp = $tmp . "citazioneTestuale, ";
         $amountInsered++;
         $isSetText = true;
     }
-    if (strcmp($citImg, "") != 0){
+    if (strcmp($citImg, "") != 0) {
         $tmp = $tmp . "fotoCitazione, ";
         $amountInsered++;
     }

@@ -1,6 +1,7 @@
 <?php
 include_once("include/login.controller.php");
 include_once("include/login.model.php");
+include_once("include/formattators.php");
 $nomeUtente = tmpGetUsernameById($_GET["id"]);
 // echo $nomeUtente;
 // print_r($_GET);
@@ -29,29 +30,30 @@ function createFacciataPosteriore(){
     return $begin . $middle . $end;
 }
 
-function obtainList($libriInMedagliere){
-    $res = "";
-    foreach ($libriInMedagliere as $a) {
-        $tmpRes = "";
-        if (checkIfUserReadBook($_GET["id"], getLibroIdFromLibroWhereTitle($a["titolo"]))){
-            $tmpRes = "<li> <p class='libroLetto'>";
-        } else {
-            $tmpRes = "<li> <p class='libroNonLetto'>";
-        }
-        $nomeLibroS = str_replace(" ", "+", $a["titolo"]);
-        $virgola = ",";
-        $nomeAutoreS = str_replace(" ", "+", $a["nome"]);
-        $totalLink = "https://www.google.com/search?q=" . $nomeLibroS . $virgola . "+" . $nomeAutoreS;
-        // echo $totalLink;
-        $tmpRes .= "\"<a href=\"" . $totalLink . "\">" . $a["titolo"] . "</a>\" di " . $a["nome"];
-        $tmpRes .= "</p></li>";
+// function obtainList($libriInMedagliere){
+//     $res = "";
+//     foreach ($libriInMedagliere as $a) {
+//         $tmpRes = "";
+//         if (checkIfUserReadBook($_GET["id"], getLibroIdFromLibroWhereTitle($a["titolo"]))){
+//             $tmpRes = "<li> <p class='libroLetto'>";
+//         } else {
+//             $tmpRes = "<li> <p class='libroNonLetto'>";
+//         }
+//         $nomeLibroS = str_replace(" ", "+", $a["titolo"]);
+//         $virgola = ",";
+//         $nomeAutoreS = str_replace(" ", "+", $a["nome"]);
+//         $totalLink = "https://www.google.com/search?q=" . $nomeLibroS . $virgola . "+" . $nomeAutoreS;
+//         // echo $totalLink;
+//         $tmpRes .= "\"<a href=\"" . $totalLink . "\">" . $a["titolo"] . "</a>\" di " . $a["nome"];
+//         $tmpRes .= "</p></li>";
 
-        $res .= $tmpRes;
-        // print_r($a);
-    }
-    return $res;//"<li class='libroLetto'>libro di autore</li>";
-        // <ul class="libroNonLetto">libro di autore</ul>
-}
+//         $res .= $tmpRes;
+//         // print_r($a);
+//     }
+//     return $res;
+//         //"<li class='libroLetto'>libro di autore</li>";
+//         // <ul class="libroNonLetto">libro di autore</ul>
+// }
 
 function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
 
@@ -83,7 +85,7 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
 
     $middle2 = "<article class='descrizioneMedagliere'> <p>" . $medInfos["descrizione"] . "</p> </article>"; //$medInfos["descrizione"]
 
-    $listBooks = obtainList($libriInMedagliere);
+    $listBooks = obtainList($libriInMedagliere, $_GET["id"]);
 
 
     $textToConsider = "";

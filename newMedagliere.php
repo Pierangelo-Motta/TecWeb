@@ -9,6 +9,7 @@ if (!($_SESSION['loggedin'] === true)) {
 require_once('include/uploadImage.php'); //per gestire il caricamento della foto
 require_once('include/insertOnDB.php'); //per gestire la query di INSERT INTO
 require("include/selectors.php");
+require_once("include/formattators.php");
 
 $basicAmount = 10;
 $amountLoading = isset($_POST["amountLoad"]) ? $_POST["amountLoad"] : 0;
@@ -16,29 +17,51 @@ $amountForLoad = 5;
 $toLoad = $basicAmount + ($amountLoading * $amountForLoad);
 
 
-function createOneMed($medToPrint, $indexToConsider){
+function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
 
     $toAdd = "Med" . $indexToConsider;
     $infos = getMedInfo($medToPrint[$indexToConsider])[0];
-    // print_r($infos);
+
+    $libriInMedagliere = getLibroEAutoreByMedagliereId($medToPrint[$indexToConsider]);
+    // echo "<br>";
+    // echo $medToPrint[$indexToConsider];
+    // echo "<br>";
+    // print_r($libriInMedagliere);
+    $medBookIndex = array();
+    foreach (array_column($libriInMedagliere,"titolo") as $titolo) {
+        array_push($medBookIndex,getLibroIdFromLibroWhereTitle($titolo));
+    }
+    // echo "<br>";
+    // echo print_r($medBookIndex);
+    // echo "<br>";
+    $canReclame = empty(array_diff($medBookIndex, $libriLetti));
+    //echo $medToPrint[$indexToConsider];
+    //print_r($libriInMedagliere);
 
     $titleMed = $infos["titolo"];
-    $imgToAdd = "medagliaFacile.png";
+    
     $descMed = $infos["descrizione"];
-    $books = "<li>A</li><li>A</li><li>A</li>";
+    // print_r($libriInMedagliere);
+    $books = obtainList($libriInMedagliere, $who);
 
-    $buttonText = "Sfidami!"; //TODO o reclamami!!!
+    $buttonText = "Sfidami!";
+    if($canReclame){
+        $buttonText = "Reclamami!";
+    }
     $buttonValue = $infos["id"];
+
+    $imgToAdd = "medagliaFacile.png";
+    $altImg = "Manca poco!";
 
     $complete = "<div class=\"card medContainer\">" .
                     "<div class=\"card-body\" id=\"" . $toAdd . "\">" .
                         "<h1 class=\"card-text titleMed\">" . $titleMed . "</h1>" .
                         "<div class=\"allMedInfo d-flex\">" . 
-                            "<div class=\"titlecontainer\" id=\"titlecontainerMed1\">" . 
+                            "<div class=\"titlecontainer\" id=\"titlecontainer" . $toAdd . "\">" . 
                             
                             "<img " .
                                 "src=\"images/" . $imgToAdd . "\" " .
-                                //"alt=""
+                                "alt=\"" . $altImg . "\" " .
                                 "class=\"rounded float-left imgmedagliere\" " .
                                 "id=\"imgmedagliere" . $toAdd . "\" " .
                                 "/>" .
@@ -65,13 +88,13 @@ function createOneMed($medToPrint, $indexToConsider){
                 "</div>" .
 
             "</div>";
-    return $complete;
-    // print_r($medToPrint);
+    return $complete; //valuta se ritornare un array medagliere-da-stampare / quantità libri mancante per poi sortarlo
 }
 
 
 $userIdToConsider = $_SESSION["id"];
-
+$libriLetti = getLibriLettiDaUserId($userIdToConsider);
+//print_r($libriLetti);
 // $challengedMeds = getMedsChallengedByUserId($userIdToConsider);
 // $allallMeds = getAllMeds();
 // $remainMedIdx = array_diff($allallMeds, $challengedMeds);
@@ -118,7 +141,7 @@ $medToPrint = getMedThatUserNotChallenge($userIdToConsider);
             <?php
             $upperbound = min(array($toLoad, sizeof($medToPrint))); 
             for ($i=0; $i < $upperbound; $i++) { 
-                echo createOneMed($medToPrint, $i);
+                echo createOneMed($medToPrint, $i, $libriLetti, $userIdToConsider);
             } ?>
 
         
