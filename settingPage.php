@@ -45,7 +45,7 @@ header("Location: index.html");
                     <li><a href="#" class='description'>Modifica la tua descrizione utente</a></li>
                     <li><a href="#" class='profile'>Cambia immagine del profilo</a></li>
                     <?php if (isUserAdmin($_SESSION['username'])) {?>
-                    <li><a href="#" class='book'>Gestione Libri</a></li>
+                    <li><a href="gestioneLibri.php" class='book'>Gestione Libri</a></li>
                     <li><a href="#" class='goal'>Gestione Medagliere</a></li>
                     <li><a href="#" class='delete'>Elimina account</a></li>
                     <li><a href="#" class='manage'>Gestisci Utenti</a></li>
@@ -84,8 +84,7 @@ header("Location: index.html");
             <!-- Content for "Gestisci Libri" -->
             <div id="bookContent" style="display: none;" class="col-md-12 text-center content">
                 <!-- Content for books -->
-                <strong>Gestisci Libri</strong>
-                <?php include('include/bookManagement.php'); ?>
+                <!-- <strong>Gestisci Libri</strong> -->
 
             </div>
 
