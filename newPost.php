@@ -2,94 +2,117 @@
 
 session_start();
 if (!($_SESSION['loggedin'] === true)) {
-    //user is not logged in go to login page
     header("Location: index.html");
 }
 
-require_once('include/uploadImage.php'); //per gestire il caricamento della foto
-require_once('include/insertOnDB.php'); //per gestire la query di INSERT INTO
-require("include/selectors.php");
+require_once('include/model/uploadImage.php'); //per gestire il caricamento della foto
+require_once('include/model/insertOnDB.php'); //per gestire la query di INSERT INTO
+require_once("include/model/selectors.php");
 
 //tag name del campo input per la foto
 $imgInterestedName = "imgPrevInputName";
 
-// print_r($_POST);
-//gestisco il passaggio dei valori testuali tra un post e l'altro
+//gestisco il passaggio dei valori testuali tra un POST e l'altro
 $nomeLibroName = "nomeLibro";
 $nomeLibroNameValue = isset($_POST[$nomeLibroName]) ? $_POST[$nomeLibroName] : "";
 $citazioneName = "citazione";
 $citazioneNameValue = isset($_POST[$citazioneName]) ? $_POST[$citazioneName] : "";
 $pensieroName = "pensiero";
 $pensieroNameValue = isset($_POST[$pensieroName]) ? $_POST[$pensieroName] : "";
-
-// print_r($_FILES);
+$tagsAreaName = "tagsArea";
+$tagsAreaNameValue = isset($_POST[$tagsAreaName]) ? $_POST[$tagsAreaName] : "";
 
 
 if(isPresentImg($imgInterestedName)){
     //gestisci caricamento della foto nella cartella tmp
     updateImg('post', $imgInterestedName);
 }
-// else {
-//     // cancella "tutte le foto" (quelle dell'utente) attualmente presenti
-//     $dirPath = "images/post/tmp";
-//     $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
-//     foreach ($files as $file) {
-//         if (is_file($file)) {
-//             unlink($file);
-//         }
-//     }
-// }
-// else {
-//     //foto eliminata: resetta tmp
-//     $dirPath = "images/post/tmp";
-//     $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
-//     foreach ($files as $file) {
-//         unlink($file);
-//     }
-// }
 
+// print_r($_POST);
 
-if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
+//vecchio strcmp($_POST["sB"], "ok"): ho fatto in modo che sB valesse:
+//1 se si vuole condividere
+//0 se si vuole tornare indietro
+if (isset($_POST["sB"])){
 
-    $userIDtmp = $_SESSION["id"]; //chi
-    $date = date("Y-m-d H:i:s", time()); //quando
+    $parsed = intval($_POST["sB"]);
+    //echo "-->" . $parsed;
+    if($parsed == 1){
+        $userIDtmp = $_SESSION["id"]; //chi
+        $date = date("Y-m-d H:i:s", time()); //quando
+        
+        /////////get name of photo
+        $dirPath = "images/post/tmp";
+        $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
+        $actImgName = "";
+        $newImgName = "";
+
+        foreach ($files as $file) {
+            $actImgName = $file;
+        }
+
+        // TODO : tanto ce n'è solo 1, ma si può migliorare?
+
+        // echo("<br>");
+        // echo ("newPost.actImgName: " . $actImgName);
+        // echo("<br>");
+
+        if(!empty($actImgName)){ 
+            $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);
+            // echo("<br>");
+            //echo ("newImg: " . $newImgName);
+            // echo("<br>");
+            
+        } 
+        // else {
+        //     echo "ERR: post non avvenuto con successo";
+        // }
+
+        // TODO l'ultimo 0 deve essere convertito in un id del libro!!
+        createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, getLibroIdFromLibroWhereTitle($nomeLibroNameValue)); 
+
+        ////////////   
+
+        ////////creazione tags
+        // echo $tagsAreaNameValue;
+        
+        $tags = explode(" ", $tagsAreaNameValue);
+        $tagIndex = array();
+        // print_r($tags);
+        
+        foreach($tags as $t){
+            // echo "<br>";
+            // echo $t;
+            $tmp = checkIfTagExists($t);
+            // echo $tmp;
+            if ($tmp < 0){
+                createNewTag($t);
+                $tmp = checkIfTagExists($t);
+            }
+            array_push($tagIndex, $tmp);
+        }
+        $ntI = array_unique($tagIndex);
+        // print_r($tagIndex);
+
+        foreach($ntI as $ti){
+            embedTagPost($ti, $userIDtmp, $date);
+        }
+        //////////////
+
     
-    /////////get name of photo
-    $dirPath = "images/post/tmp";
-    $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
-    $actImgName = "";
-    $newImgName = "";
-
-    foreach ($files as $file) {
-        $actImgName = $file;
+    } else {
+        print_r($_POST);
+        $dirPath = "images/post/tmp";
+        $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                unlink($file);
+            }
+        }
     }
-
-    // TODO : tanto ce n'è solo 1, ma si può migliorare?
-
-    // echo("<br>");
-    // echo ("newPost.actImgName: " . $actImgName);
-    // echo("<br>");
-
-    if(strcmp($actImgName, "") != 0){ 
-        $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);
-    }
-
-    ////////////
-
-
-    // echo("<br>");
-    //echo ("newImg: " . $newImgName);
-    // echo("<br>");
-    
-    // TODO l'ultimo 0 deve essere convertito in un id del libro!!
-    createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, getLibroIdFromLibroWhereTitle($nomeLibroNameValue)); 
-    
-    
     header("Location: profilePage.php");
+    
 } 
-
-// print_r($_FILES);
-// echo "    " . isPresentImg("imgPrev");
 
 
 ?>
@@ -124,9 +147,9 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
                     
                     <div class="col-md-6 col-12" id="newPostForm_pt1">
 
-                        <label for="nomeLibro">Nome libro: </label>
+                        <label for="nomeLibroId">Nome libro: </label>
                         <input type="text" 
-                            id="nomeLibro" 
+                            id="nomeLibroId" 
                             name="<?php echo $nomeLibroName ?>"
                             value="<?php echo $nomeLibroNameValue ?>"
                             />
@@ -134,25 +157,30 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
                         <!-- name=<?php echo "'".$nomeLibroName."'"?>
                             value="<?php echo "'".$nomeLibroNameValue."'"?>" > -->
 
-                        <label for="citazioneText"></label>
+                        <label for="citazioneTextId"></label>
                         <textarea class="form-control" 
-                            id="citazioneText" 
+                            id="citazioneTextId" 
                             name=<?php echo "'".$citazioneName."'"?>
                             rows="10" 
                             cols="100" 
                             placeholder="Inserisci qui la citazione"><?php echo "".$citazioneNameValue.""?></textarea>
 
-                        <label for="pensieroText"></label>
+                        <label for="pensieroTextId"></label>
                         <textarea class="form-control" 
-                            id="pensieroText" 
+                            id="pensieroTextId" 
                             name=<?php echo "'".$pensieroName."'"?>
                             rows="10" 
                             cols="100" 
                             placeholder="Inserisci qui il tuo pensiero"><?php echo "".$pensieroNameValue.""?></textarea>
+                        
+                        <label for="tagsAreaId"></label>
+                        <textarea class="form-control" 
+                            id="tagsAreaId" 
+                            name=<?php echo "'".$tagsAreaName."'"?>
+                            rows="10" 
+                            cols="100" 
+                            placeholder="Via con i tags!"><?php echo "".$tagsAreaNameValue."" ?></textarea>
 
-                        <!-- <label for="html">Nome libro</label> -->
-                        <!-- <textarea id="citazioneText" name="citazione" rows="10" cols="100" placeholder="Inserisci qui la citazione"></textarea>
-                        <textarea id="pensieroText" name="pensiero" rows="10" cols="100" placeholder="Inserisci qui il tuo pensiero"></textarea> -->
                     </div>
 
                     <!-- <div class="col-1"></div> -->
@@ -183,13 +211,18 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
             <footer>
                 <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href="#">Per più informazioni</a></p>
 
-                <button class="btn btn-secondary" type="button" id="test">Indietro</button>
+                <button class="btn btn-secondary" 
+                    form="newPostForm" 
+                    type="submit" 
+                    id="retBut"
+                    name="sB"
+                    value="0">Indietro</button>
                 <button class="btn btn-secondary" 
                     form="newPostForm" 
                     type="submit" 
                     id="shareButton"
                     name="sB"
-                    value="ok">Condividi</button>
+                    value="1">Condividi</button>
             </footer>
         </div>
 
@@ -201,15 +234,7 @@ if (isset($_POST["sB"]) && strcmp($_POST["sB"], "ok") == 0){
         crossorigin="anonymous">
     </script>
 
-    <!-- <script src="add_new_post.js" type="text/javascript"></script> -->
-    <script src="add_new_post.js"></script>
-    
-    <!-- <script type="text/javascript">
-    document.getElementById("test").onclick = function () {
-        location.href = "profilePage.php";
-    };
-    </script> -->
-
+    <script src="javascript/addNewPost.js"></script>
 
 </body>
 </html>

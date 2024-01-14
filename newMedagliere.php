@@ -6,10 +6,11 @@ if (!($_SESSION['loggedin'] === true)) {
     header("Location: index.html");
 }
 
-require_once('include/uploadImage.php'); //per gestire il caricamento della foto
-require_once('include/insertOnDB.php'); //per gestire la query di INSERT INTO
-require("include/selectors.php");
-require_once("include/formattators.php");
+require_once('include/model/uploadImage.php'); //per gestire il caricamento della foto
+require_once('include/model/insertOnDB.php'); //per gestire la query di INSERT INTO
+require("include/model/selectors.php");
+
+require_once("include/view/formattators.php");
 
 
 

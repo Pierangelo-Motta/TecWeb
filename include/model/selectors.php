@@ -1,6 +1,6 @@
 <?php
 
-require_once("config.php");
+require_once("include/config.php");
 
 function getLibroIdFromLibroWhereTitle($title){
     global $conn;
@@ -306,5 +306,24 @@ function getLibriLettiDaUserId($idUser){
     return array_column($tmp, 'libroId');
 
 }
+
+function checkIfTagExists($tagText) {
+    global $conn;
+    $sql = "SELECT id FROM tags WHERE testo = \"" . $tagText . "\";";
+    $stmt = $conn->prepare($sql);
+    // $stmt->bind_param("s", $tagText);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+        
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc()['id'];
+    } else {
+        return -1;
+    }
+    
+}
+
 
 ?>

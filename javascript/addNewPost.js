@@ -7,9 +7,9 @@ class PostAdder {
         this.shareButton = document.getElementById("shareButton");
         this.accMess = document.getElementById("accessibilityMessage");
 
-        this.textAreaCit = document.getElementById("citazioneText");
-        this.textAreaPen = document.getElementById("pensieroText");
-        this.nomeLibro = document.getElementById("nomeLibro");
+        this.textAreaCit = document.getElementById("citazioneTextId");
+        this.textAreaPen = document.getElementById("pensieroTextId");
+        this.nomeLibro = document.getElementById("nomeLibroId");
 
 
         this.imgLabel = document.getElementById("imgLabel");

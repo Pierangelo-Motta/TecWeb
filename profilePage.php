@@ -1,10 +1,11 @@
 <?php
 session_start();
-include_once("include/login.controller.php");
-include_once("include/login.model.php");
-include_once("include/post.php");
-require("include/selectors.php");
-include_once("include/insertOnDB.php");
+require_once("include/login.controller.php");
+require_once("include/login.model.php");
+require_once("include/post.php");
+require_once("include/model/selectors.php");
+require_once("include/model/insertOnDB.php");
+
 
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
@@ -273,9 +274,9 @@ $counterSeguo = sizeof(ottieniSegue($userIdvisited));
     ?>
 
     <?php if($visitPost){
-        require("profilePageUserPost.php");
+        require("include/view/profilePageUserPost.php");
     } else {
-        require("profilePageUserGoal.php");
+        require("include/view/profilePageUserGoal.php");
     } ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

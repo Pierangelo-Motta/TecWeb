@@ -1,7 +1,7 @@
 <?php
 
 
-require_once("config.php");
+require_once("include/config.php");
 
 
 function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID) {
@@ -93,16 +93,6 @@ function savePostedPhoto($imgRelPath, $userName){
     // Get the absolute path to the current directory
     $currentDirectory = __DIR__;
 
-    // ///get name of photo
-    // $dirPath = "images/post/tmp";
-    // $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
-    // $imgName = "";
-    // foreach ($files as $file) {
-    //     $imgName = $file;
-    // }
-    // ///
-
-
 
     /////////////// estrazione nome della foto
     $dirs = explode("/", $imgRelPath);
@@ -133,10 +123,12 @@ function savePostedPhoto($imgRelPath, $userName){
     // echo ("insertOnDB.newImgName2: " . $newImgName);
     // echo "<br>";
 
+    $distanceByRoot = "/../../";
+
     // Construct the full path for the source dir
-    $fromDir = $currentDirectory . '/../' . $imgRelPath; //. "images/post/tmp/" . $imageName;
+    $fromDir = $currentDirectory . $distanceByRoot . $imgRelPath; //. "images/post/tmp/" . $imageName;
     // e per la destination directory
-    $toDir = $currentDirectory . '/../' . "images/post/posted/" . $userName;
+    $toDir = $currentDirectory . $distanceByRoot . "images/post/posted/" . $userName;
 
     
     // echo "<br>";
@@ -200,4 +192,41 @@ function subscribeUserToMed($userID, $medID){
     mysqli_stmt_close($stmt);
 }
 
+function createNewTag($textToInsert){
+    global $conn;
+
+    $sql = "INSERT INTO tags(testo) VALUES (?);";
+
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "s", $textToInsert);
+
+        if (mysqli_stmt_execute($stmt)) {
+            // echo "<p>Nuovo utente registrato correttamente</>";
+            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+        } else {
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function embedTagPost($idTag, $userId, $datetime){
+    global $conn;
+
+    $sql = "INSERT INTO tagperpost(utenteIdPost, dataOraPost, tagId) VALUES (?,?,?);";
+
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "isi", $userId, $datetime,  $idTag);
+
+        if (mysqli_stmt_execute($stmt)) {
+            // echo "<p>Nuovo utente registrato correttamente</>";
+            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+        } else {
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+}
 ?>

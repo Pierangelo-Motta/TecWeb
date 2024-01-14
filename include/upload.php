@@ -5,6 +5,7 @@ require_once('login.model.php');
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $oldImageName = getDbImageName($_SESSION['username']);
     // Check if a file is selected
     if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
