@@ -141,7 +141,7 @@ function isUserBanned($username){
 
 function getListaElencoUtenti(){
     global $conn;
-    $sql = "SELECT id,username FROM utente";
+    $sql = "SELECT id,username,isAdmin,stato  FROM utente where username != 'admin'";
     $stmt = $conn->prepare($sql);
     //$stmt->bind_param("s", $username);
 
