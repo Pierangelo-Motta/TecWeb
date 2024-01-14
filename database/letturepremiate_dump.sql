@@ -115,7 +115,7 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
-INSERT INTO `libro` VALUES (0,'default1'),(10007,'L\'uomo che cammina'),(10010,'Il primo caffè della giornata'),(10018,'Winnie Puh');
+INSERT INTO `libro` VALUES (0,'default1'),(10000,'Questo immenso non sapere'),(10001,'Sacro minore'),(10002,'Il magnifico studio fotografico di Hirasaka'),(10003,'L\' abito di piume'),(10004,'Un buon posto in cui fermarsi'),(10005,'L\'urlo'),(10006,'Della gentilezza e del coraggio'),(10007,'L\'uomo che cammina'),(10008,'Fede e giustizia'),(10009,'Kitchen'),(10010,'Il primo caffè della giornata'),(10011,'I miei giorni alla libreria Morisaki'),(10012,'Le trecce d\'oro dei defunti'),(10013,'Il gatto striato miagola tre volte'),(10014,'Talenti non fondamentali'),(10015,'Il libro di tutte le cose'),(10016,'Geai'),(10017,'Una parola dopo l\'altra'),(10018,'Winnie Puh');
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +141,7 @@ CREATE TABLE `medagliere` (
 
 LOCK TABLES `medagliere` WRITE;
 /*!40000 ALTER TABLE `medagliere` DISABLE KEYS */;
-INSERT INTO `medagliere` VALUES (0,'Benvenuto!','Ti diamo il benvenuto nel nostro social con questo primissimo medagliere facilissimo da completare, infatti ti basterà leggere soltanto 1 libro. Vedi qui sotto per scoprire quale!'),(1,'Continua così!','Se ti è piaciuta la scorsa sfida, sicuramente amerai anche questa! Ti sfidiamo ad arricchire il medagliere di benvenuto leggendo questi nuovi 2 libri!'),(2,'debug1','debug1debug1debug1');
+INSERT INTO `medagliere` VALUES (0,'Benvenuto!','Ti diamo il benvenuto nel nostro social con questo primissimo medagliere facilissimo da completare, infatti ti basterà leggere soltanto 1 libro. Vedi qui sotto per scoprire quale!'),(1,'Continua così!','Se ti è piaciuta la scorsa sfida, sicuramente amerai anche questa! Ti sfidiamo ad arricchire il medagliere di benvenuto leggendo questi nuovi 2 libri!'),(2,'debug1','debug1debug1debug1'),(3,'Lorem ipsum dolor sit amet','risus, ornare nec diam id, sollicitudin vestibulum urna. Nam tempor accumsan ligula, vitae dictum tortor faucibus eu. Nulla nec efficitur massa, sed egestas dolor. Donec lao'),(4,'Sed ac tempus magna','Phasellus consectetur nisl vitae mi ultrices rutrum tincidunt vitae nisi. Integer imperdiet dignissim dapibus. Proin id sem semper, consectetur metus in, sodales ipsum. Maecenas malesuada at nisl sed vulputate. Integer maximus diam at eros vehicula blandit.'),(5,'Phasellus venenatis, nisi eu finibus porta, risus','Ut consectetur est eu porttitor faucibus. Donec molestie ipsum placerat orci finibus finibus. Aliquam malesuada ut tellus a egestas. Duis porttitor iaculis orci, ac consectetur sapien sagittis non. Etiam quis tempus magna. Donec venenatis mattis nulla eget faucibus. ');
 /*!40000 ALTER TABLE `medagliere` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +204,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (3,'2024-01-11 16:53:44','Esercitarsi a non sapere e a meravigliarsi','jacopo__2024_01_11__16_53_44.jpeg','Leggendo questa frase ho meditato su quanto fosse importante questo banale aspetto della vita che ci permette di essere felici con poco e che non lo si dà così per scontato',0,0,0),(3,'2024-01-11 16:54:38','al mio funerale vengano un sacco di animali, che gli umani restino a bocca aperta, spinti di qua e di là da un bel gruppetto folto di animali','jacopo__2024_01_11__16_54_38.jpeg','Questa mi è piaciuta perché vorrei che il mio funerale fosse così!',0,0,0),(3,'2024-01-11 16:57:33','Una buona pratica, preliminare a qualunque altra, è la pratica della meraviglia. La pratica della meraviglia è una pratica che cura anche il cuore più ferito della terra',NULL,'Mi è piaciuta perché vorrei imparare la pratica della meraviglia',0,0,0),(3,'2024-01-11 16:58:32',NULL,'jacopo__2024_01_11__16_58_32.jpeg','Mi è piaciuta perché così non dimentico le persone a cui volevo bene e che non sono più qui',0,0,0),(3,'2024-01-11 22:36:18','aa','jacopo__2024_01_11__22_36_18.jpeg','aa',0,0,0),(3,'2024-01-12 14:52:14','Ciò che si condivide si moltiplica','jacopo__2024_01_12__14_52_14.jpeg','Mi piace “l’intelligenza del dono”: è proprio, inspiegabilmente, così: “ciò che si condivide si moltiplica”. ',0,0,10007),(3,'2024-01-12 15:04:12','Quando ti svegli la mattina, Puh, chiese infine Porcelletto, \"qual è la prima cosa che pensi?\". \"Che cosa c\'è per colazione?\" rispose Puh. \"E tu, Porcelletto?\". \"Io penso: chissà che cosa succederà oggi di emozionante?\" risposte Porcelletto. Puh annuì con','jacopo__2024_01_12__15_04_12.jpeg','La colazione allora è veramente la cosa più importante della giornata!',0,0,10018);
+INSERT INTO `post` VALUES (3,'2024-01-11 16:53:44','Esercitarsi a non sapere e a meravigliarsi','jacopo__2024_01_11__16_53_44.jpeg','Leggendo questa frase ho meditato su quanto fosse importante questo banale aspetto della vita che ci permette di essere felici con poco e che non lo si dà così per scontato',0,0,0),(3,'2024-01-11 16:54:38','al mio funerale vengano un sacco di animali, che gli umani restino a bocca aperta, spinti di qua e di là da un bel gruppetto folto di animali','jacopo__2024_01_11__16_54_38.jpeg','Questa mi è piaciuta perché vorrei che il mio funerale fosse così!',0,0,0),(3,'2024-01-11 16:57:33','Una buona pratica, preliminare a qualunque altra, è la pratica della meraviglia. La pratica della meraviglia è una pratica che cura anche il cuore più ferito della terra',NULL,'Mi è piaciuta perché vorrei imparare la pratica della meraviglia',0,0,0),(3,'2024-01-11 16:58:32',NULL,'jacopo__2024_01_11__16_58_32.jpeg','Mi è piaciuta perché così non dimentico le persone a cui volevo bene e che non sono più qui',0,0,0),(3,'2024-01-11 22:36:18','aa','jacopo__2024_01_11__22_36_18.jpeg','aa',0,0,0),(3,'2024-01-12 14:52:14','Ciò che si condivide si moltiplica','jacopo__2024_01_12__14_52_14.jpeg','Mi piace “l’intelligenza del dono”: è proprio, inspiegabilmente, così: “ciò che si condivide si moltiplica”. ',0,0,10007),(3,'2024-01-12 15:04:12','Quando ti svegli la mattina, Puh, chiese infine Porcelletto, \"qual è la prima cosa che pensi?\". \"Che cosa c\'è per colazione?\" rispose Puh. \"E tu, Porcelletto?\". \"Io penso: chissà che cosa succederà oggi di emozionante?\" risposte Porcelletto. Puh annuì con','jacopo__2024_01_12__15_04_12.jpeg','La colazione allora è veramente la cosa più importante della giornata!',0,0,10018),(3,'2024-01-12 18:43:49','prova',NULL,'prova',0,0,0),(3,'2024-01-12 23:09:55','c',NULL,'v',0,0,0),(4,'2024-01-12 18:44:27','b',NULL,'c',0,0,0),(4,'2024-01-12 23:31:18','Bellissimo libro',NULL,'Specie perchè eh',0,0,10007);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,6 +256,7 @@ CREATE TABLE `segue` (
 
 LOCK TABLES `segue` WRITE;
 /*!40000 ALTER TABLE `segue` DISABLE KEYS */;
+INSERT INTO `segue` VALUES ('1','3'),('2','3'),('3','4');
 /*!40000 ALTER TABLE `segue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,7 +280,7 @@ CREATE TABLE `sottoscrive` (
 
 LOCK TABLES `sottoscrive` WRITE;
 /*!40000 ALTER TABLE `sottoscrive` DISABLE KEYS */;
-INSERT INTO `sottoscrive` VALUES ('3',0),('3',1),('3',2);
+INSERT INTO `sottoscrive` VALUES ('3',0),('4',0),('9',0),('3',1),('4',1),('9',1),('3',2);
 /*!40000 ALTER TABLE `sottoscrive` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,4 +371,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-14 10:41:12
+-- Dump completed on 2024-01-14 12:11:21
