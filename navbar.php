@@ -21,7 +21,7 @@ include_once("include/login.model.php");
                 <img src="images/notifyLogo.png" alt="Notifiche">
               </li>
               <li class="nav-item dropdown">
-                <img src="images/discoveryLogo.png" alt="Scopri">
+                <a href="discoveryPage.php"><img src="images/discoveryLogo.png" alt="Scopri"></a>
               </li>
               <li class="nav-item">
                 <a href="profilePage.php"><img src=<?php echo getUserImage($_SESSION["username"]); ?> alt="Immagine Profilo"> </a>

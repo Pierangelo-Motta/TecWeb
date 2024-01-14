@@ -29,7 +29,7 @@
               <a>Notifiche</a>
             </li>
             <li class="nav-item">
-              <a>Discovery</a>
+              <a href="discoveryPage.php">Discovery</a>
             </li>
             <li class="nav-item">
               <a href="profilePage.php">Profilo</a>
