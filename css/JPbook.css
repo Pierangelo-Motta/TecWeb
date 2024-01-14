@@ -119,7 +119,19 @@ article.descrizioneMedagliere img{
     margin-top: 30px;
 }
 
+
+
+
+/***********/
+
+
 p.libroLetto{
     text-decoration: line-through;
     font-style: italic;
+}
+
+ol{
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: auto;
 }

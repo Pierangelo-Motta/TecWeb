@@ -92,7 +92,8 @@ function getLibroEAutoreByMedagliereId($medID){
             WHERE C.medagliereId = ?
             and C.libroId = L.id
             and L.id = S.libroId
-            and S.autoreId = A.id;";
+            and S.autoreId = A.id
+            ORDER by  A.nome, L.titolo;";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $medID);

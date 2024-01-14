@@ -11,11 +11,51 @@ require_once('include/insertOnDB.php'); //per gestire la query di INSERT INTO
 require("include/selectors.php");
 require_once("include/formattators.php");
 
+
+
 $basicAmount = 10;
 $amountLoading = isset($_POST["amountLoad"]) ? $_POST["amountLoad"] : 0;
 $amountForLoad = 5;
 $toLoad = $basicAmount + ($amountLoading * $amountForLoad);
 
+function getCorrectImg($amountLeastBooks){
+    $imgName = "";
+    $altImg = "";
+    $limits = array(5,15);
+    $category = 0;
+    while ($amountLeastBooks > 0 && $category < sizeof($limits)){
+        $delta = $limits[$category];
+        if ($category > 0) {
+            $delta = $delta - $limits[$category-1];
+        }
+        $amountLeastBooks = $amountLeastBooks - $delta;
+
+        if ($amountLeastBooks > 0) {
+            $category = $category + 1;
+        }
+    }
+    //magari implementare ricerca binaria?
+    switch ($category){
+        case 0:
+            $imgName = "medagliaFacile.png";
+            $altImg = "Ce l'hai quasi fatta!";
+            break;
+        case 1:
+            $imgName = "medagliaMedia.png";
+            $altImg = "Non manca troppo dai...";
+            break;
+        case 2:
+            $imgName = "medagliaDifficile.png";
+            $altImg = "Meglio se guardi altrove!";
+            break;
+        default:
+            $imgName = "err.png";
+            $altImg = "err.png";
+            break;
+    }
+    return array($imgName, $altImg);
+    
+}
 
 function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
 
@@ -34,13 +74,15 @@ function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
     // echo "<br>";
     // echo print_r($medBookIndex);
     // echo "<br>";
-    $canReclame = empty(array_diff($medBookIndex, $libriLetti));
+    $remainsBook = array_diff($medBookIndex, $libriLetti);
+    $canReclame = empty($remainsBook);
     //echo $medToPrint[$indexToConsider];
     //print_r($libriInMedagliere);
 
     $titleMed = $infos["titolo"];
     
     $descMed = $infos["descrizione"];
+
     // print_r($libriInMedagliere);
     $books = obtainList($libriInMedagliere, $who);
 
@@ -50,8 +92,10 @@ function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
     }
     $buttonValue = $infos["id"];
 
-    $imgToAdd = "medagliaFacile.png";
-    $altImg = "Manca poco!";
+    $decorativeInfos = getCorrectImg(sizeof($remainsBook));
+    // print_r($decorativeInfos);
+    $imgToAdd = $decorativeInfos[0];
+    $altImg = $decorativeInfos[1];
 
     $complete = "<div class=\"card medContainer\">" .
                     "<div class=\"card-body\" id=\"" . $toAdd . "\">" .
@@ -60,7 +104,7 @@ function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
                             "<div class=\"titlecontainer\" id=\"titlecontainer" . $toAdd . "\">" . 
                             
                             "<img " .
-                                "src=\"images/" . $imgToAdd . "\" " .
+                                "src=\"images/medagliereNewIcons/" . $imgToAdd . "\" " .
                                 "alt=\"" . $altImg . "\" " .
                                 "class=\"rounded float-left imgmedagliere\" " .
                                 "id=\"imgmedagliere" . $toAdd . "\" " .
@@ -93,6 +137,7 @@ function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
 
 
 $userIdToConsider = $_SESSION["id"];
+// echo $userIdToConsider;
 $libriLetti = getLibriLettiDaUserId($userIdToConsider);
 //print_r($libriLetti);
 // $challengedMeds = getMedsChallengedByUserId($userIdToConsider);
@@ -104,6 +149,29 @@ $medToPrint = getMedThatUserNotChallenge($userIdToConsider);
 //createOneMed();
 // print_r($medToPrint);
 
+$_POST["amount"] = $toLoad;
+// print_r($_POST);
+
+if(isset($_POST["submitButton"])) {
+    $startURL = $_SERVER['REQUEST_URI'];
+    $substr = "#Med";
+    $link = "";
+    if(str_contains($startURL, $substr)){
+        $link = substr($startURL, 0, sizeof($startURL)-5);
+    } else {
+        $link = $startURL;
+    }
+    if(sizeof($medToPrint)!=1){
+        $actIndex = array_search($_POST["submitButton"], $medToPrint);
+        if ($actIndex == (sizeof($medToPrint)-1)){
+            $actIndex = $actIndex-1;
+        }
+        $link .= $substr . $actIndex;
+    }
+    subscribeUserToMed($userIdToConsider, $_POST["submitButton"]);
+    header("Location: " . $link);
+}
+//TODO si dovrebbe gestire il max di post da caricare, e il bottone di incremento
 
 ?>
 
@@ -140,9 +208,14 @@ $medToPrint = getMedThatUserNotChallenge($userIdToConsider);
 
             <?php
             $upperbound = min(array($toLoad, sizeof($medToPrint))); 
-            for ($i=0; $i < $upperbound; $i++) { 
-                echo createOneMed($medToPrint, $i, $libriLetti, $userIdToConsider);
-            } ?>
+            if($upperbound > 0){
+                for ($i=0; $i < $upperbound; $i++) { 
+                    echo createOneMed($medToPrint, $i, $libriLetti, $userIdToConsider);
+                }
+            } else {
+                echo "<h3> Niente di nuovo qui, torna la prossima volta! </h3>";
+            }
+             ?>
 
         
         </form> 
@@ -162,7 +235,7 @@ $medToPrint = getMedThatUserNotChallenge($userIdToConsider);
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
     </script>
-
+    <script src="javascript/newMedagliereAnimations.js"></script>
 </body>
 
 </html>

@@ -181,5 +181,23 @@ function destroyFollow($userIDFrom, $userIDTo) {
     manageFollow($userIDFrom, $userIDTo, $sql);
 }
 
+function subscribeUserToMed($userID, $medID){
+    global $conn;
+
+    $sql = "INSERT INTO sottoscrive(utenteId, medagliereId) VALUES (?,?);";
+
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "ii", $userID, $medID);
+
+        if (mysqli_stmt_execute($stmt)) {
+            // echo "<p>Nuovo utente registrato correttamente</>";
+            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+        } else {
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+}
 
 ?>
