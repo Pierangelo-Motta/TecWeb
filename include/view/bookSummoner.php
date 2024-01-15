@@ -16,7 +16,7 @@ function createFacciataAnteriore(){
     // <!-- <h3>2023.<br>Second edition</h3> -->
     // </div>
     $begin = "<div id='copertinaAvanti' class='front'>";
-    $middle = "<h1>Il medagliere di " . $nomeUtente . "</h1>"; //TODO c'è modo di risalire al nome dell'utente conoscendo l'id?
+    $middle = "<h1>Il medagliere di \"" . $nomeUtente . "\"</h1>"; //TODO c'è modo di risalire al nome dell'utente conoscendo l'id?
     $end = "</div>";
     return $begin . $middle . $end;
 }

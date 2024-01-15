@@ -83,7 +83,7 @@ class PostAdder {
 
     showAccessibilityMessage(){
         // console.log(this.isSetPhoto + " " + this.isSetText);
-        this.accMess.style.display = this.isSetPhoto && (!this.isSetText) ? "block" : "none";
+        this.accMess.style.display = this.isSetPhoto && (!this.isSetText) ? "block" : "block";
     }
 
     textAreaChangeEventCommon(){

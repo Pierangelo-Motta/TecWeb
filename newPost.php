@@ -130,7 +130,7 @@ if (isset($_POST["sB"])){
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
-    <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp2.css">
+    <link rel="stylesheet" type="text/css" href="css/JPNewPost.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   
 
@@ -149,13 +149,11 @@ if (isset($_POST["sB"])){
 
                         <label for="nomeLibroId">Nome libro: </label>
                         <input type="text" 
+                            class="form-control"
                             id="nomeLibroId" 
                             name="<?php echo $nomeLibroName ?>"
                             value="<?php echo $nomeLibroNameValue ?>"
                             />
-                        <br/>
-                        <!-- name=<?php echo "'".$nomeLibroName."'"?>
-                            value="<?php echo "'".$nomeLibroNameValue."'"?>" > -->
 
                         <label for="citazioneTextId"></label>
                         <textarea class="form-control" 
@@ -201,6 +199,7 @@ if (isset($_POST["sB"])){
                             <input type="file" id="imgPrevInput" name="imgPrevInputName" accept="image/png, image/jpeg" />
                         </div>
                         <div id="imgPrevMods">
+                            <small class="form-text text-muted">Premi sulla foto per cambiarla.</small>
                             <button type="button" id="imgRem">delete</button>
                         </div>
                     </div>
@@ -209,15 +208,15 @@ if (isset($_POST["sB"])){
             </form>
 
             <footer>
-                <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href="#">Per più informazioni</a></p>
+                <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href=<?php echo "\"" . $linkForMoreInfos . "\"" ?>> Per più informazioni</a></p>
 
                 <button class="btn btn-secondary" 
                     form="newPostForm" 
                     type="submit" 
                     id="retBut"
                     name="sB"
-                    value="0">Indietro</button>
-                <button class="btn btn-secondary" 
+                    value="0">Indietro
+                </button><button class="btn btn-secondary" 
                     form="newPostForm" 
                     type="submit" 
                     id="shareButton"

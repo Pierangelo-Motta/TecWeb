@@ -21,9 +21,9 @@ function getValue(keyName) {
     return tmp;
 }
 
-function setValue(keyName, newValue){
-    values = values.set(keyName, newValue);
-}
+//function setValue(keyName, newValue){
+    //values = values.set(keyName, newValue);
+//}
 
  
 
