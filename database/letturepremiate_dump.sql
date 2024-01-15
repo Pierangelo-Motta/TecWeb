@@ -106,7 +106,7 @@ CREATE TABLE `libro` (
   `titolo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ID_LIBRO_IND` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
-INSERT INTO `libro` VALUES (0,'default1'),(1,'Questo immenso non sapere'),(2,'Sacro minore'),(3,'L\' abito di piume'),(4,'Un buon posto in cui fermarsi'),(5,'L\'urlo'),(6,'Della gentilezza e del coraggio'),(7,'L\'uomo che cammina'),(8,'Fede e giustizia'),(9,'Kitchen'),(10,'Il primo caffè della giornata'),(11,'I miei giorni alla libreria Morisaki'),(12,'Le trecce d\'oro dei defunti'),(13,'Il gatto striato miagola tre volte'),(14,'Talenti non fondamentali'),(15,'Il libro di tutte le cose'),(16,'Geai'),(17,'Una parola dopo l\'altra'),(18,'Winnie Puh'),(19,'Il magnifico studio fotografico di Hirasaka');
+INSERT INTO `libro` VALUES (0,'defa'),(1,'Questo immenso non sapere'),(2,'Sacro minore'),(3,'L\' abito di piume'),(4,'Un buon posto in cui fermarsi'),(5,'L\'urlo'),(6,'Della gentilezza e del coraggio'),(7,'L\'uomo che cammina'),(8,'Fede e giustizia'),(9,'Kitchen'),(10,'Il primo caffè della giornata'),(11,'I miei giorni alla libreria Morisaki'),(12,'Le trecce d\'oro dei defunti'),(13,'Il gatto striato miagola tre volte'),(14,'Talenti non fondamentali'),(15,'Il libro di tutte le cose'),(16,'Geai'),(17,'Una parola dopo l\'altra'),(18,'Winnie Pooh'),(19,'Il magnifico studio fotografico di Hirasaka'),(22,'Libro');
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,11 +157,13 @@ CREATE TABLE `notifica` (
   `dataOra` datetime NOT NULL,
   `descrizione` varchar(255) NOT NULL,
   `tipo` char(1) NOT NULL,
-  `utenteId` char(1) NOT NULL,
-  `utenteIdPost` char(1) DEFAULT NULL,
+  `utenteId` int(8) NOT NULL,
+  `utenteIdPost` int(1) DEFAULT NULL,
   `dataOraPost` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ID_NOTIFICA_IND` (`id`),
+  UNIQUE KEY `dataOra` (`dataOra`,`descrizione`),
+  UNIQUE KEY `dataOra_2` (`dataOra`,`descrizione`),
   KEY `REF_NOTIF_UTENT_IND` (`utenteId`),
   KEY `REF_NOTIF_POST_IND` (`utenteIdPost`,`dataOraPost`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -373,4 +375,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-15 22:43:15
+-- Dump completed on 2024-01-15 23:41:09
