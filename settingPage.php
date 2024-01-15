@@ -46,7 +46,7 @@ header("Location: index.html");
                     <li><a href="#" class='profile'>Cambia immagine del profilo</a></li>
                     <?php if (isUserAdmin($_SESSION['username'])) {?>
                     <li><a href="gestioneLibri.php" class='book'>Gestione Libri</a></li>
-                    <li><a href="#" class='goal'>Gestione Medagliere</a></li>
+                    <li><a href="gestioneMedaglieri.php" class='goal'>Gestione Medagliere</a></li>
                     <li><a href="#" class='delete'>Elimina account</a></li>
                     <li><a href="#" class='manage'>Gestisci Utenti</a></li>
                     <?php } ?>
@@ -89,12 +89,11 @@ header("Location: index.html");
             </div>
 
             <!-- Content for "Gestisci Medagliere" -->
-            <div id="goalContent" style="display: none;" class="col-md-12 text-center content">
-                <!-- Content for goals -->
-                <strong>Gestione Medagliere</strong>
-                <?php include('include/MedagliereManagement.php'); ?>
-
-            </div>
+            <!-- <div id="goalContent" style="display: none;" class="col-md-12 text-center content"> -->
+            <!-- Content for goals -->
+            <!-- <strong>Gestione Medagliere</strong> -->
+            <!-- <?php //include('include/MedagliereManagement.php'); ?> -->
+            <!-- </div> -->
 
             <!-- Content for "Elimina account" -->
             <div id="deleteContent" style="display: none;" class="col-md-12 text-center content">
