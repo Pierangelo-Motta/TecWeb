@@ -16,6 +16,8 @@ body footer button#retBut{
 
 body section div div.medContainer{
     margin: 5% 0;
+    min-height: 300px;
+    max-height: 500px;
     /* padding: 5% 0; */
 }
 
@@ -27,12 +29,12 @@ body section div div.medContainer div footer button{
 }
 
 div.infocontainer{
-    min-height: 300px;
-    max-height: 300px;
-    width: 80%;
-    max-width: 700px;
+    min-height: 250px;
+    max-height: 450px;
+    width: auto;
+    /* max-width: 800px; */
     /* overflow-y: scroll; */
-    margin-left: 5%;
+    margin: 0 5%;
 }
 
 img.imgmedagliere{
@@ -52,6 +54,7 @@ p.libroLetto{
 }
 
 ol{
+    width: 90%;
     min-height: 200px;
     max-height: 200px;
     overflow-y: auto;

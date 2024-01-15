@@ -83,7 +83,7 @@ const flipBook = (elBook) => {
     let res = getValue(myVar);
     //console.log("AAA: " + res);
     if(res === undefined){
-        saveValue(myVar, 2, true, "");
+        saveValue(myVar, 0, true, "");
         // console.log(obtainNewQuery());
         window.location.reload();
         // res = getValue(myVar);
