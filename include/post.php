@@ -8,27 +8,40 @@ class Post {
         $this->conn = $conn;
     }
 
-    public function getPost($user_id = null) {
+    public function getPost($user_id = null, $following = false) {
         if (!$this->conn) {
             die("Database connection not established.");
         }
 
-        if ($user_id === null){
+        if ($following) {
             $query = "SELECT u.immagineProfilo, u.username, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo
                       FROM post p
                       INNER JOIN utente u ON p.utenteId = u.id
                       INNER JOIN libro l ON p.libroId = l.id
-                      ORDER BY p.dataOra DESC";
-            $stmt = $this->conn->prepare($query);
-        } else {
-            $query = "SELECT u.immagineProfilo, u.username, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo
-                      FROM post p
-                      INNER JOIN utente u ON p.utenteId = u.id
-                      INNER JOIN libro l ON p.libroId = l.id
-                      WHERE p.utenteId = ?
+                      INNER JOIN segue s ON p.utenteId = s.seguitoId
+                      WHERE s.seguenteId = ?
                       ORDER BY p.dataOra DESC";
             $stmt = $this->conn->prepare($query);
             $stmt->bind_param("i", $user_id);
+        } else {
+            if ($user_id === null){
+                $query = "SELECT u.immagineProfilo, u.username, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo
+                          FROM post p
+                          INNER JOIN utente u ON p.utenteId = u.id
+                          INNER JOIN libro l ON p.libroId = l.id
+                          WHERE p.utenteId != " . $_SESSION["id"] . "
+                          ORDER BY p.dataOra DESC";
+                $stmt = $this->conn->prepare($query);
+            } else {
+                $query = "SELECT u.immagineProfilo, u.username, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo
+                          FROM post p
+                          INNER JOIN utente u ON p.utenteId = u.id
+                          INNER JOIN libro l ON p.libroId = l.id
+                          WHERE p.utenteId = ?
+                          ORDER BY p.dataOra DESC";
+                $stmt = $this->conn->prepare($query);
+                $stmt->bind_param("i", $user_id);
+            }
         }
 
         if (!$stmt->execute()) {
@@ -81,9 +94,26 @@ function getPostImage($username, $imageName) {
     }
 }
 
+function getFollowingUsers($user_id, $conn) {
+    $query = "SELECT seguenteId FROM segue WHERE seguitoId = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $user_id);
+
+    if (!$stmt->execute()) {
+        die("Errore nella query: " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+    $following_users = $result->fetch_all(MYSQLI_ASSOC);
+
+    $stmt->close();
+
+    return $following_users;
+}
+
 $post = new Post($conn);
 
-$user_id_to_fetch = ($_SESSION['loggedin'] === true) ? $_SESSION['id'] : null;
+$following_users = getFollowingUsers($_SESSION['id'], $conn);
 
-$posts = $post->getPost($user_id_to_fetch);
+$posts_following = $post->getPost($_SESSION['id'], true);
 ?>
