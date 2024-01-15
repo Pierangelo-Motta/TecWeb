@@ -115,7 +115,7 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
-INSERT INTO `libro` VALUES (0,'defa'),(1,'Questo immenso non sapere'),(2,'Sacro minore'),(3,'L\' abito di piume'),(4,'Un buon posto in cui fermarsi'),(5,'L\'urlo'),(6,'Della gentilezza e del coraggio'),(7,'L\'uomo che cammina'),(8,'Fede e giustizia'),(9,'Kitchen'),(10,'Il primo caffè della giornata'),(11,'I miei giorni alla libreria Morisaki'),(12,'Le trecce d\'oro dei defunti'),(13,'Il gatto striato miagola tre volte'),(14,'Talenti non fondamentali'),(15,'Il libro di tutte le cose'),(16,'Geai'),(17,'Una parola dopo l\'altra'),(18,'Winnie Pooh'),(19,'Il magnifico studio fotografico di Hirasaka'),(22,'Libro');
+INSERT INTO `libro` VALUES (0,'default'),(1,'Questo immenso non sapere'),(2,'Sacro minore'),(3,'L\\\' abito di piume'),(4,'Un buon posto in cui fermarsi'),(5,'L\'urlo'),(6,'Della gentilezza e del coraggio'),(7,'L\'uomo che cammina'),(8,'Fede e giustizia'),(9,'Kitchen'),(10,'Il primo caffè della giornata'),(11,'I miei giorni alla libreria Morisaki'),(12,'Le trecce d\'oro dei defunti'),(13,'Il gatto striato miagola tre volte'),(14,'Talenti non fondamentali'),(15,'Il libro di tutte le cose'),(16,'Geai'),(17,'Una parola dopo l\'altra'),(18,'Winnie Pooh'),(19,'Il magnifico studio fotografico di Hirasaka'),(22,'Libro');
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,8 +128,8 @@ DROP TABLE IF EXISTS `medagliere`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `medagliere` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
-  `titolo` varchar(255) NOT NULL,
-  `descrizione` varchar(1023) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Un nuovo medagliere ti aspetta!',
+  `titolo` varchar(50) NOT NULL,
+  `descrizione` varchar(800) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Un nuovo medagliere ti aspetta!',
   PRIMARY KEY (`id`),
   UNIQUE KEY `ID_MEDAGLIERE_IND` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -141,7 +141,7 @@ CREATE TABLE `medagliere` (
 
 LOCK TABLES `medagliere` WRITE;
 /*!40000 ALTER TABLE `medagliere` DISABLE KEYS */;
-INSERT INTO `medagliere` VALUES (0,'Benvenuto!','Ti diamo il benvenuto nel nostro social con questo primissimo medagliere facilissimo da completare, infatti ti basterà leggere soltanto 1 libro. Vedi qui sotto per scoprire quale!'),(1,'Continua così!','Se ti è piaciuta la scorsa sfida, sicuramente amerai anche questa! Ti sfidiamo ad arricchire il medagliere di benvenuto leggendo questi nuovi 2 libri!'),(2,'debug1','debug1debug1debug1'),(3,'Lorem ipsum dolor sit amet','risus, ornare nec diam id, sollicitudin vestibulum urna. Nam tempor accumsan ligula, vitae dictum tortor faucibus eu. Nulla nec efficitur massa, sed egestas dolor. Donec lao'),(4,'Sed ac tempus magna','Phasellus consectetur nisl vitae mi ultrices rutrum tincidunt vitae nisi. Integer imperdiet dignissim dapibus. Proin id sem semper, consectetur metus in, sodales ipsum. Maecenas malesuada at nisl sed vulputate. Integer maximus diam at eros vehicula blandit.'),(5,'Phasellus venenatis, nisi eu finibus porta, risus','Ut consectetur est eu porttitor faucibus. Donec molestie ipsum placerat orci finibus finibus. Aliquam malesuada ut tellus a egestas. Duis porttitor iaculis orci, ac consectetur sapien sagittis non. Etiam quis tempus magna. Donec venenatis mattis nulla eget faucibus. '),(6,'Massimizzazione d e l _ t e s t o','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta, justo non ullamcorper sagittis, ipsum nibh pellentesque nibh, a facilisis velit est at mi. Fusce sagittis nibh elit, vel scelerisque mauris consequat sit amet. Integer sodales erat non felis finibus volutpat. Praesent ut odio vel sapien faucibus laoreet. Maecenas a arcu fermentum, tincidunt ipsum vel, posuere magna. Nam tristique egestas nunc ac facilisis. Praesent nec justo bibendum, consequat urna porttitor, sodales sem. Sed metus ligula, blandit vitae eleifend id, bibendum quis lorem. Morbi maximus magna in libero ornare, a volutpat nisi maximus. Sed convallis, ante vitae elementum convallis, quam elit malesuada dui, at varius diam elit ut risus. Ut sit amet mauris ut massa lacinia molestie nec at dui. Duis quis aliquam neque, at fringilla elit. Vestibulum hendrerit felis eget elit vehicula condimentum eget et urna. Cras non fermentum metus. Aenean tristique diam et ligula dignissim venenatisLorem issss non fer  non fer  non fer');
+INSERT INTO `medagliere` VALUES (0,'Benvenuto!','Ti diamo il benvenuto nel nostro social con questo primissimo medagliere facilissimo da completare, infatti ti basterà leggere soltanto 1 libro. Vedi qui sotto per scoprire quale!'),(1,'Continua così!','Se ti è piaciuta la scorsa sfida, sicuramente amerai anche questa! Ti sfidiamo ad arricchire il medagliere di benvenuto leggendo questi nuovi 2 libri!'),(2,'debug1','debug1debug1debug1'),(3,'Lorem ipsum dolor sit amet','risus, ornare nec diam id, sollicitudin vestibulum urna. Nam tempor accumsan ligula, vitae dictum tortor faucibus eu. Nulla nec efficitur massa, sed egestas dolor. Donec lao'),(4,'Sed ac tempus magna','Phasellus consectetur nisl vitae mi ultrices rutrum tincidunt vitae nisi. Integer imperdiet dignissim dapibus. Proin id sem semper, consectetur metus in, sodales ipsum. Maecenas malesuada at nisl sed vulputate. Integer maximus diam at eros vehicula blandit.'),(5,'Phasellus venenatis, nisi eu finibus porta, risus',''),(6,'Massimizzazione d e l _ t e s t o','Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
 /*!40000 ALTER TABLE `medagliere` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +258,7 @@ CREATE TABLE `segue` (
 
 LOCK TABLES `segue` WRITE;
 /*!40000 ALTER TABLE `segue` DISABLE KEYS */;
-INSERT INTO `segue` VALUES (1,3),(2,3),(3,1),(3,4),(3,12),(8,3),(8,12);
+INSERT INTO `segue` VALUES (1,3),(2,3),(3,1),(3,4),(3,12),(4,3),(8,3),(8,12);
 /*!40000 ALTER TABLE `segue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -375,4 +375,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-15 23:41:09
+-- Dump completed on 2024-01-16  0:07:07
