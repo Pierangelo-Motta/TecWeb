@@ -8,7 +8,7 @@ require("include/view/bookSummoner.php");
 <section id="userGoal">
     <!-- <div class="col-1">  </div> -->
 
-    <div class="col-12 book">
+    <div class="book">
         <?php echo createBook($medIndex, $amountComplete); ?>
     </div>
 

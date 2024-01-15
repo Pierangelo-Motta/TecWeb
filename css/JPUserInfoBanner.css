@@ -30,6 +30,7 @@ body main div div div div > div{
     border: 1px black solid;
 } */
 
+
 body section#userDescription{
     padding: 2%;
 }
@@ -49,10 +50,21 @@ main img{
 
 div#mainInfos img{
     box-shadow: -15px 15px 16px -16px #0a65d56a;
-    /* background-color: #000000; */
-    /* border: 1px black solid; */
 }
 
 body main{
-    margin: 15px 0;
+    margin: 25px 0;
+}
+
+@media only screen and (max-width: 768px) {
+    body main {
+        margin: 75px 0 25px;
+    }
+    
+    /* body main div form div#newPostForm_pt2 p{
+        margin-top: 50px;
+        border-top: 1px rgb(204, 204, 204) solid;
+        padding-top: 20px;
+        text-align: center;
+    } */
 }

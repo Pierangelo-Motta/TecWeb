@@ -1,3 +1,5 @@
+
+
 const music = new Audio('audio/sfoglia.mp3');
 music.playbackRate=4;
 // const music2 = new Audio();
@@ -14,8 +16,6 @@ const mapValues = new Map();
 function create() {
     let allGets = window.location.search.substring(1);
     let gets = allGets.split("&");
-    // fore
-    //this. 
     
     gets.forEach(elem => {
         let row = elem.split("=");
@@ -47,7 +47,7 @@ function obtainNewQuery(){
     return q.substring(0, q.length-1);
 }
 
-function saveValue(keyName, newValue, mustSaveOnHistory = false){
+function saveValue(keyName, newValue, mustSaveOnHistory = false, tagToPin = ""){
     // let res = mapValues.get(keyName);
     //console.log(keyName + " " + newValue);
     setValue(keyName,newValue);
@@ -57,7 +57,7 @@ function saveValue(keyName, newValue, mustSaveOnHistory = false){
 
     let askPointIndex = tmp.indexOf("\?");
     let okURL = tmp.substring(0, askPointIndex);
-    let newURL = okURL + obtainNewQuery();
+    let newURL = okURL + obtainNewQuery() + tagToPin;
     //console.log("N " + newURL);
     
     if(mustSaveOnHistory){
@@ -83,7 +83,7 @@ const flipBook = (elBook) => {
     let res = getValue(myVar);
     //console.log("AAA: " + res);
     if(res === undefined){
-        saveValue(myVar,0, true);
+        saveValue(myVar, 0, true, "");
         // console.log(obtainNewQuery());
         window.location.reload();
         // res = getValue(myVar);
@@ -101,11 +101,11 @@ const flipBook = (elBook) => {
             setTimeout(() => {    
                 //console.log(evt);
                 
-                saveValue(myVar,curr, true);
+                saveValue(myVar, curr, true, "#userGoal");
                 //let res = getValue(myVar);
                 
 
-            } , 1250); //TODO :modo becero, ma funziona
+            } , 1250); //TODO : modo becero, ma funziona
 
             
         });

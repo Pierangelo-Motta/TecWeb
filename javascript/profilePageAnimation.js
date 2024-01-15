@@ -51,8 +51,21 @@ class Swapper{
             this.adaptPortalByGoalToPost(this.portalImg, this.portalAbbr);
         }
         
+        this.addSomethingToMyAccount = document.getElementById("addSomethingToMyAccount");
 
+        if(this.addSomethingToMyAccount !== null){
+            this.addSomethingToMyAccount.addEventListener("click", () => this.redirectTo());
+        }
         
+    }
+
+    redirectTo(){
+        let pageMod = getValue("mode");
+        if(pageMod == "post"){
+            window.location = "newPost.php";
+        } else {
+            window.location = "newMedagliere.php";
+        }
     }
 
     adaptPortal(portalImg, abbrPortalImg, link, altText, otherImg){

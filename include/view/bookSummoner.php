@@ -6,7 +6,7 @@ $nomeUtente = tmpGetUsernameById($_GET["id"]);
 
 function createStrangeFront(){
     $begin = "<div class='front'>";
-    $middle = "<h3> Aggiungi nuovi medaglieri al tuo libro!</h1>"; //TODO : ancorare la pagina di sottomissione a un nuovo medagliere?
+    $middle = "<h3> Aggiungi nuovi medaglieri al tuo libro! </h3>"; //TODO : ancorare la pagina di sottomissione a un nuovo medagliere?
     $end = "</div>";
     return $begin . $middle . $end;
 }
@@ -32,7 +32,7 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
 
     $nomeUtente = tmpGetUsernameById($_GET["id"]);
 
-    $begin = "<div class=" . $faceType . ">";
+    $begin = "<div class=\"" . $faceType . "\">";
 
     $medInfos = getMedagliereInfo($medIndex[$exactIndex])[0];
     
@@ -48,25 +48,31 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
 
     // print_r($medInfos);
 
+    $medTitleClass = "medTitle";
+
     $middle1 = "<article class='titoloMedagliere'>" 
+                .
+                "<h2 class=\"" . $medTitleClass . "\">" . $medInfos["titolo"] . "</h2>"
                 .
                 $imgToConsider
                 .
-                "<h2>" . $medInfos["titolo"] . "</h2>"
-                .
                 "</article>";
 
-    $middle2 = "<article class='descrizioneMedagliere'> <p>" . $medInfos["descrizione"] . "</p> </article>"; //$medInfos["descrizione"]
+    $medDescClass = "descrizioneMedagliere";
+    $middle2 = "<article class=\"" . $medDescClass . "\"> <p>" . $medInfos["descrizione"] . "</p> </article>"; //$medInfos["descrizione"]
 
     $listBooks = obtainList($libriInMedagliere, $_GET["id"]);
 
 
-    $textToConsider = "";
+    $preamboloElencoLibriClass = "preambleElencoLibri";
+    $textToConsider = "<p class=\"" . $preamboloElencoLibriClass . "\">";
+    
     if ($isComplete){
-        $textToConsider = "<p>Hai completato questo medagliere! Significa che hai letto:</p>";
+        $textToConsider .= "Hai completato questo medagliere! Significa che hai letto:</p>";
     } else {
-        $textToConsider = "<p>Per completare questo medagliere serve:</p>";
+        $textToConsider .= "Per completare questo medagliere serve:</p>";
     }
+
     $middle3 = "<article class='libriNecessari'>"
                 .
                 $textToConsider
@@ -85,12 +91,78 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
     return $begin . $middle . $end;
 }
 
+
+function createFacciata1($faceType, $medIndex, $exactIndex, $isComplete){
+
+    $nomeUtente = tmpGetUsernameById($_GET["id"]);
+
+    $begin = "<div class=\"" . $faceType . "\">";
+
+    $medInfos = getMedagliereInfo($medIndex[$exactIndex])[0];
+    
+    $libriInMedagliere = getLibroEAutoreByMedagliereId($medIndex[$exactIndex]);
+    // print_r($libriInMedagliere);
+
+    $imgToConsider = "";
+    if ($isComplete){
+        $imgToConsider = "<img class='imgObtainedMed' src='images/medagliaOttenuta.png' alt='" . $nomeUtente ." ha ottenuto questa medaglia!' />" ;
+    } else {
+        $imgToConsider = "<img class='imgObtainedMed' src='images/medagliaNonOttenuta.png' alt='" . $nomeUtente . " sta leggendo ancora per questa medaglia!' />";
+    }
+
+    // print_r($medInfos);
+
+    $medTitleClass = "medTitle";
+
+    $middle1 = "<article class='titoloMedagliere'>" 
+                .
+                "<h2 class=\"" . $medTitleClass . "\">" . $medInfos["titolo"] . "</h2>"
+                .
+                $imgToConsider
+                ;
+                // .
+                // "</article>";
+
+    $medDescClass = "descrizioneMedagliere";
+    $middle2 = "<p class=\"" . $medDescClass . "\"> " . $medInfos["descrizione"] . "</p> </article>"; //$medInfos["descrizione"]
+
+    $listBooks = obtainList($libriInMedagliere, $_GET["id"]);
+
+
+    $preamboloElencoLibriClass = "preambleElencoLibri";
+    $textToConsider = "<p class=\"" . $preamboloElencoLibriClass . "\">";
+    
+    if ($isComplete){
+        $textToConsider .= "Hai completato questo medagliere! Significa che hai letto:</p>";
+    } else {
+        $textToConsider .= "Per completare questo medagliere serve:</p>";
+    }
+
+    $middle3 = "<article class='libriNecessari'>"
+                .
+                $textToConsider
+                .
+                "<ol>"
+                .
+                $listBooks
+                .
+                "</ol> </article>";
+    
+    
+    $end = "</div>";
+
+    $middle = $middle1 . $middle2 . $middle3;
+
+    return $begin . $middle . $end;
+}
+
+
 function createBack($medIndex, $exactIndex, $isComplete){
-    return createFacciata("back facciata", $medIndex, $exactIndex, $isComplete);
+    return createFacciata1("back facciata", $medIndex, $exactIndex, $isComplete);
 }
 
 function createFront($medIndex, $exactIndex, $isComplete){
-    return createFacciata("front facciata", $medIndex, $exactIndex, $isComplete);
+    return createFacciata1("front facciata", $medIndex, $exactIndex, $isComplete);
 }
 
 
@@ -115,13 +187,13 @@ function createBook($medIndex, $amountComplete){
             
             case 0:
                 $middle1 = createFacciataAnteriore();
-                $middle2 = createFacciata("back", $medIndex, 0, (0 < $amountComplete));
+                $middle2 = createFacciata1("back facciata", $medIndex, 0, (0 < $amountComplete));
                 break;
             
             case ($amountPages):
                 // echo "index-- " . $i;
                 if((sizeof($medIndex) % 2) === 0){
-                    $middle1 = createFacciata("front", $medIndex, (($i*2)-1), (($i*2)-1 < $amountComplete));
+                    $middle1 = createFacciata1("front facciata", $medIndex, (($i*2)-1), (($i*2)-1 < $amountComplete));
                 } else {
                     $middle1 = createStrangeFront();
                 }

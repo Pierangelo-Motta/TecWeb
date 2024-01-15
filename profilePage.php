@@ -12,8 +12,8 @@ if (!($_SESSION['loggedin'] === true)) {
     header("Location: index.html");
 }
 
+$visitPost = true;
 
-$visitPost=true;
 $modes = array("post", "goal");
 
 //$modified = 0;
@@ -46,10 +46,11 @@ if (strcmp($_GET["mode"],"post") == 0){
 
 $userIdvisited = $_GET["id"];
 
-////////per popolare il medagliere
+
 $tmpKey = tmpGetUsernameById($userIdvisited);
 $userDescription = getUserDescription($tmpKey);
 
+////////per popolare il medagliere
 $allMeds = getAllMedOfUserId($userIdvisited);
 $completeMeds = getMedCompletatiByUserId($userIdvisited);
 $notCompleteMeds = array_diff($allMeds, $completeMeds);
@@ -82,22 +83,28 @@ $initB = "";
 $middle = "";
 $endB = "";
 $tmp = array();
+
 if($isMyProfilePage) {
 
     $classType="btn btn-primary";
     $buttonType = "button";
+    $buttonId = "addSomethingToMyAccount";
     $redirectTo = "";
 
     if ($visitPost){
-        $redirectTo = "newPost.php";
+        $redirectTo = "#";
     } else {
-        $redirectTo = "newMedagliere.php";
+        $redirectTo = "#";
     }
 
 
-    $initB = "<a href=\"" . $redirectTo . "\">";
+    //$initB = "<a href=\"" . $redirectTo . "\">";
+    $initB = "";
 
-    $middle1 = "<button class=\"" . $classType . "\" type=\"" . $buttonType . "\">";
+    $middle1 = "<button class=\"" . $classType 
+                . "\" type=\"" . $buttonType 
+                . "\" id=\"" . $buttonId 
+                . "\">";
     $middle2 = "";
 
     if ($visitPost){
@@ -108,7 +115,8 @@ if($isMyProfilePage) {
     
     $middle = $middle1 . $middle2;
 
-    $endB = "</button></a>";
+    $endB = "</button>";
+    //$endB = "</button></a>";
 
 } else {
 
@@ -126,7 +134,7 @@ if($isMyProfilePage) {
 
 
 
-    $initB = "<form action=\"\" method=\"post\"><button ";
+    $initB = "<form action=\"#\" method=\"post\"><button ";
 
     $middle1 = "class=\"" . $classType
                 . "\" type=\"" . $buttonType
@@ -136,6 +144,7 @@ if($isMyProfilePage) {
                 . "\">";
 
     $middle2 = "";
+
     if ($imFollowU){
         $middle2 = $followed;
     } else {
@@ -143,7 +152,7 @@ if($isMyProfilePage) {
     }
     $middle = $middle1 . $middle2;
 
-    $endB = "</form></button>";
+    $endB = "</button></form>";
     
     if (isset($_POST[$nameButton])) {
         // echo $_SESSION["id"] . " " . $userIdvisited;
@@ -168,6 +177,7 @@ $addButt = $initB . $middle . $endB;
 
 $counterFollower = sizeof(ottieniFollower($userIdvisited));
 $counterSeguo = sizeof(ottieniSegue($userIdvisited));
+
 // echo "<br>";
 // echo "POST: ";
 // print_r($_POST);
@@ -188,58 +198,54 @@ $counterSeguo = sizeof(ottieniSegue($userIdvisited));
 
   <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-  <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp1.css">
+  <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
   <link rel="stylesheet" type="text/css" href="css/JPBook.css">
 
 
 
 </head>
 <body>
-  <?php require('navbarSelect.php'); ?>
-
+    
+    <?php require('navbarSelect.php'); ?>
 
     <main class="d-flex">
         <div class="col-1"></div>
+
         <div class="col-10">
             <div class="card">
 
                 <div class="card-body">
 
-                    <div class="d-md-inline-flex bd-highlight"> <!--- "d-md-inline-flex d-flex align-items-center col-12" --->
+                    <!---"d-md-inline-flex d-flex align-items-center col-12"--->  
+                    <div class="d-inline-flex align-items-md-center align-items-end"> 
 
-                        <!-- <div id="mainInfos" class="d-md-inline-flex justify-content-start align-items-center "> <div class="p-6 d-inline-flex flex-wrap align-items-center"> -->
-                        <div id="mainInfos" class="bd-highlight p-1 d-md-inline-flex justify-content-start align-items-center float-left">
-                            <div id="divContainerImg" class=""><!-- class="p-3" -->
+                        <!--<div id="mainInfos" class="d-md-inline-flex justify-content-start align-items-center "> <div class="p-6 d-inline-flex flex-wrap align-items-center">-->
+                        <div id="mainInfos" class="d-md-inline-flex align-items-center">
+
+                            <!--class="p-3"-->
+                            <div id="divContainerImg" class="">
                                 <img id="propic"
                                     src="<?php echo getUserImage($tmpKey); ?>"
                                     alt="Immagine Profilo"
                                     class="rounded float-left">
-                                <!-- <img id="propic" src="images\userLogo.png" class="rounded float-left" alt="Foto profilo" width="100px"> -->
-                                <!-- <img  src="" alt="" width="100px" /> -->
                             </div>
 
                             <div id="textInfo" class="">
-                                <h1 id="username"> <?php echo $tmpKey ?> </h1>
-                                <p class="card-text" id="counterFollower"> Follower: <?php echo $counterFollower; ?> </p> <!--- TODO query 1 --->
-                                <p class="card-text" id="counterFollower"> Segue: <?php echo $counterSeguo; ?> </p> <!--- TODO query 2 --->
-                                <p class="card-text" id="counterMedaglieri"> Medaglieri completati: <?php echo $amountComplete?> </p> <!--- TODO query 2 IN REALTà FATTA DEVO SOLO AGGIUSTARE --->
-                                <!-- <a href="#" class="btn btn-primary">Button</a> -->
+                                <h1 id="usernameInProfilePage"> <?php echo $tmpKey ?> </h1>
+                                <p class="card-text" id="counterFollower"> Follower: <?php echo $counterFollower; ?> </p> 
+                                <p class="card-text" id="counterSegue"> Segue: <?php echo $counterSeguo; ?> </p> 
+                                <p class="card-text" id="counterMedaglieri"> Medaglieri completati: <?php echo $amountComplete?> </p> 
                             </div>
-                        </div>
-                        <!-- <br/> -->
 
-                        <div class="d-flex flex-grow-1 p-1">
+                            
                         </div>
 
-                        <!-- <div id="portals" class="d-md-inline-flex justify-content-start align-items-center"> -->
-                        <div id="portals" class="bd-highlight p-1 d-md-inline-flex justify-content-end align-items-center float-right">
-                            <div id="addInfos" class="">
-                                <?php echo $addButt; ?>
-                                
-                            </div>
-<!-- <p><a href="newPost.php">AggiungiPost</a></p> -->
-                            <div id="portalDiv" class="">
-                                <!-- <p class="card-text"> Clicca sul libro per passare alla sezione dei medaglieri!</p> -->
+                        <div class="d-inline-flex">
+                        </div>
+
+                        <div id="portals" class="d-md-inline-flex align-items-center">
+                            
+                            <div id="portalDiv" class="order-md-1">
                                 <abbr id="portalAbbr" lang="it" title="<?php echo tmpGetUsernameById($_GET["id"]); ?>" >
                                     <img
                                         id="portal"
@@ -250,6 +256,11 @@ $counterSeguo = sizeof(ottieniSegue($userIdvisited));
                                 </abbr>
                             </div>
 
+                            <div id="addInfos" class="order-md-0">
+                                <?php echo $addButt; ?>
+                                
+                            </div>
+
                         </div>
 
                     </div>
@@ -257,6 +268,7 @@ $counterSeguo = sizeof(ottieniSegue($userIdvisited));
                 </div>
             </div>
         </div>
+
         <div class="col-1"></div>
     </main>
 
