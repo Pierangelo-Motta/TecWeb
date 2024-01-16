@@ -5,7 +5,7 @@ include_once("include/view/formattators.php");
 $nomeUtente = tmpGetUsernameById($_GET["id"]);
 
 function createStrangeFront(){
-    $begin = "<div class='front'>";
+    $begin = "<div class='front facciata'>";
     $middle = "<h3> Aggiungi nuovi medaglieri al tuo libro! </h3>"; //TODO : ancorare la pagina di sottomissione a un nuovo medagliere?
     $end = "</div>";
     return $begin . $middle . $end;
@@ -15,14 +15,14 @@ function createFacciataAnteriore(){
     $nomeUtente = tmpGetUsernameById($_GET["id"]);
     // <!-- <h3>2023.<br>Second edition</h3> -->
     // </div>
-    $begin = "<div id='copertinaAvanti' class='front'>";
-    $middle = "<h1>Il medagliere di \"" . $nomeUtente . "\"</h1>"; //TODO c'è modo di risalire al nome dell'utente conoscendo l'id?
+    $begin = "<div id='copertinaAvanti' class='front facciata'>";
+    $middle = "<h2>Il medagliere di \"" . $nomeUtente . "\"</h2>"; //TODO c'è modo di risalire al nome dell'utente conoscendo l'id?
     $end = "</div>";
     return $begin . $middle . $end;
 }
 
 function createFacciataPosteriore(){
-    $begin = "<div id='copertinaIndietro' class='back'>";
+    $begin = "<div id='copertinaIndietro' class='back facciata'>";
     $middle = "<div id='copriCopertina'> </div> ";
     $end = "</div>";
     return $begin . $middle . $end;
@@ -65,12 +65,12 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
 
 
     $preamboloElencoLibriClass = "preambleElencoLibri";
-    $textToConsider = "<p class=\"" . $preamboloElencoLibriClass . "\">";
+    $textToConsider = "<p class=\"" . $preamboloElencoLibriClass . "\"> <h3>";
     
     if ($isComplete){
-        $textToConsider .= "Hai completato questo medagliere! Significa che hai letto:</p>";
+        $textToConsider .= "Hai completato questo medagliere! Significa che hai letto:</h3></p>";
     } else {
-        $textToConsider .= "Per completare questo medagliere serve:</p>";
+        $textToConsider .= "Per completare questo medagliere serve:</h3></p>";
     }
 
     $middle3 = "<article class='libriNecessari'>"
@@ -114,7 +114,7 @@ function createFacciata1($faceType, $medIndex, $exactIndex, $isComplete){
 
     $medTitleClass = "medTitle";
 
-    $middle1 = "<article class='titoloMedagliere'>" 
+    $middle1 = "<article class='titoloMedagliere'> " 
                 .
                 "<h2 class=\"" . $medTitleClass . "\">" . $medInfos["titolo"] . "</h2>"
                 .
@@ -130,12 +130,12 @@ function createFacciata1($faceType, $medIndex, $exactIndex, $isComplete){
 
 
     $preamboloElencoLibriClass = "preambleElencoLibri";
-    $textToConsider = "<p class=\"" . $preamboloElencoLibriClass . "\">";
+    $textToConsider = "<h3 class=\"" . $preamboloElencoLibriClass . "\">";
     
     if ($isComplete){
-        $textToConsider .= "Hai completato questo medagliere! Significa che hai letto:</p>";
+        $textToConsider .= "Hai completato questo medagliere! Significa che hai letto: </h3>";
     } else {
-        $textToConsider .= "Per completare questo medagliere serve:</p>";
+        $textToConsider .= "Per completare questo medagliere serve: </h3>";
     }
 
     $middle3 = "<article class='libriNecessari'>"

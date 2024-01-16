@@ -62,6 +62,9 @@ body main div form div#newPostForm_pt2 div#imgPrev button img{
     width: 100%;
 } */
 
+label{
+    /* display: none; */
+}
 
 body main div form div#newPostForm_pt2 div#imgPrevDiv label{
     /* display: none; */
@@ -100,6 +103,7 @@ body main div footer p#accessibilityMessage{
 
     float: right;
 }
+
 body main div footer button{
     float: left;
     clear:right;

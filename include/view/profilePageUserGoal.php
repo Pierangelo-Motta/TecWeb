@@ -15,4 +15,6 @@ require("include/view/bookSummoner.php");
     <!-- <div class="col-1">  </div> -->
 </section>
 
-<script src="javascript/bookanimation.js"></script>
+<script src="javascript/bookanimation.js">
+    
+</script>

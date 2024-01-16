@@ -8,9 +8,15 @@ include_once("include/login.model.php");
             <a href="landingPage.php"> <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia"> </a>
             <form class="d-flex me-auto">
                 <!-- TODO: sostittuire con immagine lente: meno spazio occupato-->
+                
+                <!-- JP: mi dava un errore di accessibilità, quindi intanto lo segno per posteri
+                  Essendo che qua dobbiamo gestire un form, una label è necessaria
+                  So che non è completo, ma intanto l'ho segnato per non dimenticarlo -->
+
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
+
           <div id="username" class="d-flex"><?php echo "Ciao " . ucfirst($_SESSION["username"]);?></div>
           <div class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
             <ul class="navbar-nav">

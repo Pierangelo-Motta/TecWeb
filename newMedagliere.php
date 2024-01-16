@@ -190,6 +190,8 @@ if(isset($_POST["submitButton"])) {
     <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
     <link rel="stylesheet" type="text/css" href="css/JPNewMed.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
+
+    <link rel="icon" href="images/favicon_io/favicon.ico">
   
 </head>
 

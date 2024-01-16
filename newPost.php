@@ -132,6 +132,8 @@ if (isset($_POST["sB"])){
     <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
     <link rel="stylesheet" type="text/css" href="css/JPNewPost.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
+
+    <link rel="icon" href="images/favicon_io/favicon.ico">
   
 
 </head>
@@ -147,7 +149,7 @@ if (isset($_POST["sB"])){
                     
                     <div class="col-md-6 col-12" id="newPostForm_pt1">
 
-                        <label for="nomeLibroId">Nome libro: </label>
+                        <label for="nomeLibroId"> Nome libro: </label>
                         <input type="text" 
                             class="form-control"
                             id="nomeLibroId" 
@@ -155,7 +157,7 @@ if (isset($_POST["sB"])){
                             value="<?php echo $nomeLibroNameValue ?>"
                             />
 
-                        <label for="citazioneTextId"></label>
+                        <label for="citazioneTextId">Citazione: </label>
                         <textarea class="form-control" 
                             id="citazioneTextId" 
                             name=<?php echo "'".$citazioneName."'"?>
@@ -163,7 +165,7 @@ if (isset($_POST["sB"])){
                             cols="100" 
                             placeholder="Inserisci qui la citazione"><?php echo "".$citazioneNameValue.""?></textarea>
 
-                        <label for="pensieroTextId"></label>
+                        <label for="pensieroTextId">Pensiero: </label>
                         <textarea class="form-control" 
                             id="pensieroTextId" 
                             name=<?php echo "'".$pensieroName."'"?>
@@ -171,7 +173,7 @@ if (isset($_POST["sB"])){
                             cols="100" 
                             placeholder="Inserisci qui il tuo pensiero"><?php echo "".$pensieroNameValue.""?></textarea>
                         
-                        <label for="tagsAreaId"></label>
+                        <label for="tagsAreaId">Tags: </label>
                         <textarea class="form-control" 
                             id="tagsAreaId" 
                             name=<?php echo "'".$tagsAreaName."'"?>
@@ -186,7 +188,7 @@ if (isset($_POST["sB"])){
                     <div class="col-md-6 col-12" id="newPostForm_pt2">
                         <p>Inserisci qui sotto una foto:</p>
                         <div id="imgPrevDiv">
-                            <label id="imgLabel" for="imgPrevInput"> 
+                            <label id="imgLabel" for="imgPrevInput">
                                 <img id="imgPrev" 
                                     src = <?php 
                                         if (!isPresentImg($imgInterestedName)){

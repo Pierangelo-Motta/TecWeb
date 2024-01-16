@@ -19,6 +19,7 @@ header("Location: index.html");
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
     <link rel="stylesheet" type="text/css" href="css/settingPage.css">
+    <link rel="icon" href="images/favicon_io/favicon.ico">
 </head>
 
 <body>

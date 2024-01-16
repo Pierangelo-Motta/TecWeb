@@ -26,6 +26,8 @@ session_start();
     <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
     <link rel="stylesheet" type="text/css" href="css/JPNewPost.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
+
+    <link rel="icon" href="images/favicon_io/favicon.ico">
   
 
 </head>
