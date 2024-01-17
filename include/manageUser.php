@@ -1,3 +1,5 @@
+<script src="javascript/userList.js"></script>
+
 <?php
 require_once('login.model.php');
 ?>
@@ -19,7 +21,7 @@ require_once('login.model.php');
 
                 <!-- Checkbox for checking isAdmin field -->
                 <!-- TODO: show the checkbox already flagged if selected user is admin or banned.. -->
-                <div class="form-group">
+                <div class="form-group" id="adminBox">
                     <label for="isAdminCheckbox">Amministratore:</label>
                     <input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">
                 </div>
@@ -40,4 +42,3 @@ require_once('login.model.php');
         </div>
     </div>
 </div>
-<script src="javascript/userList.js"></script>
