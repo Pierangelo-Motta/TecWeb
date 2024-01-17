@@ -15,8 +15,7 @@ require_once('login.model.php');
                 <div class="form-group">
                     <label for="userSelect">Seleziona Utente:</label>
                     <div class="du-autocomplete-container">
-                        <input type="text" id="userSelect" name="userSelect"
-                            oninput="showAutocomplete(this.value, 'userSelect','deleteUserAutocompleteResults')">
+                        <input type="text" id="userSelect" name="userSelect">
                         <div id="deleteUserAutocompleteResults" class="deleteUserAutocomplete-results"></div>
                     </div>
 

@@ -12,8 +12,7 @@ require_once('login.model.php');
                 <div class="form-group">
                     <label for="manageThisUser">Seleziona Utente:</label>
                     <div class="autocomplete-container">
-                        <input type="text" id="manageThisUser" name="manageThisUser"
-                            oninput="showAutocomplete(this.value,'manageThisUser','autocompleteResults')">
+                        <input type="text" id="manageThisUser" name="manageThisUser">
                         <div id="autocompleteResults" class="autocomplete-results"></div>
                     </div>
                 </div>
@@ -41,5 +40,4 @@ require_once('login.model.php');
         </div>
     </div>
 </div>
-
 <script src="javascript/userList.js"></script>

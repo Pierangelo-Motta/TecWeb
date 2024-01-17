@@ -1,19 +1,19 @@
-let xhr = new XMLHttpRequest(); // Declare xhr globally
-let userList;
-let manageThisUser;
-let checkBoxFlag;
-
+if (typeof filteredUsers === 'undefined') {
+    let filteredUsers;
+}
 function showAutocomplete(inputValue, tipologia, classe) {
     let tipo = tipologia;
     let cl = classe;
-    //xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            userList = JSON.parse(xhr.responseText);
-            let filteredUsers = userList.filter(function (user) {
+            let userList = JSON.parse(xhr.responseText);
+            filteredUsers = userList.filter(function (user) {
                 return user.username.toLowerCase().includes(inputValue.toLowerCase());
             });
+            // console.log(filteredUsers);
+
             let autocompleteResults = document.getElementById(cl);
             autocompleteResults.innerHTML = '';
 
@@ -25,18 +25,15 @@ function showAutocomplete(inputValue, tipologia, classe) {
                     autocompleteResults.innerHTML = '';
                 });
                 autocompleteResults.appendChild(option);
-
             });
 
             // Show/hide the autocomplete results container based on the number of results
             autocompleteResults.style.display = filteredUsers.length > 0 ? 'block' : 'none';
+            autocompleteResults.style.color = "#0b5ed7";
 
-            // Now that the XMLHttpRequest is complete, add the click event listener for checkBoxFlag
-            addCheckBoxEventListener();
 
         }
     };
-
 
     xhr.open('GET', 'include/userList.php', true);
 
@@ -45,44 +42,67 @@ function showAutocomplete(inputValue, tipologia, classe) {
 
 }
 
-document.addEventListener('click', function (event) {
-    manageThisUser = document.getElementById('manageThisUser');
-    checkBoxFlag = document.getElementById('isAdminCheckbox');
-    //gestione del check admin
-    if (manageThisUser.value.length > 0) {
-        console.log(manageThisUser.value);
-        console.log(userList.find(user => user.username === manageThisUser.value).isAdmin);
-        if (userList.find(user => user.username === manageThisUser.value).isAdmin === 1) {
-            checkBoxFlag.checked = true;
-        }
-        else { checkBoxFlag.checked = false; }
-    }
+//delete user
+document.getElementById('userSelect').addEventListener('input', function () {
+    showAutocomplete(this.value, 'userSelect', 'deleteUserAutocompleteResults');
+});
 
+//manage user
+document.getElementById('manageThisUser').addEventListener('input', function () {
+    showAutocomplete(this.value, 'manageThisUser', 'autocompleteResults');
+
+});
+
+document.addEventListener('click', function (event) {
+
+    // Gestione cancellazione utente 
     let deleteUserAutocompleteContainer = document.querySelector('.du-autocomplete-container');
     let deleteUserAutocompleteResults = document.getElementById('deleteUserAutocompleteResults');
-
 
     if (!deleteUserAutocompleteContainer.contains(event.target)) {
         deleteUserAutocompleteResults.style.display = 'none';
     }
 
+    // Gestione management utente
     let manageUserAutocompleteContainer = document.querySelector('.autocomplete-container');
     let manageUserAutocompleteResults = document.getElementById('autocompleteResults');
 
-
     if (!manageUserAutocompleteContainer.contains(event.target)) {
         manageUserAutocompleteResults.style.display = 'none';
-
     }
-    //console.log(userList);
-});
 
-function addCheckBoxEventListener() {
-    checkBoxFlag.addEventListener('click', function () {
-        checkBoxFlag.checked = !checkBoxFlag.checked;
+    //new
+    let manageThisUser = document.getElementById('manageThisUser');
+    let checkBoxFlag = document.getElementById('isAdminCheckbox');
+    utente = manageThisUser.value;
+    isUtenteAdmin = filteredUsers.find(user => user.username === manageThisUser.value).isAdmin;
+    isUtenteBanned = filteredUsers.find(user => user.username === manageThisUser.value).stato;
+    // console.log(filteredUsers);
+    // console.log(manageThisUser.value + " -> " + filteredUsers.find(user => user.username === manageThisUser.value).isAdmin);
+
+    //gestione del check admin
+    // if (utente.length > 0) {
+    //     (isUtenteAdmin === 1) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
+    // }
+
+    if (utente.length > 0) {
+        (isUtenteAdmin === 1) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
+    }
+
+    checkBoxFlag.addEventListener('change', function () {
+        // Check if the checkbox is checked
+        if (checkBoxFlag.checked) {
+            // checkBoxFlag is checked
+            checkBoxFlag.innerHTML = '<p id="isAdminCheckbox">HELLO"</p>';
+            isUtenteAdmin = 0;
+        } else {
+            // checkBoxFlag is unchecked
+            checkBoxFlag.checked = true;
+            isUtenteAdmin = 1;
+        }
     });
-}
 
-// Initialize the checkbox event listener
-addCheckBoxEventListener();
+
+
+});
 
