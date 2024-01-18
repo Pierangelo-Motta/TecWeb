@@ -9,8 +9,8 @@ if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
     header("Location: index.html");
 }
-
-$a = getUserIdWithSimilarName("");
+$tmp = $_POST["searchingText"];
+$a = getUserIdWithSimilarName($tmp);
 // print_r($a);
 
 ?>

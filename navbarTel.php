@@ -2,7 +2,7 @@
   <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
       <a href="landingPage.php"> <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia"> </a>
-      <form class="d-flex me-auto">
+      <form action="searchingPage.php" class="d-flex me-auto">
           <!-- Utilizzo dell'icona di ricerca come input -->
           <label for="search" class="visually-hidden">Search</label>
           <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
