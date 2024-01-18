@@ -9,14 +9,20 @@
     resize:none;
 
 }
+*/
 
 .titolo {
-    height: 50px;
+    width: 100%;
+   
 }
-*/
+
 .descrizione {
     width: 100%;
     height: 100px;
     resize: vertical;
     
 } 
+
+.dataTables {
+    color: brown;
+}
