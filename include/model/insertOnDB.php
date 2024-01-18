@@ -1,7 +1,5 @@
 <?php
-
-
-require_once("include/config.php");
+require_once(__DIR__ . '/../config.php');
 
 
 function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID) {
@@ -31,15 +29,15 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
     //vedo quante cose ho aggiunto e vedo quindi quanti ? aggiungere
     $amount = $secureParams + $amountInsered;
 
-    
+
     $sql = $start . $tmp . $end1; // completo la prima parte della query
 
     $querys = "";
-    for ($i=0; $i < $amount; $i++) { 
+    for ($i=0; $i < $amount; $i++) {
         $querys = $querys . "?";
         if ($i != $amount-1) { //se non è l'ultimo, ci vuole spazio e virgola
             $querys = $querys . ", ";
-        } 
+        }
     }
 
     $sql = $sql . $querys . $end2; // completo la seconda parte della query
@@ -50,9 +48,9 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
     /////////creazione della stringa di binding
     $startBiding = "is"; //indexUser, TODO date
     $endBiding = "siii"; //riflessione, counter1, counter2, libroID
-    
+
     $betweenBiding = ""; //vedo cosa devo aggiungere
-    for ($i=0; $i < $amountInsered; $i++) { 
+    for ($i=0; $i < $amountInsered; $i++) {
         $betweenBiding = $betweenBiding . "s";
     }
 
@@ -71,7 +69,7 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
         case 2:
             $stmt->bind_param($biding, $userID, $date, $citTex, $citImg, $riflessione, $initLikeLove, $initLikeLove, $libroID);
             break;
-        
+
         case 1:
             if($isSetText){
                 $stmt->bind_param($biding, $userID, $date, $citTex, $riflessione, $initLikeLove, $initLikeLove, $libroID);
@@ -84,7 +82,7 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
             return; //ERROREEEEE TODO lo facciamo presente?
             break;
     }
-    
+
     $stmt->execute();
     $stmt->close();
 }
@@ -105,8 +103,8 @@ function savePostedPhoto($imgRelPath, $userName){
 
     $tmp1 = explode(".", $imgName);
     $extension = $tmp1[sizeof($tmp1)-1];
-    $newImgName = ""; 
-    for ($i=0; $i < (sizeof($tmp1)-1); $i++) { 
+    $newImgName = "";
+    for ($i=0; $i < (sizeof($tmp1)-1); $i++) {
         $newImgName = $newImgName . $tmp1[$i];
     }
     ///////////////
@@ -130,7 +128,7 @@ function savePostedPhoto($imgRelPath, $userName){
     // e per la destination directory
     $toDir = $currentDirectory . $distanceByRoot . "images/post/posted/" . $userName;
 
-    
+
     // echo "<br>";
     // echo ("insertOnDB.toDir: " . $toDir);
     // echo "<br>";
@@ -155,6 +153,7 @@ function manageFollow($userIDFrom, $userIDTo, $query){
         if (mysqli_stmt_execute($stmt)) {
             // echo "<p>Nuovo utente registrato correttamente</>";
             // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+            createNotification($userIDTo, $userIDFrom);
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
@@ -172,6 +171,45 @@ function destroyFollow($userIDFrom, $userIDTo) {
     $sql = "DELETE FROM segue WHERE seguenteId=? AND seguitoId=?;";
     manageFollow($userIDFrom, $userIDTo, $sql);
 }
+
+function createNotification($userIDTo, $userIDFrom) {
+    global $conn;
+
+    $notification_query = "INSERT INTO notifica(descrizione, utenteId, utenteIdPost, dataOraPost) VALUES ('Hai un nuovo follower!', ?, ?, NOW())";
+
+    if ($stmt = mysqli_prepare($conn, $notification_query)) {
+        mysqli_stmt_bind_param($stmt, "ii", $userIDTo, $userIDFrom);
+
+        if (!mysqli_stmt_execute($stmt)) {
+            echo "Errore nell'inserimento della notifica: " . mysqli_error($conn);
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+
+function getNotifications($userID) {
+    global $conn;
+
+    $notifications = array();
+
+    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOraPost DESC"; // Ordina per data decrescente
+    if ($stmt = mysqli_prepare($conn, $query)) {
+        mysqli_stmt_bind_param($stmt, "i", $userID);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $notifications[] = $row;
+        }
+
+        mysqli_stmt_close($stmt);
+    }
+
+    return $notifications;
+}
+
 
 function subscribeUserToMed($userID, $medID){
     global $conn;
