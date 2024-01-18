@@ -101,7 +101,6 @@ if(isset($_POST['aggiungiMedagliere'])){
                 </div>
             </div>
         </div>
-
         <!-- parte centrale medaglieri-->
 
         <div class="container">
@@ -115,6 +114,7 @@ if(isset($_POST['aggiungiMedagliere'])){
                             data-bs-toggle="dropdown">
                             Medaglieri
                         </button>
+                        <p></p>
                         <?php $medaglieriResult = $medaglieri->getmedaglieri();?>
                         <ul class="dropdown-menu" id="dropdownMenu">
                             <?php foreach($medaglieriResult as $medagliere): ?>
@@ -137,10 +137,28 @@ if(isset($_POST['aggiungiMedagliere'])){
                                 
                                 <p>Descrizione</p>
                                 <textarea type="text" class="flexible-input descrizione" rows="4" cols="50" id="selectedItemDescrizioneInput" name="selectedItemDescrizioneInput"></textarea>
-                                <!-- <p></p>
-                                <div id="selectedItemDescription">Libri</div> -->
+                                
                             </div>
                         </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <p>Libri</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_1">X</button>
+                                    aaaaa
+                                    </li>
+                                    <li class="list-group-item">
+                                        <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_2">X</button>
+                                    bbbbbbb
+                                </li>
+                                </ul>
+                                                               
+                            </div>
+                        </div>
+                    <p></p>
+                    <input type="submit" class="btn btn-primary" value="Modifica Medagliere">
+                    
                     </form>
 
                     </div>
