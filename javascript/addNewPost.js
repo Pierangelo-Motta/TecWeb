@@ -48,7 +48,7 @@ class PostAdder {
         this.isSetPhoto = this.configPhotoPresence(thereIsPhoto);
 
         if (this.isSetPhoto) {
-            this.imgPrevMods.style.display = "flex";
+            this.imgPrevMods.style.display = "block";
             this.imgLabel.style.width = "80%";
         }
 
@@ -83,7 +83,7 @@ class PostAdder {
 
     showAccessibilityMessage(){
         // console.log(this.isSetPhoto + " " + this.isSetText);
-        this.accMess.style.display = this.isSetPhoto && (!this.isSetText) ? "block" : "block";
+        this.accMess.style.display = this.isSetPhoto && (!this.isSetText) ? "block" : "none";
     }
 
     textAreaChangeEventCommon(){

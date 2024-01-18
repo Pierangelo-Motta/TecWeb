@@ -1,26 +1,34 @@
+
 body main div#mainCont{
     display: block;
     margin-bottom: 100px;
 }
 
-body main div#mainCont h1{
-    line-height: 2em;
-    /* display: block;
-    margin-bottom: 30px; */
-}
+/*************/
 
-
-body main div > form{
+body main div > form {
     display: flex;
 }
 
+body main div#mainCont h1{
+    line-height: 2em;
+}
+
+/*************/
+
 body main div form input#nomeLibroId{
-    width: auto;
+    
+}
+
+body main div form div#newPostForm_pt1{
+    display: inline-block;  
 }
 
 body main div form div#newPostForm_pt1 textarea{
     resize: none;
 }
+
+/********/
 
 body main div form div#newPostForm_pt2 p{
     text-align: center;
@@ -46,29 +54,11 @@ body main div form div#newPostForm_pt2 div#imgPrevMods{
     display: none;  /*ci pensa eventualmente js a mostrarlo */
     clear: both;
     justify-content: center;
-    vertical-align: middle;
-}
-/* body main div form div#newPostForm_pt2 div#imgPrev button{
-    width: 20%;
-    height: 20%;
-    display: block;
-    margin: auto;
-    padding: 0;
-    border: 0px black solid;
-}
-
-body main div form div#newPostForm_pt2 div#imgPrev button img{
-    aspect-ratio: 1;
-    width: 100%;
-} */
-
-label{
-    /* display: none; */
+    /* vertical-align: middle; */
 }
 
 body main div form div#newPostForm_pt2 div#imgPrevDiv label{
     /* display: none; */
-    
     width: 30%;
     aspect-ratio: auto;
     /* height: 30%; */
@@ -106,7 +96,7 @@ body main div footer p#accessibilityMessage{
 
 body main div footer button{
     float: left;
-    clear:right;
+    clear: right;
     display:block;
     /* flex:none; */
     
@@ -134,9 +124,35 @@ body main div footer button#shareButton{
   
 }
 
+.notDisplay{
+    display: none;
+}
+textarea{
+    margin-top: 10px;
+}
 
+.accessibilityMessage{
+    margin-top: 20px;
+}
+
+#imgPrevMods{
+    margin: 30px 0;
+}
+
+footer#footerNewPost button{
+    margin: 30px 0;
+}
+
+.blockDisplay{
+    display: block;
+}
 
 @media only screen and (max-width: 768px) {
+
+    div#mainCont{
+        margin-top: 60px;
+    }
+
 body main div > form{
     display: block;
 }
@@ -147,6 +163,7 @@ body main div form div#newPostForm_pt2 p{
     padding-top: 20px;
     text-align: center;
 }
+
 }
 
 
