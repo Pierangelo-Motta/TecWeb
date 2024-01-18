@@ -136,7 +136,7 @@ if(isset($_POST['aggiungiMedagliere'])){
 
                                 
                                 <p>Descrizione</p>
-                                <textarea type="text" class="flexible-input descrizione" id="selectedItemDescrizioneInput" name="selectedItemDescrizioneInput"></textarea>
+                                <textarea type="text" class="flexible-input descrizione" rows="4" cols="50" id="selectedItemDescrizioneInput" name="selectedItemDescrizioneInput"></textarea>
                                 <!-- <p></p>
                                 <div id="selectedItemDescription">Libri</div> -->
                             </div>
