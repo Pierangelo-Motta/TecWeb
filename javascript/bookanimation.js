@@ -297,7 +297,7 @@ window.addEventListener("resize", function(){
 
 //adattamento testo in caso di overflow
 document.querySelectorAll("article.titoloMedagliere p.descrizioneMedagliere").forEach(element => {
-    const defaultSize = 18;
+    const defaultSize = isLittle ? 10 : 18;
     element.style.fontSize = defaultSize + "px";
     if (element.innerHTML.length > 600){
         let coeff = 1 - ((200 + (element.innerHTML.length - 800)) / 1000);

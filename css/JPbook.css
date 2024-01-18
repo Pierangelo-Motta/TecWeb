@@ -114,6 +114,7 @@ section#userGoal{
     /* align-content: center;
     align-self: center;
     align-items: center; */
+    padding: 0 040px;
 }
   
 .book {
@@ -235,7 +236,7 @@ article.titoloMedagliere img{
 /***********/
 
 h2.medTitle{
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .descrizioneMedagliere{
@@ -343,7 +344,8 @@ div#copertinaAvanti h2{
         flex: none;
         display: flex;
         width: 100%;
-        min-height: 500px;
+        min-height: 700px;
+        
         /*1* allow pointer events on pages */
         pointer-events:all;
         user-select: none;
@@ -408,6 +410,8 @@ div#copertinaAvanti h2{
     /***********//***********//***********/
 
     article.titoloMedagliere {
+        height: 55%;
+        max-height: 55%;
         /* position: absolute;
         top: 0;
         left: 0; */
@@ -424,7 +428,7 @@ div#copertinaAvanti h2{
         text-align: left;
         float: left;
         width: 70%;
-        min-width: 135px;
+        /* min-width: 135px; */
         
         /* vertical-align: middle; */
     }
@@ -463,7 +467,7 @@ div#copertinaAvanti h2{
     
     /***********/
     h2.medTitle{
-        font-size: 40px;
+        font-size: 36px;
     }
     /* .descrizioneMedagliere{
         font-size: 18px; gestito su JS (bookanimation.js)

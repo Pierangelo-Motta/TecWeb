@@ -10,7 +10,7 @@ if (!($_SESSION['loggedin'] === true)) {
     header("Location: index.html");
 }
 
-$a = getUserIdWithSimilarName("o");
+$a = getUserIdWithSimilarName("");
 // print_r($a);
 
 ?>
