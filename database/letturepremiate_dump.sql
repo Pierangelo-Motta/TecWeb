@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: letturepremiate
 -- ------------------------------------------------------
--- Server version	10.4.28-MariaDB
+-- Server version	10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -153,8 +153,8 @@ DROP TABLE IF EXISTS `notifica`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `notifica` (
-  `id` int(8) NOT NULL,
-  `dataOra` datetime NOT NULL,
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `dataOra` datetime NOT NULL DEFAULT current_timestamp(),
   `descrizione` varchar(255) NOT NULL,
   `tipo` char(1) NOT NULL,
   `utenteId` int(8) NOT NULL,
@@ -166,7 +166,7 @@ CREATE TABLE `notifica` (
   UNIQUE KEY `dataOra_2` (`dataOra`,`descrizione`),
   KEY `REF_NOTIF_UTENT_IND` (`utenteId`),
   KEY `REF_NOTIF_POST_IND` (`utenteIdPost`,`dataOraPost`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,6 +175,7 @@ CREATE TABLE `notifica` (
 
 LOCK TABLES `notifica` WRITE;
 /*!40000 ALTER TABLE `notifica` DISABLE KEYS */;
+INSERT INTO `notifica` VALUES (1,'2024-01-18 22:51:48','Hai un nuovo follower!','',3,2,'2024-01-18 22:51:48'),(2,'2024-01-18 22:52:04','Hai un nuovo follower!','',3,7,'2024-01-18 22:52:04'),(3,'2024-01-18 22:52:36','Hai un nuovo follower!','',8,2,'2024-01-18 22:52:36'),(4,'2024-01-18 22:54:47','Hai un nuovo follower!','',3,8,'2024-01-18 22:54:47');
 /*!40000 ALTER TABLE `notifica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +259,7 @@ CREATE TABLE `segue` (
 
 LOCK TABLES `segue` WRITE;
 /*!40000 ALTER TABLE `segue` DISABLE KEYS */;
-INSERT INTO `segue` VALUES (1,3),(2,3),(3,1),(3,4),(3,12),(4,3),(8,3),(8,12);
+INSERT INTO `segue` VALUES (1,3),(3,1),(3,2),(3,4),(3,7),(3,8),(3,12),(4,3),(8,2),(8,3),(8,12);
 /*!40000 ALTER TABLE `segue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -375,4 +376,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-16  0:07:07
+-- Dump completed on 2024-01-18 23:00:03

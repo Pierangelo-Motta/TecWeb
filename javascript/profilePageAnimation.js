@@ -43,6 +43,7 @@ class Swapper{
         this.actSections = this.sections[this.sections.length-1];
 
         this.portalImg = document.getElementById("portal");
+        
         this.portalAbbr = document.getElementsByClassName("AbbrImgPortal")[0];
 
         if(this.actSections.getAttribute("id") === "userPosts"){

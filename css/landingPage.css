@@ -26,3 +26,11 @@
 .fotoCit img{
   width: 200px;
 }
+#navbarSupportedContent ul.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+#navbarSupportedContent li.nav-item {
+    margin: 0 2px; /* Aggiusta il margine come desideri */
+}

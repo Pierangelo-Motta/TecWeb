@@ -95,7 +95,7 @@ function getPostImage($username, $imageName) {
 }
 
 function getFollowingUsers($user_id, $conn) {
-    $query = "SELECT seguenteId FROM segue WHERE seguitoId = ?";
+    $query = "SELECT seguitoId FROM segue WHERE seguenteId = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $user_id);
 
