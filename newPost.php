@@ -23,6 +23,7 @@ $tagsAreaName = "tagsArea";
 $tagsAreaNameValue = isset($_POST[$tagsAreaName]) ? $_POST[$tagsAreaName] : "";
 
 
+
 if(isPresentImg($imgInterestedName)){
     //gestisci caricamento della foto nella cartella tmp
     updateImg('post', $imgInterestedName);
@@ -33,7 +34,7 @@ if(isPresentImg($imgInterestedName)){
 //vecchio strcmp($_POST["sB"], "ok"): ho fatto in modo che sB valesse:
 //1 se si vuole condividere
 //0 se si vuole tornare indietro
-if (isset($_POST["sB"])){
+if (isset($_POST["sB"])) {
 
     $parsed = intval($_POST["sB"]);
     //echo "-->" . $parsed;
@@ -73,8 +74,7 @@ if (isset($_POST["sB"])){
 
         ////////////   
 
-        ////////creazione tags
-        // echo $tagsAreaNameValue;
+        //////// creazione tags
         
         $tags = explode(" ", $tagsAreaNameValue);
         $tagIndex = array();
@@ -91,6 +91,7 @@ if (isset($_POST["sB"])){
             }
             array_push($tagIndex, $tmp);
         }
+        
         $ntI = array_unique($tagIndex);
         // print_r($tagIndex);
 
@@ -149,15 +150,14 @@ if (isset($_POST["sB"])){
                     
                     <div class="col-md-6 col-12" id="newPostForm_pt1">
 
-                        <label for="nomeLibroId"> Nome libro: </label>
-                        <input type="text" 
+                        <label for="nomeLibroId"> Nome libro: </label><input type="text" 
                             class="form-control"
                             id="nomeLibroId" 
                             name="<?php echo $nomeLibroName ?>"
                             value="<?php echo $nomeLibroNameValue ?>"
                             />
 
-                        <label for="citazioneTextId">Citazione: </label>
+                        <label for="citazioneTextId" class="notDisplay">Citazione: </label>
                         <textarea class="form-control" 
                             id="citazioneTextId" 
                             name=<?php echo "'".$citazioneName."'"?>
@@ -165,7 +165,7 @@ if (isset($_POST["sB"])){
                             cols="100" 
                             placeholder="Inserisci qui la citazione"><?php echo "".$citazioneNameValue.""?></textarea>
 
-                        <label for="pensieroTextId">Pensiero: </label>
+                        <label for="pensieroTextId" class="notDisplay">Pensiero: </label>
                         <textarea class="form-control" 
                             id="pensieroTextId" 
                             name=<?php echo "'".$pensieroName."'"?>
@@ -173,7 +173,7 @@ if (isset($_POST["sB"])){
                             cols="100" 
                             placeholder="Inserisci qui il tuo pensiero"><?php echo "".$pensieroNameValue.""?></textarea>
                         
-                        <label for="tagsAreaId">Tags: </label>
+                        <label for="tagsAreaId" class="notDisplay">Tags: </label>
                         <textarea class="form-control" 
                             id="tagsAreaId" 
                             name=<?php echo "'".$tagsAreaName."'"?>
@@ -200,16 +200,19 @@ if (isset($_POST["sB"])){
                             </label>
                             <input type="file" id="imgPrevInput" name="imgPrevInputName" accept="image/png, image/jpeg" />
                         </div>
-                        <div id="imgPrevMods">
-                            <small class="form-text text-muted">Premi sulla foto per cambiarla.</small>
-                            <button type="button" id="imgRem">delete</button>
+                        <div id="imgPrevMods" class="d-flex align-items-center">
+                            <small class="form-text text-muted blockDisplay">
+                                Premi sulla foto per cambiarla.
+                            </small><button class="blockDisplay" type="button" id="imgRem">
+                                Elimina
+                            </button>
                         </div>
                     </div>
 
                 <!-- </div> -->
             </form>
 
-            <footer>
+            <footer id="footerNewPost">
                 <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href=<?php echo "\"" . $linkForMoreInfos . "\"" ?>> Per più informazioni</a></p>
 
                 <button class="btn btn-secondary" 
@@ -227,7 +230,7 @@ if (isset($_POST["sB"])){
             </footer>
         </div>
 
-        <div class="col-1"></div>
+        <div class="col-1"></div>   
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

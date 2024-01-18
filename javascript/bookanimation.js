@@ -261,6 +261,8 @@ const isLittle = width < criticalSize;
 
 this.startView();
 
+
+
 //cambiare dispositivo (ma anche banalmente dimensione)
 window.addEventListener("resize", function(){
 
@@ -306,3 +308,5 @@ document.querySelectorAll("article.titoloMedagliere p.descrizioneMedagliere").fo
         element.style.fontSize = Math.round(newHight) + "px";
     }
 });
+
+

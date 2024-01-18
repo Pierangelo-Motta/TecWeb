@@ -325,5 +325,19 @@ function checkIfTagExists($tagText) {
     
 }
 
+function getUserIdWithSimilarName($simName){
+    global $conn;
+    $sql = "SELECT id FROM utente U WHERE U.username LIKE \"%" . $simName . "%\";";
+    
+    $stmt = $conn->prepare($sql);
+    // $stmt->bind_param("s", $simName);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+    return array_column($tmp, "id");
+}
 
 ?>

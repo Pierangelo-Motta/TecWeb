@@ -189,6 +189,7 @@ section#userGoal{
 
 .facciata{
     background-color: #fff;
+    border: black 1px solid;
     /* overflow: visible; */
     /* --phone-size: 30%; */
     min-width: 100%;
@@ -200,12 +201,14 @@ section#userGoal{
     display: none;
     
 }
+
 .actFac{
     display: block;
     flex: none;
     background-color: #fff;
     padding: 3%;
     z-index: 20;
+    border: black 1px solid;
     /* max-width: 90%; var(--phone-size); */
     /* width: 90%; var(--phone-size); */
     /* padding: 1rem;
