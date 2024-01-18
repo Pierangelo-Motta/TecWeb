@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 $('#dropdownMenu a').on('click', function () {
-    var titolo = $(this).attr('titolo');
-    var descrizione = $(this).attr('descrizione');
+    const titolo = $(this).attr('titolo');
+    const descrizione = $(this).attr('descrizione');
 
     // Set the values in the input fields
     $('#selectedItemTitoloInput').val(titolo);
