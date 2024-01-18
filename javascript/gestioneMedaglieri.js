@@ -13,16 +13,22 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     // const dropdownButton = document.getElementById('dropdownButton');
     const dropdownMenu = document.getElementById('dropdownMenu');
-    const selectedItemText = document.getElementById('selectedItemText');
+    // console.log(dropdownMenu);
+    const selectedItemText = document.getElementById('selectedItemTitolo');
+    // console.log("selectedItemText:" + selectedItemText.value);
+    const selectedItemDescription = document.getElementById('selectedItemDescrizione');
 
     dropdownMenu.addEventListener('click', function (event) {
-        const selectedValue = event.target.getAttribute('data');
-        const selectedItemDescription = event.target.getAttribute('data-value-descr');
+        const selectedValue = event.target.getAttribute('titolo');
+        const selectedItemDescriptionValue = event.target.getAttribute('descrizione');
+        console.log("selectedValue:" + selectedValue);
+        console.log("selectedItemDescriptionValue:" + selectedItemDescriptionValue);
+
         if (selectedValue) {
             selectedItemText.innerText = selectedValue;
         }
         if (selectedValue) {
-            selectedItemDescription.innerText = selectedItemDescription;
+            selectedItemDescription.innerText = selectedItemDescriptionValue;
         }
     });
 

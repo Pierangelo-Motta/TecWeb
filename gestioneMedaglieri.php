@@ -117,24 +117,28 @@ if(isset($_POST['aggiungiMedagliere'])){
                         <ul class="dropdown-menu" id="dropdownMenu">
                             <?php foreach($medaglieriResult as $medagliere): ?>
                             <li>
-                                <a class="dropdown-item" href="#" data="
-                                    <?php echo "Titolo: " . $medagliere['titolo'];
-                                    echo "\n\n";   
-                                    echo "Descrizione: " .  $medagliere['descrizione']; ?>">
-                                    <?php echo $medagliere["titolo"] ?>
-                                </a>
+                                <a class="dropdown-item" id="medagliere" href="#"
+                                    id = "<?php echo $medagliere['id'];?>"
+                                    titolo="<?php echo $medagliere['titolo'];?>"
+                                    descrizione="<?php echo $medagliere['descrizione'];?>">
+                                    <?php echo $medagliere["titolo"] ?> </a>
                             </li>
                             <?php endforeach; ?>
                         </ul>
 
+                    <form action="" method="post">
                         <div class="card">
                             <div class="card-body">
-                                <div id="selectedItemText"></div>
-                                <div id="selectedItemDescription"></div>
-                                <p></p>
-                                <div id="selectedItemDescription">Libri</div>
+                                <p>Titolo</p>
+                                <div id="selectedItemTitolo"></div>
+                                
+                                <p>Descrizione</p>
+                                <div id="selectedItemDescrizione"></div>
+                                 <!-- <p></p>
+                                <div id="selectedItemDescription">Libri</div> -->
                             </div>
                         </div>
+                    </form>
 
                     </div>
                 </div>
