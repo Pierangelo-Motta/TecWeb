@@ -101,55 +101,68 @@ if(isset($_POST['aggiungiMedagliere'])){
         </div>
 
         <!-- parte centrale medaglieri-->
-
         <div class="container">
             <div class="row">
-                <!-- left column -->
                 <div class="col-md-2"></div>
-                <!-- medaglieri dropdown menu -->
-                <div class="col-md-4 justify-content-center">
-                    <div class="dropdown">
-                        <button type="button" id="dropdownButton" class="btn btn-primary dropdown-toggle"
-                            data-bs-toggle="dropdown">
-                            Medaglieri
-                        </button>
-                        <?php $medaglieriResult = $medaglieri->getmedaglieri();?>
-                        <ul class="dropdown-menu" id="dropdownMenu">
-                            <?php foreach($medaglieriResult as $medagliere): ?>
-                            <li>
-                                <a class="dropdown-item" href="#" data="
-                                    <?php echo "Titolo: " . $medagliere['titolo'];
-                                    echo "\n\n";   
-                                    echo "Descrizione: " .  $medagliere['descrizione']; ?>">
-                                    <?php echo $medagliere["titolo"] ?>
-                                </a>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
+                <div class="col-md-4">
+                    <table id="TabellaMedaglieri" class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Titolo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $medaglieriResult = $medaglieri->getmedaglieri();
+                            while ($row = mysqli_fetch_assoc($medaglieriResult)) {
+                                echo "<tr class='medaglieri-row' data-description='" . $row['descrizione'] . "'>";
+                                echo "<td>" . $row['titolo'] . "</td>";
+                                // echo "<td>" . $row['descrizione'] . "</td>";
+                                echo "</tr>";
+                                ?>
+                            <!-- <tr> -->
+                            <!-- <td> <?php echo $row['titolo']; ?> </td> -->
+                            <!-- <td>
+                                    <a href='#' data-bs-toggle="modal"
+                                    data-bs-target="#modal_modifica_libro_<?php echo $row['id']; ?>"
+                                    title="Modifica libro">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path
+                                    d="M0 13.622v2.5a.5.5 0 0 0 .5.5H3a.5.5 0 0 0 .5-.5V13h-3v.622zM15.854 1.146a1 1 0 0 0-1.415 0L12 3.586 12 7l3.854-3.854a1 1 0 0 0 0-1.415z" />
+                                    <path fill-rule="evenodd"
+                                    d="M1 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm12 4h3l-9 9H3V7h3l9-9v3z" />
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+                            <a href='#' data-bs-toggle="modal"
+                            data-bs-target="#modal_elimina_libro_<?php echo $row['id']; ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path
+                            d="M1 3h1v9H1V3zm2 0h10v9H3V3zm12-2h-3l-1-1h-4l-1 1H2v1h12V1zM5.5 12a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+                        </svg>
+                    </a>
+                </td> -->
+                            <!-- </tr> -->
+                            <!-- end while -->
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                    <?php echo "<div id='descriptionContainer'></div>"?>
 
-                        <div class="card">
-                            <div class="card-body">
-                                <div id="selectedItemText"></div>
-                                <div id="selectedItemDescription"></div>
-                                <p></p>
-                                <div id="selectedItemDescription">Libri</div>
-                            </div>
-                        </div>
 
-                    </div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2"></div>
                 </div>
-
-                <!-- libri -->
-                <div class="col-md-4"></div>
-                <!-- right column -->
-                <div class="col-md-2"></div>
 
                 <!-- parte centrale libri -->
 
                 <!-- parte finale -->
 
-            </div>
-        </div>
+
+
 
 
 
@@ -158,12 +171,20 @@ if(isset($_POST['aggiungiMedagliere'])){
 
 
 
+
+
+    <script src="javascript/medaglieri.js"></script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
-    <script src="javascript/gestioneMedaglieri.js"></script>
-
+    <script>
+    $(document).ready(function() {
+        $('#TabellaMedaglieri').DataTable();
+    });
+    </script>
 
 </body>
 

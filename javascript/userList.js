@@ -1,6 +1,5 @@
-if (typeof fu === 'undefined') {
-    let fu;
-}
+let fu = new Array();
+
 
 function showAutocomplete(inputValue, tipologia, classe) {
     let tipo = tipologia;
@@ -59,7 +58,6 @@ document.addEventListener('click', function (event) {
         showAutocomplete(this.value, 'manageThisUser', 'autocompleteResults');
         // console.log("xhr done: outside");
     });
-    // console.log(fu);
 
     // Gestione cancellazione utente 
     let deleteUserAutocompleteContainer = document.querySelector('.du-autocomplete-container');
@@ -78,39 +76,43 @@ document.addEventListener('click', function (event) {
     }
 
     //new
-    // let manageThisUser = document.getElementById('manageThisUser');
-    // let checkBoxFlag = document.getElementById('isAdminCheckbox');
-    // utente = manageThisUser.value;
-    // isUtenteAdmin = filteredUsers.find(user => user.username === manageThisUser.value).isAdmin;
-    // isUtenteBanned = filteredUsers.find(user => user.username === manageThisUser.value).stato;
+    let manageThisUser = document.getElementById('manageThisUser');
+    let checkBoxFlag = document.getElementById('isAdminCheckbox');
+    utente = manageThisUser.value;
+    console.log(utente);
+    console.log(fu);
 
-    // console.log(filteredUsers);
+    let isUtenteAdmin = fu.find(x => x.username === utente).isAdmin;
+    // isUtenteBanned = fu.find(user => user.username === manageThisUser.value).stato;
+
     // console.log(manageThisUser.value + " -> " + filteredUsers.find(user => user.username === manageThisUser.value).isAdmin);
-    // console.log("000: " + utente + " -> " + isUtenteAdmin);
+    console.log("000: " + utente + " -> " + isUtenteAdmin);
     //gestione del check admin
-    // if (utente.length > 0) {
-    //     (isUtenteAdmin === 1) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
-    // }
+    console.log(updatedUserInformation);
+    if (utente.length > 0) {
+        // (isUtenteAdmin === 1) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
+    }
 
-    // if (utente.length > 0) {
-    //     console.log("001");
-    //     // (isUtenteAdmin === 1) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
-    //     (isUtenteAdmin === 1) ? document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1" checked>' : document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">';
-    // }
+    if (utente.length > 0) {
+        // console.log("001");
+        // (isUtenteAdmin === 1) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
+        // (isUtenteAdmin === 1) ? document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1" checked>' : document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">';
+    }
 
 
 });
 
 
-// document.getElementById('isAdminCheckbox').addEventListener('change', function () {
-// // Check if the checkbox is checked
-//     if (isUtenteAdmin === 1) {
-//         // Checkbox was checked, update to unchecked
-//         document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">';
-//         isUtenteAdmin = 0;
-//     } else {
-//         // Checkbox was unchecked, update to checked
-//         document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1" checked>';
-//         isUtenteAdmin = 1;
-//     }
-// });
+document.getElementById('isAdminCheckbox').addEventListener('change', function () {
+    // Check if the checkbox is checked
+    if (isUtenteAdmin === 1) {
+        // Checkbox was checked, update to unchecked
+        // document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">';
+        isUtenteAdmin = 0;
+    } else {
+        // Checkbox was unchecked, update to checked
+        // document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1" checked>';
+        isUtenteAdmin = 1;
+    }
+});
+
