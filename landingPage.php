@@ -10,9 +10,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 require_once 'include/post.php';
 
 $post = new Post($conn);
-echo $_SESSION["id"];
 $following_users = getFollowingUsers($_SESSION['id'], $conn);
-print_r($following_users);
 if (!empty($following_users)) {
     $posts = $post->getPost($_SESSION['id'], $following_users);
 } else {
