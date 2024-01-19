@@ -234,7 +234,7 @@ const changePage = (elBook) => {
                 //let res = getValue(myVar);
                 
 
-                } , 50); //TODO : modo becero, ma funziona
+                } , 250); //TODO : modo becero, ma funziona
             
             });
     });
@@ -287,7 +287,7 @@ window.addEventListener("resize", function(){
 
 const amount = document.querySelectorAll(".facciata").length;
 document.querySelectorAll(".facciata").forEach((elem, index) => {
-    if ((index == 0) || (index == (amount-1)) || isLittle){
+    if ((index == 0) || (index == (amount-1))){
         return;
     }
     
@@ -299,20 +299,20 @@ document.querySelectorAll(".facciata").forEach((elem, index) => {
     const subtitle = secArt.firstChild;
     const listLibri = subtitle.nextSibling;
 
-    let defaultTitleSize = isLittle ? 20 : 36; //TODO controlla 20
-    let defaultdescriptSize = isLittle ? 10 : 18;
-    let defaultSubtitleSize = isLittle ? 12 : 25;  //TODO controlla 16
-    let defaultListaLibriHeight = 200;
+    let defaultTitleSize = isLittle ? 22 : 36; //TODO controlla 20
+    let defaultdescriptSize = isLittle ? 16 : 18;
+    let defaultSubtitleSize = isLittle ? 16 : 25;  //TODO controlla 16
+    let defaultListaLibriHeight = isLittle ? 150 : 200;
 
     const maxCharsTitle = 50;
     const maxCharsDescp = 800;
     const sogliaValueTitle = 25;
-    const sogliaValueDescp = 600;
+    const sogliaValueDescp = isLittle ? 450 : 600;
 
     let flag = false;
 
     if (descript.innerHTML.length > sogliaValueDescp){
-        let maxDimPerc = 30;
+        let maxDimPerc = isLittle ? 40 : 30;
         let offset = (maxCharsDescp - sogliaValueDescp);
         let coeff = (maxCharsDescp - descript.innerHTML.length) / offset;
 
