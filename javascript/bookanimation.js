@@ -258,55 +258,118 @@ const criticalSize = 768;
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
 const isLittle = width < criticalSize;
-
+const bigSize = (600*2);
+const isVeryBig = width > bigSize;
 this.startView();
 
 
 
 //cambiare dispositivo (ma anche banalmente dimensione)
 window.addEventListener("resize", function(){
+    if(isVeryBig && width <= bigSize ){
+        window.location.reload();
+    } else if (!isVeryBig && width >= bigSize){
+        window.location.reload();
+    }
 
-    // let isLittle = (width < criticalSize);
-    
-    //console.log((!isLittle) + " " + (width < criticalSize));
-    // console.log("\n");
-    //console.log((isLittle) + " " + (width > criticalSize));
-    if (!isLittle && width <= criticalSize){
-        //console.log("CAMBIO");
+    if (!isLittle && ((width <= criticalSize))){
         window.location.reload();
         //ricarica : diventa piccolo
-        // 
     } else if (isLittle && width >= criticalSize){
-        //console.log("CAMBIO");
         window.location.reload();
         //ricarica : diventa grande
-        // window.location.reload();
     } else {
-        // console.log((!isLittle) + " " + (width < criticalSize));
-        // console.log("\n");
-        // console.log((isLittle) + " " + (width > criticalSize));
         width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-        // console.log(width);
     }
 
 });
 
-// window.addEventListener("resize", {
-    // console.log(Math.random());
-// });
 
-//adattamento testo in caso di overflow
-document.querySelectorAll("article.titoloMedagliere p.descrizioneMedagliere").forEach(element => {
-    const defaultSize = isLittle ? 10 : 18;
-    element.style.fontSize = defaultSize + "px";
-    if (element.innerHTML.length > 600){
-        let coeff = 1 - ((200 + (element.innerHTML.length - 800)) / 1000);
+const amount = document.querySelectorAll(".facciata").length;
+document.querySelectorAll(".facciata").forEach((elem, index) => {
+    if ((index == 0) || (index == (amount-1)) || isLittle){
+        return;
+    }
+    
+    const firstArt = elem.firstChild;
+    const secArt = firstArt.nextSibling;
+
+    const title = firstArt.firstChild.nextSibling;
+    const descript = title.nextSibling.nextSibling;
+    const subtitle = secArt.firstChild;
+    const listLibri = subtitle.nextSibling;
+
+    let defaultTitleSize = isLittle ? 20 : 36; //TODO controlla 20
+    let defaultdescriptSize = isLittle ? 10 : 18;
+    let defaultSubtitleSize = isLittle ? 12 : 25;  //TODO controlla 16
+    let defaultListaLibriHeight = 200;
+
+    const maxCharsTitle = 50;
+    const maxCharsDescp = 800;
+    const sogliaValueTitle = 25;
+    const sogliaValueDescp = 600;
+
+    let flag = false;
+
+    if (descript.innerHTML.length > sogliaValueDescp){
+        let maxDimPerc = 30;
+        let offset = (maxCharsDescp - sogliaValueDescp);
+        let coeff = (maxCharsDescp - descript.innerHTML.length) / offset;
+
+        console.log(title.innerHTML);
+        console.log(descript.innerHTML);
+
+        coeff = 1 - coeff;
+        console.log("opp " + coeff);
+        coeff = coeff * maxDimPerc;
+        console.log("adapt " + coeff);
+        coeff = coeff / 100;
+        console.log("div " + coeff);
+        coeff = 1 - coeff;
         console.log(coeff);
-        let newHight = defaultSize * coeff;
-        console.log(newHight);
+
+        defaultdescriptSize = defaultdescriptSize * coeff;
         
-        element.style.fontSize = Math.round(newHight) + "px";
+        flag = true;
+    }
+
+    descript.style.fontSize = Math.round(defaultdescriptSize) + "px";
+
+
+    if (title.innerHTML.length > sogliaValueTitle){
+        
+        let maxDimPerc = 25;
+        let offset = (maxCharsTitle - sogliaValueTitle);
+
+        let coeff = (maxCharsTitle - title.innerHTML.length) / offset;
+        //console.log("- " + coeff);
+        
+        coeff = 1 - coeff;
+        //console.log("opp " + coeff);
+        coeff = coeff * maxDimPerc;
+        //console.log("adapt " + coeff);
+        coeff = coeff / 100;
+        //console.log(coeff);
+        coeff = (1 - coeff);
+
+        defaultTitleSize = defaultTitleSize * coeff;
+        
+        defaultSubtitleSize = defaultSubtitleSize * coeff;
+        
+        if(flag){
+            listLibri.style.maxHeight = (defaultListaLibriHeight / 2) + "px";
+            listLibri.style.minHeight = (defaultListaLibriHeight / 2) + "px";
+        }
+        //let coeff = 1 - ((300 + (element.innerHTML.length - 800)) / 1000);
+        // console.log(coeff);
+        
+        // console.log(newHight);
+    }
+    title.style.fontSize = Math.round(defaultTitleSize) + "px";
+    subtitle.style.fontSize = Math.round(defaultSubtitleSize) + "px";
+
+    if ((window.innerWidth > (600*2))){
+        secArt.style.marginTop = "10%";
     }
 });
-
 

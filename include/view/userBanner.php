@@ -203,6 +203,10 @@ function obtainPortalsUserBanner($userId, $typeView){
     
 }
 
+//typeView deve essere una di queste 3 stringhe:
+//search --> solo il bottone "vedi di più"
+//goal --> bottone "nuovoMedagliere"/"Segui" + libro per post
+//post --> bottone "nuovoPost"/"Segui" + libro per medaglieri
 function getUserBannerById($userId, $typeView){
 
     //$userIdvisited = $_GET["id"]; // è il parametro della funzioen

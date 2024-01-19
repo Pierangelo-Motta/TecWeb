@@ -11,10 +11,9 @@ section#userGoal{
 }
 
 .book {
-    
     pointer-events: none;
     
-    margin: 45px auto 20px;
+    margin: 25px auto 10px;
 }
 
 p.libroLetto{
@@ -114,7 +113,7 @@ section#userGoal{
     /* align-content: center;
     align-self: center;
     align-items: center; */
-    padding: 0 040px;
+    padding: 0 40px;
 }
   
 .book {
@@ -313,21 +312,14 @@ div#copertinaAvanti h2{
         overflow: hidden;
         font-family: 'Times New Roman', Times, serif;
         
-        /* background-color: linear-gradient(top to bottom, white, #57585a, black) ; */
         background-image: linear-gradient(to bottom, white 10%, #57585a 90%);
-        /* background-image: linear-gradient(to right, #fff 80%, #ddd 100%); */
-        /* background-color: #57585a; */
-         /* linear-gradient(to top, #57585a 20%) ; */
     }
       
     .book {
         --sizing: 45%;
         display: flex;
         width: var(--sizing);
-        /* height: var(--sizing) * 2.5;  */
-        /* 1.61803; */
-        /*1* let pointer event go trough pages of lower Z than .book */
-        
+
         transform-style: preserve-3d;
 
         transition: translate 1s;
@@ -344,7 +336,9 @@ div#copertinaAvanti h2{
         flex: none;
         display: flex;
         width: 100%;
-        min-height: 700px;
+
+        max-height: 650px;
+        min-height: 650px;
         
         /*1* allow pointer events on pages */
         pointer-events:all;
@@ -368,19 +362,14 @@ div#copertinaAvanti h2{
         width: 18%;
         min-width: 75px;
         margin-left: 10px;
-
     }
     
-
-    div#copertinaAvanti{
-        /* background-image: linear-gradient(to left, #123465 99%, white 100%); */
-    }
-
     div#copertinaAvanti h2{
-        margin-top: 10%;
+        /* margin-top: 10%; */
+        font-size: 60px;
+        padding: 20% 5%;
     }
     
-
     .front,
     .back {
         flex: none;
@@ -390,18 +379,15 @@ div#copertinaAvanti h2{
         background-color: #fff;
         /* Fix backface visibility Firefox: */
         translate: 0px;
-        /* display: block; */
-        /* display: inline-block; */
     }
     
     .back {
-    background-image: linear-gradient(to right, #fff 80%, #ddd 100%);
-    translate: -100% 0;
-    rotate: 0 1 0 180deg;
+        background-image: linear-gradient(to right, #fff 90%, #ddd 100%);
+        translate: -100% 0;
+        rotate: 0 1 0 180deg;
     }
 
     #copertinaIndietro.back {
-        /**/
         translate: -100% 0;
         rotate: 0 1 0 180deg;
     }
@@ -410,68 +396,42 @@ div#copertinaAvanti h2{
     /***********//***********//***********/
 
     article.titoloMedagliere {
-        height: 55%;
-        max-height: 55%;
-        /* position: absolute;
-        top: 0;
-        left: 0; */
-        /* display: flex; */
-        /* vertical-align: middle; */
+        display: block;
     }
 
     article.titoloMedagliere h2 {
-        /* display: flex; */
-        /* text-align: justify; */
-        
-        /* max-width: 60%; */
         word-wrap: break-word;
         text-align: left;
         float: left;
         width: 70%;
-        /* min-width: 135px; */
-        
-        /* vertical-align: middle; */
     }
     
     article.titoloMedagliere img{
-        
         text-align: right;
         float: right;
-        /* display: flex; */
-        /* margin-left: 20px; */
-        /* margin-right: 30px; */
-        /* vertical-align: middlek; */
-        
     }
 
     .descrizioneMedagliere{
+        display: block;
         clear: left;
         text-align: justify;
         min-height: 3em;
         height: 40%;
-        max-height: 15em;
-        /* overflow-y: hidden; */
     }
 
     /***********/
 
 
     article.libriNecessari{
-        /* position: absolute;
-        top: 50%; */
-        /* left: 0; */
         font-size: 16px;
         line-height: 1em;
-        /* vertical-align: bottom; */
     }
     
     /***********/
+
     h2.medTitle{
         font-size: 36px;
     }
-    /* .descrizioneMedagliere{
-        font-size: 18px; gestito su JS (bookanimation.js)
-    } */
 
     .preambleElencoLibri{
         font-size: 25px;
@@ -480,13 +440,10 @@ div#copertinaAvanti h2{
 
     ol{
         min-height: 200px;
-        /* height: 30%; */
         max-height: 200px;
     }
 
    
-    
-    
     
     
     
