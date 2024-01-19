@@ -10,7 +10,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 }
 ?>
 <head>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
   <script src="javascript/update_notifications.js"></script>
 </head>
 

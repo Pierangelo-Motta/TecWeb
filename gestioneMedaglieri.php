@@ -111,10 +111,12 @@ if(isset($_POST['aggiungiMedagliere'])){
                         <ul class="dropdown-menu" id="dropdownMenu">
                             <?php foreach($medaglieriResult as $medagliere): ?>
                             <li>
-                                <a class="dropdown-item" id="medagliere" href="#" id="<?php echo $medagliere['id'];?>"
+                                <a class="dropdown-item" id="medagliere" href="#" medagliereid="<?php echo $medagliere['id'];?>"
                                     titolo="<?php echo $medagliere['titolo'];?>"
-                                    descrizione="<?php echo $medagliere['descrizione'];?>">
-                                    <?php echo $medagliere["titolo"] ?> </a>
+                                    descrizione="<?php echo $medagliere['descrizione'];?>"
+                                >
+                                    <?php echo $medagliere["titolo"] ?>
+                                </a>
                             </li>
                             <?php endforeach; ?>
                         </ul>
@@ -138,19 +140,19 @@ if(isset($_POST['aggiungiMedagliere'])){
                             <div class="card">
                                 <div class="card-body">
                                     <p>Libri</p>
-                                    <ul class="list-group">
+                                    <ul class="list-group" id="libriList">
                                         <?php //$libriInMedagliere = getLibriMedaglieri($medagliereId)?>
                                         <?php //foreach($libriInMedagliere as $libro){?>
-                                        <li class="list-group-item">
+                                        <!-- <li class="list-group-item"> -->
                                             <!-- reperire correttamente l'id del libro -->
-                                            <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_1">X</button>
-                                            AAA
-                                        </li>
-                                        <li class="list-group-item">
-                                            <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_2">X</button>
-                                            BBB
+                                            <!-- <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_1">X</button> -->
+                                            <!-- AAA -->
+                                        <!-- </li> -->
+                                        <!-- <li class="list-group-item"> -->
+                                            <!-- <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_2">X</button> -->
+                                            <!-- BBB -->
                                             <?php //echo $libro['titolo'] ?>
-                                        </li>
+                                        <!-- </li> -->
                                         <?php //}?>
                                     </ul>
                                 </div>
