@@ -116,9 +116,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Remove the list item from the list
             listItem.remove();
             
-            // Get the remaining books from the list
+            // ottego i libri rimasti
             let remainingBooks = getRemainingBooks();
             console.log(remainingBooks);
+            
+            //TODO: da implementare per salvare lo stato su db
             // Perform an AJAX request to update the database with the remaining books
             // fetch('updateDatabase.php', {
             //     method: 'POST',
@@ -131,23 +133,76 @@ document.addEventListener('DOMContentLoaded', function () {
             //     .then(data => console.log(data))
             //     .catch(error => console.error('Error:', error));
         
-        
-        }
-    });
+            
+            //TODO: cancellare            
+            // Event listener for the libriTable rows
+            // document.getElementById('libriTable').addEventListener('click', function (event) {
+            //     let clickedRow = event.target.closest('tr');
+            //     console.log("row clicked");
+            //     if (clickedRow) {
+            //         // Get the book title from the clicked row
+            //         let bookTitle = clickedRow.querySelector('td').textContent.trim();
+            //         let bookId = clickedRow.querySelector('id').textContent.trim();
+    
+            //         // Add the book to the libriList
+            //         addBookToLibriList(bookId, bookTitle);
+            //     }
+            // });
 
+            
+        }
+        
+        
+    });
+    
 });
 
-// Function to get the remaining books from the list
+// funzione per ottenere l'elenco dei libri rimasti nel medagliere dopo un'eliminazione
 function getRemainingBooks() {
     let libriList = document.getElementById('libriList');
     let remainingBooks = [];
-
+    
     libriList.querySelectorAll('.list-group-item').forEach(function (listItem) {
         let bookId = listItem.querySelector('.removebtn').id.replace('btn_', '');
         let bookTitle = listItem.textContent.trim();
-
+        
         remainingBooks.push({ id: bookId, titolo: bookTitle });
     });
-
+    
     return remainingBooks;
 }
+
+// funzione che aggiunge libri all'elenco del medagliere
+function addBookToLibriList(bookId, bookTitle) {
+    let libriList = document.getElementById("libriList");
+    
+    let listItem = document.createElement("li");
+    listItem.className = "list-group-item";
+    
+    let removeButton = document.createElement("button");
+    removeButton.className = "btn btn-danger btn-sm m-2 removebtn";
+    removeButton.textContent = "X";
+    // You may need to dynamically generate unique IDs for each button
+    removeButton.id = "btn_" + bookId;
+    
+    let bookTitleNode = document.createTextNode(bookTitle);
+    
+    listItem.appendChild(removeButton);
+    listItem.appendChild(bookTitleNode);
+    
+    libriList.appendChild(listItem);
+}
+
+// permette di selezionare libri dalla tabella libri e aggiungerli all'elenco del medagliere
+// TODO: inserire il btn per l'eliminazione con id del libro....
+$(document).ready(function () {
+    // Click event handler for the libriTable
+    $('#libriTable').on('click', 'tbody tr', function () {
+        // Ottengo il titolo del libro e l'id
+        var bookTitle = $(this).find('td').text();
+        var bookId = $(this).find('td').attr('id').replace('libroid-', '');
+
+        // chiamo la funzione per aggiungere libri all'elenco del medagliere
+        addBookToLibriList(bookId, bookTitle);
+    });
+});

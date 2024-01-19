@@ -184,7 +184,7 @@ if(isset($_POST['aggiungiMedagliere'])){
                                         <?php $libriResult = $libri->getLibri();
                                             while ($row = mysqli_fetch_assoc($libriResult)) {?>
                                         <tr>
-                                            <td> <?php echo $row['titolo']; ?> </td>
+                                            <td id="libroid-<?php echo $row['id']?>"> <?php echo $row['titolo']; ?> </td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -218,6 +218,7 @@ if(isset($_POST['aggiungiMedagliere'])){
 
     <script src="javascript/gestioneMedaglieri.js"></script>
     <script src="javascript/libri.js"></script>
+
 
 </body>
 
