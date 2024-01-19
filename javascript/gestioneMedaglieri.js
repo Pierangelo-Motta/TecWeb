@@ -102,19 +102,52 @@ function addLibriToList(libriInMedagliere) {
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
     // Event listener for the "X" buttons
     document.getElementById('libriList').addEventListener('click', function (event) {
         if (event.target.classList.contains('removebtn')) {
             // Check if the clicked element has the 'removebtn' class
             // If yes, it's the "X" button
-
+            
             // Get the corresponding list item
             let listItem = event.target.closest('.list-group-item');
-
+            
             // Remove the list item from the list
             listItem.remove();
+            
+            // Get the remaining books from the list
+            let remainingBooks = getRemainingBooks();
+            console.log(remainingBooks);
+            // Perform an AJAX request to update the database with the remaining books
+            // fetch('updateDatabase.php', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ action: 'update', books: remainingBooks }),
+            // })
+            //     .then(response => response.json())
+            //     .then(data => console.log(data))
+            //     .catch(error => console.error('Error:', error));
+        
+        
         }
     });
 
 });
+
+// Function to get the remaining books from the list
+function getRemainingBooks() {
+    let libriList = document.getElementById('libriList');
+    let remainingBooks = [];
+
+    libriList.querySelectorAll('.list-group-item').forEach(function (listItem) {
+        let bookId = listItem.querySelector('.removebtn').id.replace('btn_', '');
+        let bookTitle = listItem.textContent.trim();
+
+        remainingBooks.push({ id: bookId, titolo: bookTitle });
+    });
+
+    return remainingBooks;
+}
