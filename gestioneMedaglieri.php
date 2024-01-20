@@ -83,7 +83,7 @@ if(isset($_POST['aggiungiMedagliere'])){
                     <form method="post" action="#">
                         <div class="modal-body">
                             <input type="text" placeholder="Titolo" name="titolo" class="form-control m-1" required />
-                            <input type="text" placeholder="Descrizione" name="descrizione" class="form-control m-1" />
+                            <input type="text" lang="" placeholder="Descrizione" name="descrizione" class="form-control m-1" />
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
@@ -133,7 +133,8 @@ if(isset($_POST['aggiungiMedagliere'])){
 
 
                                     <p>Descrizione</p>
-                                    <textarea class="flexible-input descrizione" rows="4" cols="50"
+                                    <!-- TODO: settare il linguaggio corretto -->
+                                    <textarea lang="" class="flexible-input descrizione" rows="4" cols="50"
                                         id="selectedItemDescrizioneInput"
                                         name="selectedItemDescrizioneInput"></textarea>
 
