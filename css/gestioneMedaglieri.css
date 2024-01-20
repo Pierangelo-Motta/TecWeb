@@ -13,7 +13,18 @@
 
 .titolo {
     width: 100%;
-   
+}
+
+.big {
+    display: block;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: auto;
+    width: 40%; 
+}
+
+.dataTables_length{
+    color: red;
 }
 
 .descrizione {
@@ -23,6 +34,3 @@
     
 } 
 
-.dataTables {
-    color: brown;
-}

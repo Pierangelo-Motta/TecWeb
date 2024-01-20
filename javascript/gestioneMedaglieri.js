@@ -35,10 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 
-$('#dropdownMenu a').on('click', function () {
-    const titolo = $(this).attr('titolo');
-    const descrizione = $(this).attr('descrizione');
-    medagliereid = $(this).attr('medagliereid');
+$('#dropdownMenu p').on('click', function () {
+    const titolo = $(this).attr('data-titolo');
+    const descrizione = $(this).attr('data-descrizione');
+    medagliereid = $(this).attr('data-medagliereid');
     console.log(medagliereid);
     // Set the values in the input fields
     $('#selectedItemTitoloInput').val(titolo);
@@ -122,34 +122,18 @@ document.addEventListener('DOMContentLoaded', function () {
             
             //TODO: da implementare per salvare lo stato su db
             // Perform an AJAX request to update the database with the remaining books
-            // fetch('updateDatabase.php', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ action: 'update', books: remainingBooks }),
-            // })
-            //     .then(response => response.json())
-            //     .then(data => console.log(data))
-            //     .catch(error => console.error('Error:', error));
-        
-            
-            //TODO: cancellare            
-            // Event listener for the libriTable rows
-            // document.getElementById('libriTable').addEventListener('click', function (event) {
-            //     let clickedRow = event.target.closest('tr');
-            //     console.log("row clicked");
-            //     if (clickedRow) {
-            //         // Get the book title from the clicked row
-            //         let bookTitle = clickedRow.querySelector('td').textContent.trim();
-            //         let bookId = clickedRow.querySelector('id').textContent.trim();
-    
-            //         // Add the book to the libriList
-            //         addBookToLibriList(bookId, bookTitle);
-            //     }
-            // });
-
-            
+            fetch('include/updateMedagliereDB.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ action: 'update', books: remainingBooks }),
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+                 
+           
         }
         
         
