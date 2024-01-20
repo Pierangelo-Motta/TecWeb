@@ -3,7 +3,7 @@
 
 const values = new Map();
 
-export function create() {
+function create() {
     let allGets = window.location.search.substring(1);
     let gets = allGets.split("&");
     // fore
@@ -19,12 +19,12 @@ export function create() {
     //return this;
 }
 
-export function getValue(keyName) {
+function getValue(keyName) {
     let tmp =  values.get(keyName);
     return tmp;
 }
 
-export function setValue(keyName, newValue){
+function setValue(keyName, newValue){
     values = values.set(keyName, newValue);
 }
 

@@ -1,8 +1,8 @@
 
-
 const music = new Audio('audio/sfoglia.mp3');
 music.playbackRate=4;
 // //music.loop = true; // //music.playbackRate = 2; // //music.pause();
+
 
 
 const mapValues = new Map();
@@ -16,7 +16,7 @@ function create() {
         mapValues.set(row[0], row[1]);
     });
     gets.forEach(elem => {
-        //console.log(elem);
+        // console.log(elem + " - " + mapValues.get(elem));
     });
     //return this;
 }
@@ -27,9 +27,6 @@ function getValue(keyName) {
 }
 
 function setValue(keyName, newValue){
-    //console.log("setV: " + keyName + " " + newValue);
-    // mapValues[keyName] = newValue;
-    // values = 
     mapValues.set(keyName, newValue);
 }
 
@@ -42,26 +39,27 @@ function obtainNewQuery(){
 }
 
 function saveValue(keyName, newValue, mustSaveOnHistory = false, tagToPin = ""){
-    // let res = mapValues.get(keyName);
-    //console.log(keyName + " " + newValue);
+    
     setValue(keyName,newValue);
     
+    mapValues.forEach(function(value, key) {
+        console.log(key + " = " + value);
+    });
+
     let tmp = window.location.href;
-    //console.log(tmp);
 
     let askPointIndex = tmp.indexOf("\?");
     let okURL = tmp.substring(0, askPointIndex);
     let newURL = okURL + obtainNewQuery() + tagToPin;
+    console.log(obtainNewQuery() + " § " + newURL);
     //console.log("N " + newURL);
     
     if(mustSaveOnHistory){
         window.history.replaceState({}, "", newURL);
+        //window.history.pushState({}, "", newURL);
     }
     
 }
-
-create();
-
 
 
 const flipBook = (elBook) => {
@@ -98,32 +96,9 @@ const flipBook = (elBook) => {
         });
     });
 
-    // document.querySelectorAll("article ol li p a").forEach(elem => {
-    //     elem.addEventListener("click", () => {
-    //         let actInd = elBook.style.getProperty("--c");
-    //         saveValue(myVar,actInd);
-    //     });
-    // });
 };
 
-// document.querySelectorAll()[1].style.fontSize = 10px;
-
-
-// const isComputer = () => {
-//     const ua = navigator.userAgent;
-//     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-//         return false;
-//     }
-//     if (
-//         /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-//         ua
-//         )
-//     ) {
-//         return false;
-//     }
-//     return true;
-// };
-
+//setta la pagina attuale da vedere
 function managePrint(newPage, facciates, classToAdd, isInit = false){
 
     const maxPageIndex = facciates.length - 1; //indice della copertina
@@ -138,9 +113,6 @@ function managePrint(newPage, facciates, classToAdd, isInit = false){
     if(isInit || endIndex > maxPageIndex){
         endIndex = maxPageIndex;
     }
-    
-    // console.log((facciates.length - 1) + " / " + startIndex + " / " + endIndex);
-
 
     for(let i = startIndex; i <= endIndex; i++){
         if (Math.abs(i - newPage) > delta){
@@ -151,12 +123,12 @@ function managePrint(newPage, facciates, classToAdd, isInit = false){
         }
         a = Math.floor(i/2);
         b = Math.floor(newPage/2);
-        console.log(i + " pages:  " + a + " / " + b);
+        //console.log(i + " pages:  " + a + " / " + b);
         if (a == b) {
-            console.log("block");
+            ////console.log("block");
             facciates[i].parentNode.style.display = "block";
         } else {
-            console.log("none");
+            //console.log("none");
             facciates[i].parentNode.style.display = "none";
         }
     }
@@ -164,8 +136,6 @@ function managePrint(newPage, facciates, classToAdd, isInit = false){
 }
 
 const changePage = (elBook) => {
-    // document.querySelector("p").forEach(e => {console.log("ciao");});
-    
     const facciates = document.querySelectorAll(".facciata");
     const special = "actFac";
 
@@ -183,7 +153,7 @@ const changePage = (elBook) => {
     }
 
     elBook.style.setProperty("--c", res); // Set current page
-    console.log("ALFA :" + res);
+    //console.log("ALFA :" + res);
     managePrint(res,facciates,special, true);
     
     //facciates[res].classList.add(special); //View act page
@@ -196,38 +166,28 @@ const changePage = (elBook) => {
             var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
             var critVal = width/2;
             music.play();
-
+            
             var newPage = res;
-            // console.log(evt);
 
             if (evt.x < critVal) {
                 if(newPage != 0){
                     // console.log("BBBB");
                     newPage--;
                 }
-                console.log("GIRA A SX: " + newPage);
+                //console.log("GIRA A SX: " + newPage);
 
             } else {
                 if(newPage != maxPageIndex){
                     // console.log("AAAA");
                     newPage++;
                 }
-                console.log("GIRA A DX: " + newPage);
+                //console.log("GIRA A DX: " + newPage);
             
             }
 
-
-            // console.log(facciates[res].classList + " / " + facciates[newPage].classList);
-            
-            // console.log(facciates[res].classList + " / " + facciates[newPage].classList);
             managePrint(newPage, facciates, special);
 
             res = newPage;
-            
-            // const curr = evt.target.closest(".back") ? idx : idx + 1;
-            // elBook.style.setProperty("--c", curr);
-            // music.play();
-            
             setTimeout(() => {    
                 
                 saveValue(myVar, res, true, "#userGoal");
@@ -253,9 +213,17 @@ function startView() {
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+create();
+
+
 // console.log(isComputer());
 const criticalSize = 768;
-var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
 const isLittle = width < criticalSize;
 const bigSize = (600*2);
@@ -264,8 +232,9 @@ this.startView();
 
 
 
-//cambiare dispositivo (ma anche banalmente dimensione)
-window.addEventListener("resize", function(){
+/////////////////////////////////////////////////////////////////
+
+function checkReload(){
     if(isVeryBig && width <= bigSize ){
         window.location.reload();
     } else if (!isVeryBig && width >= bigSize){
@@ -273,17 +242,48 @@ window.addEventListener("resize", function(){
     }
 
     if (!isLittle && ((width <= criticalSize))){
-        window.location.reload();
         //ricarica : diventa piccolo
-    } else if (isLittle && width >= criticalSize){
+        
+        let a = getValue("cP");
+        //setTimeout(() => console.log("ATTEMP " + a), 700);
+        let b = (a == 0) ? a : ((a * 2) - 1);
+        let c = Math.floor(b);
+        console.log("ATTEMP2 " + a + " / " + b + " / " + c);
+        saveValue("cP", c, true, "#userGoal");
+        console.log("ATTEMP3 " + getValue("cP"));
+        console.log("LINK: " + window.location.href);
+        
         window.location.reload();
+        
+    } else if (isLittle && width >= criticalSize){
         //ricarica : diventa grande
+        let a = parseInt(getValue("cP"));
+        let b = (a + 1) / 2;
+        let c = Math.floor(b);
+        console.log("ATTEMP4 " + a + " / " + Number.isInteger(a) + " / " + b + " / " + c);
+        setValue("cP", c);
+        saveValue("cP", c, true, "#userGoal");
+        console.log("ATTEMP5 " + getValue("cP"));
+        console.log("LINK: " + window.location.href);
+        
+        window.location.reload();
+        
     } else {
         width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     }
+}
 
-});
+function recCheck(){
+    setTimeout(() => {
+        checkReload();
+        recCheck();
+    }, 500);
+}
 
+//cambiare dispositivo (ma anche banalmente dimensione)
+window.addEventListener("resize", () => checkReload());
+
+recCheck();
 
 const amount = document.querySelectorAll(".facciata").length;
 document.querySelectorAll(".facciata").forEach((elem, index) => {
@@ -316,17 +316,17 @@ document.querySelectorAll(".facciata").forEach((elem, index) => {
         let offset = (maxCharsDescp - sogliaValueDescp);
         let coeff = (maxCharsDescp - descript.innerHTML.length) / offset;
 
-        console.log(title.innerHTML);
-        console.log(descript.innerHTML);
+        //console.log(title.innerHTML);
+        //console.log(descript.innerHTML);
 
         coeff = 1 - coeff;
-        console.log("opp " + coeff);
+        //console.log("opp " + coeff);
         coeff = coeff * maxDimPerc;
-        console.log("adapt " + coeff);
+        ///console.log("adapt " + coeff);
         coeff = coeff / 100;
-        console.log("div " + coeff);
+        //console.log("div " + coeff);
         coeff = 1 - coeff;
-        console.log(coeff);
+        //console.log(coeff);
 
         defaultdescriptSize = defaultdescriptSize * coeff;
         
@@ -372,4 +372,3 @@ document.querySelectorAll(".facciata").forEach((elem, index) => {
         secArt.style.marginTop = "10%";
     }
 });
-
