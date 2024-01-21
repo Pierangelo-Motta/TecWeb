@@ -185,8 +185,10 @@ function saveBooks(array $books){
     global $conn;
     $sql = "INSERT INTO compone (libroId, medagliereId) VALUES (?, ?)";
     
-    // TODO: manage medaglieri update?
-    // $sql = "UPDATE compone SET libroId = ? WHERE medagliereId = ?";
+    // FIXME: codice da inglobare? Cosi non funziona..
+    // if(medagliereHasBooks($book['medagliere_id'])){
+    //     deleteMedagliere($book['medagliere_id']);
+    // }
     
     $stmt = $conn->prepare($sql);
     
@@ -199,6 +201,38 @@ function saveBooks(array $books){
 
 };
 
+function deleteMedagliere(int $id){
+    global $conn;
+    $sqlDelete = "DELETE FROM compone WHERE medagliereId = ?";
+    
+    $stmtDelete = $conn->prepare($sqlDelete);
+   
+    $stmtDelete->bind_param('i', $id);
+    $stmtDelete->execute();
+    
+    $stmtDelete->close();
+}
+
+
+function medagliereHasBooks(int $id){
+    global $conn;
+    
+    $checkSql = "SELECT COUNT(*) as numeroMed FROM compone WHERE medagliereId = ?";
+    $checkStmt = $conn->prepare($checkSql);
+    $checkStmt->bind_param('i', $medagliereId);
+    $checkStmt->execute();
+    $checkResult = $checkStmt->get_result();
+    $row = $checkResult->fetch_assoc();
+    $valore = $row['numeroMed']; 
+    $checkStmt->close();
+
+    if ($valore > 0) {
+        return 1;
+    }else {
+        return 0;
+    }
+
+}
 
 
 ?>

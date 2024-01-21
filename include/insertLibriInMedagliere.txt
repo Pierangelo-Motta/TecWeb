@@ -246,3 +246,407 @@ Books variable content: array (
     ),
   ),
 )
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '9',
+    ),
+    2 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '9',
+    ),
+    3 => 
+    array (
+      'id' => '9',
+      'titolo' => 'X Kitchen',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '15',
+      'titolo' => 'X Il libro di tutte le cose',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '9',
+      'titolo' => 'X Kitchen',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '15',
+      'titolo' => 'X Il libro di tutte le cose',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '15',
+      'titolo' => 'X Il libro di tutte le cose',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '13',
+      'titolo' => 'X Il gatto striato miagola tre volte',
+      'medagliere_id' => '9',
+    ),
+    2 => 
+    array (
+      'id' => '19',
+      'titolo' => 'X Il magnifico studio fotografico di Hirasaka',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '13',
+      'titolo' => 'X Il gatto striato miagola tre volte',
+      'medagliere_id' => '9',
+    ),
+    2 => 
+    array (
+      'id' => '19',
+      'titolo' => 'X Il magnifico studio fotografico di Hirasaka',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '6',
+      'titolo' => 'XDella gentilezza e del coraggio',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '10',
+    ),
+    1 => 
+    array (
+      'id' => '15',
+      'titolo' => 'X Il libro di tutte le cose',
+      'medagliere_id' => '10',
+    ),
+    2 => 
+    array (
+      'id' => '19',
+      'titolo' => 'X Il magnifico studio fotografico di Hirasaka',
+      'medagliere_id' => '10',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '10',
+    ),
+    1 => 
+    array (
+      'id' => '13',
+      'titolo' => 'X Il gatto striato miagola tre volte',
+      'medagliere_id' => '10',
+    ),
+    2 => 
+    array (
+      'id' => '9',
+      'titolo' => 'X Kitchen',
+      'medagliere_id' => '10',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '10',
+    ),
+    1 => 
+    array (
+      'id' => '13',
+      'titolo' => 'X Il gatto striato miagola tre volte',
+      'medagliere_id' => '10',
+    ),
+    2 => 
+    array (
+      'id' => '9',
+      'titolo' => 'X Kitchen',
+      'medagliere_id' => '10',
+    ),
+  ),
+)
