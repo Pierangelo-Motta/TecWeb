@@ -9,7 +9,7 @@ require_once('login.model.php');
     <div class="row justify-content-center">
         <div class="col-md-6">
 
-            <form action="" method="post">
+            <form action="#" method="post">
 
                 <!-- Dropdown menu for selecting a user -->
                 <div class="form-group">

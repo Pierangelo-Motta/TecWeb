@@ -21,6 +21,7 @@ if(isset($_POST['aggiungiMedagliere'])){
 <html lang="it">
 
 <head>
+    <title>TecWeb - Gestione Medaglieri </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medaglieri</title>
@@ -35,7 +36,7 @@ if(isset($_POST['aggiungiMedagliere'])){
     <link rel="stylesheet" type="text/css" href="css/gestioneMedaglieri.css">
 
     <!-- DataTables JS -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js">
     </script>
 </head>
 
@@ -79,10 +80,10 @@ if(isset($_POST['aggiungiMedagliere'])){
                         <p class="modal-title" id="modalTitle">Aggiungi Medagliere</p>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form method="post" action="">
+                    <form method="post" action="#">
                         <div class="modal-body">
                             <input type="text" placeholder="Titolo" name="titolo" class="form-control m-1" required />
-                            <input type="text" placeholder="Descrizione" name="descrizione" class="form-control m-1" />
+                            <input type="text" lang="" placeholder="Descrizione" name="descrizione" class="form-control m-1" />
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
@@ -101,7 +102,7 @@ if(isset($_POST['aggiungiMedagliere'])){
                 <!-- medaglieri dropdown menu -->
                 <div class="col-md-5 justify-content-center">
                     <div class="dropdown">
-                        <button type="button" id="dropdownButton" class="btn btn-primary dropdown-toggle"
+                        <button type="button" id="dropdownButton" class="btn btn-primary dropdown-toggle big"
                             data-bs-toggle="dropdown">
                             Medaglieri
                         </button>
@@ -111,15 +112,19 @@ if(isset($_POST['aggiungiMedagliere'])){
                         <ul class="dropdown-menu" id="dropdownMenu">
                             <?php foreach($medaglieriResult as $medagliere): ?>
                             <li>
-                                <a class="dropdown-item" id="medagliere" href="#" id="<?php echo $medagliere['id'];?>"
-                                    titolo="<?php echo $medagliere['titolo'];?>"
-                                    descrizione="<?php echo $medagliere['descrizione'];?>">
-                                    <?php echo $medagliere["titolo"] ?> </a>
+                                <p class="dropdown-item" id="medagliere-<?php echo $medagliere['id'];?>"
+                                data-medagliereid="<?php echo $medagliere['id'];?>"
+                                data-titolo="<?php echo $medagliere['titolo'];?>"
+                                data-descrizione="<?php echo $medagliere['descrizione'];?>"
+                                >
+                                    <?php echo $medagliere["titolo"] ?>
+                            </p>
                             </li>
                             <?php endforeach; ?>
                         </ul>
 
-                        <form action="" method="post">
+                        <!-- <form action="include/updateMedagliereDB.php" method="post"> -->
+                        <form action="#" method="post">
                             <div class="card">
                                 <div class="card-body">
                                     <p>Titolo</p>
@@ -128,7 +133,8 @@ if(isset($_POST['aggiungiMedagliere'])){
 
 
                                     <p>Descrizione</p>
-                                    <textarea type="text" class="flexible-input descrizione" rows="4" cols="50"
+                                    <!-- TODO: settare il linguaggio corretto -->
+                                    <textarea lang="" class="flexible-input descrizione" rows="4" cols="50"
                                         id="selectedItemDescrizioneInput"
                                         name="selectedItemDescrizioneInput"></textarea>
 
@@ -138,28 +144,30 @@ if(isset($_POST['aggiungiMedagliere'])){
                             <div class="card">
                                 <div class="card-body">
                                     <p>Libri</p>
-                                    <ul class="list-group">
+                                    <ul class="list-group" id="libriList">
                                         <?php //$libriInMedagliere = getLibriMedaglieri($medagliereId)?>
                                         <?php //foreach($libriInMedagliere as $libro){?>
-                                        <li class="list-group-item">
+                                        <!-- <li class="list-group-item"> -->
                                             <!-- reperire correttamente l'id del libro -->
-                                            <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_1">X</button>
-                                            AAA
-                                        </li>
-                                        <li class="list-group-item">
-                                            <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_2">X</button>
-                                            BBB
+                                            <!-- <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_1">X</button> -->
+                                            <!-- AAA -->
+                                        <!-- </li> -->
+                                        <!-- <li class="list-group-item"> -->
+                                            <!-- <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_2">X</button> -->
+                                            <!-- BBB -->
                                             <?php //echo $libro['titolo'] ?>
-                                        </li>
+                                        <!-- </li> -->
                                         <?php //}?>
                                     </ul>
                                 </div>
                             </div>
                             <p></p>
-
-                            <input type="submit" class="btn btn-primary" value="Modifica Medagliere">
-
+                            
                         </form>
+                        <div class="text-center">
+                        <input  class="btn btn-primary" id="salvaLibriInMedagliere" value="Salva Libri in Medagliere">
+                        <input type="submit" class="btn btn-primary" value="Certifica Medagliere">
+                        </div>
 
                     </div>
                 </div>
@@ -182,7 +190,7 @@ if(isset($_POST['aggiungiMedagliere'])){
                                         <?php $libriResult = $libri->getLibri();
                                             while ($row = mysqli_fetch_assoc($libriResult)) {?>
                                         <tr>
-                                            <td> <?php echo $row['titolo']; ?> </td>
+                                            <td id="libroid-<?php echo $row['id']?>"> <?php echo $row['titolo']; ?> </td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -215,7 +223,9 @@ if(isset($_POST['aggiungiMedagliere'])){
     </script>
 
     <script src="javascript/gestioneMedaglieri.js"></script>
+    <script src="javascript/gm.js"></script>
     <script src="javascript/libri.js"></script>
+
 
 </body>
 

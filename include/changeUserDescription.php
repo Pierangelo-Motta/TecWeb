@@ -8,7 +8,7 @@ require_once('login.model.php');
 
             <form action="include/updateUserDescription.php" method="post">
 
-                <div class="form-group" align-items-center>
+                <div class="form-group">
                     <label for="userDescription">Descrizione Utente</label>
                     <textarea id="userDescription" class="col-md-12"
                         name="userDescription"><?php echo getUserDescription($_SESSION['username']); ?></textarea>

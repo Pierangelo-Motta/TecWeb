@@ -27,19 +27,38 @@ class Medaglieri{
     }   
 
     public function getLibriMedaglieri($medagliereId) {
-        $sql = "SELECT libro.id, libro.titolo FROM libro, compone , medagliere
-                    WHERE libro.id = compone.libroId AND compone.medagliereId = medagliere.id and medagliere.id = ?";
-        $result = mysqli_query($this->conn, $sql);
-        $stmt = $conn->prepare($sql);
+        $sql = "SELECT libro.id, libro.titolo 
+                FROM libro, compone, medagliere
+                WHERE libro.id = compone.libroId 
+                AND compone.medagliereId = medagliere.id 
+                AND medagliere.id = ?";
+
+        // Prepare the statement
+        $stmt = $this->conn->prepare($sql);
+
+        // Check if the preparation was successful
+        if (!$stmt) {
+            die("Error in SQL query preparation: " . $this->conn->error);
+        }
+
+        // Bind the parameter
         $stmt->bind_param("i", $medagliereId);
-
+            // Execute the statement
         $stmt->execute();
-
+        // Get the result
         $result = $stmt->get_result();
-        //return $result->fetch_all(MYSQLI_ASSOC);
+
+        // Fetch the results as an associative array
+        // $data = $result->fetch_all(MYSQLI_ASSOC);
+
+        // Close the statement
+        $stmt->close();
+
+        // Return the result
+        // return $data;
         return $result;
-        
     }
+
 
 }
 
