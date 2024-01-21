@@ -74,14 +74,14 @@ print_r($_POST);
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
   <link rel="stylesheet" type="text/css" href="css/JPBook.css">
-  
+
   <link rel="icon" href="images/favicon_io/favicon.ico">
 
 
 
 </head>
 <body>
-    
+
     <?php require('navbarSelect.php'); ?>
 
     <main class="d-flex">
@@ -112,7 +112,7 @@ print_r($_POST);
     ?>
 
     <?php if($visitPost){
-        require("include/view/profilePageUserPost.php");
+        require("include/view/postPage.php");
     } else {
         require("include/view/profilePageUserGoal.php");
     } ?>
