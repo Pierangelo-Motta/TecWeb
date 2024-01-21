@@ -183,12 +183,38 @@ function updateUserData(string $selectedUser, string $isAdmin, string $userBanne
 
 function saveBooks(array $books){
     global $conn;
+    
     $sql = "INSERT INTO compone (libroId, medagliereId) VALUES (?, ?)";
     
-    // FIXME: codice da inglobare? Cosi non funziona..
-    // if(medagliereHasBooks($book['medagliere_id'])){
-    //     deleteMedagliere($book['medagliere_id']);
-    // }
+
+    // Assuming $books array has 'id' and 'medagliere_id' keys
+    $medagliereId = $books[0]['medagliere_id'];
+
+    // Check if the medagliere already exists
+    $checkSql = "SELECT COUNT(*) as conta FROM compone WHERE medagliereId = ?";
+    $checkStmt = $conn->prepare($checkSql);
+    $checkStmt->bind_param('i', $medagliereId);
+    $checkStmt->execute();
+    $checkResult = $checkStmt->get_result();
+    $row = $checkResult->fetch_assoc();
+
+    // If the conta is greater than 0, the medagliere already exists
+    if ($row['conta'] > 0) {
+        // TODO: Decide what to do when the medagliere already exists
+        // For example, update existing records or skip insertion
+        // echo "Medagliere already exists. You may want to update existing records or skip insertion.";
+        $sqlDelete = "DELETE FROM compone WHERE medagliereId = ?";
+    
+        $stmtDelete = $conn->prepare($sqlDelete);
+   
+        $stmtDelete->bind_param('i', $medagliereId);
+        $stmtDelete->execute();
+    
+        $stmtDelete->close();
+        //return;
+    }
+
+    $checkStmt->close();
     
     $stmt = $conn->prepare($sql);
     
@@ -201,38 +227,35 @@ function saveBooks(array $books){
 
 };
 
-function deleteMedagliere(int $id){
-    global $conn;
-    $sqlDelete = "DELETE FROM compone WHERE medagliereId = ?";
+// function deleteMedagliere(int $id){
+//     global $conn;
+//     $sqlDelete = "DELETE FROM compone WHERE medagliereId = ?";
+//     $stmtDelete = $conn->prepare($sqlDelete);
+//     $stmtDelete->bind_param('i', $id);
+//     $stmtDelete->execute();
+//     $stmtDelete->close();
+// }
+
+
+// function medagliereHasBooks(int $id){
+//     global $conn;
     
-    $stmtDelete = $conn->prepare($sqlDelete);
-   
-    $stmtDelete->bind_param('i', $id);
-    $stmtDelete->execute();
-    
-    $stmtDelete->close();
-}
+//     $checkSql = "SELECT COUNT(*) as numeroMed FROM compone WHERE medagliereId = ?";
+//     $checkStmt = $conn->prepare($checkSql);
+//     $checkStmt->bind_param('i', $medagliereId);
+//     $checkStmt->execute();
+//     $checkResult = $checkStmt->get_result();
+//     $row = $checkResult->fetch_assoc();
+//     $valore = $row['numeroMed']; 
+//     $checkStmt->close();
 
+//     if ($valore > 0) {
+//         return 1;
+//     }else {
+//         return 0;
+//     }
 
-function medagliereHasBooks(int $id){
-    global $conn;
-    
-    $checkSql = "SELECT COUNT(*) as numeroMed FROM compone WHERE medagliereId = ?";
-    $checkStmt = $conn->prepare($checkSql);
-    $checkStmt->bind_param('i', $medagliereId);
-    $checkStmt->execute();
-    $checkResult = $checkStmt->get_result();
-    $row = $checkResult->fetch_assoc();
-    $valore = $row['numeroMed']; 
-    $checkStmt->close();
-
-    if ($valore > 0) {
-        return 1;
-    }else {
-        return 0;
-    }
-
-}
+// }
 
 
 ?>
