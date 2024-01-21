@@ -40,11 +40,13 @@ class Swapper{
         create();
 
         this.sections = document.querySelectorAll("section");
-        this.actSections = this.sections[this.sections.length-1];
+        this.actSections = this.sections[this.sections.length - 1];
 
         this.portalImg = document.getElementById("portal");
         
         this.portalAbbr = document.getElementsByClassName("AbbrImgPortal")[0];
+
+        console.log(this.actSections.getAttribute("id"));
 
         if(this.actSections.getAttribute("id") === "userPosts"){
             this.adaptPortalByPostToGoal(this.portalImg, this.portalAbbr);
@@ -70,6 +72,7 @@ class Swapper{
     }
 
     adaptPortal(portalImg, abbrPortalImg, link, altText, otherImg){
+        console.log(portalImg + " / " + abbrPortalImg + " / " + link + " / " + altText + " / " + otherImg);
         let userName = abbrPortalImg.getAttribute("title");
         abbrPortalImg.setAttribute("title", altText + userName);
         //TODO occhio al riutilizzo

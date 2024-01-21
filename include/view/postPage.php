@@ -1,12 +1,11 @@
-<?php
-if (empty($posts)) {
-    echo '<p>Nessun post disponibile dalle persone che segui.</p>';
-} else {
-    ?>
-    <section id="userPosts" class="d-flex">
+<section id="userPosts" class="d-flex">
         <div class="col-2"></div>
         <div class="col-8">
-            <?php foreach ($posts as $post): ?>
+                <?php
+        if (empty($posts)) {
+            echo '<p>Nessun post disponibile dalle persone che segui.</p>';
+        } else {
+            foreach ($posts as $post): ?>
                 <article>
                     <div class="card">
                         <div class="card-body">
@@ -87,7 +86,7 @@ if (empty($posts)) {
                     </div>
                 </article>
                 <br/>
-            <?php endforeach; ?>
+            <?php endforeach;  ?>
         </div>
         <div class="col-2"></div>
     </section>
