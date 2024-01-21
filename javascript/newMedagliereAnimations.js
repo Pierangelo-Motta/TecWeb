@@ -150,7 +150,7 @@ document.querySelectorAll(".descrizioneMed").forEach(elem => {
     contenitore.style.maxHeight = maxHeightDefault + "px";
 
     console.log(elem);
-    let text = "...<p href=\"#\" class=\"expandMe\"> more";
+    let text = "...<p class=\"expandMe\"> more"; //href=\"#\"
     if(lengOfContent > redValue){
         elem.setAttribute("data-AllText",elem.innerHTML);
         let tmp = content.substring(0,lengOfContent/2);

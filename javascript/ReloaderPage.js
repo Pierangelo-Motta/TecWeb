@@ -16,7 +16,7 @@ class ReloaderPage{
     }
 
     checkReload(){
-        if (!isLittle && (width <= criticalSize)) {
+        if (!isLittle && (width < criticalSize)) {
             this.byBigToLitle();
             window.location.reload();
 

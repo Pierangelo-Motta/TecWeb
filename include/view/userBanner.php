@@ -36,7 +36,7 @@ function getPictureOfPortalImage($typeOfView){
             break;
         
         default:
-            $portalImg = $portalImg . "DA_FARE.png";
+            $portalImg = $portalImg . "ERR.png";
             break;
     }
 
@@ -71,9 +71,11 @@ function getButtonOfPortal($userId, $typeView){
 
     $res = "";
 
+    $classButtonDefault = "";
+
     if (strcmp($typeView, 'search') == 0) { //caso del ridirezione al profilo utente
         $buttAttr = array(
-            "class" => "btn btn-primary linkToUserProfile",
+            "class" => "btn btn-primary linkToUserProfile" . $classButtonDefault,
             "type" => "button",
             "value" => $userId
         );
@@ -85,7 +87,7 @@ function getButtonOfPortal($userId, $typeView){
     if($isMyProfilePage) {
         //casi nuovo qualcosa 
         $buttAttr = array(
-            "class" => "btn btn-primary",
+            "class" => "btn btn-primary" . $classButtonDefault,
             "type" => "button",
             "id" => "addSomethingToMyAccount");
         $innerHTML = $visitPost ? $nuovoPost : $nuovoMedagliere;
@@ -101,7 +103,7 @@ function getButtonOfPortal($userId, $typeView){
             "type" => "submit",
             "id" => "followButtonId",
             "name" => $nameButton,
-            "class" => $imFollowU ? "btn btn-secondary" : "btn btn-primary",
+            "class" => ($imFollowU ? "btn btn-secondary" : "btn btn-primary") . $classButtonDefault,
             "value" => $imFollowU ? 1 : 0
         );
     
@@ -132,11 +134,10 @@ function obtainMainInfosUserBanner($userId){
     $counterSeguo = sizeof(ottieniSegue($userId)); //numero follow2
     $amountComplete = sizeof(getMedCompletatiByUserId($userId)); //amountMedaglieriCompletati
 
-    $classMainContainer = "d-md-inline-flex align-items-center";
-
+    $classMainContainer = "d-md-inline-flex align-items-center p-2  mainInfos"; //w-25 flex-fill
+ 
     $initMainContainter = "<div id=\"mainInfosUserBannerN" . $userId . "\" 
                                 class=\"" . $classMainContainer . "\">";
-
     
     $classForImg = "rounded float-left";
     $first =  "<div id=\"divContainerImgUserBannerN" . $userId . "\" class=\"\">" .
@@ -145,6 +146,12 @@ function obtainMainInfosUserBanner($userId){
                     "alt=\"Immagine Profilo\" "  .
                     "class=\"" . $classForImg . "\"> " .
                     "</div>";
+
+    //$classForMed = "";
+    // $med =  "<div" . 
+    //         //" id=\"divContainerImgUserBannerN" . $userId . "\"" . 
+    //         " class=\"" . $classForMed . "\">" .
+    //     "</div>";
 
     $classForInfos = "card-text";
     $second = "<div id=\"textInfoUserBannerN" . $userId . "\" class=\"\"> " .
@@ -165,7 +172,7 @@ function obtainPortalsUserBanner($userId, $typeView){
 
     $nameInterestedUser = tmpGetUsernameById($userId); //nome
 
-    $classMainContainer = "d-md-inline-flex align-items-center";
+    $classMainContainer = "d-md-inline-flex align-items-center p-2  w-auto"; //w-25 flex-fill
     $initMainContainter = "<div id=\"portalsUserBannerN" . $userId . "\" class=\"" . $classMainContainer . "\">";
 
     $portalImg = getPictureOfPortalImage($typeView);
@@ -173,7 +180,7 @@ function obtainPortalsUserBanner($userId, $typeView){
     //$textButton = getButtonOfPortal($userId, $typeView);
 
 
-    $classFirstContainer = "order-md-1";
+    $classFirstContainer = "order-md-1 w-auto";
     //per ora un utente gli metto solo il buttone "vedi di più" : non personalizzo l'ID al portale
     //UserBannerN . $userId
     $classImgAbbr = "AbbrImgPortal";
@@ -181,13 +188,13 @@ function obtainPortalsUserBanner($userId, $typeView){
                 "<abbr id=\"portalAbbr" . $userId . "\" lang=\"it\" title=\"" . $nameInterestedUser . "\" class=\"" . $classImgAbbr . "\">" .
                                     "<img " . 
                                         "id=\"portal\" " . 
-                                        "class=\"flex-wrap align-items-center\" " . 
+                                        "class=\"flex-wrap align-items-center w-100\" " . 
                                         "alt=\"" . $nameInterestedUser . "\" " .
                                         "src=\"" .  $portalImg . "\" /> " .
                                 "</abbr>" .
                             "</div>";
 
-    $classSecondContainer = "order-md-0";
+    $classSecondContainer = "order-md-0 w-auto";
     $second = "<div id=\"addInfosUserBannerN" . $userId . "\" class=\"" . $classSecondContainer . "\">" . 
                 getButtonOfPortal($userId, $typeView) . 
                 "</div>";
@@ -212,13 +219,17 @@ function getUserBannerById($userId, $typeView){
     //$userIdvisited = $_GET["id"]; // è il parametro della funzioen
 
     $classMainContainer = "card"; //bootstrap flags
-    $classSubContainer = "d-inline-flex align-items-md-center align-items-end"; //bootstrap flags
+    $classSubContainer = "d-inline-flex align-items-md-between align-items-center w-100"; //bootstrap flags
 
     $init = "<div id=\"userBannerN" . $userId . "\" class=\"" .$classMainContainer . "\">" . 
-            "<div class=\"card-body\">" . 
+            "<div class=\"card-body w-100\">" . 
             "<div class=\"" . $classSubContainer . "\">";
     
-    $between = "";
+    $classForMet = "w-1 flex-fill";  
+    $between = "<div " . 
+                " class=\"" . $classForMet . "\"" . 
+                "> </div> ";
+    // $between = "";
 
     $fin = " </div> </div> </div>";
 
