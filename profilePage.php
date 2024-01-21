@@ -55,7 +55,7 @@ $amountComplete = sizeof($completeMeds);
 $post = new Post($conn);
 $posts = $post->getPost($_GET["id"]);
 
-print_r($_POST);
+// print_r($_POST);
 ?>
 
 <!DOCTYPE html>

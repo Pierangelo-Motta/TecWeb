@@ -29,12 +29,14 @@ function getCorrectImg($amountLeastBooks){
         if ($category > 0) {
             $delta = $delta - $limits[$category-1];
         }
+
         $amountLeastBooks = $amountLeastBooks - $delta;
 
         if ($amountLeastBooks > 0) {
             $category = $category + 1;
         }
     }
+
     //magari implementare ricerca binaria?
     switch ($category){
         case 0:
@@ -101,38 +103,40 @@ function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
     $complete = "<div class=\"card medContainer\">" .
                     "<div class=\"card-body\" id=\"" . $toAdd . "\">" .
                         "<h1 class=\"card-text titleMed\">" . $titleMed . "</h1>" .
-                        "<div class=\"allMedInfo d-flex\">" . 
-                            "<div class=\"titlecontainer\" id=\"titlecontainer" . $toAdd . "\">" . 
-                            
-                            "<img " .
-                                "src=\"images/medagliereNewIcons/" . $imgToAdd . "\" " .
-                                "alt=\"" . $altImg . "\" " .
-                                "class=\"rounded float-left imgmedagliere\" " .
-                                "id=\"imgmedagliere" . $toAdd . "\" " .
-                                "/>" .
+
+                        "<div class=\"allMedInfo d-md-flex\">" . 
+                            "<div class=\"titlecontainer text-center order-md-1\" id=\"titlecontainer" . $toAdd . "\">" . 
+                                
+                                "<img " .
+                                    "src=\"images/medagliereNewIcons/" . $imgToAdd . "\" " .
+                                    "alt=\"" . $altImg . "\" " .
+                                    "class=\"rounded text-center justify-content-center imgmedagliere justify-content-center\" " .
+                                    "id=\"imgmedagliere" . $toAdd . "\" " .
+                                    "/>" .
+
+                            "</div>" .
+
+                            "<div class=\"infocontainer order-md-0\" id=\"infocontainer" . $toAdd . "\">" . 
+                                "<p class=\"descrizioneMed\">" . $descMed . "</p>" . 
+                                "<p class=\"messaggio\"> Per completare questo medagliere è necessario:</p>" .
+                                "<ol>" . 
+                                    $books .
+                                "</ol>" . 
+                            "</div>" .
+
                         "</div>" .
 
+                        "<footer>" . 
+                            "<button class=\"btn btn-secondary\" " . 
+                                "form=\"challengeNewMed\" " . 
+                                "type=\"submit\" " .
+                                "name=\"submitButton\" ".
+                                "value=\"" . $buttonValue . "\">" . $buttonText . "</button>" .
+                        "</footer>" .
 
-                        "<div class=\"infocontainer\" id=\"infocontainer" . $toAdd . "\">" . 
-                            "<p class=\"descrzionemed\">" . $descMed . "</p>" . 
-                            "<p class=\"messaggio\"> Per completare questo medagliere è necessario:</p>" .
-                            "<ol>" . 
-                                $books .
-                            "</ol>" . 
-                        "</div>" .
                     "</div>" .
 
-                    "<footer>" . 
-                        "<button class=\"btn btn-secondary\" " . 
-                            "form=\"challengeNewMed\" " . 
-                            "type=\"submit\" " .
-                            "name=\"submitButton\" ".
-                            "value=\"" . $buttonValue . "\">" . $buttonText . "</button>" .
-                    "</footer>" .
-
-                "</div>" .
-
-            "</div>";
+                "</div>";
     return $complete; //valuta se ritornare un array medagliere-da-stampare / quantità libri mancante per poi sortarlo
 }
 
@@ -239,6 +243,7 @@ if(isset($_POST["submitButton"])) {
         crossorigin="anonymous">
     </script>
     <script src="javascript/newMedagliereAnimations.js"></script>
+    <!-- <script type="module" src="javascript/ReloaderPage.js"></script> -->
 </body>
 
 </html>

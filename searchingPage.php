@@ -45,8 +45,9 @@ $a = getUserIdWithSimilarName($tmp);
         <div class="col-10">
             <?php 
             foreach($a as $userId){
-                echo getUserBannerById($userId, "search");
-            } 
+                echo getUserBannerById($userId, "search"); // "post" "goal"
+            }
+            
             ?>
         </div>
 

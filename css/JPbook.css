@@ -11,10 +11,9 @@ section#userGoal{
 }
 
 .book {
-    
     pointer-events: none;
     
-    margin: 45px auto 20px;
+    margin: 25px auto 10px;
 }
 
 p.libroLetto{
@@ -25,6 +24,7 @@ p.libroLetto{
 
 div#copertinaAvanti{
     /* background-color: #123456; */
+    padding: 20% 5%;
     background-image: linear-gradient(to right ,#001c42 0.3%, #123456 0.6%, #001c42 0.9%,  #123465 99%, white 100%);
     text-align: center;
 }
@@ -44,6 +44,7 @@ div#copriCopertina{
 
 
 .page img {
+    max-width: 18%;
     object-fit: cover;
     /* width: 39%; */
     aspect-ratio: 1;
@@ -57,12 +58,30 @@ article{
 
 
 
+article.titoloMedagliere h2 {
+    word-wrap: break-word;
+    text-align: left;
+    float: left;
+}
+
+.descrizioneMedagliere{
+    display: block;
+    clear: left;
+    text-align: justify;
+    /* min-height: 3em;
+    height: 40%; */
+}
 
 
+article.titoloMedagliere {
+    display: block;
+}
 
 
-
-
+article.titoloMedagliere img{
+    text-align: right;
+    float: right;
+}
 
 
 
@@ -101,6 +120,7 @@ article{
 } */
 
 section#userGoal{
+    width: 100%;
     z-index: 0;
     display: flex;
     /* width: 100%; */
@@ -114,7 +134,7 @@ section#userGoal{
     /* align-content: center;
     align-self: center;
     align-items: center; */
-    padding: 0 040px;
+    /* padding: 0 40px; */
 }
   
 .book {
@@ -144,46 +164,26 @@ section#userGoal{
 }
 
 .page {
-    /* --thickness: 4; */
-    /* PS: Don't go below thickness 0.4 or the pages might transpare */
-    /* width: 30%; var(--phone-size); */
-
-    /* flex: none; */
-
-/**/
     display: block;
     align-items: center;
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-    /*overflow: visible; */
     
-    /*1* allow pointer events on pages */
-
-/**/
     pointer-events: all;
     user-select: none;
-    /* transform-style: preserve-3d; */
-
+    margin-bottom: 10px;
     
-    /* transform-origin: left center;
-    transition:
-        transform 1s,
-        rotate 1s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
-    translate: calc(var(--i) * -100%) 0px 0px;
-    transform: translateZ( calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * 1px)));
-    rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg); */
-
 }
 
 .page img {
-    width: 100px;
-    max-width: 100px;
-    height: 100px;
-    max-height: 100px;
+    width: 18%;
+    min-width: 75px;
+    margin: 0 0 5px 5px;
+    /* margin-left: 6px; */
     aspect-ratio: 1;
     float: right;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 
@@ -195,7 +195,8 @@ section#userGoal{
     /* --phone-size: 30%; */
     min-width: 100%;
     width: 100%; 
-    max-width: 100%; 
+    max-width: 100%;
+
     min-height: 500px;
     height: 500px;
     max-height: 500px;
@@ -207,7 +208,7 @@ section#userGoal{
     display: block;
     flex: none;
     background-color: #fff;
-    padding: 3%;
+    padding: 5%;
     z-index: 20;
     border: black 1px solid;
     /* max-width: 90%; var(--phone-size); */
@@ -225,43 +226,41 @@ section#userGoal{
 
 article.titoloMedagliere{
     /* display:inline; */
-    vertical-align: middle;
-}
-
-article.titoloMedagliere img{
-    margin-right: 30px;
+    /* vertical-align: middle; */
 }
 
 
 /***********/
 
 h2.medTitle{
-    font-size: 20px;
+    font-size: 22px;
+    max-width: 65%;
 }
 
 .descrizioneMedagliere{
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .preambleElencoLibri{
-    font-size: 13px;
+    font-size: 16px;
 }
 
 article.libriNecessari{
-    font-size: 8px;
+    font-size: 12px;
 }
 
 
 
 ol{
-    min-height: 50px;
+    z-index: 0;
+    padding: 0 0 0 20px;
+    min-height: 150px;
     max-height: 150px;
 }
 
 
 div#copertinaAvanti h2{
-    margin-top: 10%;
-    font-size: 20px;
+    font-size: 35px;
 }
 
 
@@ -313,21 +312,14 @@ div#copertinaAvanti h2{
         overflow: hidden;
         font-family: 'Times New Roman', Times, serif;
         
-        /* background-color: linear-gradient(top to bottom, white, #57585a, black) ; */
         background-image: linear-gradient(to bottom, white 10%, #57585a 90%);
-        /* background-image: linear-gradient(to right, #fff 80%, #ddd 100%); */
-        /* background-color: #57585a; */
-         /* linear-gradient(to top, #57585a 20%) ; */
     }
       
     .book {
         --sizing: 45%;
         display: flex;
         width: var(--sizing);
-        /* height: var(--sizing) * 2.5;  */
-        /* 1.61803; */
-        /*1* let pointer event go trough pages of lower Z than .book */
-        
+
         transform-style: preserve-3d;
 
         transition: translate 1s;
@@ -344,7 +336,9 @@ div#copertinaAvanti h2{
         flex: none;
         display: flex;
         width: 100%;
-        min-height: 700px;
+
+        max-height: 650px;
+        min-height: 650px;
         
         /*1* allow pointer events on pages */
         pointer-events:all;
@@ -368,19 +362,14 @@ div#copertinaAvanti h2{
         width: 18%;
         min-width: 75px;
         margin-left: 10px;
-
     }
     
-
-    div#copertinaAvanti{
-        /* background-image: linear-gradient(to left, #123465 99%, white 100%); */
-    }
-
     div#copertinaAvanti h2{
-        margin-top: 10%;
+        /* margin-top: 10%; */
+        font-size: 60px;
+        
     }
     
-
     .front,
     .back {
         flex: none;
@@ -390,18 +379,15 @@ div#copertinaAvanti h2{
         background-color: #fff;
         /* Fix backface visibility Firefox: */
         translate: 0px;
-        /* display: block; */
-        /* display: inline-block; */
     }
     
     .back {
-    background-image: linear-gradient(to right, #fff 80%, #ddd 100%);
-    translate: -100% 0;
-    rotate: 0 1 0 180deg;
+        background-image: linear-gradient(to right, #fff 90%, #ddd 100%);
+        translate: -100% 0;
+        rotate: 0 1 0 180deg;
     }
 
     #copertinaIndietro.back {
-        /**/
         translate: -100% 0;
         rotate: 0 1 0 180deg;
     }
@@ -409,69 +395,43 @@ div#copertinaAvanti h2{
 
     /***********//***********//***********/
 
-    article.titoloMedagliere {
-        height: 55%;
-        max-height: 55%;
-        /* position: absolute;
-        top: 0;
-        left: 0; */
-        /* display: flex; */
-        /* vertical-align: middle; */
-    }
+    /* article.titoloMedagliere {
+        display: block;
+    } */
 
-    article.titoloMedagliere h2 {
-        /* display: flex; */
-        /* text-align: justify; */
-        
-        /* max-width: 60%; */
+    /* article.titoloMedagliere h2 {
         word-wrap: break-word;
         text-align: left;
         float: left;
         width: 70%;
-        /* min-width: 135px; */
-        
-        /* vertical-align: middle; */
-    }
+    } */
     
-    article.titoloMedagliere img{
-        
+    /* article.titoloMedagliere img{
         text-align: right;
         float: right;
-        /* display: flex; */
-        /* margin-left: 20px; */
-        /* margin-right: 30px; */
-        /* vertical-align: middlek; */
-        
-    }
+    } */
 
-    .descrizioneMedagliere{
+    /* .descrizioneMedagliere{
+        display: block;
         clear: left;
         text-align: justify;
         min-height: 3em;
         height: 40%;
-        max-height: 15em;
-        /* overflow-y: hidden; */
-    }
+    } */
 
     /***********/
 
 
     article.libriNecessari{
-        /* position: absolute;
-        top: 50%; */
-        /* left: 0; */
         font-size: 16px;
         line-height: 1em;
-        /* vertical-align: bottom; */
     }
     
     /***********/
+
     h2.medTitle{
         font-size: 36px;
     }
-    /* .descrizioneMedagliere{
-        font-size: 18px; gestito su JS (bookanimation.js)
-    } */
 
     .preambleElencoLibri{
         font-size: 25px;
@@ -480,15 +440,8 @@ div#copertinaAvanti h2{
 
     ol{
         min-height: 200px;
-        /* height: 30%; */
         max-height: 200px;
     }
-
-   
-    
-    
-    
-    
     
     
 }
