@@ -180,4 +180,25 @@ function updateUserData(string $selectedUser, string $isAdmin, string $userBanne
 
 }
 
+
+function saveBooks(array $books){
+    global $conn;
+    $sql = "INSERT INTO compone (libroId, medagliereId) VALUES (?, ?)";
+    
+    // TODO: manage medaglieri update?
+    // $sql = "UPDATE compone SET libroId = ? WHERE medagliereId = ?";
+    
+    $stmt = $conn->prepare($sql);
+    
+    foreach ($books as $book) {
+        $stmt->bind_param('ss', $book['id'], $book['medagliere_id']);
+        $stmt->execute();
+    }
+    
+    $stmt->close();
+
+};
+
+
+
 ?>

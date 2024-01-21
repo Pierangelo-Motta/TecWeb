@@ -37,6 +37,7 @@
 
 // });
 
+let medagliereid;
 
 $('#dropdownMenu p').on('click', function () {
     const titolo = $(this).attr('data-titolo');
@@ -127,16 +128,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //TODO: da implementare per salvare lo stato su db
             // Perform an AJAX request to update the database with the remaining books
-            fetch('include/updateMedagliereDB.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ action: 'update', books: remainingBooks }),
-            })
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error('Error:', error));
+            // fetch('include/updateMedagliereDB.php', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ action: 'update', books: remainingBooks }),
+            // })
+            //     .then(response => response.json())
+            //     .then(data => console.log(data))
+            //     .catch(error => console.error('Error:', error));
 
 
         }
@@ -151,13 +152,15 @@ document.addEventListener('DOMContentLoaded', function () {
 // funzione per ottenere l'elenco dei libri rimasti nel medagliere (anche dopo eliminazione)
 function getRemainingBooks() {
     let libriList = document.getElementById('libriList');
+    let medId = medagliereid;
+
     let remainingBooks = [];
 
     libriList.querySelectorAll('.list-group-item').forEach(function (listItem) {
         let bookId = listItem.querySelector('.removebtn').id.replace('btn_', '');
         let bookTitle = listItem.textContent.trim();
 
-        remainingBooks.push({ id: bookId, titolo: bookTitle });
+        remainingBooks.push({ id: bookId, titolo: bookTitle, medagliere_id: medId });
     });
 
     return remainingBooks;
@@ -218,6 +221,26 @@ $(document).ready(function () {
 document.getElementById('salvaLibriInMedagliere').addEventListener('click', function (event) {
     console.log("salvaLibriInMedagliere btn premuto");
     console.log(getRemainingBooks());
+    const remainingBooks = getRemainingBooks();
+    console.log("Data to be sent:", remainingBooks);
+    // Make a POST request to the backend PHP script
+    fetch('include/insertLibriInMedagliere.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ books: remainingBooks })
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Handle success or error
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle error
+        });
+
 })
 
 // Function to check if a bookId is in the array of 
