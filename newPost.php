@@ -186,24 +186,24 @@ if (isset($_POST["sB"])) {
                     <!-- <div class="col-1"></div> -->
 
                     <div class="col-md-6 col-12" id="newPostForm_pt2">
-                        <p>Inserisci qui sotto una foto:</p>
+                        <p class="align-bottom m-0 mt-2">Inserisci qui sotto una foto:</p>
                         <div id="imgPrevDiv">
                             <label id="imgLabel" for="imgPrevInput">
                                 <img id="imgPrev" 
-                                    src = <?php 
+                                    src="<?php 
                                         if (!isPresentImg($imgInterestedName)){
                                             echo "images/caricaFoto.png";
                                         } else {
                                             echo "images/post/tmp/" . $_FILES[$imgInterestedName]["name"];
-                                        }?>
+                                        }?>"
                                     alt="Carica la foto" /> 
                             </label>
                             <input type="file" id="imgPrevInput" name="imgPrevInputName" accept="image/png, image/jpeg" />
                         </div>
-                        <div id="imgPrevMods" class="d-flex align-items-center">
-                            <small class="form-text text-muted blockDisplay">
+                        <div id="imgPrevMods" class="align-items-center mx-auto">
+                            <small class="form-text text-muted blockDisplay mx-auto text-center">
                                 Premi sulla foto per cambiarla.
-                            </small><button class="blockDisplay" type="button" id="imgRem">
+                            </small><button class="blockDisplay mx-auto" type="button" id="imgRem">
                                 Elimina
                             </button>
                         </div>

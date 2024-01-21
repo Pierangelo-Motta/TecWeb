@@ -1,6 +1,5 @@
 
 body main div#mainCont{
-    display: block;
     margin-bottom: 100px;
 }
 
@@ -16,31 +15,37 @@ body main div#mainCont h1{
 
 /*************/
 
-body main div form input#nomeLibroId{
-    
+body main div form div#newPostForm_pt1{
+    /* display: inline-block;   */
 }
 
-body main div form div#newPostForm_pt1{
-    display: inline-block;  
+body main div form input#nomeLibroId{
+    display: inline-block;
+    width: calc(100% - 90px);
+}
+
+body main div form label[for=nomeLibroId]{
+    display: inline-block;
+    width: 90px;
 }
 
 body main div form div#newPostForm_pt1 textarea{
     resize: none;
 }
 
-/********/
+/***************************************/
 
 body main div form div#newPostForm_pt2 p{
     text-align: center;
 }
 
+/*******************************/
+
 body main div form div#newPostForm_pt2 div#imgPrevDiv{
-    /* height: 70%; */
     aspect-ratio: 1;
-    /* width: 20%; */
     width: 80%;
 
-    margin: 10% 10% 0;
+    margin: 3% 10% 0;
     padding: 5%;
     border: black 1px solid;
     
@@ -49,19 +54,11 @@ body main div form div#newPostForm_pt2 div#imgPrevDiv{
     vertical-align: middle;
 }
 
-body main div form div#newPostForm_pt2 div#imgPrevMods{
-    /* margin-bottom: 10%; */
-    display: none;  /*ci pensa eventualmente js a mostrarlo */
-    clear: both;
-    justify-content: center;
-    /* vertical-align: middle; */
-}
+/**/
 
 body main div form div#newPostForm_pt2 div#imgPrevDiv label{
-    /* display: none; */
     width: 30%;
     aspect-ratio: auto;
-    /* height: 30%; */
     display: block;
     margin: auto;
 }
@@ -75,22 +72,23 @@ body main div form div#newPostForm_pt2 div#imgPrevDiv input{
     display: none;
 }
 
+/**/
 
+body main div form div#newPostForm_pt2 div#imgPrevMods{
+    /* margin-bottom: 10%; */
+    display: none;  /*ci pensa eventualmente js a mostrarlo */
+    clear: both;
+    justify-content: center;
+}
 
-
+/*************************************/
 
 body main div footer {
     display:block;
-    /* margin: 100px; */
-    /* padding-bottom: 45px; */
-    /* margin-top: 60px;
-    padding: auto;-bottom: 100px; */
 }
 
 body main div footer p#accessibilityMessage{
     display:block;
-    /* flex-direction: row-reverse; */
-
     float: right;
 }
 
@@ -98,30 +96,16 @@ body main div footer button{
     float: left;
     clear: right;
     display:block;
-    /* flex:none; */
-    
-    /* display: inline-block; */
-    /* float: right; */
 }
-
-
-
-/* body main div footer{
-     margin: 0 5% 0; 
-} */
 
 body main div footer button#shareButton{
     float: right;
-    /* align-self: self-end;
-    float: right; */
 }
 
 
 
 #file {
-
-    visibility: collapse;
-  
+    visibility: collapse; 
 }
 
 .notDisplay{
@@ -131,16 +115,20 @@ textarea{
     margin-top: 10px;
 }
 
-.accessibilityMessage{
-    margin-top: 20px;
+p.accessibilityMessage{
+    margin: 20px 0 0;
 }
 
 #imgPrevMods{
     margin: 30px 0;
 }
 
+footer#footerNewPost {
+    margin: 10px 0 0;
+}
+
 footer#footerNewPost button{
-    margin: 30px 0;
+    /* margin: 10px 0 30px; */
 }
 
 .blockDisplay{
