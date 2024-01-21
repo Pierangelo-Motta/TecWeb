@@ -89,11 +89,43 @@ class ChallengeMed {
 
         this.retBut = document.getElementById("retBut");
 
+        this.loadMore = document.getElementById("loadMore");
+
         let page = "profilePage.php";
         let getVars = "?mode=goal";
         this.retBut.addEventListener("click", () => window.location.href = page + getVars );
 
+        if(this.loadMore != null){
+            this.loadMore.addEventListener("click", () => this.computeNewLink() );
+        }
+        
+
         console.log("go");
+
+    }
+
+    computeNewLink(){
+        const a = new Map();
+        let allGets = window.location.search.substring(1);
+        let gets = allGets.split("&");
+        
+        gets.forEach(elem => {
+            let row = elem.split("=");
+            a.set(row[0], row[1]);
+        });
+
+        let myKeyword = "amountLoad";
+        let b = a.get(myKeyword);
+
+        let idToJump = document.querySelector("#moreRes").previousSibling.previousSibling.firstChild.getAttribute("id");
+
+        let actLink = window.location.href;
+        if (b === undefined){
+            window.location.href = actLink + "?" + myKeyword + "=1#" + idToJump;
+        } else {
+            b = parseInt(b) + 1;
+            window.location.href = actLink.substring(0, actLink.indexOf("?")) + "?" + myKeyword + "=" + b + "#" + idToJump;
+        }
 
     }
 
@@ -142,7 +174,7 @@ document.querySelectorAll(".descrizioneMed").forEach(elem => {
     // console.log(a.lenght);
 
     if (lengOfContent > sogliaValue) {
-        maxHeightDefault = maxHeightDefault + (rel.isWindowLittle ? 250 : 100);
+        maxHeightDefault = maxHeightDefault + (rel.isWindowLittle ? 250 : 500);
         list.style.maxHeight = ((maxHeightList / 2) + "px");
         list.style.minHeight = ((minHeightList / 2) + "px");
     }
@@ -159,7 +191,7 @@ document.querySelectorAll(".descrizioneMed").forEach(elem => {
     }
 });
 
-console.log("OOOOOOO");
+
 document.querySelectorAll(".expandMe").forEach((elem, index) => {
     console.log(index);
     const textToExpand = elem.parentElement;

@@ -13,10 +13,11 @@ require("include/model/selectors.php");
 require_once("include/view/formattators.php");
 
 
-
-$basicAmount = 10;
-$amountLoading = isset($_POST["amountLoad"]) ? $_POST["amountLoad"] : 0;
-$amountForLoad = 5;
+$searchingMedStr = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
+$basicAmount = 1;
+$amountLoading = isset($_GET["amountLoad"]) ? $_GET["amountLoad"] : 0;
+$nextValue = $amountLoading + 1;
+$amountForLoad = 1;
 $toLoad = $basicAmount + ($amountLoading * $amountForLoad);
 
 function getCorrectImg($amountLeastBooks){
@@ -149,7 +150,7 @@ $libriLetti = getLibriLettiDaUserId($userIdToConsider);
 // $allallMeds = getAllMeds();
 // $remainMedIdx = array_diff($allallMeds, $challengedMeds);
 
-$medToPrint = getMedThatUserNotChallenge($userIdToConsider);
+$medToPrint = getMedThatUserNotChallenge($userIdToConsider, $searchingMedStr);
 
 //createOneMed();
 // print_r($medToPrint);
@@ -202,6 +203,20 @@ if(isset($_POST["submitButton"])) {
 <body>
     <?php require('navbarSelect.php'); ?>
     
+    <section id="cercaMed" class="d-flex">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="container-fluid float-right">
+                <form class="d-inline-flex" action="newMedagliere.php" method="post">
+                    <label >Ricerca nome medagliere:</label>
+                    <input name="searchingMed" class="form-control me-2 float-right" type="search" placeholder="Search" aria-label="Search" />
+                    <!-- <button class="btn btn-primary float-right" type="submit">Cerca Medaglione</button> -->
+                </form>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </section>
+
     <section class="d-flex">
         <div class="col-1"></div>
 
@@ -214,16 +229,34 @@ if(isset($_POST["submitButton"])) {
 
 
             <?php
-            $upperbound = min(array($toLoad, sizeof($medToPrint))); 
+            $showMoreMed = true;
+            $upperbound = sizeof($medToPrint); 
+            // $upperbound = min(array($toLoad, sizeof($medToPrint))); 
             if($upperbound > 0){
-                for ($i=0; $i < $upperbound; $i++) { 
-                    echo createOneMed($medToPrint, $i, $libriLetti, $userIdToConsider);
+                for ($i=0; $i < $toLoad; $i++) { 
+                    if ($i < $upperbound){
+                        echo createOneMed($medToPrint, $i, $libriLetti, $userIdToConsider);
+                    } else {
+                        $i += $toLoad;
+                        $showMoreMed = false;
+                    }
+                    
                 }
             } else {
                 echo "<h3> Niente di nuovo qui, torna la prossima volta! </h3>";
             }
-             ?>
 
+            if ($showMoreMed) : ?>
+                <div id="moreRes" class="float-right">
+                    <button id="loadMore" 
+                        class="btn btn-secondary float-right" 
+                        form="challengeNewMed"
+                        type="button" 
+                        name="amountLoad" 
+                        value="<?php echo $nextValue ?>"> Mostra di più
+                    </button>
+                </div>
+            <?php endif; ?>
         
         </form> 
         </div>

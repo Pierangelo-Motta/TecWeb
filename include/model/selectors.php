@@ -254,13 +254,15 @@ function getMedsChallengedByUserId($idUser){
     // return isset($tmp["id"]) ? $tmp["id"] : 0;
 }
 
-function getMedThatUserNotChallenge($idUser){
+function getMedThatUserNotChallenge($idUser, $textSearch=""){
     global $conn;
     $sql = "SELECT M.id 
             From medagliere M
-            where M.id not in(select S.medagliereId
+            where M.titolo like \"%" . $textSearch . "%\"
+            and M.id not in(select S.medagliereId
                         from sottoscrive S
                         where S.utenteId = ?);";
+    // echo $sql;
     
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $idUser);

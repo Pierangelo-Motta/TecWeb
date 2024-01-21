@@ -71,7 +71,7 @@ function getButtonOfPortal($userId, $typeView){
 
     $res = "";
 
-    $classButtonDefault = "";
+    $classButtonDefault = " justify-content-center align-items-center mx-auto";
 
     if (strcmp($typeView, 'search') == 0) { //caso del ridirezione al profilo utente
         $buttAttr = array(
@@ -109,7 +109,8 @@ function getButtonOfPortal($userId, $typeView){
     
         $formAttr = array(
             "action" => "#",
-            "method" => "post"
+            "method" => "post",
+            "class" => "justify-content-center align-items-center mx-auto"
         );
     
         $buttonText = $imFollowU ? $followed : $toFollow;
@@ -172,7 +173,7 @@ function obtainPortalsUserBanner($userId, $typeView){
 
     $nameInterestedUser = tmpGetUsernameById($userId); //nome
 
-    $classMainContainer = "d-md-inline-flex align-items-center p-2  w-auto"; //w-25 flex-fill
+    $classMainContainer = "d-md-inline-flex justify-content-center align-items-center p-2  w-auto"; //w-25 flex-fill
     $initMainContainter = "<div id=\"portalsUserBannerN" . $userId . "\" class=\"" . $classMainContainer . "\">";
 
     $portalImg = getPictureOfPortalImage($typeView);
@@ -180,7 +181,7 @@ function obtainPortalsUserBanner($userId, $typeView){
     //$textButton = getButtonOfPortal($userId, $typeView);
 
 
-    $classFirstContainer = "order-md-1 w-auto";
+    $classFirstContainer = "order-md-1 w-auto justify-content-center align-items-center mx-auto";
     //per ora un utente gli metto solo il buttone "vedi di più" : non personalizzo l'ID al portale
     //UserBannerN . $userId
     $classImgAbbr = "AbbrImgPortal";
@@ -188,13 +189,13 @@ function obtainPortalsUserBanner($userId, $typeView){
                 "<abbr id=\"portalAbbr" . $userId . "\" lang=\"it\" title=\"" . $nameInterestedUser . "\" class=\"" . $classImgAbbr . "\">" .
                                     "<img " . 
                                         "id=\"portal\" " . 
-                                        "class=\"flex-wrap align-items-center w-100\" " . 
+                                        "class=\"flex-wrap justify-content-center align-items-center mx-auto w-100\" " . 
                                         "alt=\"" . $nameInterestedUser . "\" " .
                                         "src=\"" .  $portalImg . "\" /> " .
                                 "</abbr>" .
                             "</div>";
 
-    $classSecondContainer = "order-md-0 w-auto";
+    $classSecondContainer = "order-md-0 w-auto justify-content-center align-items-center mx-auto";
     $second = "<div id=\"addInfosUserBannerN" . $userId . "\" class=\"" . $classSecondContainer . "\">" . 
                 getButtonOfPortal($userId, $typeView) . 
                 "</div>";

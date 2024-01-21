@@ -46,8 +46,6 @@ class Swapper{
         
         this.portalAbbr = document.getElementsByClassName("AbbrImgPortal")[0];
 
-        console.log(this.actSections.getAttribute("id"));
-
         if(this.actSections.getAttribute("id") === "userPosts"){
             this.adaptPortalByPostToGoal(this.portalImg, this.portalAbbr);
         } else {
@@ -72,7 +70,6 @@ class Swapper{
     }
 
     adaptPortal(portalImg, abbrPortalImg, link, altText, otherImg){
-        console.log(portalImg + " / " + abbrPortalImg + " / " + link + " / " + altText + " / " + otherImg);
         let userName = abbrPortalImg.getAttribute("title");
         abbrPortalImg.setAttribute("title", altText + userName);
         //TODO occhio al riutilizzo
