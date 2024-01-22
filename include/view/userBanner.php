@@ -147,8 +147,9 @@ function obtainMainInfosUserBanner($userId){
     $initMainContainter = "<div id=\"mainInfosUserBannerN" . $userId . "\" 
                                 class=\"" . $classMainContainer . "\">";
     
+    $classForDivImg = "imgPropicCont";
     $classForImg = "rounded float-left";
-    $first =  "<div id=\"divContainerImgUserBannerN" . $userId . "\" class=\"\">" .
+    $first =  "<div id=\"divContainerImgUserBannerN" . $userId . "\" class=\"" . $classForDivImg . "\">" .
                     "<img id=\"propicN" . $userId . "\" " .
                     "src=\"" . $pathUserImage . "\" " .
                     "alt=\"Immagine Profilo\" "  .
@@ -161,8 +162,9 @@ function obtainMainInfosUserBanner($userId){
     //         " class=\"" . $classForMed . "\">" .
     //     "</div>";
 
+    $classForContainerInfos = "containerUserInfos";
     $classForInfos = "card-text";
-    $second = "<div id=\"textInfoUserBannerN" . $userId . "\" class=\"\"> " .
+    $second = "<div id=\"textInfoUserBannerN" . $userId . "\" class=\"" . $classForContainerInfos . "\"> " .
                     "<h1 id=\"usernameInProfilePageUserBannerN" . $userId . "\">" . $nameInterestedUser . "</h1>" . 
                     "<p class=\"" .$classForInfos . "\" id=\"counterFollowerUserBannerN" . $userId . "\">" . "Follower: " . $counterFollower . "</p>" . 
                     "<p class=\"" .$classForInfos . "\" id=\"counterSegueUserBannerN" . $userId . "\">" . "Segue: " . $counterSeguo . "</p>" .
@@ -196,8 +198,8 @@ function obtainPortalsUserBanner($userId, $typeView){
                 "<abbr id=\"portalAbbr" . $userId . "\" lang=\"it\" title=\"" . $nameInterestedUser . "\" class=\"" . $classImgAbbr . "\">" .
                                     "<img " . 
                                         "id=\"portal\" " . 
-                                        "class=\"flex-wrap justify-content-center align-items-center mx-auto w-100\" " . 
-                                        "alt=\"" . $nameInterestedUser . "\" " .
+                                        "class=\"flex-wrap justify-content-center align-items-center mx-auto\" " . //w-100
+                                        "alt=\"" . $nameInterestedUser . "\" " . 
                                         "src=\"" .  $portalImg . "\" /> " .
                                 "</abbr>" .
                             "</div>";

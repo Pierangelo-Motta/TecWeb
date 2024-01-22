@@ -2,23 +2,49 @@ body section#userDescription{
     padding: 2%;
 }
 
+
+
 div#textInfo{
     line-height: 1.2;
 }
+
 div#textInfo h1{
     line-height: 2;
 }
 
-main img{
+div.mainInfos div.imgPropicCont{
+    aspect-ratio: 1;
+    max-width: 150px;
+    width: 100%;
+    min-width: 100px;
+}
+
+div.mainInfos div.imgPropicCont img{
+    /* max-width: 100px; */
+    /* width: 80%; */
+    width: 100%;
+    box-shadow: -15px 15px 16px -16px #0a65d56a;
+    margin: auto auto;
+}
+
+.containerUserInfos{
+    padding-left: 10px;
+}
+
+#submit{
+    display: block;
+    margin: 0 auto;
+}
+
+/*div.portalDiv abbr */
+img#portal{
     max-width: 150px;
     width: 80%;
     min-width: 100px;
 }
 
-div.mainInfos img{
-    box-shadow: -15px 15px 16px -16px #0a65d56a;
-}
 
+/* useful for profilePage*/
 body main{
     margin: 25px 0;
 }
