@@ -54,14 +54,14 @@ $user_name = $_SESSION['username'];
     <!-- First JS script! -->
     <script>
         // Set the starting time
-        var startTime = new Date().getTime();
+        let startTime = new Date().getTime();
         
         function fmtMSS(s){return(s-(s%=60))/60+(9<s?':':':0')+s}
         
         // Update the time displayed every second
         setInterval(function() {
-            var currentTime = new Date().getTime();
-            var secondsLoggedIn = Math.floor((currentTime - startTime) / 1000);
+            let currentTime = new Date().getTime();
+            let secondsLoggedIn = Math.floor((currentTime - startTime) / 1000);
             
             
             document.getElementById("timeLoggedIn").innerHTML = "You are on page for " + fmtMSS(secondsLoggedIn) + " seconds.";

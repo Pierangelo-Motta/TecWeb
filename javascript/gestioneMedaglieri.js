@@ -193,8 +193,8 @@ $(document).ready(function () {
     // Click event handler for the libriTable
     $('#libriTable').on('click', 'tbody tr', function () {
         // Ottengo il titolo del libro e l'id
-        var bookTitle = $(this).find('td').text();
-        var bookId = $(this).find('td').attr('id').replace('libroid-', '');
+        let bookTitle = $(this).find('td').text();
+        let bookId = $(this).find('td').attr('id').replace('libroid-', '');
 
         // chiamo la funzione per aggiungere libri all'elenco del medagliere
         addBookToLibriList(bookId, bookTitle);

@@ -163,11 +163,11 @@ const changePage = (elBook) => {
         facc.style.setProperty("--i", idx); //questa la eredito ma per ora non mi serve
 
         facc.addEventListener("click", (evt) => {
-            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-            var critVal = width/2;
+            let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            let critVal = width/2;
             music.play();
             
-            var newPage = res;
+            let newPage = res;
 
             if (evt.x < critVal) {
                 if(newPage != 0){
