@@ -237,7 +237,7 @@ this.startView();
 function checkReload(){
     if(isVeryBig && width <= bigSize ){
         window.location.reload();
-    } else if (!isVeryBig && width >= bigSize){
+    } else if (!isVeryBig && width > bigSize){
         window.location.reload();
     }
 
@@ -255,7 +255,7 @@ function checkReload(){
         
         window.location.reload();
         
-    } else if (isLittle && width >= criticalSize){
+    } else if (isLittle && width > criticalSize){
         //ricarica : diventa grande
         let a = parseInt(getValue("cP"));
         let b = (a + 1) / 2;
@@ -312,7 +312,7 @@ document.querySelectorAll(".facciata").forEach((elem, index) => {
     let flag = false;
 
     if (descript.innerHTML.length > sogliaValueDescp){
-        let maxDimPerc = isLittle ? 40 : 30;
+        let maxDimPerc = isLittle ? 40 : isVeryBig ? 5 : 25;
         let offset = (maxCharsDescp - sogliaValueDescp);
         let coeff = (maxCharsDescp - descript.innerHTML.length) / offset;
 
@@ -357,8 +357,8 @@ document.querySelectorAll(".facciata").forEach((elem, index) => {
         defaultSubtitleSize = defaultSubtitleSize * coeff;
         
         if(flag){
-            listLibri.style.maxHeight = (defaultListaLibriHeight / 2) + "px";
-            listLibri.style.minHeight = (defaultListaLibriHeight / 2) + "px";
+            listLibri.style.maxHeight = (defaultListaLibriHeight / (isVeryBig ? 1.5 : 2)) + "px";
+            listLibri.style.minHeight = (defaultListaLibriHeight / (isVeryBig ? 1.5 : 2)) + "px";
         }
         //let coeff = 1 - ((300 + (element.innerHTML.length - 800)) / 1000);
         // console.log(coeff);

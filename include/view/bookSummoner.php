@@ -68,7 +68,7 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
     $textToConsider = "<p class=\"" . $preamboloElencoLibriClass . "\"> <h3>";
     
     if ($isComplete){
-        $textToConsider .= "Hai completato questo medagliere! Significa che hai letto:</h3></p>";
+        $textToConsider .= "Hai completato il medagliere! Significa che hai letto:</h3></p>";
     } else {
         $textToConsider .= "Per completare questo medagliere serve:</h3></p>";
     }
@@ -133,7 +133,7 @@ function createFacciata1($faceType, $medIndex, $exactIndex, $isComplete){
     $textToConsider = "<h3 class=\"" . $preamboloElencoLibriClass . "\">";
     
     if ($isComplete){
-        $textToConsider .= "Hai completato questo medagliere! Significa che hai letto: </h3>";
+        $textToConsider .= "Hai completato il medagliere! Significa che hai letto: </h3>";
     } else {
         $textToConsider .= "Per completare questo medagliere serve: </h3>";
     }

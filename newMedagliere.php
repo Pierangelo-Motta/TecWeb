@@ -14,7 +14,7 @@ require_once("include/view/formattators.php");
 
 
 $searchingMedStr = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
-$basicAmount = 10;
+$basicAmount = 2;
 
 $amountLoading = isset($_GET["amountLoad"]) ? $_GET["amountLoad"] : 0;
 $nextValue = $amountLoading + 1;
