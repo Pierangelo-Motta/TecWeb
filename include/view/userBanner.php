@@ -131,8 +131,15 @@ function obtainMainInfosUserBanner($userId){
     $nameInterestedUser = tmpGetUsernameById($userId); //nome
 
     $pathUserImage = getUserImage($nameInterestedUser); //immagine utente
+    $listaFollower = ottieniFollower($userId);
+    //var_dump($listaFollower);
+    print_r($listaFollower);
     $counterFollower = sizeof(ottieniFollower($userId)); //numero follow1
     $counterSeguo = sizeof(ottieniSegue($userId)); //numero follow2
+    $listaSegue = ottieniSegue($userId);
+    print_r("<br/>");
+    print_r($listaSegue);
+    
     $amountComplete = sizeof(getMedCompletatiByUserId($userId)); //amountMedaglieriCompletati
 
     $classMainContainer = "d-md-inline-flex align-items-center p-2  mainInfos"; //w-25 flex-fill
