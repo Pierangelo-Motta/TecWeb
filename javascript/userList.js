@@ -1,5 +1,6 @@
 let fu = new Array();
-
+let isUtenteAdmin;
+let isUtenteBanned;
 
 function showAutocomplete(inputValue, tipologia, classe) {
     let tipo = tipologia;
@@ -23,9 +24,23 @@ function showAutocomplete(inputValue, tipologia, classe) {
                 option.addEventListener('click', function () {
                     document.getElementById(tipo).value = user.username;
                     autocompleteResults.innerHTML = '';
+                    let utente = user.username;
+                    isUtenteAdmin = fu.find(x => x.username === utente)?.isAdmin;
+                    isUtenteBanned = fu.find(x => x.username === utente)?.stato;
+                    
+                    let checkBoxFlag = document.getElementById('isAdminCheckbox');
+                    if (utente.length > 0) {
+                        checkBoxFlag.checked = isUtenteAdmin === 1;
+                    }
+                    let bannedCheckBoxFlag = document.getElementById('userBannedCheckbox');
+                    if (utente.length > 0) {
+                        bannedCheckBoxFlag.checked = isUtenteBanned === 1;
+                    }
+                    console.log("040: user->" + utente + " isAdmin->" + isUtenteAdmin + " isBanned->"+ isUtenteBanned);
                 });
                 autocompleteResults.appendChild(option);
                 // console.log(option);
+                // Move the logic inside the onreadystatechange callback
             });
 
             // Show/hide the autocomplete results container based on the number of results
@@ -76,43 +91,50 @@ document.addEventListener('click', function (event) {
     }
 
     //new
-    let manageThisUser = document.getElementById('manageThisUser');
-    let checkBoxFlag = document.getElementById('isAdminCheckbox');
-    utente = manageThisUser.value;
-    console.log(utente);
-    console.log(fu);
+    // let manageThisUser = document.getElementById('manageThisUser');
+    // utente = manageThisUser.value;
+    // console.log("000 utente: " + utente);
+    // console.log(fu);
 
-    let isUtenteAdmin = fu.find(x => x.username === utente).isAdmin;
+    // isUtenteAdmin = fu.find(x => x.username === utente).isAdmin;
     // isUtenteBanned = fu.find(user => user.username === manageThisUser.value).stato;
 
     // console.log(manageThisUser.value + " -> " + filteredUsers.find(user => user.username === manageThisUser.value).isAdmin);
-    console.log("000: " + utente + " -> " + isUtenteAdmin);
+    // console.log("020: " + utente + " -> " + isUtenteAdmin);
+    
     //gestione del check admin
-    console.log(updatedUserInformation);
-    if (utente.length > 0) {
-        // (isUtenteAdmin === 1) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
-    }
+    // console.log(updatedUserInformation);
+    // let changingState = 1;
+    // let changedState = 0;
 
-    if (utente.length > 0) {
+    // if (utente.length > 0) {
+    //     // (isUtenteAdmin === 1 && changingState && !changedState) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
+    //     // (isUtenteAdmin === 1 && changingState && !changedState) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
+    // }
+
+    // if (utente.length > 0) {
         // console.log("001");
         // (isUtenteAdmin === 1) ? checkBoxFlag.checked = true : checkBoxFlag.checked = false;
         // (isUtenteAdmin === 1) ? document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1" checked>' : document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">';
-    }
+    // }
 
 
 });
 
 
-document.getElementById('isAdminCheckbox').addEventListener('change', function () {
-    // Check if the checkbox is checked
-    if (isUtenteAdmin === 1) {
-        // Checkbox was checked, update to unchecked
-        // document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">';
-        isUtenteAdmin = 0;
-    } else {
-        // Checkbox was unchecked, update to checked
-        // document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1" checked>';
-        isUtenteAdmin = 1;
-    }
-});
+// document.getElementById('isAdminCheckbox').addEventListener('click', function () {
+//     // Check if the checkbox is checked
+//     if (isUtenteAdmin === 1) {
+//         // Checkbox was checked, update to unchecked
+//         // document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1">';
+//         isUtenteAdmin = 0;
+//         console.log("030: " + isUtenteAdmin);
+//     } else {
+//         // Checkbox was unchecked, update to checked
+//         // document.getElementById('adminBox').innerHTML = '<label for="isAdminCheckbox">Amministratore:</label><input type="checkbox" id="isAdminCheckbox" name="isAdmin" value="1" checked>';
+//         isUtenteAdmin = 1;
+//         console.log("035: " + isUtenteAdmin);
+
+//     }
+// });
 
