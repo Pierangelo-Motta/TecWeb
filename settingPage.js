@@ -1,3 +1,5 @@
+/** Gestione della visibilità degli oggetti sulla pagina */
+
 document.addEventListener('DOMContentLoaded', function () {
 
     // Click event for "Cambia password"

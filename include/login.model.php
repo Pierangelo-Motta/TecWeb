@@ -174,7 +174,7 @@ function updateUserData(string $selectedUser, string $isAdmin, string $userBanne
     error_log($logMessage, 3, "phplogfile.log");
     
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sis", $isAdmin, $userBanned, $selectedUser);
+    $stmt->bind_param("iis", $isAdmin, $userBanned, $selectedUser);
     $stmt->execute();
     $stmt->close();
 
