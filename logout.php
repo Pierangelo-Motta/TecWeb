@@ -1,8 +1,9 @@
     <?php
         session_start();
         session_destroy();
+         header('Location: index.html');
     ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>A presto</title>
@@ -13,4 +14,4 @@
     <p><a href="index.html">Go to login</a></p>
    
 </body>
-</html>
+</html> -->
