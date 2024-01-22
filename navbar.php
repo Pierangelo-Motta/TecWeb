@@ -9,10 +9,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $notifications = getNotifications($userID);
 }
 ?>
-<head>
+<!-- <head> -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="javascript/update_notifications.js"></script>
-</head>
+<!-- </head> -->
 
 <header>
     <nav class="navbar navbar-expand navbar-light bg-light">
@@ -24,8 +24,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 <!-- JP: mi dava un errore di accessibilità, quindi intanto lo segno per posteri
                   Essendo che qua dobbiamo gestire un form, una label è necessaria
                   So che non è completo, ma intanto l'ho segnato per non dimenticarlo -->
-
-                <input name="searchingText" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <label for="searchingText" hidden>Cerca</label>
+                <input name="searchingText" id="searchingText" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
 
