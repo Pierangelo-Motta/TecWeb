@@ -23,12 +23,12 @@ class PostAdder {
 
 
 
-        this.textAreaPen.addEventListener('change', () => this.textAreaPenChangeEvent()); //!! modifica solo se si esce dalla textarea
+        this.textAreaPen.addEventListener('input', () => this.textAreaPenChangeEvent()); //!! modifica solo se si esce dalla textarea
         // this.textAreaPen.addEventListener('oninput', () => this.textAreaPenChangeEvent());
-        this.textAreaCit.addEventListener('change', () => this.textAreaCitChangeEvent());
-        this.nomeLibro.addEventListener('change',() => this.enableButt());
+        this.textAreaCit.addEventListener('input', () => this.textAreaCitChangeEvent());
+        this.nomeLibro.addEventListener('input',() => this.enableButt());
 
-        this.imgPrevInput.addEventListener('change', () => this.manageImgChange());
+        this.imgPrevInput.addEventListener('input', () => this.manageImgChange());
 
         this.imgRem.addEventListener("click", () => this.removeImg());
 
@@ -124,3 +124,76 @@ class PostAdder {
 }
 
 a = new PostAdder(false, false); //default values
+
+
+
+
+let fb = new Array();
+
+
+function showAutocompleteBooks(inputValue, tipologia, classe) {
+
+    let tipo = tipologia;
+    let cl = classe;
+    
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+
+            //console.log(xhr.responseText);
+
+            let bookList = JSON.parse(xhr.responseText);
+            filteredBooks = bookList.filter(function (book) {
+                return book.titolo;//.toLowerCase().includes(inputValue.toLowerCase());
+            });
+
+            // console.log(filteredUsers);
+            fb = filteredBooks;
+
+            let autocompleteResults = document.getElementById(cl);
+            autocompleteResults.innerHTML = '';
+
+            filteredBooks.forEach(function (book) {
+                // console.log(book);
+                let option = document.createElement('div');
+                option.textContent = book.titolo;
+                option.addEventListener('click', function () {
+                    document.getElementById(tipo).value = book.titolo;
+                    autocompleteResults.innerHTML = '';
+                });
+                autocompleteResults.appendChild(option);
+                // console.log(option);
+            });
+
+            // Show/hide the autocomplete results container based on the number of results
+            autocompleteResults.style.display = filteredBooks.length > 0 ? 'block' : 'none';
+            autocompleteResults.style.color = "#0b5ed7";
+            // console.log(autocompleteResults);
+
+
+        }
+    };
+
+    let askFor = ("?pTit=" + inputValue);
+    let prev = "include/called/obtainSimilarBook.php";
+    let ok = prev + askFor;
+    xhr.open('GET', ok, true);
+
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // linea aggiunta per settare l' "X-Requested-With header" che indica che questa è una richiesta AJAX.
+    xhr.send();
+
+    // console.log("xhr done: inside");
+
+}
+
+
+document.addEventListener('click', function (event) {
+    
+    // manage user
+    document.getElementById('nomeLibroId').addEventListener('input', function () {
+        showAutocompleteBooks(this.value, 'nomeLibroId', 'autocompleteBoooksResults');
+        // console.log("xhr done: outside");
+    });
+
+});

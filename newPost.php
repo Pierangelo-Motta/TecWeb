@@ -150,12 +150,20 @@ if (isset($_POST["sB"])) {
                     
                     <div class="col-md-6 col-12" id="newPostForm_pt1">
 
-                        <label for="nomeLibroId"> Nome libro: </label><input type="text" 
+                        <!-- Dropdown menu for selecting a user -->
+                            <!-- <label for="manageThisUser">Seleziona Utente:</label> -->
+                            
+                        <label for="nomeLibroId"> Nome libro: </label>
+                        <div id="acCont" class="autocomplete-container"> <!-- acCont -> autocompleteContainer -->
+                            <input type="text" 
                             class="form-control"
                             id="nomeLibroId" 
                             name="<?php echo $nomeLibroName ?>"
                             value="<?php echo $nomeLibroNameValue ?>"
                             />
+                            <!-- <input type="text" id="manageThisUser" name="manageThisUser"> -->
+                            <div id="autocompleteBoooksResults" class="autocomplete-results"></div>
+                        </div>
 
                         <label for="citazioneTextId" class="notDisplay">Citazione: </label>
                         <textarea class="form-control" 

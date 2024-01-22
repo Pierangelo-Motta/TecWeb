@@ -24,7 +24,7 @@ body section div div.medContainer{
 
 body section div div.medContainer div footer button{
     position: relative;
-    float:right;
+    float: right;
     /* margin: 5% 0; */
     /* padding: 5% 0; */
 }
@@ -34,8 +34,8 @@ body section div div.medContainer div footer button{
 
 
 img.imgmedagliere{
-    display: block;
-    /* margin: 0 auto; */
+    display: inline-block;
+    margin: 0 auto;
     min-width: 50px;
     max-width: 150px;
     width: 100%;
@@ -75,6 +75,11 @@ section#cercaMed{
 #moreRes{
     margin-top: 30px;
     margin-bottom: 50px;
+}
+
+.noresults{
+    text-align: center;
+    margin-top: 30px;
 }
 
 @media only screen and (min-width: 768px) {
