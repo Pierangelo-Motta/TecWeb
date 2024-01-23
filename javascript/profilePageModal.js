@@ -1,6 +1,9 @@
 // Get the current URL
 let currentUrl = window.location.href;
 
+console.log("Current page URL: " + currentUrl);
+
+
 // Parse the URL to extract parameters
 let urlParams = new URLSearchParams(currentUrl);
 
@@ -14,6 +17,12 @@ let identificativoFollower = "counterFollowerUserBannerN" + uid;
 let seguiti = document.getElementById(identificativoSeguiti);
 let followers = document.getElementById(identificativoFollower);
 
+
+if (currentUrl.includes("searchingPage.php")) {
+    document.querySelectorAll(".popup").forEach(function (el) {
+        el.style.display = "none";
+    });
+}
 
 // Add click event listener
 followers.addEventListener('click', function () {
@@ -60,13 +69,13 @@ let mouseOverFunction = function () {
     // this.style.border = '1px solid #0d6efd';
     // this.style.width = "100px";
     // this.style.boxshadow = "-15px 15px 16px - 16px #0a65d56a";
-    this.style.fontSize = "1.1em";
+    // this.style.fontSize = "1.1em";
     
 };
 let mouseOutFunction = function () {
     this.style.color = '#000'; // your colour change
     // this.style.border = '1px solid #fff';
-    this.style.fontSize = "1em";
+    // this.style.fontSize = "1em";
 };
 seguiti.onmouseover = mouseOverFunction;
 seguiti.onmouseleave = mouseOutFunction;

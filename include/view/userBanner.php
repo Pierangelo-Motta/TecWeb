@@ -133,12 +133,12 @@ function obtainMainInfosUserBanner($userId){
     $pathUserImage = getUserImage($nameInterestedUser); //immagine utente
     $listaFollower = ottieniFollower($userId);
     //var_dump($listaFollower);
-    print_r($listaFollower);
+    // print_r($listaFollower);
     $counterFollower = sizeof(ottieniFollower($userId)); //numero follow1
     $counterSeguo = sizeof(ottieniSegue($userId)); //numero follow2
     $listaSegue = ottieniSegue($userId);
-    print_r("<br/>");
-    print_r($listaSegue);
+    // print_r("<br/>");
+    // print_r($listaSegue);
     
     echo "<!-- INIZIO: per la valorizzazione del modal-->" . "\n";
     foreach($listaFollower as $f){
