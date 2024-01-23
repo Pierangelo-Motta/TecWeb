@@ -273,8 +273,14 @@ function getCorrectImg($amountLeastBooks){
 
 function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
 
+    // echo "ciao";
+    // print_r($medToPrint);
+
     $toAdd = "Med" . $indexToConsider;
     $infos = getMedInfo($medToPrint[$indexToConsider])[0];
+
+    //print_r("<br>");
+    //print_r($indexToConsider . " / " . $medToPrint[$indexToConsider] . " / " . print_r(getMedInfo($medToPrint[$indexToConsider])[0]) . " §§§");
 
     $libriInMedagliere = getLibroEAutoreByMedagliereId($medToPrint[$indexToConsider]);
     // echo "<br>";
@@ -355,7 +361,9 @@ function byIdsToGUI() {
     $medsToShow = exploseStringToArray($_GET["idMeds"]);
     $who = $_GET["userId"];
     $libriLetti = getLibriLettiDaUserId($who);
+    
     // $textSearch = ;
+    //print_r($medsToShow);
 
     $res = "";
     
@@ -365,6 +373,30 @@ function byIdsToGUI() {
 
     return $res;
 
+}
+
+
+function createSubmission(){
+    
+    $userID = $_GET["userId"];
+    $medID = $_GET["medId"];
+    
+    global $conn;
+
+    $sql = "INSERT INTO sottoscrive(utenteId, medagliereId) VALUES (?,?);";
+
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "ii", $userID, $medID);
+
+        if (mysqli_stmt_execute($stmt)) {
+            // echo "<p>Nuovo utente registrato correttamente</>";
+            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+        } else {
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+        }
+    }
+
+    mysqli_stmt_close($stmt);
 }
 
 
@@ -381,6 +413,9 @@ switch($command){
         break;
     case '11':
         echo byIdsToGUI();
+        break;
+    case '12':
+        createSubmission();
         break;
     default:
         header("Location: index.html");

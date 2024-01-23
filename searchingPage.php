@@ -61,7 +61,7 @@ $a = getUserIdWithSimilarName($tmp);
     </script>
     <script src="javascript/searchingPageAnimation.js"></script>
     <!-- <script src="javascript/profilePageAnimation.js"></script> si protrebbe anche includere ma devo aggiustare una cosa-->
-
+    <script src="javascript/profilePageModal.js"></script>
 
 
 </body>

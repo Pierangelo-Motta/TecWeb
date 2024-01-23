@@ -20,14 +20,14 @@ function prepareURLwithOkGet(arrKV){
     return res.substring(0,res.length-1);
 }
 
-const arrayMissMeds = []; //quelli estratti dalla eventuale query di ricerca
+let arrayMissMeds; //quelli estratti dalla eventuale query di ricerca
 
 
 let searchingSection = document.querySelector("#cercaMed");
 let mainContainer = document.querySelector("#newMedaglieri");
 let footerMore = document.querySelector("#moreRes");
 let tmpInputSeachingString = document.getElementById("tmpInputSeachingString");
-
+let actSearchingString = "";
 
 class AJAXManager{
 
@@ -49,9 +49,10 @@ class AJAXManager{
 
         //tmpInputSeachingString
 
-        this.basicAmountShow = 2;
+        this.basicAmountShow = 3;
         this.amountReload = 0;
-        this.amountShowForReload = 1;
+        this.amountShowForReload = 2;
+        this.amountChallenged = 0;
 
         this.obtainMissMeds(tmpInputSeachingString.getAttribute("value"));
 
@@ -82,10 +83,11 @@ class AJAXManager{
     
                 //console.log("pppp -> " + xhr.responseText);
                 console.log("PRE " + arrayMissMeds);
-                arrayMissMeds.length = 0;
-                console.log("DURANTE " + arrayMissMeds);
+                // arrayMissMeds.length = 0;
+                // console.log("DURANTE " + arrayMissMeds);
                 let res = JSON.parse(xhr.responseText);
-                res.forEach(id => arrayMissMeds.push(id));
+                // res.forEach(id => arrayMissMeds.push(id));
+                arrayMissMeds = res;
                 console.log("POST " + arrayMissMeds);
                 this.manageResults();
             }
@@ -112,13 +114,26 @@ class AJAXManager{
 
     manageResults(){
         let amountToShow = arrayMissMeds.length;
+        this.amountChallenged = 0;
         if(amountToShow == 0){
             
             this.showMore(false);
-            mainContainer.innerHTML = "";
+            //console.log("$$$$$$$$$$$$ " + tmpInputSeachingString.getAttribute("value"));
+
+            if (actSearchingString.length != 0){
+                mainContainer.innerHTML = 
+                    "<h3 class=\"noresults\"> Nessun medagliere contiene la stringa \"" +
+                    actSearchingString +
+                    "\"! </h3>";
+            } else {
+                mainContainer.innerHTML = "<h3 class=\"noresults\"> Niente di nuovo qui, torna la prossima volta! </h3>";
+                //TODO: valutare se togliere anche la barra di ricerca
+            }
+           
 
             //NO RISULTATI
         } else {
+            this.amountReload = 0;
             this.byIdsToGraphic(true);
         }
         
@@ -144,6 +159,7 @@ class AJAXManager{
         let lastIndex = Math.min((this.basicAmountShow + ((this.amountReload) * this.amountShowForReload)), arrayMissMeds.length);
         let prevIndex = (this.amountReload == 0) ? 0 : (this.basicAmountShow + ((this.amountReload - 1) * this.amountShowForReload));
         this.amountReload = this.amountReload + 1;
+        console.log(lastIndex + " / " + prevIndex + " / " + this.amountReload + " <----> " + isFirstTime);
         let indexToShow = arrayMissMeds.slice(prevIndex, lastIndex);
 
         // if(isFirstTime){
@@ -160,7 +176,7 @@ class AJAXManager{
             "idMeds" : indexToShow
         }
         let ok = this.prevURLquery + prepareURLwithOkGet(args);
-        ///console.log("EEE " +    ok);
+        console.log("EEE " +    ok);
 
         xhr.open('GET', ok, true);
     
@@ -172,14 +188,14 @@ class AJAXManager{
 
     showResult(textToShow, reset) {
 
-        if(reset){
+        if (reset) {
             mainContainer.innerHTML = textToShow;
         } else {
             mainContainer.innerHTML += textToShow;
         }
         
         this.showMore(true);
-        if(arrayMissMeds.length < (this.basicAmountShow + this.amountReload * this.amountShowForReload)) {
+        if(arrayMissMeds.length < (this.basicAmountShow + (this.amountReload * this.amountShowForReload))) {
             this.showMore(false);
             ///console.log(arrayMissMeds.length  + " / " + this.basicAmountShow);
         }
@@ -215,7 +231,7 @@ class AJAXManager{
             
             contenitore.style.maxHeight = maxHeightDefault + "px";
         
-            console.log(elem);
+            //console.log(elem);
             let text = "...<p class=\"expandMe\"> more"; //href=\"#\"
             if(lengOfContent > redValue){
                 elem.setAttribute("data-AllText",elem.innerHTML);
@@ -237,6 +253,53 @@ class AJAXManager{
                 contenitore.style.maxHeight = "2000px";
             })
         });
+
+
+        document.querySelectorAll("button[name='submitButton']").forEach(elem => {
+            elem.addEventListener("click", () => {
+                
+                let tmp = elem.getAttribute("value");
+                // let medId = arrayMissMeds[tmp];
+                //console.log("INDEX : " + tmp + " / " + medId);
+
+                let xhr = new XMLHttpRequest();
+
+                //salvo l'associazione
+                let args = {
+                    "codeQ" : 12,
+                    "userId" : this.userId,
+                    "medId" : tmp
+                }
+                let ok = this.prevURLquery + prepareURLwithOkGet(args);
+        
+                console.log(ok);
+
+                xhr.open('GET', ok, true);
+        
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // linea aggiunta per settare l' "X-Requested-With header" che indica che questa è una richiesta AJAX.
+                xhr.send();
+
+                //xhr.onreadystatechange = () => {
+                //if (xhr.readyState === 4 && xhr.status === 200) {
+        
+                //nascondo la card-container
+                let contToHide = elem.parentNode.parentNode.parentNode;
+                contToHide.style.display = "none";
+                
+                
+                //ricaricamento nel caso la pagina sia vuota
+                let actDisplay = Math.min((this.basicAmountShow + ((this.amountReload - 1) * this.amountShowForReload)), arrayMissMeds.length);
+                this.amountChallenged = this.amountChallenged + 1;
+                //console.log(this.amountChallenged + " / " + actDisplay);
+                if (this.amountChallenged == actDisplay){
+                    window.location.reload();
+                }
+                    //if(this.)
+                //}
+                //};
+
+            })
+        })
         
     }
 
@@ -247,10 +310,15 @@ class AJAXManager{
 a = new AJAXManager();
 
 this.tmpInputSeachingString.addEventListener('input', 
+                    //() => window.location.reload());                    
+                    //() => this.tmpInputSeachingString.parentNode.submit());
                     //(evt) => { console.log(evt.srcElement.value); });
                     //(evt) => this.tmpInputSeachingString.getAttribute()));
                     // (evt) => this.obtainMissMeds(evt.srcElement.value)
-                    function (evt) { a.obtainMissMeds(this.value)});
+                    function (evt) { 
+                        actSearchingString = this.value;
+                        a.obtainMissMeds(this.value);
+                    });
 
 
 

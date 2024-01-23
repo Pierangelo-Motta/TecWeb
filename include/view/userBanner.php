@@ -140,39 +140,70 @@ function obtainMainInfosUserBanner($userId){
     print_r("<br/>");
     print_r($listaSegue);
     
+    echo "<!-- INIZIO: per la valorizzazione del modal-->" . "\n";
+    foreach($listaFollower as $f){
+        echo "<div class=\"modalFollower\" id=\"modalFollowerId" . $f['seguenteId'] . "\" hidden>";
+        echo $f['seguenteId'];
+        echo "</div>\n";
+    }
+
+    foreach($listaSegue as $s){
+        echo "<div class=\"modalSeguiti\" id=\"modalSeguitoId" . $s['seguitoId'] . "\" hidden>";
+        echo $s['seguitoId'];
+        echo "</div>\n";
+    }
+    // foreach($listaSegue as $s){
+    //     echo 'seguo: ' . $s['seguitoId'] ;
+    // }
+    echo "<!-- FINE per la valorizzazione del modal-->" . "\n";
+ 
+    
     $amountComplete = sizeof(getMedCompletatiByUserId($userId)); //amountMedaglieriCompletati
 
     $classMainContainer = "d-md-inline-flex align-items-center p-2  mainInfos"; //w-25 flex-fill
- 
+    
     $initMainContainter = "<div id=\"mainInfosUserBannerN" . $userId . "\" 
-                                class=\"" . $classMainContainer . "\">";
+    class=\"" . $classMainContainer . "\">";
     
     $classForDivImg = "imgPropicCont";
     $classForImg = "rounded float-left";
     $first =  "<div id=\"divContainerImgUserBannerN" . $userId . "\" class=\"" . $classForDivImg . "\">" .
-                    "<img id=\"propicN" . $userId . "\" " .
-                    "src=\"" . $pathUserImage . "\" " .
-                    "alt=\"Immagine Profilo\" "  .
-                    "class=\"" . $classForImg . "\"> " .
-                    "</div>";
-
+    "<img id=\"propicN" . $userId . "\" " .
+    "src=\"" . $pathUserImage . "\" " .
+    "alt=\"Immagine Profilo\" "  .
+    "class=\"" . $classForImg . "\"> " .
+    "</div>";
+    
     //$classForMed = "";
     // $med =  "<div" . 
     //         //" id=\"divContainerImgUserBannerN" . $userId . "\"" . 
     //         " class=\"" . $classForMed . "\">" .
     //     "</div>";
-
+    
     $classForContainerInfos = "containerUserInfos";
     $classForInfos = "card-text";
     $second = "<div id=\"textInfoUserBannerN" . $userId . "\" class=\"" . $classForContainerInfos . "\"> " .
-                    "<h1 id=\"usernameInProfilePageUserBannerN" . $userId . "\">" . $nameInterestedUser . "</h1>" . 
-                    "<p class=\"" .$classForInfos . "\" id=\"counterFollowerUserBannerN" . $userId . "\">" . "Follower: " . $counterFollower . "</p>" . 
-                    "<p class=\"" .$classForInfos . "\" id=\"counterSegueUserBannerN" . $userId . "\">" . "Segue: " . $counterSeguo . "</p>" .
-                    "<p class=\"" .$classForInfos . "\" id=\"counterMedaglieriUserBannerN" . $userId . "\">" . "Medaglieri completati: " . $amountComplete . "</p>" .
-                    "</div>";
-
-
+    "<h1 id=\"usernameInProfilePageUserBannerN" . $userId . "\">" . $nameInterestedUser . "</h1>" . 
+    "<p class=\"" .$classForInfos . "\" id=\"counterFollowerUserBannerN" . $userId . "\">" . "Follower: " . $counterFollower . "</p>" . 
+    "<p class=\"" .$classForInfos . "\" id=\"counterSegueUserBannerN" . $userId . "\">" . "Segue: " . $counterSeguo . "</p>" .
+    "<p class=\"" .$classForInfos . "\" id=\"counterMedaglieriUserBannerN" . $userId . "\">" . "Medaglieri completati: " . $amountComplete . "</p>" .
+    "</div>";
+    
+    
     $finMainContainer = "</div>";
+    
+    echo "<div id=\"myPopup\" class=\"popup\">
+            <div class=\"popup-content\">
+                <!-- <div class=\"closeMyPopup\">&times;
+                 </div> -->
+                <div class=\"titoloPopUp\">Utenti seguiti</div>";
+                //foreach($listaSegue as $s) { echo "<div><a href=\"profilePage.php?mode=post&id=3\">" . $s['seguitoId'] . "</a></div>\n";};
+        foreach($listaSegue as $s) { echo "<div><a href=\"profilePage.php?mode=post&id=" . $s['seguitoId'] . "\">" .  tmpGetUsernameById($s['seguitoId']) . "</a></div>\n";};
+
+    echo "</div>
+        </div>";
+
+// echo "<button onclick=\"openPopup()\">Open Popup</button>";
 
     return $initMainContainter . $first . $second . $finMainContainer;
 
