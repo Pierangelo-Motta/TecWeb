@@ -53,3 +53,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     //     element.style.display = "none";
     // });
  });
+
+
+let mouseOverFunction = function () {
+    this.style.color = '#0d6efd'; // your colour change
+    // this.style.border = '1px solid #0d6efd';
+    // this.style.width = "100px";
+    // this.style.boxshadow = "-15px 15px 16px - 16px #0a65d56a";
+    this.style.fontSize = "1.1em";
+    
+};
+let mouseOutFunction = function () {
+    this.style.color = '#000'; // your colour change
+    // this.style.border = '1px solid #fff';
+    this.style.fontSize = "1em";
+};
+seguiti.onmouseover = mouseOverFunction;
+seguiti.onmouseleave = mouseOutFunction;
+followers.onmouseover = mouseOverFunction;
+followers.onmouseleave = mouseOutFunction;

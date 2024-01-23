@@ -198,7 +198,7 @@ function obtainMainInfosUserBanner($userId){
                  </div> -->
                 <div class=\"titoloPopUp\">Utenti seguiti</div>";
                 //foreach($listaSegue as $s) { echo "<div><a href=\"profilePage.php?mode=post&id=3\">" . $s['seguitoId'] . "</a></div>\n";};
-        foreach($listaSegue as $s) { echo "<div><a href=\"profilePage.php?mode=post&id=" . $s['seguitoId'] . "\">" .  tmpGetUsernameById($s['seguitoId']) . "</a></div>\n";};
+        foreach($listaSegue as $s) { echo "<div class=\"rigaUtente\"><img src=\"" . getUserImage(tmpGetUsernameById($s['seguitoId'])) . "\" alt=\"Immagine Profilo\" class=\"immagineProfilo\"><a href=\"profilePage.php?mode=post&id=" . $s['seguitoId'] . "\">" .  tmpGetUsernameById($s['seguitoId']) . "</a></div>\n";};
 
     echo "</div>
         </div>";
