@@ -35,6 +35,20 @@
     margin: 0 2px; /* Aggiusta il margine come desideri */
 }
 
+form{
+    display: block;
+}
+
+#labelSearchingInput{
+    margin-right: 10px;
+    display: block;
+}
+
+input[name="searchingMed"]{
+    display: block;
+}
+
+
 
 
 .loader {

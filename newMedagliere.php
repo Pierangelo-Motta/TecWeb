@@ -45,7 +45,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
         <div class="col-10">
             <div class="container-fluid float-right">
                 <form class="d-inline-flex" action="newMedagliere.php" method="post">
-                    <label>Ricerca nome medagliere:</label>
+                    <label id="labelSearchingInput">Ricerca nome medagliere:</label>
                     <input name="searchingMed" 
                         class="form-control me-2 float-right" 
                         type="search" 

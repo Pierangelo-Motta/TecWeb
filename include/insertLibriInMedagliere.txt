@@ -15,3 +15,642 @@ Books variable content: array (
     ),
   ),
 )
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '0',
+      'titolo' => 'X default',
+      'medagliere_id' => '8',
+    ),
+    1 => 
+    array (
+      'id' => '3',
+      'titolo' => 'X L\' abito di piume',
+      'medagliere_id' => '8',
+    ),
+    2 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '8',
+    ),
+    3 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X L\'uomo che cammina',
+      'medagliere_id' => '8',
+    ),
+    4 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '8',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '8',
+    ),
+    6 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '8',
+    ),
+    7 => 
+    array (
+      'id' => '8',
+      'titolo' => 'X Fede e giustizia',
+      'medagliere_id' => '8',
+    ),
+    8 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '8',
+    ),
+    9 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Della gentilezza e del coraggio',
+      'medagliere_id' => '8',
+    ),
+    10 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '8',
+    ),
+  ),
+)
