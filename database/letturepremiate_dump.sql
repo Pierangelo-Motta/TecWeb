@@ -155,18 +155,15 @@ DROP TABLE IF EXISTS `notifica`;
 CREATE TABLE `notifica` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `dataOra` datetime NOT NULL DEFAULT current_timestamp(),
-  `descrizione` varchar(255) NOT NULL,
   `tipo` char(1) NOT NULL,
   `utenteId` int(8) NOT NULL,
   `utenteIdPost` int(1) DEFAULT NULL,
   `dataOraPost` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ID_NOTIFICA_IND` (`id`),
-  UNIQUE KEY `dataOra` (`dataOra`,`descrizione`),
-  UNIQUE KEY `dataOra_2` (`dataOra`,`descrizione`),
   KEY `REF_NOTIF_UTENT_IND` (`utenteId`),
   KEY `REF_NOTIF_POST_IND` (`utenteIdPost`,`dataOraPost`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +172,6 @@ CREATE TABLE `notifica` (
 
 LOCK TABLES `notifica` WRITE;
 /*!40000 ALTER TABLE `notifica` DISABLE KEYS */;
-INSERT INTO `notifica` VALUES (1,'2024-01-18 22:51:48','Hai un nuovo follower!','',3,2,'2024-01-18 22:51:48'),(2,'2024-01-18 22:52:04','Hai un nuovo follower!','',3,7,'2024-01-18 22:52:04'),(3,'2024-01-18 22:52:36','Hai un nuovo follower!','',8,2,'2024-01-18 22:52:36'),(4,'2024-01-18 22:54:47','Hai un nuovo follower!','',3,8,'2024-01-18 22:54:47');
 /*!40000 ALTER TABLE `notifica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,7 +203,6 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (3,'2024-01-12 14:52:14','Ciò che si condivide si moltiplica','jacopo__2024_01_12__14_52_14.jpeg','Mi piace “l’intelligenza del dono”: è proprio, inspiegabilmente, così: “ciò che si condivide si moltiplica”. ',0,0,7),(3,'2024-01-12 15:04:12','Quando ti svegli la mattina, Puh, chiese infine Porcelletto, \"qual è la prima cosa che pensi?\". \"Che cosa c\'è per colazione?\" rispose Puh. \"E tu, Porcelletto?\". \"Io penso: chissà che cosa succederà oggi di emozionante?\" risposte Porcelletto. Puh annuì con','jacopo__2024_01_12__15_04_12.jpeg','La colazione allora è veramente la cosa più importante della giornata!',0,0,18),(3,'2024-01-14 21:57:45','\"Cosa vuoi diventare da grande, Thomas?\". E Thomas rispose: \"Felice. Voglio diventare felice\". Sembrò a tutti una buona idea.','jacopo__2024_01_14__21_57_45.jpeg','Thomas ha ragione',0,0,15),(3,'2024-01-15 22:15:44','cit',NULL,'pen',0,0,7),(4,'2024-01-12 23:31:18','Bellissimo libro',NULL,'Specie perchè eh',0,0,7),(8,'2024-01-14 16:25:01','Oh Rabbia!',NULL,'un\'imprecazione di qualità',0,0,18),(8,'2024-01-14 23:21:08','Stare allerta. Essere attenti. Con le antenne alzate. Ha usato proprio queste parole: con le antenne alzate. \"Abbandonarsi a sdilinquimento o autocommiserazione non è salutara! È necessario essere presenti!\"',NULL,'Mi piace perché mi ricorda che è necessario “essere presenti” per vivere al meglio le nostre giornate!',0,0,14),(8,'2024-01-14 23:23:35',NULL,'nuovo__2024_01_14__23_23_35.jpeg','Questa invece mi fa ridere un sacco. Dio sa le cose e non ce le dice ',0,0,13);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +254,6 @@ CREATE TABLE `segue` (
 
 LOCK TABLES `segue` WRITE;
 /*!40000 ALTER TABLE `segue` DISABLE KEYS */;
-INSERT INTO `segue` VALUES (1,3),(3,1),(3,2),(3,4),(3,7),(3,8),(3,12),(4,3),(8,2),(8,3),(8,12);
 /*!40000 ALTER TABLE `segue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,7 +277,7 @@ CREATE TABLE `sottoscrive` (
 
 LOCK TABLES `sottoscrive` WRITE;
 /*!40000 ALTER TABLE `sottoscrive` DISABLE KEYS */;
-INSERT INTO `sottoscrive` VALUES (1,0),(2,0),(3,0),(4,0),(5,0),(6,0),(8,0),(9,0),(12,0),(1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(8,1),(9,1),(12,1),(3,2),(8,2),(8,3),(8,4),(8,5),(8,6);
+INSERT INTO `sottoscrive` VALUES (1,0),(2,0),(3,0),(4,0),(5,0),(6,0),(8,0),(9,0),(12,0),(1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(8,1),(9,1),(12,1);
 /*!40000 ALTER TABLE `sottoscrive` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,7 +302,6 @@ CREATE TABLE `tagperpost` (
 
 LOCK TABLES `tagperpost` WRITE;
 /*!40000 ALTER TABLE `tagperpost` DISABLE KEYS */;
-INSERT INTO `tagperpost` VALUES (3,'2024-01-14 21:57:45',4),(3,'2024-01-14 21:57:45',5),(3,'2024-01-14 21:57:45',6),(3,'2024-01-15 22:15:44',10),(3,'2024-01-15 22:15:44',11),(3,'2024-01-15 22:15:44',12),(3,'2024-01-15 22:15:44',13),(8,'2024-01-14 23:21:08',7),(8,'2024-01-14 23:21:08',8),(8,'2024-01-14 23:23:35',9);
 /*!40000 ALTER TABLE `tagperpost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -323,7 +316,7 @@ CREATE TABLE `tags` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `testo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -332,7 +325,6 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (4,'voglioDiventareFelice'),(5,'felicità'),(6,'diventareGrandi'),(7,'esserePresenti'),(8,'antenneAlzate'),(9,''),(10,'cheBelLibro'),(11,'ciao'),(12,'come'),(13,'stai');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,7 +344,6 @@ CREATE TABLE `utente` (
   `isAdmin` int(1) NOT NULL,
   `descrizione` varchar(150) DEFAULT NULL,
   `stato` int(1) NOT NULL,
-  `numeroFollow` int(8) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -363,7 +354,7 @@ CREATE TABLE `utente` (
 
 LOCK TABLES `utente` WRITE;
 /*!40000 ALTER TABLE `utente` DISABLE KEYS */;
-INSERT INTO `utente` VALUES (1,'pier','pier@tecweb.com','$2y$10$gFrPumcEaL5CcXvtGXM9xuMJXNf/UQ01qwAzFXR5XPwsPXbtJV.B6','65a25d1737bf9_Senza_nome.png',0,'Ciao, mi chiamo Pierangelo Motta',0,0),(2,'luca','luca@webtec.it','$2y$10$YU5cUJ4u1mijevPHw6/eA.HpBmhiy.V6b/GQ7Ft9XaYWsIuZKW7He','luca.png',0,'Ciao sono LUCA',0,0),(3,'jacopo','jacopo@webtec.it','$2y$10$42RzrrImDVkkEM3LsluT0ekx6hGZPWod7kTXa/S6.9dhct8TcxskS','659df9bbcb885_incisione.jpg',0,'',0,0),(4,'user1','user1@tecweb.it','$2y$10$xTlnGZDq.deb1ZDaJdrpT.G7amPo1OH74wWkkmX2upyGf1PDcdMeS','',0,NULL,0,0),(5,'sara','sara@tecweb.it','$2y$10$YuoPVQMqbSz390utkBmV6.Csh4aDxGO5fyALnG3/xhDbSGkOSunh.','',0,NULL,0,0),(6,'lory','lory.casa.it','$2y$10$pBfSQJJBR60xqPkhLqi5yuCZC2dagqhc56SPMmRI4qNoEgsfVbLgm','',0,NULL,1,0),(7,'admin','admin@tecweb.it','$2y$10$3OlMvmQbXDETNgS8Mqdi6.nIi0ZRT88H0ud2JHL4hWZ3tC1VJcn12','65a25733abf6d_root.jpg',1,'System Admin',0,0),(8,'nuovo','nuovo@gmail.com','$2y$10$qs0x5.a7igiKKM0fCanPneScTRY86bdlasZbQ65stwTYKysml9Oki','65a3fbb56505e_propic_nuovo.jpg',0,NULL,0,0),(9,'novo','novo@gmail.com','$2y$10$X66ClJRut7T1YW9uNfis8.pZan2NMowVRk5GW8L35lLLUidNlGEnu','',0,NULL,0,0),(12,'nnovo','nnovo@gmail.com','$2y$10$4yS10rMejYIxjZ8NW18WW.a3f6crGuglqgaSrPIQ93WFg1Xv5ZTFC','',0,NULL,0,0);
+INSERT INTO `utente` VALUES (1,'pier','pier@tecweb.com','$2y$10$gFrPumcEaL5CcXvtGXM9xuMJXNf/UQ01qwAzFXR5XPwsPXbtJV.B6','65a25d1737bf9_Senza_nome.png',0,'Ciao, mi chiamo Pierangelo Motta',0),(2,'luca','luca@webtec.it','$2y$10$YU5cUJ4u1mijevPHw6/eA.HpBmhiy.V6b/GQ7Ft9XaYWsIuZKW7He','luca.png',0,'Ciao sono LUCA',0),(3,'jacopo','jacopo@webtec.it','$2y$10$42RzrrImDVkkEM3LsluT0ekx6hGZPWod7kTXa/S6.9dhct8TcxskS','659df9bbcb885_incisione.jpg',0,'',0),(4,'user1','user1@tecweb.it','$2y$10$xTlnGZDq.deb1ZDaJdrpT.G7amPo1OH74wWkkmX2upyGf1PDcdMeS','',0,NULL,0),(5,'sara','sara@tecweb.it','$2y$10$YuoPVQMqbSz390utkBmV6.Csh4aDxGO5fyALnG3/xhDbSGkOSunh.','',0,NULL,0),(6,'lory','lory.casa.it','$2y$10$pBfSQJJBR60xqPkhLqi5yuCZC2dagqhc56SPMmRI4qNoEgsfVbLgm','',0,NULL,1),(7,'admin','admin@tecweb.it','$2y$10$3OlMvmQbXDETNgS8Mqdi6.nIi0ZRT88H0ud2JHL4hWZ3tC1VJcn12','65a25733abf6d_root.jpg',1,'System Admin',0),(8,'nuovo','nuovo@gmail.com','$2y$10$qs0x5.a7igiKKM0fCanPneScTRY86bdlasZbQ65stwTYKysml9Oki','65a3fbb56505e_propic_nuovo.jpg',0,NULL,0),(9,'novo','novo@gmail.com','$2y$10$X66ClJRut7T1YW9uNfis8.pZan2NMowVRk5GW8L35lLLUidNlGEnu','',0,NULL,0),(12,'nnovo','nnovo@gmail.com','$2y$10$4yS10rMejYIxjZ8NW18WW.a3f6crGuglqgaSrPIQ93WFg1Xv5ZTFC','',0,NULL,0);
 /*!40000 ALTER TABLE `utente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -376,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-18 23:00:03
+-- Dump completed on 2024-01-23 23:14:37

@@ -153,7 +153,8 @@ function manageFollow($userIDFrom, $userIDTo, $query){
         if (mysqli_stmt_execute($stmt)) {
             // echo "<p>Nuovo utente registrato correttamente</>";
             // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
-            createNotification($userIDTo, $userIDFrom);
+            $tipo = 'F';
+            createNotification($userIDTo, $userIDFrom, $tipo);
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
@@ -172,13 +173,14 @@ function destroyFollow($userIDFrom, $userIDTo) {
     manageFollow($userIDFrom, $userIDTo, $sql);
 }
 
-function createNotification($userIDTo, $userIDFrom) {
+function createNotification($userIDTo, $userIDFrom, $tipo) {
     global $conn;
 
-    $notification_query = "INSERT INTO notifica(descrizione, utenteId, utenteIdPost, dataOraPost) VALUES ('Hai un nuovo follower!', ?, ?, NOW())";
+    $notification_query = "INSERT INTO notifica(tipo, utenteId, utenteIdPost, dataOraPost) VALUES (?, ?, ?, NOW())";
 
     if ($stmt = mysqli_prepare($conn, $notification_query)) {
-        mysqli_stmt_bind_param($stmt, "ii", $userIDTo, $userIDFrom);
+        // "s" è usato per una stringa
+        mysqli_stmt_bind_param($stmt, "sii", $tipo, $userIDTo, $userIDFrom);
 
         if (!mysqli_stmt_execute($stmt)) {
             echo "Errore nell'inserimento della notifica: " . mysqli_error($conn);
@@ -188,13 +190,12 @@ function createNotification($userIDTo, $userIDFrom) {
     mysqli_stmt_close($stmt);
 }
 
-
 function getNotifications($userID) {
     global $conn;
 
     $notifications = array();
 
-    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOraPost DESC"; // Ordina per data decrescente
+    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOraPost"; // Ordina per data decrescente
     if ($stmt = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($stmt, "i", $userID);
         mysqli_stmt_execute($stmt);
@@ -209,7 +210,6 @@ function getNotifications($userID) {
 
     return $notifications;
 }
-
 
 function subscribeUserToMed($userID, $medID){
     global $conn;
