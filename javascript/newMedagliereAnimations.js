@@ -89,45 +89,45 @@ class ChallengeMed {
 
         this.retBut = document.getElementById("retBut");
 
-        this.loadMore = document.getElementById("loadMore");
+        //this.loadMore = document.getElementById("loadMore");
 
         let page = "profilePage.php";
         let getVars = "?mode=goal";
         this.retBut.addEventListener("click", () => window.location.href = page + getVars );
 
-        if(this.loadMore != null){
-            this.loadMore.addEventListener("click", () => this.computeNewLink() );
-        }
+        // if(this.loadMore != null){
+        //     this.loadMore.addEventListener("click", () => this.computeNewLink() );
+        // }
         
 
         console.log("go");
 
     }
 
-    computeNewLink(){
-        const a = new Map();
-        let allGets = window.location.search.substring(1);
-        let gets = allGets.split("&");
+    // computeNewLink(){
+    //     const a = new Map();
+    //     let allGets = window.location.search.substring(1);
+    //     let gets = allGets.split("&");
         
-        gets.forEach(elem => {
-            let row = elem.split("=");
-            a.set(row[0], row[1]);
-        });
+    //     gets.forEach(elem => {
+    //         let row = elem.split("=");
+    //         a.set(row[0], row[1]);
+    //     });
 
-        let myKeyword = "amountLoad";
-        let b = a.get(myKeyword);
+    //     let myKeyword = "amountLoad";
+    //     let b = a.get(myKeyword);
 
-        let idToJump = document.querySelector("#moreRes").previousSibling.previousSibling.firstChild.getAttribute("id");
+    //     let idToJump = document.querySelector("#moreRes").previousSibling.previousSibling.firstChild.getAttribute("id");
 
-        let actLink = window.location.href;
-        if (b === undefined){
-            window.location.href = actLink + "?" + myKeyword + "=1#" + idToJump;
-        } else {
-            b = parseInt(b) + 1;
-            window.location.href = actLink.substring(0, actLink.indexOf("?")) + "?" + myKeyword + "=" + b + "#" + idToJump;
-        }
+    //     let actLink = window.location.href;
+    //     if (b === undefined){
+    //         window.location.href = actLink + "?" + myKeyword + "=1#" + idToJump;
+    //     } else {
+    //         b = parseInt(b) + 1;
+    //         window.location.href = actLink.substring(0, actLink.indexOf("?")) + "?" + myKeyword + "=" + b + "#" + idToJump;
+    //     }
 
-    }
+    // }
 
 }
 

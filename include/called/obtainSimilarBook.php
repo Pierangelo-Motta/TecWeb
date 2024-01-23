@@ -8,7 +8,7 @@ $tmp = $_GET["pTit"];
 
 
 
-$sql = "SELECT titolo FROM libro WHERE titolo LIKE \"%" . $tmp . "%\"";
+$sql = "SELECT titolo FROM libro WHERE titolo LIKE \"%" . $tmp . "%\";";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 

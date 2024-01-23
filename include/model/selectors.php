@@ -255,6 +255,9 @@ function getMedsChallengedByUserId($idUser){
 }
 
 function getMedThatUserNotChallenge($idUser, $textSearch=""){
+
+    /// forse è da cancellare
+    
     global $conn;
     $sql = "SELECT M.id 
             From medagliere M
