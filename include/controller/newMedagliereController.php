@@ -279,8 +279,8 @@ function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
     $toAdd = "Med" . $indexToConsider;
     $infos = getMedInfo($medToPrint[$indexToConsider])[0];
 
-    print_r("<br>");
-    print_r($indexToConsider . " / " . $medToPrint[$indexToConsider] . " / " . print_r(getMedInfo($medToPrint[$indexToConsider])[0]) . " §§§");
+    //print_r("<br>");
+    //print_r($indexToConsider . " / " . $medToPrint[$indexToConsider] . " / " . print_r(getMedInfo($medToPrint[$indexToConsider])[0]) . " §§§");
 
     $libriInMedagliere = getLibroEAutoreByMedagliereId($medToPrint[$indexToConsider]);
     // echo "<br>";
@@ -363,7 +363,7 @@ function byIdsToGUI() {
     $libriLetti = getLibriLettiDaUserId($who);
     
     // $textSearch = ;
-    print_r($medsToShow);
+    //print_r($medsToShow);
 
     $res = "";
     
