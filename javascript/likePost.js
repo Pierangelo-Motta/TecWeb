@@ -10,18 +10,24 @@ $(document).ready(function() {
             type: 'POST',
             url: 'include/likePost.php',
             data: { utenteId: utenteId, dataOra: dataOra },
+            dataType: 'json',
             success: function(response) {
                 console.log(response);
 
-                if (response.trim() === "success") {
+                if (response.status === "success") {
                     let currentLikes = parseInt(likeCountElement.text());
-                    likeCountElement.text(currentLikes + 1);
 
-                    // Mostra o nascondi le icone vuote e piene
-                    emptyThumb.toggle();
-                    filledThumb.toggle();
+                    if (response.likeRemoved) {
+                        likeCountElement.text(currentLikes - 1);
+                        emptyThumb.show();
+                        filledThumb.hide();
+                    } else {
+                        likeCountElement.text(currentLikes + 1);
+                        emptyThumb.hide();
+                        filledThumb.show();
+                    }
                 } else {
-                    console.error("Errore durante l'aggiornamento del like.");
+                    console.error("Errore durante l'aggiornamento del like:", response.message);
                 }
             },
             error: function(xhr, status, error) {
