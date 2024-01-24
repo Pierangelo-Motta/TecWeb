@@ -54,7 +54,7 @@ if ($password === $confirm_password && checkUser($username)) {
     mysqli_stmt_close($stmt);
 
 
-    //TODO JP : sottoscrivere un nuovo utente ai 2 medaglieri standard
+    //TODO SOLVED JP : sottoscrivere un nuovo utente ai 2 medaglieri standard
     $defaultMedIndex = array(0,1);
     $userId = getUserId1($username);
 

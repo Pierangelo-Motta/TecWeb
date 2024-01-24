@@ -50,9 +50,9 @@ body main{
 }
 
 @media only screen and (max-width: 768px) {
-    body main {
+    /* body main {
         margin: 75px 0 25px;
-    }
+    } */
     
     /* body main div form div#newPostForm_pt2 p{
         margin-top: 50px;

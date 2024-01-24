@@ -54,6 +54,7 @@ function updateOnFileSystem(string $where, string $nameInputImg, string $newImgN
                 echo $uploadDirectory . "<br />";
                 echo "Error uploading the image.";
             }
+
         } else {
             echo "Please select an image.";
         }

@@ -6,7 +6,7 @@ $nomeUtente = tmpGetUsernameById($_GET["id"]);
 
 function createStrangeFront(){
     $begin = "<div class='front facciata'>";
-    $middle = "<h3> Aggiungi nuovi medaglieri al tuo libro! </h3>"; //TODO : ancorare la pagina di sottomissione a un nuovo medagliere?
+    $middle = "<h3> <a href=\"newMedagliere.php\"> Aggiungi nuovi medaglieri </a> al tuo libro! </h3>"; //TODO : ancorare la pagina di sottomissione a un nuovo medagliere?
     $end = "</div>";
     return $begin . $middle . $end;
 }
