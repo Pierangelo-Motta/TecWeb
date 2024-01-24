@@ -1,6 +1,12 @@
 <?php
 
+
+// if(true){
 require_once("include/config.php");
+// } else {
+//     require_once("../config.php");
+// }
+
 
 function getLibroIdFromLibroWhereTitle($title){
     global $conn;
@@ -257,7 +263,6 @@ function getMedsChallengedByUserId($idUser){
 function getMedThatUserNotChallenge($idUser, $textSearch=""){
 
     /// forse è da cancellare
-    
     global $conn;
     $sql = "SELECT M.id 
             From medagliere M

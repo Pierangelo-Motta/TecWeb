@@ -6,6 +6,8 @@ if (!($_SESSION['loggedin'] === true)) {
     header("Location: index.html");
 }
 
+$_SESSION["relativePosition"] = "../../";
+
 require_once("../config.php");
 //require_once("../model/selectors.php");
 
@@ -60,7 +62,7 @@ function getLibroEAutoreByMedagliereId($medID){
 function getLibroIdFromLibroWhereTitle($title){
     global $conn;
     $sql = "SELECT L.id from libro L WHERE L.titolo=?";
-    // $sql = "SELECT isAdmin FROM utente WHERE username = ?";
+    $sql = "SELECT isAdmin FROM utente WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $title);
 
@@ -68,7 +70,7 @@ function getLibroIdFromLibroWhereTitle($title){
 
     $result = $stmt->get_result();
     $tmp = $result->fetch_assoc();
-    // print_r($tmp);
+    print_r($tmp);
     return isset($tmp["id"]) ? $tmp["id"] : 0;
 }
 
@@ -111,7 +113,7 @@ function checkIfUserReadBook($userId, $libroId){
     $result = $stmt->get_result();
         
     if ($result->num_rows > 0) {
-        // return $result->fetch_assoc()['id'];
+        return $result->fetch_assoc()['id'];
         return true;
     } else {
         return false;

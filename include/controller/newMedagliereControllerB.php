@@ -173,7 +173,7 @@ if(isset($_POST["submitButton"])) {
     header("Location: " . $link);
 }
 
-//TODO si dovrebbe gestire il max di post da caricare, e il bottone di incremento
+//TODO OLD si dovrebbe gestire il max di post da caricare, e il bottone di incremento
 
 $showMoreMed = true;
 $upperbound = sizeof($medToPrint); 

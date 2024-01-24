@@ -69,7 +69,7 @@ if (isset($_POST["sB"])) {
         //     echo "ERR: post non avvenuto con successo";
         // }
 
-        // TODO l'ultimo 0 deve essere convertito in un id del libro!!
+        // TODO SOLVED l'ultimo 0 deve essere convertito in un id del libro!!
         createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, getLibroIdFromLibroWhereTitle($nomeLibroNameValue)); 
 
         ////////////   
