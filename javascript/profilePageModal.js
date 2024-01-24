@@ -17,6 +17,7 @@ let identificativoFollower = "counterFollowerUserBannerN" + uid;
 let seguiti = document.getElementById(identificativoSeguiti);
 let followers = document.getElementById(identificativoFollower);
 
+let tipo = "";
 
 if (currentUrl.includes("searchingPage.php")) {
     document.querySelectorAll(".popup").forEach(function (el) {
@@ -24,12 +25,12 @@ if (currentUrl.includes("searchingPage.php")) {
     });
 }
 
-// Add click event listener
+// popup followers open
 followers.addEventListener('click', function () {
     // Display an alert when the element is clicked
     // alert('Follower clicked!');
     // creare popup? o modal 
-    // openPopup();
+    openPopup('myPopupFollowers');
 });
 
 // Add click event listener
@@ -37,23 +38,31 @@ seguiti.addEventListener('click', function () {
     // Display an alert when the element is clicked
     // alert('Seguiti clicked!');
     // creare modal
-    openPopup();
+    openPopup('myPopupSeguiti');
 });
 
-document.getElementById('myPopup').addEventListener('click', function () {
+// popup followers close
+document.getElementById('myPopupFollowers').addEventListener('click', function () {
     // Display an alert when the element is clicked
     // alert('Seguiti clicked!');
     // creare modal
-    closePopup();
+    closePopup('myPopupFollowers');
 });
 
-function openPopup() {
-    var popup = document.getElementById('myPopup');
+document.getElementById('myPopupSeguiti').addEventListener('click', function () {
+    // Display an alert when the element is clicked
+    // alert('Seguiti clicked!');
+    // creare modal
+    closePopup('myPopupSeguiti');
+});
+
+function openPopup(tipo) {
+    var popup = document.getElementById(tipo);
     popup.style.display = 'block';
 }
 
-function closePopup() {
-    var popup = document.getElementById('myPopup');
+function closePopup(tipo) {
+    var popup = document.getElementById(tipo);
     popup.style.display = 'none';
 }
 

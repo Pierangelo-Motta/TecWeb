@@ -140,22 +140,22 @@ function obtainMainInfosUserBanner($userId){
     // print_r("<br/>");
     // print_r($listaSegue);
     
-    echo "<!-- INIZIO: per la valorizzazione del modal-->" . "\n";
-    foreach($listaFollower as $f){
-        echo "<div class=\"modalFollower\" id=\"modalFollowerId" . $f['seguenteId'] . "\" hidden>";
-        echo $f['seguenteId'];
-        echo "</div>\n";
-    }
+    // echo "<!-- INIZIO: per la valorizzazione del modal-->" . "\n";
+    // foreach($listaFollower as $f){
+    //     echo "<div class=\"modalFollower\" id=\"modalFollowerId" . $f['seguenteId'] . "\" hidden>";
+    //     echo $f['seguenteId'];
+    //     echo "</div>\n";
+    // }
 
-    foreach($listaSegue as $s){
-        echo "<div class=\"modalSeguiti\" id=\"modalSeguitoId" . $s['seguitoId'] . "\" hidden>";
-        echo $s['seguitoId'];
-        echo "</div>\n";
-    }
+    // foreach($listaSegue as $s){
+    //     echo "<div class=\"modalSeguiti\" id=\"modalSeguitoId" . $s['seguitoId'] . "\" hidden>";
+    //     echo $s['seguitoId'];
+    //     echo "</div>\n";
+    // }
     // foreach($listaSegue as $s){
     //     echo 'seguo: ' . $s['seguitoId'] ;
     // }
-    echo "<!-- FINE per la valorizzazione del modal-->" . "\n";
+    // echo "<!-- FINE per la valorizzazione del modal-->" . "\n";
  
     
     $amountComplete = sizeof(getMedCompletatiByUserId($userId)); //amountMedaglieriCompletati
@@ -192,9 +192,20 @@ function obtainMainInfosUserBanner($userId){
     
     $finMainContainer = "</div>";
     
-    echo "<div id=\"myPopup\" class=\"popup\">
+// inserimento follower
+    echo "<div id=\"myPopupFollowers\" class=\"popup\">
+        <div class=\"popup-content\">
+            <!-- <div class=\"closeMyPopupFollowers\">&times;
+             </div> -->
+            <div class=\"titoloPopUp\">Followers</div>";
+            //foreach($listaSegue as $s) { echo "<div><a href=\"profilePage.php?mode=post&id=3\">" . $s['seguitoId'] . "</a></div>\n";};
+    foreach($listaFollower as $f) { echo "<div class=\"rigaUtente\"><img src=\"" . getUserImage(tmpGetUsernameById($f['seguenteId'] )) . "\" alt=\"Immagine Profilo\" class=\"immagineProfilo\"><a href=\"profilePage.php?mode=post&id=" . $f['seguenteId']  . "\">" .  tmpGetUsernameById($f['seguenteId']) . "</a></div>\n";};
+// inserimento seguiti
+    echo "</div>
+        </div>";
+    echo "<div id=\"myPopupSeguiti\" class=\"popup\">
             <div class=\"popup-content\">
-                <!-- <div class=\"closeMyPopup\">&times;
+                <!-- <div class=\"closeMyPopupSeguiti\">&times;
                  </div> -->
                 <div class=\"titoloPopUp\">Utenti seguiti</div>";
                 //foreach($listaSegue as $s) { echo "<div><a href=\"profilePage.php?mode=post&id=3\">" . $s['seguitoId'] . "</a></div>\n";};
@@ -203,6 +214,7 @@ function obtainMainInfosUserBanner($userId){
     echo "</div>
         </div>";
 
+        
 // echo "<button onclick=\"openPopup()\">Open Popup</button>";
 
     return $initMainContainter . $first . $second . $finMainContainer;
