@@ -31,6 +31,7 @@ $a = getUserIdWithSimilarName($tmp);
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
   <link rel="stylesheet" type="text/css" href="css/JPBook.css">
+    <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
   
   <link rel="icon" href="images/favicon_io/favicon.ico">
 

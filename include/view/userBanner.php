@@ -192,10 +192,36 @@ function obtainMainInfosUserBanner($userId){
     
     $finMainContainer = "</div>";
     
+        $popupContent = "
+    <div id=\"myPopupFollowers" . $userId . "\" class=\"popup\">
+        <div class=\"popup-content\">
+            <div class=\"titoloPopUp\">Followers</div>";
+
+foreach($listaFollower as $f) {
+    $popupContent .= "<div class=\"rigaUtente\"><img src=\"" . getUserImage(tmpGetUsernameById($f['seguenteId'])) . "\" alt=\"Immagine Profilo\" class=\"immagineProfilo\"><a href=\"profilePage.php?mode=post&id=" . $f['seguenteId'] . "\">" . tmpGetUsernameById($f['seguenteId']) . "</a></div>\n";
+}
+
+$popupContent .= "
+        </div>
+    </div>";
+
+$popupContent .= "
+    <div id=\"myPopupSeguiti" . $userId . "\" class=\"popup\">
+        <div class=\"popup-content\">
+            <div class=\"titoloPopUp\">Utenti seguiti</div>";
+
+foreach($listaSegue as $s) {
+    $popupContent .= "<div class=\"rigaUtente\"><img src=\"" . getUserImage(tmpGetUsernameById($s['seguitoId'])) . "\" alt=\"Immagine Profilo\" class=\"immagineProfilo\"><a href=\"profilePage.php?mode=post&id=" . $s['seguitoId'] . "\">" . tmpGetUsernameById($s['seguitoId']) . "</a></div>\n";
+}
+
+$popupContent .= "
+        </div>
+    </div>";
+
         
 // echo "<button onclick=\"openPopup()\">Open Popup</button>";
 
-    return $initMainContainter . $first . $second . $finMainContainer;
+    return $initMainContainter . $first . $second . $finMainContainer . $popupContent;
 
 }
 
