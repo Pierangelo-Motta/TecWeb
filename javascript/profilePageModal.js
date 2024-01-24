@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 let mouseOverFunction = function () {
     this.style.color = '#0d6efd'; // your colour change
+    this.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
     // this.style.border = '1px solid #0d6efd';
     // this.style.width = "100px";
     // this.style.boxshadow = "-15px 15px 16px - 16px #0a65d56a";
@@ -83,6 +84,7 @@ let mouseOverFunction = function () {
 };
 let mouseOutFunction = function () {
     this.style.color = '#000'; // your colour change
+    this.style.textShadow = '';
     // this.style.border = '1px solid #fff';
     // this.style.fontSize = "1em";
 };
