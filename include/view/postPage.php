@@ -3,7 +3,7 @@
         <div class="col-8">
                 <?php
         if (empty($posts)) {
-            echo '<p>Nessun post disponibile dalle persone che segui.</p>';
+            echo '<p>Nessun post disponibile dalle persone che segui.</p></div></section>';
         } else {
             foreach ($posts as $post): ?>
                 <article>
