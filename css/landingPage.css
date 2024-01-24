@@ -15,6 +15,11 @@
     height: auto;
 }
 
+.post .post-img {
+  width: 50px;
+  height: auto;
+}
+
 .post p {
     margin-bottom: 0;
 }
@@ -59,7 +64,7 @@ input[name="searchingMed"]{
     height: 120px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
-    
+
     display: block;
     margin: 30px auto 0;
 

@@ -10,9 +10,13 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-1 text-right post">
-                                    <img src="<?= getUserImage($post["username"]); ?>" alt="Immagine profilo" />
-                                </div>
+
+                              <div class="col-md-1 text-right post">
+                                  <a href="profilePage.php?id=<?= $post['utenteId']; ?>">
+                                      <img class="post-img" src="<?= getUserImage($post["username"]); ?>" alt="Immagine profilo" />
+                                  </a>
+                              </div>
+
                                 <div class="col-md-8 text-left">
                                     <p><?= $post['username']; ?></p>
                                 </div>
@@ -24,24 +28,30 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="row">
-                                        <p>Libro: <?= $post['titolo']; ?></p>
+                                        <p>Libro <br/> <?= $post['titolo']; ?></p>
                                     </div>
                                     <?php if (!empty($post['citazioneTestuale'])): ?>
                                         <div class="row">
-                                            <p>Citazione: <?= $post['citazioneTestuale']; ?></p>
+                                            <p>"<?= $post['citazioneTestuale']; ?>"</p>
                                         </div>
                                     <?php endif; ?>
+
                                     <div class="row">
-                                        <p>Riflessione: <?= $post['riflessione']; ?></p>
+                                        <p>Sto pensando a... <br/> <?= $post['riflessione']; ?></p>
                                     </div>
                                     <div class="row">
-                                      <?php
-                                        if (!empty($post['elencoTag'])) {
-                                          echo '<p>Tags: ' . htmlspecialchars($post['elencoTag']) . '</p>';
-                                        } else {
-                                          echo '<p>No tags</p>';
-                                        }
-                                      ?>
+                                      <?php if (!empty($post['elencoTag'])): ?>
+                                        <div class="row">
+                                            <p>
+                                                <?php
+                                                $tags = explode(',', $post['elencoTag']);
+                                                foreach ($tags as $tag) {
+                                                    echo "#$tag ";
+                                                }
+                                                ?>
+                                            </p>
+                                        </div>
+                                    <?php endif; ?>
                                     </div>
                                 </div>
                                 <?php
