@@ -1,0 +1,5 @@
+/* Aggiungi uno scroll verticale al pannello delle notifiche */
+#notification-list {
+    max-height: 100px; /* Imposta l'altezza massima desiderata */
+    overflow-y: auto;  /* Aggiungi uno scroll verticale se necessario */
+}
