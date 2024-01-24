@@ -114,6 +114,33 @@ $posts = $post->getPost($_GET["id"]);
     </section>";}
     ?>
 
+<?php
+    $userId = $_GET['id'];
+    $listaFollower = ottieniFollower($userId);
+    $listaSegue = ottieniSegue($userId);
+// inserimento follower
+    echo "<div id=\"myPopupFollowers\" class=\"popup\">
+        <div class=\"popup-content\">
+            <!-- <div class=\"closeMyPopupFollowers\">&times;
+             </div> -->
+            <div class=\"titoloPopUp\">Followers</div>";
+            //foreach($listaSegue as $s) { echo "<div><a href=\"profilePage.php?mode=post&id=3\">" . $s['seguitoId'] . "</a></div>\n";};
+    foreach($listaFollower as $f) { echo "<div class=\"rigaUtente\"><img src=\"" . getUserImage(tmpGetUsernameById($f['seguenteId'] )) . "\" alt=\"Immagine Profilo\" class=\"immagineProfilo\"><a href=\"profilePage.php?mode=post&id=" . $f['seguenteId']  . "\">" .  tmpGetUsernameById($f['seguenteId']) . "</a></div>\n";};
+// inserimento seguiti
+    echo "</div>
+        </div>";
+    echo "<div id=\"myPopupSeguiti\" class=\"popup\">
+            <div class=\"popup-content\">
+                <!-- <div class=\"closeMyPopupSeguiti\">&times;
+                 </div> -->
+                <div class=\"titoloPopUp\">Utenti seguiti</div>";
+                //foreach($listaSegue as $s) { echo "<div><a href=\"profilePage.php?mode=post&id=3\">" . $s['seguitoId'] . "</a></div>\n";};
+        foreach($listaSegue as $s) { echo "<div class=\"rigaUtente\"><img src=\"" . getUserImage(tmpGetUsernameById($s['seguitoId'])) . "\" alt=\"Immagine Profilo\" class=\"immagineProfilo\"><a href=\"profilePage.php?mode=post&id=" . $s['seguitoId'] . "\">" .  tmpGetUsernameById($s['seguitoId']) . "</a></div>\n";};
+
+    echo "</div>
+        </div>";
+?>
+
     <?php if($visitPost){
         require("include/view/postPage.php");
     } else {
