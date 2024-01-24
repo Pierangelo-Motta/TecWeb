@@ -3,8 +3,8 @@ $(document).ready(function() {
         let utenteId = $(this).data('utenteid');
         let dataOra = $(this).data('dataora');
         let loveCountElement = $(this).closest('.card-body').find('.love-count');
-        let emptyHeart = $(this).find('.emptyHeart');
-        let filledHeart = $(this).find('.filledHeart');
+        let emptyHeart = $(this).find('#emptyHeart');
+        let filledHeart = $(this).find('#filledHeart');
 
         $.ajax({
             type: 'POST',
