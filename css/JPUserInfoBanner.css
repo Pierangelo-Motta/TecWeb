@@ -2,10 +2,9 @@ body section#userDescription{
     padding: 2%;
 }
 
-
-
 div#textInfo{
     line-height: 1.2;
+    /* overflow: hidden; */
 }
 
 div#textInfo h1{
@@ -17,6 +16,7 @@ div.mainInfos div.imgPropicCont{
     max-width: 150px;
     width: 100%;
     min-width: 100px;
+    clear: both;
 }
 
 div.mainInfos div.imgPropicCont img{
@@ -27,37 +27,80 @@ div.mainInfos div.imgPropicCont img{
     margin: auto auto;
 }
 
+
 .containerUserInfos{
     padding-left: 10px;
+    /* max-width: 60%; */
+    /* width: 60%; */
+    overflow-x: hidden;
+    max-width: 600px;
+    /* width: 400px; */
+    /* max-width: calc(300px); */
 }
+
 
 #submit{
     display: block;
     margin: 0 auto;
 }
 
-/*div.portalDiv abbr */
-img#portal{
-    max-width: 150px;
-    width: 80%;
-    min-width: 100px;
+div#portalDiv{
+    max-width: 100px;
+    width: 40%;
+    min-width: 80px;
 }
 
+img#portal{
+    width: 100%;
+}
+
+form.portalForm button{
+    margin: auto 0;
+}
 
 /* useful for profilePage*/
 body main{
     margin: 25px 0;
 }
 
-@media only screen and (max-width: 768px) {
-    /* body main {
-        margin: 75px 0 25px;
-    } */
-    
-    /* body main div form div#newPostForm_pt2 p{
-        margin-top: 50px;
-        border-top: 1px rgb(204, 204, 204) solid;
-        padding-top: 20px;
+@media only screen and (max-width: 576px) {
+    h1{
+        margin-top: 10px;
+    }
+    div#portalDiv{
+        min-width: 50px;
+        width: 50%;
+        max-width: 100px;
+    }
+    div.mainInfos{
+        align-items: center;
         text-align: center;
-    } */
+    }
+    div.imgPropicCont{
+        margin: auto 0;
+    }
+    div.containerUserInfos{
+        max-width: auto;
+    }
+}
+
+@media only screen and (min-width: 576px){
+    .containerUserInfos{
+        max-width: 200px;
+        /* max-width: 60%; */
+        /* width: 60%; */
+        /* overflow-x: hidden; */
+        /* width: 400px; */
+    }
+    
+}
+@media only screen and (min-width: 1000px){
+    .containerUserInfos{
+        max-width: 700px;
+        /* max-width: 60%; */
+        /* width: 60%; */
+        /* overflow-x: hidden; */
+        /* width: 400px; */
+    }
+    
 }
