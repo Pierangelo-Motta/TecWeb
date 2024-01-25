@@ -22,6 +22,10 @@ section#commentPart form{
     padding: 10px 0;
 }
 
+div#userCommentControls {
+    margin: 5px 0;
+}
+
 div#userCommentControls button{
     width: 20%;
     max-width: 100px;

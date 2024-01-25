@@ -166,13 +166,13 @@ if (!($_SESSION['loggedin'] === true)) {
                 <form action="" method="post">
                     <div class="d-flex w-100" id="userCommentControls">
                         <!-- <div class="flex-fill"> solo per far andare il flex fill che tanto non vaaaaaaaaaaa - -->
-                            <button class="flex-fill btn btn-secondary" type="button">Indietro</button>    
+                        <button id="retBut" class="flex-fill btn btn-secondary" type="button" data-prevLink="landingPage.php">Indietro</button>    
                         <!-- </div> -->
                         
                         <div class="flex-fill riempitivo"></div>
 
                         <!-- <div class="flex-fill"> -->
-                            <button class="flex-fill btn btn-primary" type="submit">Condividi!</button>
+                        <button class="flex-fill btn btn-primary" type="submit">Condividi!</button>
                         <!-- </div> -->
                     </div>
 
@@ -188,33 +188,33 @@ if (!($_SESSION['loggedin'] === true)) {
                 <h2 class="subTitle"> Gli altri utenti: </h2>
                 <div id="commentContainer">
                     <div class="comment">
-                        <img class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
+                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
                         <p class="commentText">WOW CHE FIKOOOO<p>
                     </div>
                     <div class="comment">
-                        <img class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
+                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
                         <p class="commentText">WOW CHE FIKOOOO<p>
                     </div>
                     <div class="comment">
-                        <img class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
+                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
                         <p class="commentText">WOW CHE FIKOOOO<p>
                     </div>
                     <div class="comment">
-                        <img class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
+                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
                         <p class="commentText">WOW CHE FIKOOOO<p>
                     </div>
                     <div class="comment">
-                        <img class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
-                        <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div>
-
-                    <div class="comment">
-                        <img class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
+                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
                         <p class="commentText">WOW CHE FIKOOOO<p>
                     </div>
 
                     <div class="comment">
-                        <img class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
+                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
+                        <p class="commentText">WOW CHE FIKOOOO<p>
+                    </div>
+
+                    <div class="comment">
+                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
                         <p class="commentText">WOW CHE FIKOOOO<p>
                     </div>
 
@@ -234,10 +234,18 @@ if (!($_SESSION['loggedin'] === true)) {
 
 
 
+    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
     </script>
 
+    <script src="javascript/commentAnimation.js"></script>
+
+    
+    <!-- <script src="javascript/addNewPost.js"></script> -->
+    <!-- <script src="javascript/addNewPost.js"></script> -->
+    <!-- <script src="javascript/newMedAJPAX.js"></script> -->
 </body>
 </html>
