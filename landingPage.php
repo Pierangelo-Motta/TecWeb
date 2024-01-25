@@ -1,23 +1,25 @@
 <?php
-  session_start();
+session_start();
 
-  if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    //user is not logged in go to login page
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // Utente non autenticato, reindirizza alla pagina di login
     header("Location: index.html");
     exit;
-  }
+}
 
-  require_once 'include/post.php';
+require_once 'include/post.php';
 
-  $post = new Post($conn);
-  $following_users = getFollowingUsers($_SESSION['id'], $conn);
-  if (!empty($following_users)) {
-    $posts = $post->getPost($_SESSION['id'], $following_users);
-  } else {
-    $posts = array();
+$post = new Post($conn);
+
+// Ottenere i post delle persone che stai seguendo (Landing Page)
+$posts = $post->getLandingPosts($_SESSION['id']);
+
+// Se non ci sono post, puoi impostare un messaggio di avviso
+if (empty($posts)) {
     $no_posts_message = 'Non stai seguendo nessuno. Inizia a seguire qualcuno per vedere i loro post.';
-  }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="it">
   <head>

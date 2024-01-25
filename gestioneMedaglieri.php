@@ -26,7 +26,7 @@ if(isset($_POST['aggiungiMedagliere'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medaglieri</title>
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <!-- Bootstrap CSS -->
@@ -162,7 +162,7 @@ if(isset($_POST['aggiungiMedagliere'])){
                                 </div>
                             </div>
                             <p></p>
-                            
+
                         </form>
                         <div class="text-center">
                         <input  class="btn btn-primary" id="salvaLibriInMedagliere" value="Salva Libri in Medagliere">

@@ -3,9 +3,9 @@
         <div class="col-8">
                 <?php
         if (empty($posts)) {
-            echo '<p>Nessun post disponibile dalle persone che segui.</p>';
+            echo '<p>Nessun post disponibile.</p>';
         } else {
-            foreach ($posts as $post): ?>
+            foreach ($posts as $post):  ?>
                 <article>
                     <div class="card">
                         <div class="card-body">
@@ -27,6 +27,7 @@
 
                             <div class="row">
                                 <div class="col-md-6">
+                                  <br/>
                                     <div class="row">
                                         <p>Libro <br/> <?= $post['titolo']; ?></p>
                                     </div>

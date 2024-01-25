@@ -51,9 +51,16 @@ $medIndex = array_merge($completeMeds,$notCompleteMeds);
 $amountComplete = sizeof($completeMeds);
 /////////////
 
+$user_id = isset($_GET["id"]) ? $_GET["id"] : null;
 
-$post = new Post($conn);
-$posts = $post->getPost($_GET["id"]);
+if ($user_id !== null) {
+    $post = new Post($conn);
+    $posts = $post->getProfilePosts($user_id);
+} else {
+    echo "Errore: Profilo non specificato.";
+}
+
+
 
 // print_r($_POST);
 ?>
@@ -76,7 +83,7 @@ $posts = $post->getPost($_GET["id"]);
   <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
   <link rel="stylesheet" type="text/css" href="css/JPBook.css">
   <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
-  
+
 
   <link rel="icon" href="images/favicon_io/favicon.ico">
 
@@ -148,18 +155,10 @@ $posts = $post->getPost($_GET["id"]);
     } ?>
 
 
+    <script src="javascript/likePost.js"></script>
+    <script src="javascript/lovePost.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
+    </script>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -167,7 +166,7 @@ $posts = $post->getPost($_GET["id"]);
     </script> -->
     <script src="javascript/profilePageAnimation.js"></script>
     <script src="javascript/profilePageModal.js"></script>
-    
+
 
 
 
