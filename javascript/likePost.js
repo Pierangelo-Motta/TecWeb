@@ -1,4 +1,4 @@
-let utenteId, dataOra;
+/*let utenteId, dataOra;
 
 $(document).ready(function() {
     // Inizializza la variabile alreadyLiked a null
@@ -75,4 +75,4 @@ $(document).ready(function() {
             console.log(xhr.responseText);
         }
     });
-});
+});*/

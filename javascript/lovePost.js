@@ -19,12 +19,12 @@ $(document).ready(function() {
 
                     if (response.loveRemoved) {
                         loveCountElement.text(currentLoves - 1);
-                        emptyHeart.show();
-                        filledHeart.hide();
+                        emptyHeart.classList.remove("d-none");
+                        filledHeart.classList.add("d-none");
                     } else {
                         loveCountElement.text(currentLoves + 1);
-                        emptyHeart.hide();
-                        filledHeart.show();
+                        emptyHeart.classList.add("d-none");
+                        filledHeart.classList.remove("d-none");
                     }
                 } else {
                     console.error("Errore durante l'aggiornamento del love:", response.message);

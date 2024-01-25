@@ -18,6 +18,14 @@ $stmt_check_love->execute();
 $alreadyloved = $stmt_check_love->fetch();
 $stmt_check_love->close();
 
+//$arrayLoveds = array('result'=>$alreadyloved);
+
+/*if (isset($_POST['checking'])) {
+  $conn->close();
+  echo json_encode($arrayLoveds);
+  return;
+}*/
+
 if ($alreadyloved) {
     $sql_remove_love = "UPDATE post SET counterAdoro = counterAdoro - 1 WHERE utenteId = ? AND dataOra = ?";
     $stmt_remove_love = $conn->prepare($sql_remove_love);
