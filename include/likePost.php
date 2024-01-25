@@ -67,6 +67,10 @@ if ($alreadyLiked) {
     $stmt_add_like->close();
 }
 
+$alreadyLiked = isset($alreadyLiked) ? $alreadyLiked : false;
+echo '<script id="alreadyLikedData" type="application/json">' . json_encode($alreadyLiked) . '</script>';
+
+
 $conn->close();
 
 echo json_encode($result);

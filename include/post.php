@@ -63,7 +63,8 @@ class Post {
             return array();
         }
 
-        $query = "SELECT u.id AS utenteId, u.immagineProfilo, u.username, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo, GROUP_CONCAT(t.testo ORDER BY t.testo SEPARATOR ', ') AS tags
+        $query = "SELECT u.id AS utenteId, u.immagineProfilo, u.username, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
+            GROUP_CONCAT(t.testo) AS elencoTag
             FROM post p
             INNER JOIN utente u ON p.utenteId = u.id
             INNER JOIN libro l ON p.libroId = l.id
@@ -127,41 +128,6 @@ class Post {
         return $lovesCount;
     }
 
-    private function checkIfAlreadyLiked($utenteId, $dataOra) {
-        $query = "SELECT counterMiPiace FROM post WHERE utenteId = ? AND dataOra = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("is", $utenteId, $dataOra);
-
-        $alreadyLiked = false;
-
-        if ($stmt->execute()) {
-            $result = $stmt->get_result();
-            $row = $result->fetch_assoc();
-            $alreadyLiked = $row && $row['counterMiPiace'] > 0;
-        }
-
-        $stmt->close();
-
-        return $alreadyLiked;
-    }
-
-    private function checkIfAlreadyLoved($utenteId, $dataOra) {
-        $query = "SELECT counterAdoro FROM post WHERE utenteId = ? AND dataOra = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("is", $utenteId, $dataOra);
-
-        $alreadyLoved = false;
-
-        if ($stmt->execute()) {
-            $result = $stmt->get_result();
-            $row = $result->fetch_assoc();
-            $alreadyLoved = $row && $row['counterAdoro'] > 0;
-        }
-
-        $stmt->close();
-
-        return $alreadyLoved;
-    }
 }
 
 function time_elapsed_string($datetime, $full = false) {
