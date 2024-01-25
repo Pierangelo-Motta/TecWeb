@@ -41,6 +41,6 @@ class ReloaderPage{
     }
 
 }
-
+new ReloaderPage();
 
 //module.exports = ReloaderPage // 👈 Export class

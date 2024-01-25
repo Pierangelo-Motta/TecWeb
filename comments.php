@@ -141,7 +141,7 @@ if (!($_SESSION['loggedin'] === true)) {
     <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
     <link rel="stylesheet" type="text/css" href="css/commentsStyle.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-
+    
 
     <link rel="icon" href="images/favicon_io/favicon.ico">
   

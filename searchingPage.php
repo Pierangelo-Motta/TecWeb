@@ -9,8 +9,12 @@ if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
     header("Location: index.html");
 }
-$tmp = $_POST["searchingText"];
-$a = getUserIdWithSimilarName($tmp);
+$tmp = isset($_POST["searchingText"]) ? $_POST["searchingText"] : "c";
+$a = array();
+if (!empty($tmp)){
+  $a = getUserIdWithSimilarName($tmp);
+}
+
 // print_r($a);
 
 ?>
@@ -30,8 +34,9 @@ $a = getUserIdWithSimilarName($tmp);
   <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
-  <link rel="stylesheet" type="text/css" href="css/JPBook.css">
-    <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/JPBook.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
+  <link rel="stylesheet" type="text/css" href="css/searchingPageAddtionalStyle.css">
   
   <link rel="icon" href="images/favicon_io/favicon.ico">
 
@@ -45,6 +50,14 @@ $a = getUserIdWithSimilarName($tmp);
 
         <div class="col-10">
             <?php 
+            if(empty($a)){
+              if(empty($tmp)){
+                echo "<h2> Per cercare qualcuno ho bisogno di almeno un carattere! </h2>";
+              } else {
+                echo "<h2> Nessun utente trovato con \"" . $tmp . "\"! </h2>";
+              }
+              
+            }
             foreach($a as $userId){
                 echo getUserBannerById($userId, "search"); // "post" "goal"
             }

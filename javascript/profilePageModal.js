@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // popup followers open
             followers.addEventListener('click', function () {
-
                 openPopup('myPopupFollowers' + uid);
+                popUpClosed = false;
             });
             
             // popup seguiti open
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let popup = document.getElementById(tipo);
                 console.log("open popup -> " + tipo);
                 popup.style.display = 'block';
-
+                
             }
             
             function closePopup(tipo) {

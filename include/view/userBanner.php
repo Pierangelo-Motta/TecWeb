@@ -13,7 +13,7 @@ $imFollowU = checkIfUserFollowUser($userIdLogged, $userIdvisited);
 $nameFollowingButton = "followButton";
 if (isset($_POST[$nameFollowingButton])) {
     // echo $_SESSION["id"] . " " . $userIdvisited;
-    if ($imFollowU){
+    if ($imFollowU) {
         destroyFollow($_SESSION["id"], $userIdvisited);
     } else {
         createFollow($_SESSION["id"], $userIdvisited);
@@ -110,7 +110,7 @@ function getButtonOfPortal($userId, $typeView){
         $formAttr = array(
             "action" => "#",
             "method" => "post",
-            "class" => "justify-content-center align-items-center mx-auto"
+            "class" => "portalForm d-flex justify-content-center align-items-center mx-auto"
         );
     
         $buttonText = $imFollowU ? $followed : $toFollow;
@@ -160,12 +160,12 @@ function obtainMainInfosUserBanner($userId){
     
     $amountComplete = sizeof(getMedCompletatiByUserId($userId)); //amountMedaglieriCompletati
 
-    $classMainContainer = "d-md-inline-flex align-items-center p-2  mainInfos"; //w-25 flex-fill
+    $classMainContainer = "d-sm-inline-flex align-items-center p-2  mainInfos"; //w-25 flex-fill
     
     $initMainContainter = "<div id=\"mainInfosUserBannerN" . $userId . "\" 
     class=\"" . $classMainContainer . "\">";
     
-    $classForDivImg = "imgPropicCont";
+    $classForDivImg = "d-flex mx-auto imgPropicCont";
     $classForImg = "rounded float-left";
     $first =  "<div id=\"divContainerImgUserBannerN" . $userId . "\" class=\"" . $classForDivImg . "\">" .
     "<img id=\"propicN" . $userId . "\" " .
@@ -255,7 +255,7 @@ function obtainPortalsUserBanner($userId, $typeView){
                                 "</abbr>" .
                             "</div>";
 
-    $classSecondContainer = "order-md-0 w-auto justify-content-center align-items-center mx-auto";
+    $classSecondContainer = "d-flex order-md-0 w-auto justify-content-center align-items-center";
     $second = "<div id=\"addInfosUserBannerN" . $userId . "\" class=\"" . $classSecondContainer . "\">" . 
                 getButtonOfPortal($userId, $typeView) . 
                 "</div>";
@@ -279,8 +279,8 @@ function getUserBannerById($userId, $typeView){
 
     //$userIdvisited = $_GET["id"]; // è il parametro della funzioen
 
-    $classMainContainer = "card"; //bootstrap flags
-    $classSubContainer = "d-inline-flex align-items-md-between align-items-center w-100"; //bootstrap flags
+    $classMainContainer = "card singleBannerUnit"; //bootstrap flags
+    $classSubContainer = "d-sm-inline-flex align-items-md-between align-items-center w-100"; //bootstrap flags
 
     $init = "<div id=\"userBannerN" . $userId . "\" class=\"" .$classMainContainer . "\">" . 
             "<div class=\"card-body w-100\">" . 
