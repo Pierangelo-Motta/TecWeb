@@ -1,0 +1,62 @@
+#allContainer{
+    margin-top: 40px;
+}
+
+section{
+    /* border: 1px black solid; */
+    padding: 10px 10px 0;
+}
+
+section > p.tmpText{
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+}
+
+section#commentPart{
+    background-color: rgba(128, 128, 128, 0.099);
+}
+
+section#commentPart form{
+    margin: 0 10px;
+    padding: 10px 0;
+}
+
+div#userCommentControls button{
+    width: 20%;
+    max-width: 100px;
+}
+
+h2.subTitle{
+    font-size:larger;
+}
+
+div#commentContainer{
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+div.comment{
+    /* display: flex; */
+    padding: 5px;
+    margin: 10px;
+    background-color: white;
+}
+
+div.comment img{
+    width: 20px;
+    aspect-ratio: 1;
+    display: inline-block;
+}
+
+div.comment p.titleOfComment{
+    display: inline-block;
+    margin-bottom: 5px;
+    /* clear: left; */
+}
+
+div.comment p.commentText{
+    /* clear: both; */
+    margin: 0;
+    display: block;
+}
