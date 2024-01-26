@@ -20,7 +20,7 @@ class PostAdder {
         this.imgPrevMods = document.getElementById("imgPrevMods");
         this.imgPrevMods.style.display = "none";
         this.imgRem = document.getElementById("imgRem");
-
+        this.actUserID = this.imgRem.getAttribute("data-actusername");
 
 
         this.textAreaPen.addEventListener('input', () => this.textAreaPenChangeEvent()); //!! modifica solo se si esce dalla textarea
@@ -103,10 +103,10 @@ class PostAdder {
 
     manageImgChange(){
         try {
-            console.log("OK");
+            // console.log("OK");
             this.newPostForm.submit();
         } catch (error) {
-            console.log("ERR");
+            // console.log("ERR");
         }
         // this.showAccessibilityMessage();
         // this.enableButt();
@@ -114,6 +114,15 @@ class PostAdder {
 
     removeImg(){
         try {
+            let aUID = this.actUserID;
+            // alert(aUID);
+            $.ajax({
+                type: 'POST',
+                url: 'include/controller/newPostAJAX.php',
+                data: { "uName" : aUID},
+                dataType: 'json'
+            });
+
             this.imgPrevInput.value = "";
         } catch (error) {
         }

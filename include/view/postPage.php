@@ -164,7 +164,7 @@ function checkIfAlreadyLoved($userId, $dataOra) {
                           </div>
 
                           <div class="col-md-3">
-                              <a>Commenta</a>
+                              <a href="comments.php">Commenta</a>
                           </div>
                       </div>
 

@@ -176,7 +176,7 @@ class AJAXManager{
             "idMeds" : indexToShow
         }
         let ok = this.prevURLquery + prepareURLwithOkGet(args);
-        console.log("EEE " +    ok);
+        console.log("EEE " +  ok);
 
         xhr.open('GET', ok, true);
     
@@ -207,29 +207,31 @@ class AJAXManager{
         document.querySelectorAll(".descrizioneMed").forEach(elem => {
             let content = elem.innerHTML;
             const lengOfContent = content.length;
-            const sogliaValue = (rel.isWindowLittle ? 400 : 500);
-            const redValue = (rel.isWindowLittle ? 600 : 500);
+            const sogliaValue = (rel.isWindowLittle() ? 200 : 500);
+            const redValue = (rel.isWindowLittle() ? 200 : 500);
             const contenitore = elem.parentElement.parentElement.parentElement.parentElement;
             const list = elem.nextElementSibling.nextElementSibling;
-            let maxHeightDefault = (rel.isWindowLittle ? 600 : 500);
+            let maxHeightDefault = (rel.isWindowLittle() ? 600 : 500);
             let maxHeightList = 200;
             let minHeightList = 200;
+
+            let titleOfMed = elem.parentElement.parentElement.previousElementSibling;
+            let titleOfMedLeng = titleOfMed.innerHTML.length;
+            let sogliaTitleValue = (rel.isWindowLittle() ? 11 : 25);
             // max-height
             //elem.sytle.maxHeight = maxHeightDefault + "px";
             // console.log(.lenght);
-            console.log(lengOfContent);
+            console.log(" ->" + lengOfContent);
             //parentNode.parentElement.parentElement.parentElement
         
             // const a = descrMed.innerHTML;
             // console.log(a.lenght);
         
-            if (lengOfContent > sogliaValue) {
-                maxHeightDefault = maxHeightDefault + (rel.isWindowLittle ? 250 : 500);
+            if (lengOfContent > sogliaValue || titleOfMedLeng > sogliaTitleValue) {
+                maxHeightDefault = maxHeightDefault + (rel.isWindowLittle() ? 500 : 250);
                 list.style.maxHeight = ((maxHeightList / 2) + "px");
                 list.style.minHeight = ((minHeightList / 2) + "px");
             }
-            
-            contenitore.style.maxHeight = maxHeightDefault + "px";
         
             //console.log(elem);
             let text = "...<p class=\"expandMe\"> more"; //href=\"#\"
@@ -238,7 +240,10 @@ class AJAXManager{
                 let tmp = content.substring(0,lengOfContent/2);
                 // contenitore.style.maxHeight = "500px";
                 elem.innerHTML = tmp + text;
+                maxHeightDefault = maxHeightDefault + 100;
             }
+
+            contenitore.style.maxHeight = maxHeightDefault + "px";
         });
         
         

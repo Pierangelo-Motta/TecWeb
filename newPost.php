@@ -22,6 +22,25 @@ $pensieroNameValue = isset($_POST[$pensieroName]) ? $_POST[$pensieroName] : "";
 $tagsAreaName = "tagsArea";
 $tagsAreaNameValue = isset($_POST[$tagsAreaName]) ? $_POST[$tagsAreaName] : "";
 
+// global $pathSep = DIRECTORY_SEPARATOR;
+
+if(empty($nomeLibroNameValue) &&
+    empty($citazioneNameValue) &&
+    empty($pensieroNameValue) &&
+    empty($tagsAreaNameValue) ){
+        $tmp = __DIR__;
+        $remain = DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "post" . DIRECTORY_SEPARATOR . "tmp" . DIRECTORY_SEPARATOR;
+        $myDir = $tmp . $remain;
+        // echo $myDir;
+        $who = $_SESSION["username"];
+        // $complete = $myDir . 
+        foreach (glob($myDir . $who . "*.*") as $nomefile) {
+            unlink($nomefile);
+            // echo $nomefile;
+            // echo "Dimensione " . $nomefile . ": " . filesize($nomefile) . "\n";
+        }
+
+}
 
 
 if(isPresentImg($imgInterestedName)){
@@ -211,7 +230,7 @@ if (isset($_POST["sB"])) {
                         <div id="imgPrevMods" class="align-items-center mx-auto">
                             <small class="form-text text-muted blockDisplay mx-auto text-center">
                                 Premi sulla foto per cambiarla.
-                            </small><button class="blockDisplay mx-auto" type="button" id="imgRem">
+                            </small><button class="blockDisplay mx-auto" type="button" data-actusername="<?= $_SESSION["username"] ?>" id="imgRem">
                                 Elimina
                             </button>
                         </div>

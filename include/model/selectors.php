@@ -350,4 +350,20 @@ function getUserIdWithSimilarName($simName){
     return array_column($tmp, "id");
 }
 
+
+
+function getCommentInfoByPost($userIdPost, $datePost){
+    global $conn;
+    $sql = "SELECT C.utenteIdComm C.dataOraComm C.commento FROM commenti C where C.utenteIdPost = ? and C.dataOraPost = ? ORDER BY C.dataOraComm;";
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("is", $userIdPost, $datePost);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $tmp = $result->fetch_all(MYSQLI_ASSOC);
+
+    return $tmp;
+}
+
 ?>
