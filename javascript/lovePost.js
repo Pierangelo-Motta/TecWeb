@@ -12,7 +12,6 @@ $(document).ready(function() {
             data: { utenteId: utenteId, dataOra: dataOra },
             dataType: 'json',
             success: function(response) {
-                console.log(response);
 
                 if (response.status === "success") {
                     let currentLoves = parseInt(loveCountElement.text());
