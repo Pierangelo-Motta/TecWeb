@@ -3,8 +3,8 @@ $(document).ready(function() {
         let utenteId = $(this).data('utenteid');
         let dataOra = $(this).data('dataora');
         let loveCountElement = $(this).closest('.card-body').find('.love-count');
-        let emptyHeart = $(this).find('#emptyHeart');
-        let filledHeart = $(this).find('#filledHeart');
+        let emptyHeart = $(this).find('.emptyHeart');
+        let filledHeart = $(this).find('.filledHeart');
 
         $.ajax({
             type: 'POST',
@@ -19,12 +19,17 @@ $(document).ready(function() {
 
                     if (response.loveRemoved) {
                         loveCountElement.text(currentLoves - 1);
-                        emptyHeart.classList.remove("d-none");
-                        filledHeart.classList.add("d-none");
+                        console.log(emptyHeart.classList + " # " + filledHeart);
+                        // emptyHeart.classList.remove("d-none");
+                        // filledHeart.classList.add("d-none");
+                        emptyHeart.show();
+                        filledHeart.hide();
                     } else {
                         loveCountElement.text(currentLoves + 1);
-                        emptyHeart.classList.add("d-none");
-                        filledHeart.classList.remove("d-none");
+                        // emptyHeart.classList.add("d-none");
+                        // filledHeart.classList.remove("d-none");
+                        emptyHeart.hide();
+                        filledHeart.show();
                     }
                 } else {
                     console.error("Errore durante l'aggiornamento del love:", response.message);
@@ -37,3 +42,13 @@ $(document).ready(function() {
         });
     });
 });
+
+
+document.querySelectorAll(".love-button svg").forEach(elem => {
+    console.log(elem + " / " + elem.getAttribute("mustshow"));
+    if(elem.getAttribute("data-mustshow") === "0"){
+        elem.style.display = "none";
+    } else {
+        elem.style.display = "block";
+    }
+})

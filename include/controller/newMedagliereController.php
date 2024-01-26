@@ -400,8 +400,10 @@ function createSubmission(){
 }
 
 
+
+
 $command = $_GET["codeQ"];
-switch($command){
+switch($command) {
     case '0':
         //echo "HIRNIFRIENKFN";
         //print "[" . returnActUser() . "]";
@@ -421,6 +423,7 @@ switch($command){
         header("Location: index.html");
         break;
 }
+
 
 
 ?>

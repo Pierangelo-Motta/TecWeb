@@ -44,7 +44,7 @@ session_start();
             <h2> Buone norme di accessibilità.</h2>
             <p> Mettere una foto del tuo passo preferito è sicuramente il modo più interessante per permettere a molte persone di partecipare
                 alla tua rilessione... ma non per tutte!
-                Infatti, alcune sono "cieche", ma ciò nonostante si possono dilettare alla lettura grazie ai moderni schreen-reader.
+                Infatti, alcune sono "cieche", ma ciò nonostante si possono dilettare alla lettura grazie ai moderni screen-reader.
                 Quindi, quando effettui un post, ti preghiamo, se desideri pubblicare una foto, un piccolo testo, anche parafrasato,
                 riportante il punto più importante della citazione. Grazie!
             </p>
