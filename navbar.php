@@ -35,6 +35,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
               <li class="nav-item">
                 <a href="settingPage.php"><img src="images/settingLogo.png" alt="Impostazioni"></a>
               </li>
+              <li class="nav-item">
+                <a href="classifica.php"><img src="images/medagliereNewIcons/medagliaLogo.png" alt="Impostazioni"></a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                   <img src="images/notifyLogo.png" alt="Notifiche">
