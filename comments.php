@@ -73,7 +73,8 @@ require_once("include/view/commentGenerator.php");
                             name="riflession"
                             rows="10" 
                             cols="100" 
-                            placeholder="...Sto pensando a..."></textarea>
+                            placeholder="...Sto pensando a..."
+                            data-userIDC="<?php echo $_SESSION["id"] ?>"></textarea>
                     <label for="riflessioneCurrentUser" class="notDisplay">Spazio rimasto per la tua riflessione: <span id="counterChars"> </span> </label>
                 </form>
 
