@@ -26,6 +26,8 @@ if (!($_SESSION['loggedin'] === true)) {
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
     <link rel="stylesheet" type="text/css" href="css/settingPage.css">
     <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
+    <link rel="stylesheet" type="text/css" href="css/PMclassifica.css">
+    
     <link rel="icon" href="images/favicon_io/favicon.ico">
 </head>
 
@@ -54,6 +56,20 @@ if (!($_SESSION['loggedin'] === true)) {
                     <?php
                     $utenti = getListaElencoUtenti();
                     // print_r($utenti);
+
+                    //// Define a custom comparison function
+                    // function compareByAmountComplete($a, $b) {
+                    //     $amountCompleteA = sizeof(getMedCompletatiByUserId($a['id']));
+                    //     $amountCompleteB = sizeof(getMedCompletatiByUserId($b['id']));
+                    
+                    //     // Compare the number of completed medals
+                    //     return $amountCompleteB - $amountCompleteA;
+                    // }
+                    
+                    // // Use usort to sort the $utenti array using the custom comparison function
+                    // usort($utenti, 'compareByAmountComplete');
+
+                    // print_r($_SESSION);
                     foreach ($utenti as &$user) {
                         $user['medalsCompleted'] = sizeof(getMedCompletatiByUserId($user['id']));
                     }
@@ -63,13 +79,17 @@ if (!($_SESSION['loggedin'] === true)) {
                     $ids = array_column($utenti, 'medalsCompleted');
                     // Use array_multisort to sort the array by 'id'
                     array_multisort($ids, SORT_DESC, $utenti);
-                
+                    $classe = "";
                     foreach($utenti as $userId){
+                        ($userId['id'] === $_SESSION['id']) ? $classe = "myuser" :  $classe = "";
                         // echo getUserBannerById($userId, "goal"); // "post" "goal"
                         $amountComplete = sizeof(getMedCompletatiByUserId($userId['id']));
                         // echo "[id: " . $userId['id'] . "] " . $userId['username']. " -       medaglieri: " .$amountComplete;
-                        echo "[id: " . $userId['id'] . "] " . $userId['username']. " -      medaglieri: " . $userId['medalsCompleted'];
-                        echo "<br />";
+                        
+                        // echo "<div class=\"" . $classe ."\">[id: " . $userId['id'] . "] " . $userId['username']. " -      medaglieri: " . $userId['medalsCompleted'];
+
+                        echo "<div class=\"" . $classe ."\">" . $userId['username']. " -      medaglieri: " . $userId['medalsCompleted'];
+                        echo "</div>";
                     }
                     ?>
                 </ul>
