@@ -2,17 +2,22 @@
 
 require_once("include/config.php"); //TODO: possibile fonte di problemi
 
-function execQ($sql){
+function execQ($sql, $isCreate){
     global $conn;
     $userIdP = $_POST["userIdP"];
     $dateP = $_POST["dateP"];
     $userIdC = $_POST["userIdC"];
-    $dateC = $_POST["dateC"];
-    $comm = $_POST["comm"];
+    $dateC = $_POST["dateC"]; //se è di insert si potrebbe farla calcolare da PHP
+    $comm = isset($_POST["comm"]) ? $_POST["comm"] : "";
 
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, "isiss", $userIdP,  $dateP , $userIdC , $dateC , $comm);
+        if($isCreate){
+            mysqli_stmt_bind_param($stmt, "isiss", $userIdP,  $dateP , $userIdC , $dateC , $comm);
+        } else {
+            mysqli_stmt_bind_param($stmt, "isis", $userIdP,  $dateP , $userIdC , $dateC);   
+        }
+        
 
         if (mysqli_stmt_execute($stmt)) {
             // echo "<p>Nuovo utente registrato correttamente</>";

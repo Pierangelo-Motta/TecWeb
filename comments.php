@@ -7,6 +7,11 @@ if (!($_SESSION['loggedin'] === true)) {
     header("Location: index.html");
 }
 
+$existPost = true;
+if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"])){
+    $existPost = false;
+}
+
 require_once("include/view/commentGenerator.php");
 
 ?>
@@ -41,6 +46,8 @@ require_once("include/view/commentGenerator.php");
         
         <div id="allContainer" class="col-10 d-md-flex">
 
+            <?php if ($existPost) : ?>
+
             <section id="postPart" class="col-12 col-md-6">
                 <!-- TODO: inserirePostEstratto... GET? -->
                 <p class="tmpText"> ciao </p>
@@ -67,7 +74,7 @@ require_once("include/view/commentGenerator.php");
                             rows="10" 
                             cols="100" 
                             placeholder="...Sto pensando a..."></textarea>
-                    <label for="riflessioneCurrentUser" class="notDisplay">Spazio rimasto per la tua riflessione: <span id="counterChars"> xxx </span> </label>
+                    <label for="riflessioneCurrentUser" class="notDisplay">Spazio rimasto per la tua riflessione: <span id="counterChars"> </span> </label>
                 </form>
 
                 <h2 class="subTitle"> Gli altri utenti: </h2>
@@ -110,6 +117,14 @@ require_once("include/view/commentGenerator.php");
 
             </section>
 
+
+
+            <?php else : ?>
+            <section id="postNotFoundContainer" class="col-12 col-md-6">
+                <h1> Il post richiesto non esiste! </h1>
+                <button id="retBut" class="flex-fill btn btn-secondary" type="button" data-prevLink="landingPage.php">Indietro</button>
+            </section>
+            <?php endif?>
 
         </div>
 

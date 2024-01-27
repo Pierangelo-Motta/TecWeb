@@ -1,3 +1,29 @@
+const values = new Map();
+
+function create() {
+    let allGets = window.location.search.substring(1);
+    let gets = allGets.split("&");
+    // fore
+    //this. 
+    
+    gets.forEach(elem => {
+        let row = elem.split("=");
+        values.set(row[0], row[1]);
+    });
+    gets.forEach(elem => {
+        console.log(elem);
+    });
+    //return this;
+}
+
+function getValue(keyName) {
+    let tmp =  values.get(keyName);
+    return tmp;
+}
+
+function setValue(keyName, newValue){
+    values = values.set(keyName, newValue);
+}
 
 // console.log("ciao");
 
@@ -33,7 +59,32 @@ commentArea.addEventListener("input", () => {
 
 
 document.getElementById("createComm").addEventListener("click", function () {
-    //richiesta AJAX per creare il commento
+    $.ajax({
+
+        // $_POST["userIdP"];
+        // $dateP = $_POST["dateP"];
+        // $userIdC = $_POST["userIdC"];
+        // $dateC = $_POST["dateC"];
+        // $comm = $_POST["comm"];
+
+        type: 'POST',
+        url: 'include/commentController.php',
+        data: { "codeQ": "2", 
+            "userIdP": dataOra,  //ricavare da link (?)
+            "dateP": dataOra,  //ricavare da link (?)
+            "userIdC": $_SESSION["id"], 
+            "dateC": dataOra, //ricavare da foto (prob)
+            "comm": commentArea.value
+        },
+        dataType: 'json',
+        // success: function(response) {
+        //     console.log(response);
+        // },
+        // error: function(xhr, status, error) {
+        //     console.error("Errore durante la richiesta AJAX:", status, error);
+        //     console.log(xhr.responseText);
+        // }
+    });
     let tmp = document.getElementById("createComm");
     if(tmp.disabled){
         alert("Commento troppo lungo!!");
@@ -50,8 +101,36 @@ document.querySelectorAll("img.myComment").forEach(elem => {
     elem.addEventListener("click", () => {
         
         if(confirm("Sei sicuro di voler eliminare il tuo commento?")){
-            //richiesta AJAX per eliminare il commento
-        }
+
+            $.ajax({
+
+                // $_POST["userIdP"];
+                // $dateP = $_POST["dateP"];
+                // $userIdC = $_POST["userIdC"];
+                // $dateC = $_POST["dateC"];
+                // $comm = $_POST["comm"];
+
+
+                type: 'POST',
+                url: 'include/commentController.php',
+                data: { "codeQ": "2", 
+                    "userIdP": dataOra,  //ricavare da link (?)
+                    "dateP": dataOra,  //ricavare da link (?)
+                    "userIdC": $_SESSION["id"], 
+                    "dateC": dataOra //ricavare da foto (prob)
+                    // "comm": commentArea.value
+                },
+                dataType: 'json',
+                // success: function(response) {
+                //     console.log(response);
+                // },
+                // error: function(xhr, status, error) {
+                //     console.error("Errore durante la richiesta AJAX:", status, error);
+                //     console.log(xhr.responseText);
+                // }
+            });
+
+        } //
 
     });
 
