@@ -13,6 +13,13 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"])){
 }
 
 require_once("include/view/commentGenerator.php");
+require_once("include/post.php");
+
+$us = $_GET['userIdPost'];
+$tp = $_GET['timePost'];
+
+$post = new Post($conn);
+$posts = $post->getSpecificPost($us, $tp);
 
 ?>
 
@@ -31,26 +38,25 @@ require_once("include/view/commentGenerator.php");
     <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
     <link rel="stylesheet" type="text/css" href="css/commentsStyle.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-    
+
 
     <link rel="icon" href="images/favicon_io/favicon.ico">
-  
+
 
 </head>
 <body>
     <?php require('navbarSelect.php'); ?>
-    
+
     <div class="d-flex">
 
         <div class="col-1"></div>
-        
+
         <div id="allContainer" class="col-10 d-md-flex">
 
             <?php if ($existPost) : ?>
 
             <section id="postPart" class="col-12 col-md-6">
-                <!-- TODO: inserirePostEstratto... GET? -->
-                <p class="tmpText"> ciao </p>
+              <?php require("include/view/postPage.php"); ?>
             </section>
 
             <section id="commentPart" class="col-12 col-md-6">
@@ -58,9 +64,9 @@ require_once("include/view/commentGenerator.php");
                 <form action="" method="post">
                     <div class="d-flex w-100" id="userCommentControls">
                         <!-- <div class="flex-fill"> solo per far andare il flex fill che tanto non vaaaaaaaaaaa - -->
-                        <button id="retBut" class="flex-fill btn btn-secondary" type="button" data-prevLink="landingPage.php">Indietro</button>    
+                        <button id="retBut" class="flex-fill btn btn-secondary" type="button" data-prevLink="landingPage.php">Indietro</button>
                         <!-- </div> -->
-                        
+
                         <div class="flex-fill riempitivo"></div>
 
                         <!-- <div class="flex-fill"> -->
@@ -68,11 +74,11 @@ require_once("include/view/commentGenerator.php");
                         <!-- </div> -->
                     </div>
 
-                    <textarea class="form-control" 
-                            id="riflessioneCurrentUser" 
+                    <textarea class="form-control"
+                            id="riflessioneCurrentUser"
                             name="riflession"
-                            rows="10" 
-                            cols="100" 
+                            rows="10"
+                            cols="100"
                             placeholder="...Sto pensando a..."></textarea>
                     <label for="riflessioneCurrentUser" class="notDisplay">Spazio rimasto per la tua riflessione: <span id="counterChars"> </span> </label>
                 </form>
@@ -136,7 +142,7 @@ require_once("include/view/commentGenerator.php");
 
 
 
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -145,7 +151,7 @@ require_once("include/view/commentGenerator.php");
 
     <script src="javascript/commentAnimation.js"></script>
 
-    
+
     <!-- <script src="javascript/addNewPost.js"></script> -->
     <!-- <script src="javascript/addNewPost.js"></script> -->
     <!-- <script src="javascript/newMedAJPAX.js"></script> -->

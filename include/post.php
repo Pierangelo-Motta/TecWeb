@@ -4,6 +4,7 @@ require_once 'config.php';
 $is_discovery_page = false;
 $is_landing_page = false;
 $is_profile_page = false;
+$is_specific_post = false;
 
 class Post {
     private $conn;
@@ -11,6 +12,28 @@ class Post {
     public function __construct($conn) {
         $this->conn = $conn;
     }
+
+    public function getSpecificPost($user_id, $time_post) {
+      if (!$this->conn) {
+          return array();
+      }
+    $query = "SELECT u.immagineProfilo, u.username, p.utenteId, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
+    GROUP_CONCAT(t.testo) AS elencoTag
+    FROM post p
+    INNER JOIN utente u ON p.utenteId = u.id
+    INNER JOIN libro l ON p.libroId = l.id
+    LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
+    LEFT JOIN tags t ON tp.tagId = t.id
+    WHERE p.utenteId = ? AND p.dataOra = ?
+    GROUP BY p.utenteId, p.dataOra
+    ORDER BY p.dataOra DESC";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("is", $user_id, $time_post);
+
+    return $this->executeAndGetPosts($stmt);
+}
+
 
     public function getDiscoveryPosts($user_id) {
         if (!$this->conn) {
@@ -192,6 +215,8 @@ if ($is_discovery_page) {
     $posts_landing = $post->getLandingPosts($_SESSION['id']);
 } elseif ($is_profile_page && isset($profile_id)) {
     $posts_profile = $post->getProfilePosts($profile_id);
+} elseif ($is_specific_post) {
+    $posts_specific = $post->getSpecificPost($profile_id, $datetime);
 }
 
 
