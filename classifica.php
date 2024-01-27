@@ -49,18 +49,29 @@ if (!($_SESSION['loggedin'] === true)) {
             </div>
             <div class="col-md-4 text-center">
                 <ul class="list-unstyled">
-            <!-- foreach classifica utenti (da ordinare per medaglieri?) -->
-            <?php
-            $utenti = getListaElencoUtenti();
-                         
-            // print_r($utenti);
-            foreach($utenti as $userId){
-                // echo getUserBannerById($userId, "goal"); // "post" "goal"
-                $amountComplete = sizeof(getMedCompletatiByUserId($userId['id']));
-                echo "[id: " . $userId['id'] . "] " . $userId['username']. " - medaglieri: " .$amountComplete;
-                echo "<br />";
-            }
-            ?>
+            
+                <!-- foreach classifica utenti (da ordinare per medaglieri?) -->
+                    <?php
+                    $utenti = getListaElencoUtenti();
+                    // print_r($utenti);
+                    foreach ($utenti as &$user) {
+                        $user['medalsCompleted'] = sizeof(getMedCompletatiByUserId($user['id']));
+                    }
+                    // print_r($utenti);
+                
+                    // Use array_column to get the 'medalsCompleted' values
+                    $ids = array_column($utenti, 'medalsCompleted');
+                    // Use array_multisort to sort the array by 'id'
+                    array_multisort($ids, SORT_DESC, $utenti);
+                
+                    foreach($utenti as $userId){
+                        // echo getUserBannerById($userId, "goal"); // "post" "goal"
+                        $amountComplete = sizeof(getMedCompletatiByUserId($userId['id']));
+                        // echo "[id: " . $userId['id'] . "] " . $userId['username']. " -       medaglieri: " .$amountComplete;
+                        echo "[id: " . $userId['id'] . "] " . $userId['username']. " -      medaglieri: " . $userId['medalsCompleted'];
+                        echo "<br />";
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="col-md-4">
