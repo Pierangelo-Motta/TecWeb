@@ -38,6 +38,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                     <li class="nav-item">
                         <a href="settingPage.php">Impostazioni</a>
                     </li>
+                    <li class="nav-item">
+                         <a href="classifica.php">Classifica</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Notifiche</a>
                         <ul id="notification-list" class="dropdown-menu">
