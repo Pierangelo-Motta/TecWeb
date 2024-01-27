@@ -191,7 +191,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                           </div>
 
                           <div class="col-md-3">
-                              <a href="comments.php">Commenta</a>
+                              <a href="comments.php?userIdPost=<?= $post['utenteId']; ?>&timePost=<?= $post['dataOra']; ?>">Commenta</a>
                           </div>
                       </div>
 
