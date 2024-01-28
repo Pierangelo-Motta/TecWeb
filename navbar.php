@@ -47,24 +47,24 @@ if ($userID != 7) {
               <li class="nav-item">
                 <a href="classifica.php" title="Classifica"><img src="images/medagliereNewIcons/medagliaLogo.png" alt="Impostazioni"></a>
               </li>
-              <li class="nav-item dropdown">
+               <?php if($userID != 7): ?>
+                <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" title="Notifiche">
                   <img src="images/notifyLogo.png" alt="Notifiche">
                 </a>
                 <ul id="notification-list" class="dropdown-menu">
-                  <?php
-                  if ($userID != 7) {
-                   
-                  foreach ($notifications as $notification) {
+                <?php   
+                foreach ($notifications as $notification) {
                       $followerId = $notification["utenteIdPost"];
                       $followerUsername = getUserName($followerId, $conn);
                       $notificationMessage = "$followerUsername ha iniziato a seguirti!";
                       echo '<li><a class="dropdown-item" href="#">' . $notificationMessage . '</a></li>';
                   }
-                  }
                   ?>
-              </ul>
+                </ul>
               </li>
+                <?php endif; ?>
+                  
               <li class="nav-item dropdown">
                 <a href="discoveryPage.php" title="Discovery Page"><img src="images/discoveryLogo.png" alt="Scopri"></a>
               </li>
