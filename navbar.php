@@ -35,20 +35,20 @@ if ($userID != 7) {
                   So che non è completo, ma intanto l'ho segnato per non dimenticarlo -->
                 <label for="searchingText" hidden>Cerca</label>
                 <input name="searchingText" id="searchingText" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-primary" type="submit">Search</button>
+                <button class="btn btn-primary" type="submit" title="Ricerca">Search</button>
             </form>
 
           <div id="username" class="d-flex"><?php echo "Ciao " . ucfirst($_SESSION["username"]);?></div>
           <div class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a href="settingPage.php"><img src="images/settingLogo.png" alt="Impostazioni"></a>
+                <a href="settingPage.php" title="Settings"><img src="images/settingLogo.png" alt="Impostazioni"></a>
               </li>
               <li class="nav-item">
-                <a href="classifica.php"><img src="images/medagliereNewIcons/medagliaLogo.png" alt="Impostazioni"></a>
+                <a href="classifica.php" title="Classifica"><img src="images/medagliereNewIcons/medagliaLogo.png" alt="Impostazioni"></a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" title="Notifiche">
                   <img src="images/notifyLogo.png" alt="Notifiche">
                 </a>
                 <ul id="notification-list" class="dropdown-menu">
@@ -66,13 +66,13 @@ if ($userID != 7) {
               </ul>
               </li>
               <li class="nav-item dropdown">
-                <a href="discoveryPage.php"><img src="images/discoveryLogo.png" alt="Scopri"></a>
+                <a href="discoveryPage.php" title="Discovery Page"><img src="images/discoveryLogo.png" alt="Scopri"></a>
               </li>
               <li class="nav-item">
-                <a href="profilePage.php"><img src=<?php echo getUserImage($_SESSION["username"]); ?> alt="Immagine Profilo"> </a>
+                <a href="profilePage.php" title="Profilo"><img src=<?php echo getUserImage($_SESSION["username"]); ?> alt="Immagine Profilo"> </a>
               </li>
                 <li class="nav-item">
-                <a href="logout.php"><img src="images/log-out.png" alt="Logout"></a>
+                <a href="logout.php" title="Esci"><img src="images/log-out.png" alt="Logout"></a>
               </li>
             </ul>
           </div>
