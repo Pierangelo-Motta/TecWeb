@@ -35,6 +35,7 @@ if (!($_SESSION['loggedin'] === true)) {
     <?php require('navbarSelect.php'); ?>
 
     <main class="container">
+        <!-- prima riga -->
         <div class="row">
             <div class="col-md-4">
             </div>
@@ -44,17 +45,21 @@ if (!($_SESSION['loggedin'] === true)) {
             <div class="col-md-4">
             </div>
         </div>
-        <br />
-        <br />
+
+        <!-- seconda riga -->
         <div class="row">
-            <div class="col-md-4">
-            </div>
+            <div class="col-md-4"></div>
             <div class="card col-md-4 text-center">
                 
-                <ul class="list-unstyled">
-            
+                
                 <!-- foreach classifica utenti (da ordinare per medaglieri?) -->
-                    <?php
+                <?php
+                echo "<table>
+                <caption>Tabella dei risultati</caption>    
+                <tr>
+                    <th>Utente</th>
+                    <th>Numero Medaglieri</th>
+                </tr>";
                     $utenti = getListaElencoUtenti();
                     // print_r($utenti);
 
@@ -75,30 +80,27 @@ if (!($_SESSION['loggedin'] === true)) {
                         $user['medalsCompleted'] = sizeof(getMedCompletatiByUserId($user['id']));
                     }
                     // print_r($utenti);
-                
                     // Use array_column to get the 'medalsCompleted' values
                     $ids = array_column($utenti, 'medalsCompleted');
                     // Use array_multisort to sort the array by 'id'
                     array_multisort($ids, SORT_DESC, $utenti);
                     $classe = "";
+
                     foreach($utenti as $userId){
                         ($userId['id'] === $_SESSION['id']) ? $classe = "myuser" :  $classe = "";
-                        // echo getUserBannerById($userId, "goal"); // "post" "goal"
                         $amountComplete = sizeof(getMedCompletatiByUserId($userId['id']));
-                        // echo "[id: " . $userId['id'] . "] " . $userId['username']. " -       medaglieri: " .$amountComplete;
-                        
-                        // echo "<div class=\"" . $classe ."\">[id: " . $userId['id'] . "] " . $userId['username']. " -      medaglieri: " . $userId['medalsCompleted'];
-                        echo "<div class=\"" . $classe ."\">" . $userId['username']. " -      medaglieri: " . $userId['medalsCompleted'];
-                        echo "</div>";
+
+                        echo "<tr class=\"" . $classe ."\"><td>" . $userId['username']. "</td><td>" . $userId['medalsCompleted'];
+                        echo "</td></tr>";
                     }
-                    ?>
-                </ul>
-               
-            </div>
-            <div class="col-md-4">
+                echo "</table>";
+                ?>
+                
+                
+                  
             </div>
             
-
+            <div class="col-md-4"></div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

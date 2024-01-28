@@ -1,4 +1,43 @@
 .myuser {
-    color:#0b5ed7;
-    font-size: 1.2em;
+    color: #0b5ed7;
+    /* font-size: 1.2em; */
+    font-weight: bold;
+}
+
+table {
+    border-collapse: separate;
+}
+
+th {
+    /* width: auto; */
+    border-radius: 10px;
+    font-weight: normal;
+    border: 1px solid #ddd;
+    padding: 12px;
+    background-color: #0b5ed7;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:hover {
+    background-color: #e6f7ff;
+}
+
+td {
+    /* border-radius: 10px; */
+    border: solid 1px #ccc;
+}
+
+.card {
+    border: solid 1px gray;
+}
+
+caption {
+    font-weight: bold;
+    font-size: 1.1em;
+    /* color: #212529; */
+    text-align: center;
 }
