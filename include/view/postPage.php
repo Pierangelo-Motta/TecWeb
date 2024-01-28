@@ -73,8 +73,8 @@ function checkIfAlreadyLiked($userId, $dataOra) {
 
 
 <section id="userPosts" class="d-flex">
-        <div class="col-2"></div>
-        <div class="col-8">
+        <div class="col-md-2 d-none d-md-block"></div>
+        <div class="col-md-8">
                 <?php
                   if (empty($posts)) {
                       echo '<p>Nessun post disponibile.</p>';
@@ -86,16 +86,16 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                         <div class="card-body">
                             <div class="row">
 
-                              <div class="col-md-1 text-right post">
+                              <div class="col-md-1 col-3 text-right post">
                                   <a href="profilePage.php?id=<?= $post['utenteId']; ?>">
                                       <img class="post-img" src="<?= getUserImage($post["username"]); ?>" alt="Immagine profilo" />
                                   </a>
                               </div>
 
-                                <div class="col-md-8 text-left">
+                                <div class="col-md-8 col-4 text-left">
                                     <p><?= $post['username']; ?></p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-5">
                                     <p><?= time_elapsed_string($post['dataOra']); ?></p>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                 $okLE = $isLikeCheck ? "0" : "1";
                                 $okLF = $isLikeCheck ? "1" : "0";
                               ?>
-                              <div class="col-md-1">
+                              <div class="col-md-1 col-2">
                                 <button class="like-button bi-hand-thumbs-up likeButton" data-utenteID="<?= $post['utenteId']; ?>" data-dataOra="<?= $post['dataOra']; ?>">
                                     <!-- Icona del pollice in su vuota -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up emptyThumb" data-mustShow="<?= $okLE ?>" viewBox="0 0 16 16">
@@ -177,7 +177,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                             //   }
                             ?>
 
-                            <div class="col-md-1">
+                            <div class="col-md-1 col-5">
                               <button class="love-button bi-suit-heart loveButton" data-utenteID="<?= $post['utenteId']; ?>" data-dataOra="<?= $post['dataOra']; ?>">
                                   <!-- Icona del cuore vuota -->
                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart emptyHeart" data-mustShow="<?= $okE ?>" viewBox="0 0 16 16">
@@ -190,7 +190,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                               </button>
                           </div>
 
-                          <div class="col-md-3">
+                          <div class="col-md-3 col-5">
                               <a href="comments.php?userIdPost=<?= $post['utenteId']; ?>&timePost=<?= $post['dataOra']; ?>">Commenta</a>
                           </div>
                       </div>
@@ -201,7 +201,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                 <br/>
             <?php endforeach;  ?>
         </div>
-        <div class="col-2"></div>
+        <div class="col-md-2 d-none d-md-block"></div>
     </section>
     <?php
 }
