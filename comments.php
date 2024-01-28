@@ -77,9 +77,10 @@ $posts = $post->getSpecificPost($us, $tp);
                     <textarea class="form-control"
                             id="riflessioneCurrentUser"
                             name="riflession"
-                            rows="10"
-                            cols="100"
-                            placeholder="...Sto pensando a..."></textarea>
+                            rows="10" 
+                            cols="100" 
+                            placeholder="...Sto pensando a..."
+                            data-userIDC="<?php echo $_SESSION["id"] ?>"></textarea>
                     <label for="riflessioneCurrentUser" class="notDisplay">Spazio rimasto per la tua riflessione: <span id="counterChars"> </span> </label>
                 </form>
 

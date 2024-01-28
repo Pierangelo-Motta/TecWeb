@@ -1,15 +1,24 @@
 <?php
 
-require_once("include/config.php"); //TODO: possibile fonte di problemi
+require_once("../config.php"); //TODO: possibile fonte di problemi
 
 function execQ($sql, $isCreate){
     global $conn;
+
+    $a = date("Y-m-d H:i:s", time());
+    // echo $a . "<br>";
+    // $b = str_replace(" ","__",$a);
+    // $b = str_replace(":","_",$b);
+    // $b = str_replace("-","_",$b);
+    // echo $b;
+    
     $userIdP = $_POST["userIdP"];
     $dateP = $_POST["dateP"];
     $userIdC = $_POST["userIdC"];
-    $dateC = $_POST["dateC"]; //se è di insert si potrebbe farla calcolare da PHP
+    $dateC = isset($_POST["dateC"]) ? $_POST["dateC"] : $a; //se è di insert si potrebbe farla calcolare da PHP
     $comm = isset($_POST["comm"]) ? $_POST["comm"] : "";
 
+    
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         if($isCreate){
@@ -32,21 +41,21 @@ function execQ($sql, $isCreate){
 
 function createComment(){
     $sql = "INSERT INTO commenti(utenteIdPost, dataOraPost, utenteIdComm, dataOraComm, commento) VALUES (?,?,?,?,?);";
-    execQ($sql);
+    execQ($sql, true);
 }
 
 function deleteComment(){
-    $sql = "DELETE FROM commenti WHERE utenteIdPost = ? AND dataOraPost = ? AND utenteIdComm = ? AND dataOraComm = ? AND commento = ?";
-    execQ($sql);
+    $sql = "DELETE FROM commenti WHERE utenteIdPost = ? AND dataOraPost = ? AND utenteIdComm = ? AND dataOraComm = ?";
+    execQ($sql, false);
 }
 
 $funcToExec = $_POST["codeQ"];
 switch ($funcToExec) {
-    case '1':
+    case "1":
         createComment();
         break;
     
-    case '2':
+    case "2":
         deleteComment();
         break;
 
