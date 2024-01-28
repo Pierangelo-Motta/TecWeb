@@ -3,14 +3,23 @@ include_once("include/login.controller.php");
 include_once("include/login.model.php");
 include_once("include/model/insertOnDB.php");
 
-$userID = isset($_SESSION["userID"]) ? $_SESSION["userID"] : null;
+// userID non esiste
+//$userID = isset($_SESSION["userID"]) ? $_SESSION["userID"] : null;
 
+//TODO: sistemare la navbar del tel se OK!
+$userID = isset($_SESSION['id']) ? $_SESSION['id'] : null;  //FIXME: errore nella variabile
+// print_r($_SESSION);
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-    $notifications = getNotifications($userID);
+    // $notifications = getNotifications(100);  //FIXME: non necessario?
 }
+
+if ($userID != 7) {
+  echo "<script src=\"https://code.jquery.com/jquery-3.6.4.min.js\"></script>";
+}
+
 ?>
 <!-- <head> -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
   <script src="javascript/update_notifications.js"></script>
 <!-- </head> -->
 
@@ -44,11 +53,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 </a>
                 <ul id="notification-list" class="dropdown-menu">
                   <?php
+                  if ($userID != 7) {
+                   
                   foreach ($notifications as $notification) {
                       $followerId = $notification["utenteIdPost"];
                       $followerUsername = getUserName($followerId, $conn);
                       $notificationMessage = "$followerUsername ha iniziato a seguirti!";
                       echo '<li><a class="dropdown-item" href="#">' . $notificationMessage . '</a></li>';
+                  }
                   }
                   ?>
               </ul>
