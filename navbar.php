@@ -9,9 +9,9 @@ include_once("include/model/insertOnDB.php");
 //TODO: sistemare la navbar del tel se OK!
 $userID = isset($_SESSION['id']) ? $_SESSION['id'] : null;  //FIXME: errore nella variabile
 // print_r($_SESSION);
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+// if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     // $notifications = getNotifications(100);  //FIXME: non necessario?
-}
+// }
 
 if ($userID != 7) {
   echo "<script src=\"https://code.jquery.com/jquery-3.6.4.min.js\"></script>";
@@ -47,23 +47,23 @@ if ($userID != 7) {
               <li class="nav-item">
                 <a href="classifica.php" title="Classifica"><img src="images/medagliereNewIcons/medagliaLogo.png" alt="Impostazioni"></a>
               </li>
-               <?php if($userID != 7): ?>
-                <li class="nav-item dropdown">
+              <?php if($userID != 7): ?>
+              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" title="Notifiche">
                   <img src="images/notifyLogo.png" alt="Notifiche">
                 </a>
-                <ul id="notification-list" class="dropdown-menu">
-                <?php   
-                foreach ($notifications as $notification) {
-                      $followerId = $notification["utenteIdPost"];
-                      $followerUsername = getUserName($followerId, $conn);
-                      $notificationMessage = "$followerUsername ha iniziato a seguirti!";
-                      echo '<li><a class="dropdown-item" href="#">' . $notificationMessage . '</a></li>';
-                  }
-                  ?>
+                  <ul id="notification-list" class="dropdown-menu">
+                  <?php   
+                    foreach ($notifications as $notification) {
+                        $followerId = $notification["utenteIdPost"];
+                        $followerUsername = getUserName($followerId, $conn);
+                        $notificationMessage = "$followerUsername ha iniziato a seguirti!";
+                        echo '<li><a class="dropdown-item" href="#">' . $notificationMessage . '</a></li>';
+                    }
+                    ?>
                 </ul>
               </li>
-                <?php endif; ?>
+              <?php endif; ?>
                   
               <li class="nav-item dropdown">
                 <a href="discoveryPage.php" title="Discovery Page"><img src="images/discoveryLogo.png" alt="Scopri"></a>
