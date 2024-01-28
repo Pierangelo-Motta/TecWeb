@@ -49,7 +49,8 @@ if (!($_SESSION['loggedin'] === true)) {
         <div class="row">
             <div class="col-md-4">
             </div>
-            <div class="col-md-4 text-center">
+            <div class="card col-md-4 text-center">
+                
                 <ul class="list-unstyled">
             
                 <!-- foreach classifica utenti (da ordinare per medaglieri?) -->
@@ -87,12 +88,12 @@ if (!($_SESSION['loggedin'] === true)) {
                         // echo "[id: " . $userId['id'] . "] " . $userId['username']. " -       medaglieri: " .$amountComplete;
                         
                         // echo "<div class=\"" . $classe ."\">[id: " . $userId['id'] . "] " . $userId['username']. " -      medaglieri: " . $userId['medalsCompleted'];
-
                         echo "<div class=\"" . $classe ."\">" . $userId['username']. " -      medaglieri: " . $userId['medalsCompleted'];
                         echo "</div>";
                     }
                     ?>
                 </ul>
+               
             </div>
             <div class="col-md-4">
             </div>
