@@ -81,7 +81,7 @@ if ($user_id !== null) {
   <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
-  <link rel="stylesheet" type="text/css" href="css/JPBook.css">
+  <link rel="stylesheet" type="text/css" href="css/JPbook.css">
   <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
 
 
