@@ -223,7 +223,7 @@ if(isset($_POST['aggiungiMedagliere'])){
     </script>
 
     <script src="javascript/gestioneMedaglieri.js"></script>
-    <script src="javascript/gm.js"></script>
+    <!-- <script src="javascript/gm.js"></script> -->
     <script src="javascript/libri.js"></script>
 
 
