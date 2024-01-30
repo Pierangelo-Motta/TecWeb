@@ -15,7 +15,9 @@ $password = $_POST['password'];
 // }
 
 if (isUserBanned($username)) {
-    die("<h1>Utente Bannato!</h1><h2><a href=\"mailto:admin@tecweb.it?subject=Utente%20Bannato\">Contatta l'amministratore</a></h2>");
+    // die("<h1>Utente Bannato!</h1><h2><a href=\"mailto:admin@tecweb.it?subject=Utente%20Bannato\">Contatta l'amministratore</a></h2>");
+    header("Location: index.html?log=b");
+    die();
 }
 
 if (isLoginOk($conn, $username, $password)) {
