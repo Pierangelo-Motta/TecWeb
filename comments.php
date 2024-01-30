@@ -7,19 +7,23 @@ if (!($_SESSION['loggedin'] === true)) {
     header("Location: index.php");
 }
 
-$existPost = true;
-if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"])){
-    $existPost = false;
-}
-
 require_once("include/view/commentGenerator.php");
 require_once("include/post.php");
+require_once("include/model/selectors.php");
 
-$us = $_GET['userIdPost'];
-$tp = $_GET['timePost'];
 
-$post = new Post($conn);
-$posts = $post->getSpecificPost($us, $tp);
+$existPost = true;
+
+if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist($_GET["userIdPost"], $_GET["timePost"])) {
+    $existPost = false;
+} else {
+    $us = $_GET['userIdPost'];
+    $tp = $_GET['timePost'];
+    
+    $post = new Post($conn);
+    $posts = $post->getSpecificPost($us, $tp);
+    
+}
 
 ?>
 
@@ -86,10 +90,17 @@ $posts = $post->getSpecificPost($us, $tp);
 
                 <h2 class="subTitle"> Gli altri utenti: </h2>
                 <div id="commentContainer">
-                    <?php //inserire qui collectAllComments di commentController.php
+                    <?php 
+                        $toPrint = collectAllComments($us, $tp);
+                        if (!empty($toPrint)){
+                            echo $toPrint; 
+                        } else {
+                            echo "<h2>Questo post non ha ancora commenti"
+                        } 
+                    //inserire qui collectAllComments di commentController.php
                     //gestire il caso di empty!!!
                     ?>
-                    <div class="comment">
+                    <!-- <div class="comment">
                         <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
                         <p class="commentText">WOW CHE FIKOOOO<p>
                     </div>
@@ -118,7 +129,7 @@ $posts = $post->getSpecificPost($us, $tp);
                     <div class="comment">
                         <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
                         <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div>
+                    </div> -->
 
                 </div>
 

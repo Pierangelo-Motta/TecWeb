@@ -24,7 +24,6 @@ function parseActTime(){
     res += adaptUnit(date.getMinutes()) + ":";
     res += adaptUnit(date.getSeconds());
     console.log(res);
-
 }
 parseActTime();
 // const values = new Map();
