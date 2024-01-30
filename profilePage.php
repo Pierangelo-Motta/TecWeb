@@ -28,6 +28,7 @@ if(sizeof($newValues) > 0){
     $idVOk = array_key_exists("id", $newValues) ? $newValues["id"] : $_GET["id"];
     $okLink = "profilePage.php?mode=" . $modeVOk . "&id=" . $idVOk;
     header("Location: " . $okLink);
+    die();
 }
 
 
