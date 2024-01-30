@@ -114,6 +114,7 @@ document.getElementById("createComm").addEventListener("click", function () {
         console.log(commentArea.value.length);
     }
     commentArea.value = "";
+    window.location.reload();
     // let tmp = document.getElementById("createComm");
     // if(tmp.disabled){
     //     alert("Commento troppo lungo!!");
@@ -121,6 +122,7 @@ document.getElementById("createComm").addEventListener("click", function () {
     //     alert("GO");
     // }
 })
+
 
 document.querySelectorAll("img.myComment").forEach(elem => {
 
@@ -141,12 +143,12 @@ document.querySelectorAll("img.myComment").forEach(elem => {
 
 
                 type: 'POST',
-                url: 'include/commentController.php',
+                url: 'include/controller/commentController.php',
                 data: { "codeQ": "2", 
-                    "userIdP": values.getValue("userIdPost"),  //ricavare da link (?)
-                    "dateP": values.getValue("timePost"),  //ricavare da link (?)
+                    "userIdP": uIDP,  //ricavare da link (?)
+                    "dateP": tP,  //ricavare da link (?)
                     "userIdC": uIDC, 
-                    "dateC": dataOra //ricavare da foto (prob)
+                    "dateC": elem.getAttribute("data-thisdate")//dataOra //ricavare da foto (prob)
                     // "comm": commentArea.value
                 },
                 dataType: 'json',
@@ -158,19 +160,19 @@ document.querySelectorAll("img.myComment").forEach(elem => {
                 //     console.log(xhr.responseText);
                 // }
             });
-
+            elem.parentElement.parentElement.style.display = "none";
         } //
 
     });
 
     elem.addEventListener('mouseover', () => {
         // Change the button's background color
-        portalImg.setAttribute("src",deleteImg);
+        elem.setAttribute("src",deleteImg);
     });
     
     elem.addEventListener('mouseout', () => {
         // Change the button's background color
-        portalImg.setAttribute("src",actImg);
+        elem.setAttribute("src",actImg);
     });
 });
 
