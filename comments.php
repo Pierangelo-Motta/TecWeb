@@ -95,7 +95,7 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
                         if (!empty($toPrint)){
                             echo $toPrint; 
                         } else {
-                            echo "<h2>Questo post non ha ancora commenti"
+                            echo "<h3>Questo post non ha ancora commenti! </h3><p>Ne facciamo qualcuno? 😏</p>";
                         } 
                     //inserire qui collectAllComments di commentController.php
                     //gestire il caso di empty!!!

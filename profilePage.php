@@ -16,14 +16,15 @@ $modes = array("post", "goal");
 
 //$modified = 0;
 $newValues = array();
-if(!isset($_GET["mode"]) || !in_array($_GET["mode"], $modes)){
+if (!isset($_GET["mode"]) || !in_array($_GET["mode"], $modes)) {
     $newValues["post"] = "post";
 }
-if(!isset($_GET["id"]) || (existIdUser($_GET["id"]) == -1)){
+
+if (!isset($_GET["id"]) || (existIdUser($_GET["id"]) == -1)) {
     $newValues["id"] = getUserId1($_SESSION["username"]);
 }
 
-if(sizeof($newValues) > 0){
+if (sizeof($newValues) > 0) {
     $modeVOk = array_key_exists("post", $newValues) ? $newValues["post"] : $_GET["mode"];
     $idVOk = array_key_exists("id", $newValues) ? $newValues["id"] : $_GET["id"];
     $okLink = "profilePage.php?mode=" . $modeVOk . "&id=" . $idVOk;
