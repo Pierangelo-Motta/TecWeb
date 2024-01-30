@@ -16,3 +16,7 @@
     font-weight: bold;
     font-size: 1em;
 }
+
+.form-group {
+    margin: 30px;
+}
