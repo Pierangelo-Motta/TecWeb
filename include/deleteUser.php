@@ -9,13 +9,13 @@ require_once('login.model.php');
     <div class="row justify-content-center">
         <div class="col-md-6">
 
-            <form action="#" method="post">
+            <form action="include/deleteUserFunction.php" method="post">
 
                 <!-- Dropdown menu for selecting a user -->
                 <div class="form-group">
                     <label for="userSelect">Seleziona Utente:</label>
                     <div class="du-autocomplete-container">
-                        <input type="text" id="userSelect" name="userSelect">
+                        <input type="text" id="userSelect" name="userSelect"  placeholder="Seleziona l'utente dalla lista">
                         <div id="deleteUserAutocompleteResults" class="deleteUserAutocomplete-results"></div>
                     </div>
 
@@ -23,7 +23,7 @@ require_once('login.model.php');
 
                 <!-- Submit button -->
                 <div class="form-group">
-                    <input type="button" class="btn btn-primary" value="Elimina Utente">
+                    <input type="submit" class="btn btn-primary" value="Elimina Utente">
                 </div>
 
             </form>

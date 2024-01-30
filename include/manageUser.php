@@ -1,8 +1,10 @@
 
 <?php
 require_once('login.model.php');
+
 ?>
 
+<link rel="stylesheet" href="css/settingPage.css">
 <div class="card">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -13,7 +15,7 @@ require_once('login.model.php');
                 <div class="form-group">
                     <label for="manageThisUser">Seleziona Utente:</label>
                     <div class="autocomplete-container">
-                        <input type="text" id="manageThisUser" name="manageThisUser">
+                        <input type="text" id="manageThisUser" name="manageThisUser" placeholder="Seleziona l'utente dalla lista">
                         <div id="autocompleteResults" class="autocomplete-results"></div>
                     </div>
                 </div>

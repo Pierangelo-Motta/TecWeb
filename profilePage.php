@@ -28,6 +28,7 @@ if(sizeof($newValues) > 0){
     $idVOk = array_key_exists("id", $newValues) ? $newValues["id"] : $_GET["id"];
     $okLink = "profilePage.php?mode=" . $modeVOk . "&id=" . $idVOk;
     header("Location: " . $okLink);
+    die();
 }
 
 
@@ -81,7 +82,7 @@ if ($user_id !== null) {
   <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
-  <link rel="stylesheet" type="text/css" href="css/JPBook.css">
+  <link rel="stylesheet" type="text/css" href="css/JPbook.css">
   <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
 
 

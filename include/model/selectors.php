@@ -155,7 +155,7 @@ function existIdUser(string $userId) {
 function checkIfUserReadBook($userId, $libroId){
     global $conn;
     $sql = "SELECT *
-            from Post P 
+            from post p 
             where p.utenteId = ?
             and p.libroId = ?;";
     $stmt = $conn->prepare($sql);
