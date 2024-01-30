@@ -24,7 +24,9 @@ if (isLoginOk($conn, $username, $password)) {
     $_SESSION['id'] = getUserId($conn, $username, $password);
     header("Location: landingPage.php");
 } else {
-    echo "Nome utente o password non corretti. Riprova per favore.";
+    // echo "Nome utente o password non corretti. Riprova per favore.";
+    // header("Location: indexError.html");
+    header("Location: index.html?log=e");
 }
 
 ?>
