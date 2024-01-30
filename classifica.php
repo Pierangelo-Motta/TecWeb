@@ -8,7 +8,7 @@ require_once("include/view/userBanner.php");
 
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
-    header("Location: index.html");
+    header("Location: index.php");
 }
 
 ?>

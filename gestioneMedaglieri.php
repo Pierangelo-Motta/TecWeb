@@ -7,7 +7,7 @@ require_once 'include/libri.php';
 
 if (!isset($_SESSION['loggedin']) || !$_SESSION['loggedin']) {
     // Utente non autenticato, reindirizza alla pagina di login
-    header("Location: index.html");
+    header("Location: index.php");
     exit();
 }
 

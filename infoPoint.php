@@ -2,7 +2,7 @@
 
 session_start();
 // if (!($_SESSION['loggedin'] === true)) {
-//     header("Location: index.html");
+//     header("Location: index.php");
 // }
 
 // require_once('include/model/uploadImage.php'); //per gestire il caricamento della foto

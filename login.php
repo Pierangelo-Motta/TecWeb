@@ -10,13 +10,13 @@ $password = $_POST['password'];
 
 // Check if the cookie is set and has the value "accept"
 // if (!((isset($_COOKIE['cookie_consent']) && $_COOKIE['cookie_consent'] === 'accept') )) {
-//     header("Location: index.html");
+//     header("Location: index.php");
 //     exit;
 // }
 
 if (isUserBanned($username)) {
     // die("<h1>Utente Bannato!</h1><h2><a href=\"mailto:admin@tecweb.it?subject=Utente%20Bannato\">Contatta l'amministratore</a></h2>");
-    header("Location: index.html?log=b");
+    header("Location: index.php?log=b");
     die();
 }
 
@@ -28,7 +28,7 @@ if (isLoginOk($conn, $username, $password)) {
 } else {
     // echo "Nome utente o password non corretti. Riprova per favore.";
     // header("Location: indexError.html");
-    header("Location: index.html?log=e");
+    header("Location: index.php?log=e");
 }
 
 ?>

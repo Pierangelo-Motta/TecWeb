@@ -4,7 +4,7 @@ session_start();
 
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
-    header("Location: index.html");
+    header("Location: index.php");
 }
 
 require_once("include/view/commentGenerator.php");
