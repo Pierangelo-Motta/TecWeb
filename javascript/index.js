@@ -1,11 +1,11 @@
 
-let messaggio = document.getElementById('messaggioErrore');
+let messaggioErroreUtente = document.getElementById('messaggioErrore');
 
 document.addEventListener("DOMContentLoaded", function(){
-    messaggio.style.display = "none";
+    messaggioErroreUtente.style.display = "none";
     // console.log("here");
     if (window.location.href.endsWith("log=e")){
-        messaggio.style.display = "block";
+        messaggioErroreUtente.style.display = "block";
     }
 
 })  

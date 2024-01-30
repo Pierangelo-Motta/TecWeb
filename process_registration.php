@@ -27,7 +27,9 @@ function checkUser($user){
     } 
     else{
         //return false;
-        die("Nome utente già presente");
+        // die("Nome utente già presente");
+        header("Location: register.html?log=u");
+        die();
     }
 }
 
@@ -76,7 +78,9 @@ if ($password === $confirm_password && checkUser($username)) {
 
 
 } else {
-    echo "Errore: le password non corrispondono.";
+    // echo "Errore: le password non corrispondono.";
+    header("Location: register.html?log=p");
+    die();
 }
 
 mysqli_close($conn);
