@@ -21,7 +21,7 @@ function summonHTMLElement($witch, $arrAttributes, $innerHTML, $isSingle = false
 
 function createImage($userIdCommentor, $dataComment, $isMyPost){
 
-    $userImg = getUserImage(tmpGetUsernameById($userid));
+    $userImg = getUserImage(tmpGetUsernameById($userIdCommentor));
 
     $propicClass = "userCommentedImg" . (($isMyPost) ? " myComment" : "");
 
@@ -47,7 +47,16 @@ function createImage($userIdCommentor, $dataComment, $isMyPost){
 }
 
 function summonComment($userIdCommentor, $dataComment, $comment){
-    $username = tmpGetUsernameById($userid);
+    $username = tmpGetUsernameById($userIdCommentor);
+
+    // print_r($userIdCommentor);
+    // echo "<br>";
+    // print_r($dataComment);
+    // echo "<br>";
+    // print_r($comment);
+    // echo "<br>";
+    // print_r($username);
+    // echo "<br>";
 
     $isMyPost = ($userIdCommentor == $_SESSION["id"]) ? true : false;
 
@@ -63,11 +72,14 @@ function summonComment($userIdCommentor, $dataComment, $comment){
 
 
 function collectAllComments($userIdPost, $dataPost){
-    $allRes = getCommentInfoByPost($userIdPost, $datePost);
+    $allRes = getCommentInfoByPost($userIdPost, $dataPost);
+    
     $final = "";
     foreach($allRes as $singleRow){ //TODO: PRIMA FONTE ERRORI
-        $final .= summonComment($singleRow[0], $singleRow[1], $singleRow[2]);
+        
+        $final .= summonComment($singleRow["utenteIdComm"], $singleRow["dataOraComm"], $singleRow["commento"]);
     }
+    return $final;
 }
 
 
