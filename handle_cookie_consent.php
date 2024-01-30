@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 // Redirect back to the main page or another relevant location
-header("Location: index.html");
+header("Location: index.php");
 exit;
 
 ?>

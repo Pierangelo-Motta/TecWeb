@@ -152,7 +152,7 @@ function manageFollow($userIDFrom, $userIDTo, $query){
 
         if (mysqli_stmt_execute($stmt)) {
             // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
             $tipo = 'F';
             createNotification($userIDTo, $userIDFrom, $tipo);
         } else {
@@ -221,7 +221,7 @@ function subscribeUserToMed($userID, $medID){
 
         if (mysqli_stmt_execute($stmt)) {
             // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
@@ -240,7 +240,7 @@ function createNewTag($textToInsert){
 
         if (mysqli_stmt_execute($stmt)) {
             // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
@@ -259,7 +259,7 @@ function embedTagPost($idTag, $userId, $datetime){
 
         if (mysqli_stmt_execute($stmt)) {
             // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }

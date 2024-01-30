@@ -3,7 +3,7 @@
 session_start();
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
-    header("Location: index.html");
+    header("Location: index.php");
 }
 
 require_once("../config.php");
@@ -390,7 +390,7 @@ function createSubmission(){
 
         if (mysqli_stmt_execute($stmt)) {
             // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.html\">Login Page</a></p>";
+            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
@@ -420,7 +420,7 @@ switch($command) {
         createSubmission();
         break;
     default:
-        header("Location: index.html");
+        header("Location: index.php");
         break;
 }
 
