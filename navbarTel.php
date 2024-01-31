@@ -61,6 +61,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                         <a href="profilePage.php">Profilo</a>
                     </li>
                     <li class="nav-item">
+                         <a href="infoPoint.php">Infos</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="logout.php">Logout</a>
                     </li>
                 </ul>

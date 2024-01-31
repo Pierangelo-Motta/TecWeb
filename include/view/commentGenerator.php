@@ -64,8 +64,8 @@ function summonComment($userIdCommentor, $dataComment, $comment){
 
     $complete = "<div class=\"" . $divContainerClass . "\">" . 
                     createImage($userIdCommentor, $dataComment, $isMyPost) .
-                    "<p class=\"titleOfComment\"> " . $username . "<p>" . 
-                    "<p class=\"commentText\">" . $comment . "<p>" .
+                    "<p class=\"titleOfComment\"> <a href=\"profilePage.php?id=" . $userIdCommentor . "\">" . $username . " </a></p>" . 
+                    "<p class=\"commentText\">" . $comment . "</p>" .
                 "</div>";
     return $complete;
 }

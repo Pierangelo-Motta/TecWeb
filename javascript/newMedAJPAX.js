@@ -250,7 +250,8 @@ class AJAXManager{
         document.querySelectorAll(".expandMe").forEach((elem, index) => {
             console.log(index);
             const textToExpand = elem.parentElement;
-            const contenitore = elem.parentElement.parentElement.parentElement.parentElement.parentElement;
+            //const contenitore = elem.parentElement.parentElement.parentElement.parentElement.parentElement;
+            const contenitore = elem.parentElement.parentElement.parentElement.parentElement;
             elem.addEventListener("click", () => {
                 console.log(textToExpand.getAttribute("AllText"));
                 let newText = textToExpand.getAttribute("data-AllText");
