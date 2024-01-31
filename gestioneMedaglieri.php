@@ -24,7 +24,7 @@ if(isset($_POST['aggiungiMedagliere'])){
     <title>TecWeb - Gestione Medaglieri </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medaglieri</title>
+    
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- DataTables CSS -->
@@ -82,8 +82,10 @@ if(isset($_POST['aggiungiMedagliere'])){
                     </div>
                     <form method="post" action="#">
                         <div class="modal-body">
-                            <input type="text" placeholder="Titolo" name="titolo" class="form-control m-1" required />
-                            <input type="text" lang="" placeholder="Descrizione" name="descrizione" class="form-control m-1" />
+                            <label for="titoloNuovoMedagliere">Titolo</label>
+                            <input type="text" id="titoloNuovoMedagliere" placeholder="Titolo" name="titolo" class="form-control m-1" required />
+                            <label for="descrizioneNuovoMedagliere">Descrizione</label><input type="text" id="descrizioneNuovoMedagliere" lang="" placeholder="Descrizione" name="descrizione" class="form-control m-1" />
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
@@ -127,12 +129,12 @@ if(isset($_POST['aggiungiMedagliere'])){
                         <form action="#" method="post">
                             <div class="card">
                                 <div class="card-body">
-                                    <p>Titolo</p>
+                                    <label for="selectedItemTitoloInput">Titolo</label>
                                     <input type="text" class="flexible-input titolo" id="selectedItemTitoloInput"
                                         name="selectedItemTitoloInput">
 
 
-                                    <p>Descrizione</p>
+                                    <label for="selectedItemDescrizioneInput">Descrizione</label>
                                     <!-- TODO: settare il linguaggio corretto -->
                                     <textarea lang="" class="flexible-input descrizione" rows="4" cols="50"
                                         id="selectedItemDescrizioneInput"
@@ -143,8 +145,10 @@ if(isset($_POST['aggiungiMedagliere'])){
 
                             <div class="card">
                                 <div class="card-body">
-                                    <p>Libri</p>
+                                    <!-- <label for="libriList">Elenco Libri</label> -->
+                                    Elenco Libri
                                     <ul class="list-group" id="libriList">
+                                        
                                         <?php //$libriInMedagliere = getLibriMedaglieri($medagliereId)?>
                                         <?php //foreach($libriInMedagliere as $libro){?>
                                         <!-- <li class="list-group-item"> -->
@@ -165,6 +169,7 @@ if(isset($_POST['aggiungiMedagliere'])){
 
                         </form>
                         <div class="text-center">
+                        <label for="salvaLibriInMedagliere" hidden>Salva libri in medagliere</label>
                         <input  class="btn btn-primary" id="salvaLibriInMedagliere" value="Salva Libri in Medagliere">
                         <input type="submit" class="btn btn-primary" value="Certifica Medagliere">
                         </div>
