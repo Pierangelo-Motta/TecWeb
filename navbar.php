@@ -44,6 +44,9 @@ if ($userID != 7) {
           <div class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
             <ul class="navbar-nav">
               <li class="nav-item">
+                  <a href="infoPoint.php" title="Informazioni"><img src="images/infoimg.png" alt="Informazioni"></a>
+                </li>  
+              <li class="nav-item">
                 <a href="settingPage.php" title="Settings"><img src="images/settingLogo.png" alt="Impostazioni"></a>
               </li>
               <li class="nav-item">

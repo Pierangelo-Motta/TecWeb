@@ -357,7 +357,7 @@ function getCommentInfoByPost($userIdPost, $datePost){
     $sql = "SELECT utenteIdComm, dataOraComm, commento 
         FROM commenti  
         where utenteIdPost = ? and dataOraPost = ? 
-        ORDER BY dataOraComm;";
+        ORDER BY dataOraComm DESC;";
     
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("is", $userIdPost, $datePost);

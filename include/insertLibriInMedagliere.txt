@@ -654,3 +654,661 @@ Books variable content: array (
     ),
   ),
 )
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'X Il gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'X Il gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'X Il gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '13',
+      'titolo' => 'X Il gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'X Un buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '12',
+      'titolo' => 'X Le trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '2',
+      'titolo' => 'X Sacro minore',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '16',
+      'titolo' => 'X Geai',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '10',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '2',
+      'titolo' => 'XSacro minore',
+      'medagliere_id' => '7',
+    ),
+    1 => 
+    array (
+      'id' => '4',
+      'titolo' => 'XUn buon posto in cui fermarsi',
+      'medagliere_id' => '7',
+    ),
+    2 => 
+    array (
+      'id' => '10',
+      'titolo' => 'XIl primo caffè della giornata',
+      'medagliere_id' => '7',
+    ),
+    3 => 
+    array (
+      'id' => '11',
+      'titolo' => 'XI miei giorni alla libreria Morisaki',
+      'medagliere_id' => '7',
+    ),
+    4 => 
+    array (
+      'id' => '12',
+      'titolo' => 'XLe trecce d\'oro dei defunti',
+      'medagliere_id' => '7',
+    ),
+    5 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '7',
+    ),
+    6 => 
+    array (
+      'id' => '16',
+      'titolo' => 'XGeai',
+      'medagliere_id' => '7',
+    ),
+  ),
+)

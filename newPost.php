@@ -240,7 +240,7 @@ if (isset($_POST["sB"])) {
             </form>
 
             <footer id="footerNewPost">
-                <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href=<?php echo "\"" . $linkForMoreInfos . "\"" ?>> Per più informazioni</a></p>
+                <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href=<?php echo "\"" . $linkForMoreInfos . "#acc\"" ?>> Per più informazioni</a></p>
 
                 <button class="btn btn-secondary" 
                     form="newPostForm" 

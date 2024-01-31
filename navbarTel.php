@@ -71,6 +71,9 @@ $userID = isset($_SESSION['id']) ? $_SESSION['id'] : null;
                         <a href="profilePage.php">Profilo</a>
                     </li>
                     <li class="nav-item">
+                         <a href="infoPoint.php">Infos</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="logout.php">Logout</a>
                     </li>
                 </ul>
