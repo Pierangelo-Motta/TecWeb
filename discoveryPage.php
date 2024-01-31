@@ -31,7 +31,15 @@
     <?php require('navbarSelect.php'); ?>
     <br/>
     <main class="container">
-      <?php require("include/view/postPage.php"); ?>
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <?php require("include/view/postPage.php"); ?>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

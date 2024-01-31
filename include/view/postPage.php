@@ -3,25 +3,6 @@
 require_once("include/config.php");
 
 function checkIfAlreadyLoved($userId, $dataOra) {
-    // global $conn;
-    // $utenteAttuale = $_SESSION['id'];
-    // //echo $userId . " " . $dataOra . " " . $utenteAttuale;
-    // $sql_check_love = "SELECT * FROM notifica WHERE tipo = 'V' AND utenteId = ? AND utenteIdPost = ? AND dataOraPost = ?";
-    // $stmt_check_love = $conn->prepare($sql_check_love);
-    // $stmt_check_love->bind_param("iis", $utenteAttuale, $userId, $dataOra);
-    // $stmt_check_love->execute();
-    // $alreadyloved = $stmt_check_love->fetch();
-    // $stmt_check_love->close();
-
-    // echo $utenteAttuale . " /  " . $userId . " /  " . $dataOra;
-    // echo "<br>";
-
-    // // echo "cia: " . gettype($alreadyloved);
-    // if ($alreadyloved) {
-    //     return false;
-    // } else {
-    //     return true;
-    // }
 
     global $conn;
     $utenteAttuale = $_SESSION['id'];
@@ -31,14 +12,9 @@ function checkIfAlreadyLoved($userId, $dataOra) {
 
     $stmt->execute();
 
-    // echo $utenteAttuale . " /  " . $userId . " /  " . $dataOra;
-    // echo "<br>";
-
     $result = $stmt->get_result();
-    // print_r($result->num_rows);
 
     if ($result->num_rows > 0) {
-    //     return $result->fetch_assoc()['id'];
         return true;
     } else {
         return false;
@@ -55,14 +31,9 @@ function checkIfAlreadyLiked($userId, $dataOra) {
 
     $stmt->execute();
 
-    // echo $utenteAttuale . " /  " . $userId . " /  " . $dataOra;
-    // echo "<br>";
-
     $result = $stmt->get_result();
-    // print_r($result->num_rows);
 
     if ($result->num_rows > 0) {
-    //     return $result->fetch_assoc()['id'];
         return true;
     } else {
         return false;
@@ -72,9 +43,8 @@ function checkIfAlreadyLiked($userId, $dataOra) {
 ?>
 
 
-<section id="userPosts" class="d-flex">
-        <div class="col-md-2 d-none d-md-block"></div>
-        <div class="col-md-8">
+<section id="userPosts">
+        <div class="col-md-12">
                 <?php
                   if (empty($posts)) {
                       echo '<p>Nessun post disponibile.</p>';
@@ -92,7 +62,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                   </a>
                               </div>
 
-                                <div class="col-md-8 col-4 text-left">
+                                <div class="col-md-7 col-4 text-left">
                                     <p><?= $post['username']; ?></p>
                                 </div>
                                 <div class="col-md-3 col-5">
@@ -101,7 +71,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-7">
                                   <br/>
                                     <div class="row">
                                         <p>Libro <br/> <?= $post['titolo']; ?></p>
@@ -134,14 +104,14 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                 $postImage = getPostImage($post['username'], $post['fotoCitazione']);
                                 if (!empty($postImage)):
                                 ?>
-                                    <div class="col-md-6 fotoCit">
+                                    <div class="col-md-5 fotoCit">
                                         <img src="<?= $postImage; ?>" class="rounded float-left" alt="Foto citazione">
                                     </div>
                                 <?php endif; ?>
                             </div>
                             <br/>
                             <div class="row">
-                              <p>Questo post ha x riflessioni, <span class="like-count"><?= $post['counterMiPiace']; ?></span> mi piace e <span class="love-count"><?= $post['counterAdoro']; ?></span> adoro</p>
+                              <p>Questo post ha <?= $post['numeroCommenti']; ?> commenti, <span class="like-count"><?= $post['counterMiPiace']; ?></span> mi piace e <span class="love-count"><?= $post['counterAdoro']; ?></span> adoro</p>
                             </div>
                             <div class="row">
                               <?php
@@ -164,17 +134,8 @@ function checkIfAlreadyLiked($userId, $dataOra) {
 
                             <?php
                               $isCheck = checkIfAlreadyLoved($post['utenteId'], $post['dataOra']);
-                            //   echo "-> " .  $isCheck;
                               $okE = $isCheck ? "0" : "1";
                               $okF = $isCheck ? "1" : "0";
-                            //   echo $ok;
-                            //   $statusEmpty = "";
-                            //   $statusFill = "";
-                            //   if ($isCheck){
-                            //     $statusFill = "";
-                            //   } else {
-                            //     $statusEmpty = "";
-                            //   }
                             ?>
 
                             <div class="col-md-1 col-5">
@@ -190,7 +151,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                               </button>
                           </div>
 
-                          <div class="col-md-3 col-5">
+                          <div class="col-md-4 col-5">
                               <a href="comments.php?userIdPost=<?= $post['utenteId']; ?>&timePost=<?=  $b = str_replace(" ","+",$post['dataOra']); ?>">Commenta</a>
                           </div>
                       </div>
@@ -201,7 +162,6 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                 <br/>
             <?php endforeach;  ?>
         </div>
-        <div class="col-md-2 d-none d-md-block"></div>
     </section>
     <?php
 }

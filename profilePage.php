@@ -150,11 +150,20 @@ if ($user_id !== null) {
         </div>";
 ?>
 
-    <?php if($visitPost){
-        require("include/view/postPage.php");
-    } else {
-        require("include/view/profilePageUserGoal.php");
-    } ?>
+
+    <?php if($visitPost): ?>
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <?php require("include/view/postPage.php"); ?>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    <?php else: ?>
+      <?php require("include/view/profilePageUserGoal.php"); ?>
+    <?php endif; ?>
 
 
     <script src="javascript/likePost.js"></script>
