@@ -72,8 +72,8 @@ if ($user_id !== null) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>profile page</title>
-
+  <title>Profile page</title>
+ <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
