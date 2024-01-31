@@ -3,11 +3,19 @@ include_once("include/login.controller.php");
 include_once("include/login.model.php");
 include_once("include/model/insertOnDB.php");
 
-$userID = isset($_SESSION["userID"]) ? $_SESSION["userID"] : null;
+// $userID = isset($_SESSION["userID"]) ? $_SESSION["userID"] : null;
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-    $notifications = getNotifications($userID);
-}
+$userID = isset($_SESSION['id']) ? $_SESSION['id'] : null;
+
+// if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+//     $notifications = getNotifications($userID);
+// }
+// $notifications = "";
+
+// if ($userID != 7) {
+//   echo "<script src=\"https://code.jquery.com/jquery-3.6.4.min.js\"></script>";
+// }
+
 ?>
 
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -41,6 +49,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                     <li class="nav-item">
                          <a href="classifica.php">Classifica</a>
                     </li>
+                    <?php if($userID != 7): ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Notifiche</a>
                         <ul id="notification-list" class="dropdown-menu">
@@ -54,11 +63,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                             ?>
                         </ul>
                     </li>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a href="discoveryPage.php">Discovery</a>
                     </li>
                     <li class="nav-item">
                         <a href="profilePage.php">Profilo</a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="infoPoint.php">Infos</a>
                     </li>
                     <li class="nav-item">
                         <a href="logout.php">Logout</a>

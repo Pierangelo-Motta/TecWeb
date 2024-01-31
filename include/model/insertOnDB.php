@@ -195,7 +195,7 @@ function getNotifications($userID) {
 
     $notifications = array();
 
-    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOraPost"; // Ordina per data decrescente
+    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOraPost DESC"; // Ordina per data decrescente
     if ($stmt = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($stmt, "i", $userID);
         mysqli_stmt_execute($stmt);
