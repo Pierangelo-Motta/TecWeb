@@ -198,11 +198,13 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                         </div>
                     </div>
                 </article>
-                <br/>
-            <?php endforeach;  ?>
+                <!-- <br/> -->
+            <?php endforeach;}
+            ?>
+            
         </div>
         <div class="col-md-2 d-none d-md-block"></div>
-    </section>
-    <?php
-}
+</section>
+<?php
+// }
 ?>
