@@ -63,7 +63,7 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
 
             <section id="commentPart" class="col-12 col-md-5">
                 <h2> Il tuo commento: </h2>
-                <form action="" method="post">
+                <form action="#" method="post">
                     <div class="d-flex w-100" id="userCommentControls">
                         <!-- <div class="flex-fill"> solo per far andare il flex fill che tanto non vaaaaaaaaaaa - -->
                         <button id="retBut" class="flex-fill btn btn-secondary" type="button" data-prevLink="landingPage.php">Indietro</button>
