@@ -95,40 +95,7 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
                         } else {
                             echo "<h3>Questo post non ha ancora commenti! </h3><p>Ne facciamo qualcuno? 😏</p>";
                         }
-                    //inserire qui collectAllComments di commentController.php
-                    //gestire il caso di empty!!!
                     ?>
-                    <!-- <div class="comment">
-                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
-                        <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div>
-                    <div class="comment">
-                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
-                        <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div>
-                    <div class="comment">
-                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
-                        <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div>
-                    <div class="comment">
-                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
-                        <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div>
-                    <div class="comment">
-                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
-                        <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div>
-
-                    <div class="comment">
-                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
-                        <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div>
-
-                    <div class="comment">
-                        <img alt="#" class="userCommentedImg" src="images/userLogo.png"/> <p class="titleOfComment">Jacopo<p>
-                        <p class="commentText">WOW CHE FIKOOOO<p>
-                    </div> -->
-
                 </div>
             </section>
 
@@ -159,6 +126,7 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
     <script src="javascript/likePost.js"></script>
     <script src="javascript/lovePost.js"></script>
     <script src="javascript/commentAnimation.js"></script>
+    <script src="javascript/ReloaderPage.js"></script>
 
 
     <!-- <script src="javascript/addNewPost.js"></script> -->

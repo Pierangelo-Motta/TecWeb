@@ -46,13 +46,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
             <div class="container-fluid float-right">
                 <form class="d-inline-flex" action="newMedagliere.php" method="post">
                     
-                    <!-- FIXME: Label text is empty.
-                                 Repair: Add text to the label element.
-                                 Error Line 90, Column 21:
-                                    <input name="searchingMed" 
-                                        class="form-control me-2 float-right" 
-                    ... -->
-                    <label id="labelSearchingInput">Ricerca nome medagliere:</label>
+                    <label for="tmpInputSeachingString" id="labelSearchingInput">Ricerca nome medagliere:</label>
 
                     <input name="searchingMed" 
                         class="form-control me-2 float-right" 
@@ -61,6 +55,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
                         aria-label="Search"
                         id="tmpInputSeachingString"
                         value="<?php echo $res; ?>"/>
+
                     <!-- <?php //echo $searchingMedStr; ?> 
                         <button class="btn btn-primary float-right" type="submit">Cerca Medaglione</button> -->
                 </form>
