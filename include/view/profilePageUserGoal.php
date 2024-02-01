@@ -7,7 +7,7 @@ require("include/view/bookSummoner.php");
 
 <section id="userGoal">
     <!-- <div class="col-1">  </div> -->
-    <?php if ($_SESSION["id"] != 7) : ?>
+    <?php if ($_GET["id"] != 7) : ?>
     <div class="book">
         <?php echo createBook($medIndex, $amountComplete); ?>
     </div>
