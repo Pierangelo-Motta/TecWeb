@@ -17,16 +17,23 @@ class Post {
       if (!$this->conn) {
           return array();
       }
-    $query = "SELECT u.immagineProfilo, u.username, p.utenteId, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
-    GROUP_CONCAT(t.testo) AS elencoTag
-    FROM post p
-    INNER JOIN utente u ON p.utenteId = u.id
-    INNER JOIN libro l ON p.libroId = l.id
-    LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
-    LEFT JOIN tags t ON tp.tagId = t.id
-    WHERE p.utenteId = ? AND p.dataOra = ?
-    GROUP BY p.utenteId, p.dataOra
-    ORDER BY p.dataOra DESC";
+      $query = "SELECT
+                  u.immagineProfilo, u.username, p.utenteId, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
+                  GROUP_CONCAT(t.testo) AS elencoTag,
+                  COUNT(c.utenteIdPost) AS numeroCommenti
+                FROM
+                  post p
+                  INNER JOIN utente u ON p.utenteId = u.id
+                  INNER JOIN libro l ON p.libroId = l.id
+                  LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
+                  LEFT JOIN tags t ON tp.tagId = t.id
+                  LEFT JOIN commenti c ON p.utenteId = c.utenteIdPost AND p.dataOra = c.dataOraPost
+                WHERE
+                  p.utenteId = ? AND p.dataOra = ?
+                GROUP BY
+                  p.utenteId, p.dataOra
+                ORDER BY
+                  p.dataOra DESC";
 
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param("is", $user_id, $time_post);
@@ -40,16 +47,24 @@ class Post {
             return array();
         }
 
-        $query = "SELECT u.immagineProfilo, u.username, p.utenteId, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
-        GROUP_CONCAT(t.testo) AS elencoTag
-        FROM post p
-        INNER JOIN utente u ON p.utenteId = u.id
-        INNER JOIN libro l ON p.libroId = l.id
-        LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
-        LEFT JOIN tags t ON tp.tagId = t.id
-        WHERE p.utenteId != ? AND p.utenteId NOT IN (SELECT seguitoId FROM segue WHERE seguenteId = ?)
-        GROUP BY p.utenteId, p.dataOra
-        ORDER BY p.dataOra DESC";
+        $query = "SELECT
+                    u.immagineProfilo, u.username, p.utenteId, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
+                    GROUP_CONCAT(t.testo) AS elencoTag,
+                    COUNT(c.utenteIdPost) AS numeroCommenti
+                  FROM
+                    post p
+                    INNER JOIN utente u ON p.utenteId = u.id
+                    INNER JOIN libro l ON p.libroId = l.id
+                    LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
+                    LEFT JOIN tags t ON tp.tagId = t.id
+                    LEFT JOIN commenti c ON p.utenteId = c.utenteIdPost AND p.dataOra = c.dataOraPost
+                  WHERE
+                    p.utenteId != ? AND p.utenteId NOT IN (SELECT seguitoId FROM segue WHERE seguenteId = ?)
+                  GROUP BY
+                    p.utenteId, p.dataOra
+                  ORDER BY
+                    p.dataOra DESC";
+
 
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("ii", $user_id, $user_id);
@@ -63,17 +78,25 @@ class Post {
             return array();
         }
 
-        $query = "SELECT u.immagineProfilo, u.username, p.utenteId, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
-            GROUP_CONCAT(t.testo) AS elencoTag
-            FROM post p
-            INNER JOIN utente u ON p.utenteId = u.id
-            INNER JOIN libro l ON p.libroId = l.id
-            INNER JOIN segue s ON p.utenteId = s.seguitoId
-            LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
-            LEFT JOIN tags t ON tp.tagId = t.id
-            WHERE s.seguenteId = ?
-            GROUP BY p.utenteId, p.dataOra
-            ORDER BY p.dataOra DESC";
+        $query = "SELECT
+                      u.immagineProfilo, u.username,
+                      p.utenteId, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
+                      GROUP_CONCAT(t.testo) AS elencoTag,
+                      COUNT(c.utenteIdComm) AS numeroCommenti
+                  FROM
+                      post p
+                      INNER JOIN utente u ON p.utenteId = u.id
+                      INNER JOIN libro l ON p.libroId = l.id
+                      INNER JOIN segue s ON p.utenteId = s.seguitoId
+                      LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
+                      LEFT JOIN tags t ON tp.tagId = t.id
+                      LEFT JOIN commenti c ON p.utenteId = c.utenteIdPost AND p.dataOra = c.dataOraPost
+                  WHERE
+                      s.seguenteId = ?
+                  GROUP BY
+                      p.utenteId, p.dataOra
+                  ORDER BY
+                      p.dataOra DESC";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $user_id);
@@ -86,16 +109,24 @@ class Post {
             return array();
         }
 
-        $query = "SELECT u.id AS utenteId, u.immagineProfilo, u.username, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
-            GROUP_CONCAT(t.testo) AS elencoTag
-            FROM post p
-            INNER JOIN utente u ON p.utenteId = u.id
-            INNER JOIN libro l ON p.libroId = l.id
-            LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
-            LEFT JOIN tags t ON tp.tagId = t.id
-            WHERE p.utenteId = ?
-            GROUP BY p.utenteId, p.dataOra
-            ORDER BY p.dataOra DESC";
+        $query = "SELECT
+                    u.id AS utenteId, u.immagineProfilo, u.username, p.dataOra, p.citazioneTestuale, p.fotoCitazione, p.riflessione, p.counterMiPiace, p.counterAdoro, l.titolo,
+                    GROUP_CONCAT(t.testo) AS elencoTag,
+                    COUNT(c.utenteIdPost) AS numeroCommenti
+                  FROM
+                    post p
+                    INNER JOIN utente u ON p.utenteId = u.id
+                    INNER JOIN libro l ON p.libroId = l.id
+                    LEFT JOIN tagperpost tp ON p.utenteId = tp.utenteIdPost AND p.dataOra = tp.dataOraPost
+                    LEFT JOIN tags t ON tp.tagId = t.id
+                    LEFT JOIN commenti c ON p.utenteId = c.utenteIdPost AND p.dataOra = c.dataOraPost
+                  WHERE
+                    p.utenteId = ?
+                  GROUP BY
+                    p.utenteId, p.dataOra
+                  ORDER BY
+                    p.dataOra DESC";
+
 
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $profile_id);

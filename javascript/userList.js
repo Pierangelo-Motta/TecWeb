@@ -1,12 +1,11 @@
-let fu = new Array();
-let isUtenteAdmin;
-let isUtenteBanned;
+// let isUtenteAdmin;
+// let isUtenteBanned;
 
 function showAutocomplete(inputValue, tipologia, classe) {
     let tipo = tipologia;
     let cl = classe;
     let xhr = new XMLHttpRequest();
-
+    
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             let userList = JSON.parse(xhr.responseText);
@@ -14,6 +13,7 @@ function showAutocomplete(inputValue, tipologia, classe) {
                 return user.username.toLowerCase().includes(inputValue.toLowerCase());
             });
             // console.log(filteredUsers);
+            let fu = new Array();
             fu = filteredUsers;
             let autocompleteResults = document.getElementById(cl);
             autocompleteResults.innerHTML = '';
@@ -25,8 +25,8 @@ function showAutocomplete(inputValue, tipologia, classe) {
                     document.getElementById(tipo).value = user.username;
                     autocompleteResults.innerHTML = '';
                     let utente = user.username;
-                    isUtenteAdmin = fu.find(x => x.username === utente)?.isAdmin;
-                    isUtenteBanned = fu.find(x => x.username === utente)?.stato;
+                    let isUtenteAdmin = fu.find(x => x.username === utente)?.isAdmin;
+                    let isUtenteBanned = fu.find(x => x.username === utente)?.stato;
                     
                     let checkBoxFlag = document.getElementById('isAdminCheckbox');
                     if (utente.length > 0) {

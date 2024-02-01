@@ -19,10 +19,10 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
 } else {
     $us = $_GET['userIdPost'];
     $tp = $_GET['timePost'];
-    
+
     $post = new Post($conn);
     $posts = $post->getSpecificPost($us, $tp);
-    
+
 }
 
 ?>
@@ -53,9 +53,7 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
 
     <div class="d-flex">
 
-        <div class="col-1"></div>
-
-        <div id="allContainer" class="col-10 d-md-flex">
+        <div id="allContainer" class="col-12 d-md-flex">
 
             <?php if ($existPost) : ?>
 
@@ -63,7 +61,7 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
               <?php require("include/view/postPage.php"); ?>
             </section>
 
-            <section id="commentPart" class="col-12 col-md-6">
+            <section id="commentPart" class="col-12 col-md-5">
                 <h2> Il tuo commento: </h2>
                 <form action="" method="post">
                     <div class="d-flex w-100" id="userCommentControls">
@@ -81,8 +79,8 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
                     <textarea class="form-control"
                             id="riflessioneCurrentUser"
                             name="riflession"
-                            rows="10" 
-                            cols="100" 
+                            rows="10"
+                            cols="100"
                             placeholder="...Sto pensando a..."
                             data-userIDC="<?php echo $_SESSION["id"] ?>"></textarea>
                     <label for="riflessioneCurrentUser" class="notDisplay">Spazio rimasto per la tua riflessione: <span id="counterChars"> </span> </label>
@@ -90,13 +88,13 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
 
                 <h2 class="subTitle"> Gli altri utenti: </h2>
                 <div id="commentContainer">
-                    <?php 
+                    <?php
                         $toPrint = collectAllComments($us, $tp);
                         if (!empty($toPrint)){
-                            echo $toPrint; 
+                            echo $toPrint;
                         } else {
                             echo "<h3>Questo post non ha ancora commenti! </h3><p>Ne facciamo qualcuno? 😏</p>";
-                        } 
+                        }
                     //inserire qui collectAllComments di commentController.php
                     //gestire il caso di empty!!!
                     ?>
@@ -132,7 +130,6 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
                     </div> -->
 
                 </div>
-
             </section>
 
 
@@ -144,10 +141,8 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
             </section>
             <?php endif?>
 
-        </div>
 
-
-        <div class="col-1"></div>
+          </div>
 
     </div>
 
@@ -160,7 +155,9 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
     </script>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="javascript/likePost.js"></script>
+    <script src="javascript/lovePost.js"></script>
     <script src="javascript/commentAnimation.js"></script>
 
 

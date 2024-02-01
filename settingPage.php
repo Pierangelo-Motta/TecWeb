@@ -20,6 +20,7 @@ header("Location: index.php");
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
     <link rel="stylesheet" type="text/css" href="css/settingPage.css">
     <link rel="icon" href="images/favicon_io/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>

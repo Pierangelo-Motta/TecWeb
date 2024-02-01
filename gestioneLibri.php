@@ -26,7 +26,7 @@ require_once 'include/libri.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
     <!-- DataTables JS -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -52,9 +52,10 @@ require_once 'include/libri.php';
                         <h5 class="modal-title" id="modalTitle">Aggiungi libro</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form method="post" action="">
+                    <form method="post" action="#">
                         <div class="modal-body">
-                            <input type="text" placeholder="Titolo" name="titolo" class="form-control" required />
+                            <label for="titolo">Titolo</label>
+                            <input type="text" id="titolo" placeholder="Titolo" name="titolo" class="form-control" required />
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
@@ -93,7 +94,7 @@ require_once 'include/libri.php';
                                         </a>
                                     </td>
                                     <td>
-                                        <a href='#' data-bs-toggle="modal" data-bs-target="#modal_elimina_libro_<?php echo $row['id']; ?>">
+                                        <a href='#' data-bs-toggle="modal" data-bs-target="#modal_elimina_libro_<?php echo $row['id']; ?>" title="Elimina Libro">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                 <path d="M1 3h1v9H1V3zm2 0h10v9H3V3zm12-2h-3l-1-1h-4l-1 1H2v1h12V1zM5.5 12a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
                                             </svg>
@@ -112,18 +113,19 @@ require_once 'include/libri.php';
         $libriResult = $libri->getLibri();
         while ($row = mysqli_fetch_assoc($libriResult)) {
         ?>
-            <div class="modal fade" id="modal_modifica_libro_<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal_modifica_libro_<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="mod_exampleModalLabel<?php echo $row['id'];?>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modifica libro</h5>
+                            <h5 class="modal-title" id="mod_exampleModalLabel<?php echo $row['id'];?>">Modifica libro</h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
-                                <input type="text" placeholder="Titolo libro" name="titolo" class="form-control" value="<?php echo $row['titolo']; ?>" required>
+                            <form method="post" action="#">
+                                <label for="tit_lib<?php echo $row['id'];?>">Titolo libro</label>
+                                <input type="text" id="tit_lib<?php echo $row['id'];?>" placeholder="Titolo libro" name="titolo" class="form-control" value="<?php echo $row['titolo']; ?>" required>
                                 <br>
                                 <input type="hidden" name="id" class="form-control" value="<?php echo $row['id']; ?>">
                                 <div class="modal-footer">
@@ -142,17 +144,17 @@ require_once 'include/libri.php';
         $libriResult = $libri->getLibri();
         while ($row = mysqli_fetch_assoc($libriResult)) {
         ?>
-            <div class="modal fade" id="modal_elimina_libro_<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal_elimina_libro_<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="el_exampleModalLabel<?php echo $row['id'];?>" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Conferma eliminazione</h5>
+                            <h5 class="modal-title" id="el_exampleModalLabel<?php echo $row['id'];?>">Conferma eliminazione</h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="">
+                            <form method="post" action="#">
                                 <label>Ne sei sicuro?</label>
                                 <input type="hidden" name="id" class="form-control" value="<?php echo $row['id']; ?>">
                                 <div class="modal-footer">
