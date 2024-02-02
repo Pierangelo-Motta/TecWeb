@@ -28,7 +28,7 @@ if ($userID != 7) {
 <header>
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid"> <!--div contenitore-->
-            <a href="landingPage.php"> <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia"> </a>
+            <a href="landingPage.php"> <img id="logo" src="images/logoLetturePremiateSmall.png" alt="Logo con libro e medaglia"> </a>
             <form action="searchingPage.php" method="post" class="d-flex me-auto" >
                 <!-- TODO: sostittuire con immagine lente: meno spazio occupato-->
 
@@ -44,7 +44,7 @@ if ($userID != 7) {
           <div class="d-flex" id="navbarSupportedContent"> <!--div schermo ridotto-->
             <ul class="navbar-nav">
               <li class="nav-item">
-                  <a href="infoPoint.php" title="Informazioni"><img src="images/infoimg.png" alt="Informazioni"></a>
+                  <a href="infoPoint.php" title="Informazioni"><img src="images/infoimg_no_background.png" alt="Informazioni"></a>
                 </li>  
               <li class="nav-item">
                 <a href="settingPage.php" title="Settings"><img src="images/settingLogo.png" alt="Impostazioni"></a>

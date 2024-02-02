@@ -30,7 +30,7 @@ $userID = isset($_SESSION['id']) ? $_SESSION['id'] : null;
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="landingPage.php">
-                <img id="logo" src="images/logoLetturePremiateSmall.jpg" alt="Logo con libro e medaglia">
+                <img id="logo" src="images/logoLetturePremiateSmall.png" alt="Logo con libro e medaglia">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
