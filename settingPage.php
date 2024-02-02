@@ -18,9 +18,9 @@ header("Location: index.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-    <link rel="stylesheet" type="text/css" href="css/settingPage.css">
     <link rel="icon" href="images/favicon_io/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/settingPage.css">
 </head>
 
 <body>
@@ -66,9 +66,14 @@ header("Location: index.php");
             </div>
             <!-- TODO: mostrare correttamente l'informazione sotto.. AJAX? -->
             <div id="passwordChanged" style="display: none;" class="col-md-12 text-center content">
-                <p>La password è stata cambiata correttametne!</p>
+                <p>La password è stata cambiata correttamente!</p>
             </div>
-
+            <div id="passwordNotChanged2" style="display: none;" class="col-md-12 text-center content">
+                <p>Errore: vecchia password non corretta!</p>
+            </div>
+            <div id="passwordNotChanged1" style="display: none;" class="col-md-12 text-center content">
+                <p>Errore: le password non corrispondono.</p>
+            </div>            
             <!-- Content for "Modifica la tua descrizione utente" -->
             <div id="descriptionContent" style="display: none;" class="col-md-12 text-center content">
                 <!-- Content for modifying user description -->

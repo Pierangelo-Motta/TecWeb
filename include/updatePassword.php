@@ -9,7 +9,9 @@ $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 
 if (!($password === $confirm_password)){
-    die("Errore: le password non corrispondono.");
+    header("Location: ../settingPage.php?pwdup=KO1");
+    // die("Errore: le password non corrispondono.");
+    die();
 }
 
 if (checkUserPassword($conn, $_SESSION['username'], $oldPassword)) {
@@ -23,7 +25,8 @@ if (checkUserPassword($conn, $_SESSION['username'], $oldPassword)) {
 
         if (mysqli_stmt_execute($stmt)) {
             $_SESSION['password_changed'] = 1;
-            header("Location: ../settingPage.php");
+            // header("Location: ../settingPage.php");
+            header("Location: ../settingPage.php?pwdup=OK");
             exit();
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn);
@@ -33,7 +36,9 @@ if (checkUserPassword($conn, $_SESSION['username'], $oldPassword)) {
     mysqli_stmt_close($stmt);
 }
 else{
-    die("Errore: vecchia password non corretta");
+    // die("Errore: vecchia password non corretta");
+    header("Location: ../settingPage.php?pwdup=KO2");
+    die();
 }
     
 mysqli_close($conn);

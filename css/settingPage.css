@@ -70,3 +70,14 @@
 .autocomplete-results div:hover {
     background-color: #f0f0f0;
 }
+
+#passwordNotChanged1 {
+    color: red;
+    
+}
+
+#passwordNotChanged2 {
+    color: red;
+    
+}
+

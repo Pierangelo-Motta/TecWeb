@@ -138,3 +138,28 @@ document.addEventListener('click', function (event) {
 //     }
 // });
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let messaggioErrorePwd1 = document.getElementById('passwordNotChanged1');
+    let messaggioErrorePwd2 = document.getElementById('passwordNotChanged2');
+    let messaggioPasswordChanged = document.getElementById('passwordChanged');
+    
+    messaggioErrorePwd1.style.display = "none";
+    messaggioErrorePwd2.style.display = "none";
+    messaggioPasswordChanged.style.display = "none";
+
+    // console.log("here");
+    if (window.location.href.endsWith("pwdup=KO1")) {
+        messaggioErrorePwd1.style.display = "block";
+    }
+    if (window.location.href.endsWith("pwdup=KO2")) {
+        messaggioErrorePwd2.style.display = "block";
+    }
+
+    if (window.location.href.endsWith("pwdup=OK")) {
+        messaggioPasswordChanged.style.display = "block";
+    }
+
+})  
+
