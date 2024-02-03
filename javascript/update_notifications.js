@@ -13,4 +13,5 @@ function updateNotifications() {
 
 $(document).ready(function() {
     updateNotifications();
+    //FIXME: un pò un overkill usare AJAX qui, almeno che non fai il refresh continuo con un setInterval
 });
