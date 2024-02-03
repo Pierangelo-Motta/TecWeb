@@ -20,13 +20,15 @@ require_once 'include/libri.php';
     <title>GestioneLibri</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/landingPage.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <!-- DataTables JS -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/landingPage.css">
+    <script src="javascript/libro.js"></script>
+
 </head>
 
 <body>
@@ -56,6 +58,26 @@ require_once 'include/libri.php';
                         <div class="modal-body">
                             <label for="titolo">Titolo</label>
                             <input type="text" id="titolo" placeholder="Titolo" name="titolo" class="form-control" required />
+
+                            <label for="autore">Autore</label>
+                            <select id="autore" name="autore" class="form-control" required>
+                                <?php
+                                // Carica gli autori dal database
+                                $query = "SELECT * FROM autore";
+                                $result = mysqli_query($conn, $query);
+
+                                // Popola la select con gli autori esistenti
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<option value='{$row['id']}'>{$row['nome']}</option>";
+                                }
+                                ?>
+                                <option value="altro">Altro</option>
+                            </select>
+
+                            <div id="altroAutore" style="display: none;">
+                                <label for="nuovoAutore">Nuovo Autore</label>
+                                <input type="text" id="nuovoAutore" placeholder="Nuovo Autore" name="nuovoAutore" class="form-control">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
@@ -74,6 +96,7 @@ require_once 'include/libri.php';
                         <thead>
                             <tr>
                                 <th>Titolo</th>
+                                <th>Autore</th>
                                 <th>Modifica</th>
                                 <th>Elimina</th>
                             </tr>
@@ -85,6 +108,8 @@ require_once 'include/libri.php';
                             ?>
                                 <tr>
                                     <td> <?php echo $row['titolo']; ?> </td>
+                                    <td> <?php echo $row['nome']; ?> </td>
+
                                     <td>
                                         <a href='#' data-bs-toggle="modal" data-bs-target="#modal_modifica_libro_<?php echo $row['id']; ?>" title="Modifica libro">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
