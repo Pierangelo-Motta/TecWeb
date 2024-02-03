@@ -178,7 +178,12 @@ if ($user_id !== null) {
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
     </script> -->
-    <script src="javascript/personalLibs/PHPGet.js"></script>
+
+
+    <?php if(!isset($GLOBALS["includedPHPGetLib"])) {
+        $GLOBALS["includedPHPGetLib"] = 1;
+        echo "<script src=\"javascript/personalLibs/PHPGet.js\"> </script>";
+    } ?>
     <script src="javascript/profilePageAnimation.js"></script>
     <script src="javascript/profilePageModal.js"></script>
 

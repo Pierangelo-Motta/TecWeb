@@ -1,8 +1,8 @@
 
 const music = new Audio('audio/sfoglia.mp3');
+const pG = new PHPGet();
 music.playbackRate = 4;
 
-const pG = new PHPGet();
 const rel = new ReloaderPage(500);
 
 const flipBook = (elBook) => {

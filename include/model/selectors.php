@@ -129,7 +129,6 @@ function existIdUser(string $userId) {
     } else {
         return -1;
     }
-    
 }
 
 function checkIfUserReadBook($userId, $libroId){
@@ -147,6 +146,7 @@ function checkIfUserReadBook($userId, $libroId){
         
     return $result->num_rows > 0;
 }
+
 
 function checkIfUserFollowUser($userIdFrom, $userIdTo){
     global $conn;
@@ -320,6 +320,44 @@ function checkIfPostExist($userId, $dataPost){
     $result = $stmt->get_result();
         
     return $result->num_rows > 0;
+}
+
+function getIdTagByString($stringTag){
+    
+    global $conn;    
+    $sql = "SELECT id from tags where testo = ?;";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $stringTag);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+        
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc()["id"];
+    } else {
+        return -1;
+    }
+}
+
+function getPostByTag($tag) {
+
+    global $conn;    
+    $sql = "SELECT utenteIdPost, dataOraPost FROM tagperpost WHERE tagId = ?;";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $tag);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+        
+    if ($result->num_rows > 0) {
+        return $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return -1;
+    }
 }
 
 ?>
