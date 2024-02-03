@@ -13,7 +13,7 @@ class PHPGet {
 
         // gets.forEach(elem => {
         //     console.log(elem);
-        // });
+        // })
     }
     
     obtainNewQuery(){
