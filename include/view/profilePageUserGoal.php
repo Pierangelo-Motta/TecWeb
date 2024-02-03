@@ -21,6 +21,7 @@ require("include/view/bookSummoner.php");
     <!-- <div class="col-1">  </div> -->
 </section>
 
+<script src="javascript/personalLibs/PHPGet.js"> </script>
 <script src="javascript/personalLibs/ReloaderPage.js"> </script>
 <script src="javascript/bookanimation.js"></script>
 

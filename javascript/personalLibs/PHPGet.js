@@ -1,35 +1,48 @@
-//class PHPGet{
+class PHPGet {
 
+    values = new Map();
 
-const values = new Map();
+    constructor() {
+        let allGets = window.location.search.substring(1);
+        let gets = allGets.split("&");
+        
+        gets.forEach(elem => {
+            let row = elem.split("=");
+            this.values.set(row[0], row[1]);
+        });
 
-function create() {
-    let allGets = window.location.search.substring(1);
-    let gets = allGets.split("&");
-    // fore
-    //this. 
+        // gets.forEach(elem => {
+        //     console.log(elem);
+        // });
+    }
     
-    gets.forEach(elem => {
-        let row = elem.split("=");
-        values.set(row[0], row[1]);
-    });
-    gets.forEach(elem => {
-        console.log(elem);
-    });
-    //return this;
+    obtainNewQuery(){
+        let q = "?";
+        this.values.forEach (function(value, key) {
+            q += key + '=' + value + "&"; //TODO: funziona solo con valori atomici, non con array o stringhe con spazi (per ora)!
+        })
+        return q.substring(0, q.length-1);
+    }
+
+    saveValue(keyName, newValue, mustSaveOnHistory = false, tagToPin = ""){
+        this.values = this.values.set(keyName, newValue);
+        //setValue(keyName,newValue);
+        
+        // this.values.forEach(function(value, key) {
+        //     console.log(key + " = " + value);
+        // });
+    
+        let tmp = window.location.href;
+    
+        let askPointIndex = tmp.indexOf("\?");
+        let okURL = tmp.substring(0, askPointIndex);
+        let newURL = okURL + this.obtainNewQuery() + tagToPin;
+        // console.log(this.obtainNewQuery() + " § " + newURL);
+        
+        if (mustSaveOnHistory) {
+            window.history.replaceState({}, "", newURL);
+        }
+
+    }
+
 }
-
-function getValue(keyName) {
-    let tmp =  values.get(keyName);
-    return tmp;
-}
-
-function setValue(keyName, newValue){
-    values = values.set(keyName, newValue);
-}
-
- 
-
-
-
-//}
