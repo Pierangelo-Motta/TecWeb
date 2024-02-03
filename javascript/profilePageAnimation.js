@@ -1,43 +1,9 @@
-//class PHPGet{
 
-
-const values = new Map();
-
-function create() {
-    let allGets = window.location.search.substring(1);
-    let gets = allGets.split("&");
-    // fore
-    //this. 
-    
-    gets.forEach(elem => {
-        let row = elem.split("=");
-        values.set(row[0], row[1]);
-    });
-    //return this;
-}
-
-function getValue(keyName) {
-    let tmp =  values.get(keyName);
-    return tmp;
-}
-
-//function setValue(keyName, newValue){
-    //values = values.set(keyName, newValue);
-//}
-
- 
-
-
-
-//}
+const pG = new PHPGet();
 
 class Swapper{
 
-    // import { create as summonPHPget, getValue as getPHPGet, setValue as setPHPValue} from "./PHPGet.js";
-    
     constructor() {
-
-        create();
 
         this.sections = document.querySelectorAll("section");
         this.actSections = this.sections[this.sections.length - 1];
@@ -61,8 +27,8 @@ class Swapper{
     }
 
     redirectTo(){
-        let pageMod = getValue("mode");
-        if(pageMod == "post"){
+        let pageMod = pG.values.get("mode");
+        if (pageMod == "post") {
             window.location = "newPost.php";
         } else {
             window.location = "newMedagliere.php";
@@ -81,20 +47,20 @@ class Swapper{
 
         abbrPortalImg.addEventListener('mouseover', () => {
             // Change the button's background color
-            portalImg.setAttribute("src",otherImg);
+            portalImg.setAttribute("src", otherImg);
         });
         
         abbrPortalImg.addEventListener('mouseout', () => {
             // Change the button's background color
-            portalImg.setAttribute("src",actImg);
+            portalImg.setAttribute("src", actImg);
         });
     }
 
-    adaptPortalByPostToGoal(portalImg, abbrPortalImg){
+    adaptPortalByPostToGoal(portalImg, abbrPortalImg) {
         this.adaptPortal(portalImg, abbrPortalImg, "goal", "Clicca qui per passare al libro dei medaglieri di ", "images/logoLetturePremiate.png");
     }
 
-    adaptPortalByGoalToPost(portalImg, abbrPortalImg){
+    adaptPortalByGoalToPost(portalImg, abbrPortalImg) {
         this.adaptPortal(portalImg, abbrPortalImg, "post", "Clicca qui per tornare ai post di ", "images/libroMedaglieri.png");
     }
 }

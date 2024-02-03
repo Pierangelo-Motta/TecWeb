@@ -111,6 +111,7 @@ class PostAdder {
 a = new PostAdder(false, false); //default values
 
 
+
 let fb = new Array();
 
 
@@ -157,7 +158,7 @@ function showAutocompleteBooks(inputValue, tipologia, classe) {
     let ok = prev + askFor;
     xhr.open('GET', ok, true);
 
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // linea aggiunta per settare l' "X-Requested-With header" che indica che questa è una richiesta AJAX.
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     xhr.send();
 
 }
@@ -169,5 +170,13 @@ document.addEventListener('click', function (event) {
     document.getElementById('nomeLibroId').addEventListener('input', function () {
         showAutocompleteBooks(this.value, 'nomeLibroId', 'autocompleteBoooksResults');
     });
+    document.getElementById('nomeLibroId').addEventListener('click', function () {
+        if (this.value.length > 0){
+            showAutocompleteBooks(this.value, 'nomeLibroId', 'autocompleteBoooksResults');
+        }
+    });
+
+    document.getElementById("autocompleteBoooksResults").style.display = "none";
+
 
 });

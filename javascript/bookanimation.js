@@ -3,6 +3,7 @@ const music = new Audio('audio/sfoglia.mp3');
 music.playbackRate = 4;
 
 const pG = new PHPGet();
+const rel = new ReloaderPage(500);
 
 const flipBook = (elBook) => {
     const myVar = "cP";
@@ -139,7 +140,7 @@ this.startView();
 
 
 
-const rel = new ReloaderPage(500);
+
 
 const amount = document.querySelectorAll(".facciata").length;
 document.querySelectorAll(".facciata").forEach((elem, index) => {

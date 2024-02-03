@@ -123,8 +123,9 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
         crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    
+
     <script src="javascript/personalLibs/ReloaderPage.js"></script>
+    <script src="javascript/personalLibs/PHPGet.js"></script>
     <script src="javascript/likePost.js"></script>
     <script src="javascript/lovePost.js"></script>
     <script src="javascript/commentAnimation.js"></script>
