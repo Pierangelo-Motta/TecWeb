@@ -48,15 +48,11 @@ if(isPresentImg($imgInterestedName)){
     updateImg('post', $imgInterestedName);
 }
 
-// print_r($_POST);
-
 //vecchio strcmp($_POST["sB"], "ok"): ho fatto in modo che sB valesse:
 //1 se si vuole condividere
 //0 se si vuole tornare indietro
 if (isset($_POST["sB"])) {
-
     $parsed = intval($_POST["sB"]);
-    //echo "-->" . $parsed;
     if($parsed == 1){
         $userIDtmp = $_SESSION["id"]; //chi
         $date = date("Y-m-d H:i:s", time()); //quando
@@ -73,54 +69,41 @@ if (isset($_POST["sB"])) {
 
         // TODO : tanto ce n'è solo 1, ma si può migliorare?
 
-        // echo("<br>");
-        // echo ("newPost.actImgName: " . $actImgName);
-        // echo("<br>");
-
         if(!empty($actImgName)){ 
-            $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);
-            // echo("<br>");
-            //echo ("newImg: " . $newImgName);
-            // echo("<br>");
-            
+            $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);            
         } 
-        // else {
-        //     echo "ERR: post non avvenuto con successo";
-        // }
 
         // TODO SOLVED l'ultimo 0 deve essere convertito in un id del libro!!
-        createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, getLibroIdFromLibroWhereTitle($nomeLibroNameValue)); 
-
+        createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, getLibroIdFromLibroWhereTitle($nomeLibroNameValue));
         ////////////   
 
         //////// creazione tags
         
         $tags = explode(" ", $tagsAreaNameValue);
         $tagIndex = array();
-        // print_r($tags);
         
-        foreach($tags as $t){
-            // echo "<br>";
-            // echo $t;
-            $tmp = checkIfTagExists($t);
-            // echo $tmp;
-            if ($tmp < 0){
-                createNewTag($t);
+        foreach ($tags as $t) {
+            $newT = trim($t);
+            if (strlen($newT > 0)){
                 $tmp = checkIfTagExists($t);
+                if ($tmp < 0) {
+                    createNewTag($t);
+                    $tmp = checkIfTagExists($t);
+                }
+                array_push($tagIndex, $tmp);
             }
-            array_push($tagIndex, $tmp);
         }
         
         $ntI = array_unique($tagIndex);
-        // print_r($tagIndex);
 
-        foreach($ntI as $ti){
+        foreach ($ntI as $ti) {
             embedTagPost($ti, $userIDtmp, $date);
         }
         //////////////
 
     
     } else {
+        //// errors print
         print_r($_POST);
         $dirPath = "images/post/tmp";
         $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
@@ -130,8 +113,8 @@ if (isset($_POST["sB"])) {
             }
         }
     }
+    //force return to profile page
     header("Location: profilePage.php");
-    
 } 
 
 

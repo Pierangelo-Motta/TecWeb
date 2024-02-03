@@ -55,9 +55,6 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
                         aria-label="Search"
                         id="tmpInputSeachingString"
                         value="<?php echo $res; ?>"/>
-
-                    <!-- <?php //echo $searchingMedStr; ?> 
-                        <button class="btn btn-primary float-right" type="submit">Cerca Medaglione</button> -->
                 </form>
             </div>
         </div>

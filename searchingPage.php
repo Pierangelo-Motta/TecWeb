@@ -9,13 +9,16 @@ if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
     header("Location: index.php");
 }
-$tmp = isset($_POST["searchingText"]) ? $_POST["searchingText"] : "c";
+
+$tmp = isset($_POST["searchingText"]) ? $_POST["searchingText"] : "";
 $a = array();
+
 if (!empty($tmp)){
   $a = getUserIdWithSimilarName($tmp);
+  if (($key = array_search(7, $a)) !== false) {
+    unset($a[$key]);
+  }
 }
-
-// print_r($a);
 
 ?>
 

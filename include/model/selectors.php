@@ -1,17 +1,16 @@
 <?php
 
-
-// if(true){
-require_once("include/config.php");
-// } else {
-//     require_once("../config.php");
-// }
+if (isset($GLOBALS["farFromInclude"])) {
+    $new = $GLOBALS["farFromInclude"] . DIRECTORY_SEPARATOR . "include/config.php";
+    require_once($new);
+} else {
+    require_once("include/config.php");
+}
 
 
 function getLibroIdFromLibroWhereTitle($title){
     global $conn;
     $sql = "SELECT L.id from libro L WHERE L.titolo=?";
-    // $sql = "SELECT isAdmin FROM utente WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $title);
 
@@ -19,45 +18,34 @@ function getLibroIdFromLibroWhereTitle($title){
 
     $result = $stmt->get_result();
     $tmp = $result->fetch_assoc();
-    // print_r($tmp);
     return isset($tmp["id"]) ? $tmp["id"] : 0;
 }
 
 
 function getMedCompletatiByUserId($idUser){
     global $conn;
-    $sql = "SELECT MMM.id
-            From medagliere MMM, sottoscrive SSS
-            WHERE SSS.utenteId = ?
-            and SSS.medagliereId = MMM.id
-            and MMM.id in(
-                SELECT M.id
-                FROM medagliere M
-                WHERE M.id not in(
-                    SELECT MM.id
-                    FROM medagliere MM, compone C, libro L, sottoscrive S
-                    WHERE L.id = C.libroId
-                    AND C.medagliereId = MM.id
-                    AND MM.id = S.medagliereId
-                    AND S.utenteId = ?
-                        and L.id not in (
-                        SELECT P.libroId
-                        FROM post P
-                        WHERE P.utenteId = ?)))";
+    $sql = "SELECT M.id
+            FROM medagliere M
+            WHERE M.id not in(
+                SELECT MM.id
+                FROM medagliere MM, compone C, libro L
+                WHERE L.id = C.libroId
+                AND C.medagliereId = MM.id
+                and L.id not in (
+                    SELECT P.libroId
+                    FROM post P
+                    WHERE P.utenteId = ?))";
     
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iii", $idUser, $idUser, $idUser);
+    $stmt->bind_param("i", $idUser);
     $stmt->execute();
 
     $result = $stmt->get_result();
-    // echo "<br>";
-    // print_r($result);
-    // echo "<br>";
+
     $tmp = $result->fetch_all(MYSQLI_ASSOC);
 
     return array_column($tmp, 'id');
-    //print_r(array_column($tmp, 'id'));
-    // return isset($tmp["id"]) ? $tmp["id"] : 0;
+
 }
 
 function getAllMedOfUserId($idUser){
@@ -73,15 +61,10 @@ function getAllMedOfUserId($idUser){
 
     $result = $stmt->get_result();
 
-    // echo "<br>";
-    // print_r($result);
-    // echo "<br>";
     $tmp = $result->fetch_all(MYSQLI_ASSOC);
-    // echo "AAA:";
-    // print_r($tmp);
+
     return array_column($tmp, 'id');
-    //print_r(array_column($tmp, 'id'));
-    // return isset($tmp["id"]) ? $tmp["id"] : 0;
+
 }
 
 
@@ -108,9 +91,6 @@ function getLibroEAutoreByMedagliereId($medID){
 
     $result = $stmt->get_result();
 
-    // echo "<br>";
-    // print_r($result);
-    // echo "<br>";
     $tmp = $result->fetch_all(MYSQLI_ASSOC);
     return $tmp;
 }
@@ -165,12 +145,7 @@ function checkIfUserReadBook($userId, $libroId){
 
     $result = $stmt->get_result();
         
-    if ($result->num_rows > 0) {
-        // return $result->fetch_assoc()['id'];
-        return true;
-    } else {
-        return false;
-    }
+    return $result->num_rows > 0;
 }
 
 function checkIfUserFollowUser($userIdFrom, $userIdTo){
@@ -184,11 +159,7 @@ function checkIfUserFollowUser($userIdFrom, $userIdTo){
 
     $result = $stmt->get_result();
         
-    if ($result->num_rows > 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return $result->num_rows > 0;
 }
 
 function gestisciFollowerFollowed($userIdFrom, $isOttieniFollower){
@@ -228,18 +199,12 @@ function getAllMeds(){
             From medagliere M";
     
     $stmt = $conn->prepare($sql);
-    // $stmt->bind_param("iii", $idUser, $idUser, $idUser);
     $stmt->execute();
 
     $result = $stmt->get_result();
-    // echo "<br>";
-    // print_r($result);
-    // echo "<br>";
     $tmp = $result->fetch_all(MYSQLI_ASSOC);
 
     return array_column($tmp, 'id');
-    //print_r(array_column($tmp, 'id'));
-    // return isset($tmp["id"]) ? $tmp["id"] : 0;
 }
 
 function getMedsChallengedByUserId($idUser){
@@ -256,32 +221,6 @@ function getMedsChallengedByUserId($idUser){
     $tmp = $result->fetch_all(MYSQLI_ASSOC);
 
     return array_column($tmp, 'id');
-    //print_r(array_column($tmp, 'id'));
-    // return isset($tmp["id"]) ? $tmp["id"] : 0;
-}
-
-function getMedThatUserNotChallenge($idUser, $textSearch=""){
-
-    /// forse è da cancellare
-    global $conn;
-    $sql = "SELECT M.id 
-            From medagliere M
-            where M.titolo like \"%" . $textSearch . "%\"
-            and M.id not in(select S.medagliereId
-                        from sottoscrive S
-                        where S.utenteId = ?);";
-    // echo $sql;
-    
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $idUser);
-    $stmt->execute();
-
-    $result = $stmt->get_result();
-    $tmp = $result->fetch_all(MYSQLI_ASSOC);
-
-    return array_column($tmp, 'id');
-    //print_r(array_column($tmp, 'id'));
-    // return isset($tmp["id"]) ? $tmp["id"] : 0;
 }
 
 function getMedInfo($medId){
@@ -304,7 +243,7 @@ function getLibriLettiDaUserId($idUser){
     global $conn;
     $sql = "SELECT libroId
             From post
-            where utenteID=?";
+            where utenteID = ?";
     
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $idUser);
@@ -321,7 +260,6 @@ function checkIfTagExists($tagText) {
     global $conn;
     $sql = "SELECT id FROM tags WHERE testo = \"" . $tagText . "\";";
     $stmt = $conn->prepare($sql);
-    // $stmt->bind_param("s", $tagText);
 
     $stmt->execute();
 
@@ -340,7 +278,6 @@ function getUserIdWithSimilarName($simName){
     $sql = "SELECT id FROM utente U WHERE U.username LIKE \"%" . $simName . "%\";";
     
     $stmt = $conn->prepare($sql);
-    // $stmt->bind_param("s", $simName);
 
     $stmt->execute();
 
@@ -382,12 +319,7 @@ function checkIfPostExist($userId, $dataPost){
 
     $result = $stmt->get_result();
         
-    if ($result->num_rows > 0) {
-        // return $result->fetch_assoc()['id'];
-        return true;
-    } else {
-        return false;
-    }
+    return $result->num_rows > 0;
 }
 
 ?>

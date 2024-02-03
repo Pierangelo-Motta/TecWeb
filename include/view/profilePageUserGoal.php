@@ -2,6 +2,7 @@
 
 require("include/view/bookSummoner.php");
 
+// print_r($GLOBALS);
 ?>
 
 
@@ -12,12 +13,16 @@ require("include/view/bookSummoner.php");
         <?php echo createBook($medIndex, $amountComplete); ?>
     </div>
     <?php else : ?>
+        <div id="userGoalPageAdmin">
         <h3>Utente admin: non possiede librone! 😉</h3>
+        </div>
     <?php endif; ?>
 
     <!-- <div class="col-1">  </div> -->
 </section>
 
-<script src="javascript/bookanimation.js">
+<script src="javascript/personalLibs/ReloaderPage.js"> </script>
+<script src="javascript/bookanimation.js"></script>
+
     
 </script>

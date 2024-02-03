@@ -1,16 +1,13 @@
 <?php
 
-require_once("../config.php"); //TODO: possibile fonte di problemi
+require_once("../config.php"); 
+$GLOBALS["farFromInclude"] = ".." . DIRECTORY_SEPARATOR . "..";
+require_once("include/model/insertOnDB.php");
 
 function execQ($sql, $isCreate){
     global $conn;
 
     $a = date("Y-m-d H:i:s", time());
-    // echo $a . "<br>";
-    // $b = str_replace(" ","__",$a);
-    // $b = str_replace(":","_",$b);
-    // $b = str_replace("-","_",$b);
-    // echo $b;
     
     $userIdP = $_POST["userIdP"];
     $dateP = $_POST["dateP"];
@@ -27,21 +24,25 @@ function execQ($sql, $isCreate){
             mysqli_stmt_bind_param($stmt, "isis", $userIdP,  $dateP , $userIdC , $dateC);   
         }
         
-
         if (mysqli_stmt_execute($stmt)) {
-            // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
     }
 
     mysqli_stmt_close($stmt);
+
+    if ($isCreate){
+        createNotifyToUserForComment($userIdC, $dateC, $userIdP, $dateP);
+    } else {
+        //deleteNotifyToUserForComment($userIdC, $dateC, $userIdP, $dateP);
+    }
 }
 
 function createComment(){
     $sql = "INSERT INTO commenti(utenteIdPost, dataOraPost, utenteIdComm, dataOraComm, commento) VALUES (?,?,?,?,?);";
     execQ($sql, true);
+    
 }
 
 function deleteComment(){

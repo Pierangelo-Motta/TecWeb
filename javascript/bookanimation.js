@@ -220,6 +220,8 @@ function startView() {
 
 create();
 
+let rel = new ReloaderPage(500);
+
 
 // console.log(isComputer());
 const criticalSize = 768;
@@ -293,6 +295,9 @@ document.querySelectorAll(".facciata").forEach((elem, index) => {
     
     const firstArt = elem.firstChild;
     const secArt = firstArt.nextSibling;
+    if(secArt === undefined || secArt === null){
+        return;
+    }
 
     const title = firstArt.firstChild.nextSibling;
     const descript = title.nextSibling.nextSibling;

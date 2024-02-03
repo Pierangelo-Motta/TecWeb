@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once("include/login.controller.php");
 require_once("include/login.model.php");
@@ -6,6 +7,10 @@ require_once("include/post.php");
 require_once("include/model/selectors.php");
 require_once("include/model/insertOnDB.php");
 require_once("include/view/userBanner.php");
+
+function useIsVisitingAdminPage() {
+    return ($_SESSION["id"] != 7) && ($_GET["id"] == 7);
+}
 
 if (!($_SESSION['loggedin'] === true)) {
     //user is not logged in go to login page
@@ -20,7 +25,7 @@ if (!isset($_GET["mode"]) || !in_array($_GET["mode"], $modes)) {
     $newValues["post"] = "post";
 }
 
-if (!isset($_GET["id"]) || (existIdUser($_GET["id"]) == -1)) {
+if (!isset($_GET["id"]) || (existIdUser($_GET["id"]) == -1) || (useIsVisitingAdminPage())) {
     $newValues["id"] = getUserId1($_SESSION["username"]);
 }
 

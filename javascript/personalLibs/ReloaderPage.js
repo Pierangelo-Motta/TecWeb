@@ -1,21 +1,22 @@
-// export default class ReloaderPage {}
+class ReloaderPage {
 
-class ReloaderPage{
+    critValue = 768;
+    isLittle;
 
     constructor(freqReload) {
+        
         this.byLittleToBig = () => console.log("byLittleToBig");
         this.byBigToLitle = () => console.log("byBigToLittle");
-        
-        const critValue = 768;
-        this.myWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-        this.isLittle = this.myWidth < critValue;
-        
-        this.freq = freqReload;
 
-        window.addEventListener("resize", () => this.checkReload());
+        this.myWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        this.isLittle = this.myWidth < this.critValue;
+
+        this.freq = freqReload;
+        
+        setInterval(() => {this.checkReload(); console.log("CIAO");}, freqReload);
     }
 
-    checkReload(){
+    checkReload() {
         if (!isLittle && (width < criticalSize)) {
             this.byBigToLitle();
             window.location.reload();
@@ -29,18 +30,8 @@ class ReloaderPage{
         }
     }
 
-    recCheck() {
-        setTimeout(() => {
-            this.checkReload();
-            this.recCheck();
-        }, this.freq);
-    }
-
-    isWindowLittle(){
+    isWindowLittle() {
         return this.isLittle;
     }
 
 }
-new ReloaderPage();
-
-//module.exports = ReloaderPage // 👈 Export class

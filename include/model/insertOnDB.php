@@ -1,6 +1,11 @@
 <?php
-require_once(__DIR__ . '/../config.php');
 
+if (isset($GLOBALS["farFromInclude"])) {
+    $new = $GLOBALS["farFromInclude"] . DIRECTORY_SEPARATOR . "include/config.php";
+    require_once($new);
+} else {
+    require_once("include/config.php");
+}
 
 function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID) {
 
@@ -42,9 +47,6 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
 
     $sql = $sql . $querys . $end2; // completo la seconda parte della query
 
-
-
-
     /////////creazione della stringa di binding
     $startBiding = "is"; //indexUser, TODO date
     $endBiding = "siii"; //riflessione, counter1, counter2, libroID
@@ -58,12 +60,10 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
 
     /////////
 
-    // echo $sql;
-    // echo $biding;
 
     $stmt = $conn->prepare($sql);
 
-    $initLikeLove = 0; //se no si lamentava, ma aiuta a non diffondere magic number, ci sta
+    $initLikeLove = 0;
 
     switch ($amountInsered) {
         case 2:
@@ -79,7 +79,7 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
             break;
 
         default:
-            return; //ERROREEEEE TODO lo facciamo presente?
+            header("Location: index.html"); //debug choise: se il programmatore programma male la funzione, se ne accorge subito
             break;
     }
 
@@ -110,36 +110,22 @@ function savePostedPhoto($imgRelPath, $userName){
     ///////////////
 
 
-    // echo "<br>";
-    // echo ("insertOnDB.newImgName: " . $newImgName);
-    // echo "<br>";
-
     // nuovo nome della foto
     $newImgName = $newImgName . "__" . $timeStamp . "." . $extension;
 
-    // echo "<br>";
-    // echo ("insertOnDB.newImgName2: " . $newImgName);
-    // echo "<br>";
-
-    $distanceByRoot = "/../../";
+    $distanceByRoot = DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "..";
 
     // Construct the full path for the source dir
     $fromDir = $currentDirectory . $distanceByRoot . $imgRelPath; //. "images/post/tmp/" . $imageName;
     // e per la destination directory
     $toDir = $currentDirectory . $distanceByRoot . "images/post/posted/" . $userName;
 
-
-    // echo "<br>";
-    // echo ("insertOnDB.toDir: " . $toDir);
-    // echo "<br>";
     if (!is_dir($toDir)){
         mkdir($toDir, 0777, true);
     }
 
-    //$fromDir = $fromDir . "/" . $imgName;
-    $toDir = $toDir . "/" . $newImgName;
+    $toDir = $toDir . DIRECTORY_SEPARATOR . $newImgName;
 
-    // echo ($fromDir . " " . $toDir);
     rename($fromDir, $toDir);
     return $newImgName;
 }
@@ -151,8 +137,6 @@ function manageFollow($userIDFrom, $userIDTo, $query){
         mysqli_stmt_bind_param($stmt, "ii", $userIDFrom, $userIDTo);
 
         if (mysqli_stmt_execute($stmt)) {
-            // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
             $tipo = 'F';
             createNotification($userIDTo, $userIDFrom, $tipo);
         } else {
@@ -220,8 +204,6 @@ function subscribeUserToMed($userID, $medID){
         mysqli_stmt_bind_param($stmt, "ii", $userID, $medID);
 
         if (mysqli_stmt_execute($stmt)) {
-            // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
@@ -239,8 +221,6 @@ function createNewTag($textToInsert){
         mysqli_stmt_bind_param($stmt, "s", $textToInsert);
 
         if (mysqli_stmt_execute($stmt)) {
-            // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
@@ -258,8 +238,6 @@ function embedTagPost($idTag, $userId, $datetime){
         mysqli_stmt_bind_param($stmt, "isi", $userId, $datetime,  $idTag);
 
         if (mysqli_stmt_execute($stmt)) {
-            // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
         }
@@ -267,4 +245,67 @@ function embedTagPost($idTag, $userId, $datetime){
 
     mysqli_stmt_close($stmt);
 }
+
+
+
+
+function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
+    
+    global $conn;
+    
+    $sql = "INSERT INTO medagliere(titolo, descrizione) VALUES (?,?);";
+
+    $tipo = "C"; //TODO luca controllami
+
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        // mysqli_stmt_bind_param($stmt, "ss", $datePost, $datetime,  $idTag);
+
+        if (mysqli_stmt_execute($stmt)) {
+        } else {
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+    // //FIXME luca controllami
+    // global $conn;
+    // //FIXME luca controllami
+    // $sql = "INSERT INTO notifica(utenteId, dataOra, utenteIdPost, dataOraPost, tipo) VALUES (?,?,?,?,?);";
+    // //FIXME luca controllami
+    // $tipo = "C"; //TODO luca controllami
+    // //FIXME luca controllami
+
+    // if ($stmt = mysqli_prepare($conn, $sql)) {$userIdPost, $datePost, $when, $who
+    //     mysqli_stmt_bind_param($stmt, "isiss", $who, $when, $userIdPost, $datePost, $tipo);
+
+    //     if (mysqli_stmt_execute($stmt)) {
+    //     } else {
+    //         echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+    //     }
+    // }
+
+    // mysqli_stmt_close($stmt);
+}
+
+function deleteNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
+     
+    //FIXME luca controllami
+    global $conn;
+    //FIXME luca controllami
+    $sql = "DELETE FROM notifica WHERE utenteId = ? AND dataOra = ? AND utenteIdPost = ? AND dataOraPost = ?;";
+    //FIXME luca controllami
+
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        mysqli_stmt_bind_param($stmt, "isis", $who, $when, $userIdPost, $datePost);
+
+        if (mysqli_stmt_execute($stmt)) {
+        } else {
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+
 ?>

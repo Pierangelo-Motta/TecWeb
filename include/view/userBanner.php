@@ -6,6 +6,8 @@ require_once("include/login.model.php");
 require_once("include/model/selectors.php");
 require_once("include/model/insertOnDB.php");
 
+require_once("include/view/formattators.php");
+
 //TODO : sarebbe da pulire sta porcata...
 $userIdLogged = $_SESSION["id"];
 $userIdvisited = isset($_GET["id"]) ? $_GET["id"] : -1;
@@ -43,20 +45,7 @@ function getPictureOfPortalImage($typeOfView){
     return $portalImg;
 }
 
-function summonHTMLElement($witch, $arrAttributes, $innerHTML, $isSingle = false){
-    $init = "<" . $witch . "";
-    $args = "";
-    foreach(array_keys($arrAttributes) as $k){
-        $args .= " " . $k . "=\"" . $arrAttributes[$k] . "\" ";
-    }
-    $fininit = $isSingle ? "" : ">";
 
-    $middle = $isSingle ? "" : $innerHTML;
-
-    $end = $isSingle ? " />" : "</" . $witch . ">";
-
-    return $init . $args . $fininit . $middle . $end;
-}
 
 function getButtonOfPortal($userId, $typeView){
     $userIdLogged = $_SESSION["id"];
@@ -238,8 +227,6 @@ function obtainPortalsUserBanner($userId, $typeView){
 
     $portalImg = getPictureOfPortalImage($typeView);
 
-    //$textButton = getButtonOfPortal($userId, $typeView);
-
 
     $classFirstContainer = "order-md-1 w-auto justify-content-center align-items-center mx-auto";
     //per ora un utente gli metto solo il buttone "vedi di più" : non personalizzo l'ID al portale
@@ -249,21 +236,23 @@ function obtainPortalsUserBanner($userId, $typeView){
                 "<abbr id=\"portalAbbr" . $userId . "\" lang=\"it\" title=\"" . $nameInterestedUser . "\" class=\"" . $classImgAbbr . "\">" .
                                     "<img " . 
                                         "id=\"portal\" " . 
-                                        "class=\"flex-wrap justify-content-center align-items-center mx-auto\" " . //w-100
+                                        "class=\"flex-wrap justify-content-center align-items-center mx-auto\" " .
                                         "alt=\"" . $nameInterestedUser . "\" " . 
                                         "src=\"" .  $portalImg . "\" /> " .
                                 "</abbr>" .
                             "</div>";
 
     $classSecondContainer = "d-flex order-md-0 w-auto justify-content-center align-items-center";
-    $second = "<div id=\"addInfosUserBannerN" . $userId . "\" class=\"" . $classSecondContainer . "\">" . 
-                getButtonOfPortal($userId, $typeView) . 
-                "</div>";
+    $second = ($userId != 7)
+                ? "<div id=\"addInfosUserBannerN" . $userId . "\" class=\"" . $classSecondContainer . "\">" . 
+                    getButtonOfPortal($userId, $typeView) . 
+                    "</div>"
+                : "";
 
     $finMainContainer = "</div>";
 
     $isSearching = strcmp($typeView, "search") == 0;
-    if ($isSearching){
+    if ($isSearching) {
         return $initMainContainter . $second . $finMainContainer;
     } else {
         return $initMainContainter . $first . $second . $finMainContainer;

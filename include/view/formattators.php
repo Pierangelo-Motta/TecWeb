@@ -23,29 +23,19 @@ function obtainList($libriInMedagliere, $who){
     return $res;
 }
 
-// function obtainList($libriInMedagliere){
-//     $res = "";
-//     foreach ($libriInMedagliere as $a) {
-//         $tmpRes = "";
-//         if (checkIfUserReadBook($_GET["id"], getLibroIdFromLibroWhereTitle($a["titolo"]))){
-//             $tmpRes = "<li> <p class='libroLetto'>";
-//         } else {
-//             $tmpRes = "<li> <p class='libroNonLetto'>";
-//         }
-//         $nomeLibroS = str_replace(" ", "+", $a["titolo"]);
-//         $virgola = ",";
-//         $nomeAutoreS = str_replace(" ", "+", $a["nome"]);
-        
-//         $totalLink = "https://www.google.com/search?q=" . $nomeLibroS . $virgola . "+" . $nomeAutoreS;
+function summonHTMLElement($witch, $arrAttributes, $innerHTML, $isSingle = false){
+    $init = "<" . $witch . "";
+    $args = "";
+    foreach(array_keys($arrAttributes) as $k){
+        $args .= " " . $k . "=\"" . $arrAttributes[$k] . "\" ";
+    }
+    $fininit = $isSingle ? "" : ">";
 
-//         $tmpRes .= "\"<a href=\"" . $totalLink . "\">" . $a["titolo"] . "</a>\" di " . $a["nome"];
-//         $tmpRes .= "</p></li>";
+    $middle = $isSingle ? "" : $innerHTML;
 
-//         $res .= $tmpRes;
-//     }
-//     return $res;
-// }
+    $end = $isSingle ? " />" : "</" . $witch . ">";
 
-
+    return $init . $args . $fininit . $middle . $end;
+}
 
 ?>
