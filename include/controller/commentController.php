@@ -2,7 +2,7 @@
 
 require_once("../config.php"); 
 $GLOBALS["farFromInclude"] = ".." . DIRECTORY_SEPARATOR . "..";
-require_once("include/model/insertOnDB.php");
+require_once("../model/insertOnDB.php");
 
 function execQ($sql, $isCreate){
     global $conn;
@@ -33,7 +33,7 @@ function execQ($sql, $isCreate){
     mysqli_stmt_close($stmt);
 
     if ($isCreate){
-        createNotifyToUserForComment($userIdC, $dateC, $userIdP, $dateP);
+        createNotifyToUserForComment($$userIdP, $dateP, $dateC, $userIdC);
     } else {
         //deleteNotifyToUserForComment($userIdC, $dateC, $userIdP, $dateP);
     }

@@ -122,18 +122,12 @@ const changePage = (elBook) => {
 
 /////
 
-const rel = new ReloaderPage(500);
-
-
-
-
 function startView() {
     if (!rel.isLittle){
         document.querySelectorAll(".book").forEach(flipBook);
     } else {
         document.querySelectorAll(".book").forEach(changePage);
-    }
-    
+    }   
 }
 
 
@@ -141,14 +135,11 @@ function startView() {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-// create();
 this.startView();
 
 
 
+const rel = new ReloaderPage(500);
 
 const amount = document.querySelectorAll(".facciata").length;
 document.querySelectorAll(".facciata").forEach((elem, index) => {

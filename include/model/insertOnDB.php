@@ -251,14 +251,16 @@ function embedTagPost($idTag, $userId, $datetime){
 
 function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
     
+    //FIXME luca controllami
     global $conn;
-    
-    $sql = "INSERT INTO medagliere(titolo, descrizione) VALUES (?,?);";
-
+    //FIXME luca controllami
+    $sql = "INSERT INTO notifica(utenteId, dataOra, utenteIdPost, dataOraPost, tipo) VALUES (?,?,?,?,?);";
+    //FIXME luca controllami
     $tipo = "C"; //TODO luca controllami
+    //FIXME luca controllami
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        // mysqli_stmt_bind_param($stmt, "ss", $datePost, $datetime,  $idTag);
+        mysqli_stmt_bind_param($stmt, "isiss", $who, $when, $userIdPost, $datePost, $tipo);
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
@@ -267,24 +269,6 @@ function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
     }
 
     mysqli_stmt_close($stmt);
-    // //FIXME luca controllami
-    // global $conn;
-    // //FIXME luca controllami
-    // $sql = "INSERT INTO notifica(utenteId, dataOra, utenteIdPost, dataOraPost, tipo) VALUES (?,?,?,?,?);";
-    // //FIXME luca controllami
-    // $tipo = "C"; //TODO luca controllami
-    // //FIXME luca controllami
-
-    // if ($stmt = mysqli_prepare($conn, $sql)) {$userIdPost, $datePost, $when, $who
-    //     mysqli_stmt_bind_param($stmt, "isiss", $who, $when, $userIdPost, $datePost, $tipo);
-
-    //     if (mysqli_stmt_execute($stmt)) {
-    //     } else {
-    //         echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
-    //     }
-    // }
-
-    // mysqli_stmt_close($stmt);
 }
 
 function deleteNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
