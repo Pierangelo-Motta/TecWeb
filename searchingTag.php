@@ -37,14 +37,14 @@ if ($tagExist) {
         // echo "<br>";
         // print_r();
         array_push($posts, $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]));
-        // $res .= 
+        // $res .=
     }
 }
 
 print_r($posts);
 
 // Ottenere i post delle persone che stai seguendo (Landing Page)
-// $posts = $post->getLandingPosts($_SESSION['id']);
+ //$posts = $post->getIdTagByString($_GET["tag"]);
 
 ?>
 
@@ -71,7 +71,7 @@ print_r($posts);
         </div>
         <div class="col-md-8">
           <?php if ($tagExist) {
-            
+
             // foreach ($res as $post) {
             //     print_r($post);
             //     // echo "<br>";
@@ -81,7 +81,7 @@ print_r($posts);
           } else {
 
             echo "<h3>Nessun utente ha fatto post con questo tag!</h3>";
-          
+
           } ?>
         </div>
         <div class="col-md-2">

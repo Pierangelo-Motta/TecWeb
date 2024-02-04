@@ -58,7 +58,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
 
                               <div class="col-md-1 col-3 text-right post">
                                   <a href="profilePage.php?id=<?= $post['utenteId']; ?>">
-                                      <img class="post-img" src="<?= getUserImage($post["username"]); ?>" alt="Immagine profilo" />
+                                      <img class="post-img" src="<?= getUserImage($post['username']); ?>" alt="Immagine profilo" />
                                   </a>
                               </div>
 
