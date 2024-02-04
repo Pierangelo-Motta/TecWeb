@@ -36,17 +36,14 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
 </head>
 
 <body>
-    <?php require('navbarSelect.php'); 
-        //if ($somethingNew) : //ci pensa js
-    ?>
-    
+
     <section id="cercaMed" class="d-flex">
         <div class="col-1"></div>
         <div class="col-10">
-            <div class="container-fluid float-right">
+            <div class="d-flex container-fluid float-right">
                 <form class="d-inline-flex" action="newMedagliere.php" method="post">
                     
-                    <label for="tmpInputSeachingString" id="labelSearchingInput">Ricerca nome medagliere:</label>
+                    <h2 id="tit1Sec"><label for="tmpInputSeachingString" id="labelSearchingInput">Ricerca nome medagliere:</label></h2>
 
                     <input name="searchingMed" 
                         class="form-control me-2 float-right" 
@@ -64,9 +61,10 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
     <section class="d-flex" data-userId="<?php echo $_SESSION["id"];?>">
         <div class="col-1"></div>
 
-
-        <div class="col-10" id="newMedaglieri">
         
+        <div class="col-10">
+        <h2 id="tit2Sec">Results</h2>
+        <div class="col-12" id="newMedaglieri"></div>
         </div>
 
 
@@ -83,8 +81,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
                         class="btn btn-secondary float-right" 
                         
                         type="button" 
-                        name="amountLoad" 
-                        value="<?php //echo $nextValue ?>"> Mostra di più <!-- form="challengeNewMed" -->
+                        name="amountLoad"> Mostra di più
                     </button>
             </div>
         </div>
@@ -96,8 +93,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
         <button id="retBut" type="button" class="btn btn-primary">Indietro</button>
     </footer>
 
-
-    <script src="javascript/newMedagliereAnimations.js"></script>
+    <script src="javascript/personalLibs/ReloaderPage.js"></script>
     <script src="javascript/newMedAJPAX.js"></script>
 </body>
 </html>

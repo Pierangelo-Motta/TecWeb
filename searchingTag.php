@@ -36,12 +36,15 @@ if ($tagExist) {
         // print_r($row);
         // echo "<br>";
         // print_r();
-        array_push($posts, $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]));
+        $res =  $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"])[0];
+        array_push($posts,$res);
+        // print_r($res);
+        // print "<br><br>";
         // $res .=
     }
 }
 
-print_r($posts);
+// print_r($posts);
 
 // Ottenere i post delle persone che stai seguendo (Landing Page)
  //$posts = $post->getIdTagByString($_GET["tag"]);

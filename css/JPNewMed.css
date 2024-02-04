@@ -82,6 +82,10 @@ section#cercaMed{
     margin-top: 30px;
 }
 
+h2#tit1Sec{
+    font-size: 20px;
+}
+
 @media only screen and (min-width: 768px) {
 
 

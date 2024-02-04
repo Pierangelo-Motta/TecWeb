@@ -32,9 +32,6 @@ if ($userID != 7) {
             <form action="searchingPage.php" method="post" class="d-flex me-auto" >
                 <!-- TODO: sostittuire con immagine lente: meno spazio occupato-->
 
-                <!-- JP: mi dava un errore di accessibilità, quindi intanto lo segno per posteri
-                  Essendo che qua dobbiamo gestire un form, una label è necessaria
-                  So che non è completo, ma intanto l'ho segnato per non dimenticarlo -->
                 <label for="searchingText" hidden>Cerca</label>
                 <input name="searchingText" id="searchingText" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button class="btn btn-primary" type="submit" title="Ricerca">Search</button>
@@ -52,6 +49,7 @@ if ($userID != 7) {
               <li class="nav-item">
                 <a href="classifica.php" title="Classifica"><img src="images/medagliereNewIcons/medagliaLogo.png" alt="Impostazioni"></a>
               </li>
+              
               <?php if($userID != 7): ?>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" title="Notifiche">
