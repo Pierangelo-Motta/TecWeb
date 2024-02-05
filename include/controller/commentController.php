@@ -33,7 +33,7 @@ function execQ($sql, $isCreate){
     mysqli_stmt_close($stmt);
 
     if ($isCreate){
-        createNotifyToUserForComment($$userIdP, $dateP, $dateC, $userIdC);
+        createNotifyToUserForComment($userIdP, $dateP, $dateC, $userIdC);
     } else {
         //deleteNotifyToUserForComment($userIdC, $dateC, $userIdP, $dateP);
     }
