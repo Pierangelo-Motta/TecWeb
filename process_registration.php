@@ -12,7 +12,7 @@ $email = $_POST['email'];
 $confirm_password = $_POST['confirm_password'];
 
 
-if (strlen(trim($username))) {
+if (strlen(trim($username) === 0)) {
     header("Location: register.html?log=u");
     die();
 }
