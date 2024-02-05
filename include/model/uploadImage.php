@@ -40,7 +40,6 @@ function updateOnFileSystem(string $where, string $nameInputImg, string $newImgN
             
             // echo "<br>";
             // echo strcmp($newImgName, "");
-
             $sourcePath = $_FILES[$nameInputImg]["tmp_name"]; //getAtcPos;
 
             // Set the path for the uploaded image

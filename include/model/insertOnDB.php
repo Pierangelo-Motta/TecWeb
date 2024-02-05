@@ -113,7 +113,7 @@ function savePostedPhoto($imgRelPath, $userName){
     // nuovo nome della foto
     $newImgName = $newImgName . "__" . $timeStamp . "." . $extension;
 
-    $distanceByRoot = DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "..";
+    $distanceByRoot = DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
 
     // Construct the full path for the source dir
     $fromDir = $currentDirectory . $distanceByRoot . $imgRelPath; //. "images/post/tmp/" . $imageName;

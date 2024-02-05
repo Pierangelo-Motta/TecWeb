@@ -140,14 +140,14 @@ class Libri {
 $libri = new Libri($conn);
 
 if (isset($_POST['aggiungi_libro'])) {
-    $titolo = mysqli_real_escape_string($conn, $_POST['titolo']);
+    $titolo = stripslashes(mysqli_real_escape_string($conn, $_POST['titolo']));
     $autoreId = mysqli_real_escape_string($conn, $_POST['autore']);
     $libri->aggiungiLibro($titolo, $autoreId);
 }
 
 if (isset($_POST['modifica_libro'])) {
     $id = mysqli_real_escape_string($conn, $_POST['id']);
-    $titolo = mysqli_real_escape_string($conn, $_POST['titolo']);
+    $titolo = stripslashes(mysqli_real_escape_string($conn, $_POST['titolo']));
     $autoreId = mysqli_real_escape_string($conn, $_POST['autore']);
     $libri->modificaLibro($id, $titolo, $autoreId);
 }
