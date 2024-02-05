@@ -36,7 +36,7 @@ class AJAXManager{
     prevURLquery = "include/controller/newMedagliereController.php?";
 
     basicAmountShow = 3;
-    amountReload = 0;
+    amountReload = -1;
     amountShowForReload = 2;
     amountChallenged = 0;
     
@@ -143,7 +143,7 @@ class AJAXManager{
         //l'ultimo indice all'inizio è ottenibile in questo modo
         let lastIndex = Math.min((this.basicAmountShow + ((this.amountReload) * this.amountShowForReload)), arrayMissMeds.length);
         let prevIndex = (this.amountReload == 0) ? 0 : (this.basicAmountShow + ((this.amountReload - 1) * this.amountShowForReload));
-        this.amountReload = this.amountReload + 1;
+        
         //console.log(lastIndex + " / " + prevIndex + " / " + this.amountReload + " <----> " + isFirstTime);
         let indexToShow = arrayMissMeds.slice(prevIndex, lastIndex);
 
@@ -160,7 +160,6 @@ class AJAXManager{
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // linea aggiunta per settare l' "X-Requested-With header" che indica che questa è una richiesta AJAX.
         xhr.send();
     
-        // console.log("xhr done: inside");
     }
 
     showResult(textToShow, reset) {
@@ -172,10 +171,13 @@ class AJAXManager{
         }
         
         this.showMore(true);
-        if(arrayMissMeds.length < (this.basicAmountShow + (this.amountReload * this.amountShowForReload))) {
+        console.log(arrayMissMeds.length  + " / " + this.basicAmountShow + " / " + (this.basicAmountShow + (this.amountReload * this.amountShowForReload)));
+        if (arrayMissMeds.length < (this.basicAmountShow + (this.amountReload * this.amountShowForReload)) ) {
             this.showMore(false);
             ///console.log(arrayMissMeds.length  + " / " + this.basicAmountShow);
         }
+
+        this.amountReload = this.amountReload + 1;
 
         this.activateAdapRoutine();
     }
