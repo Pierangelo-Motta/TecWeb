@@ -47,7 +47,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
         <div class="col-md-12">
                 <?php
                   if (empty($posts)) {
-                      echo '<p>Nessun post disponibile.</p>';
+                      echo '<p>Nessun post disponibile in questa sezione.</p>';
                   } else {
                       foreach ($posts as $post):
                 ?>

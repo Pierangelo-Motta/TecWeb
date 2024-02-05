@@ -34,7 +34,7 @@ if (!($_SESSION['loggedin'] === true)) {
     <link rel="stylesheet" type="text/css" href="css/infopointStyle.css">
 
     <link rel="icon" href="images/favicon_io/favicon.ico">
-  
+
 
 </head>
 <body>
@@ -43,8 +43,8 @@ if (!($_SESSION['loggedin'] === true)) {
     <div class="d-flex">
 
         <div class="col-1"> </div>
-        
-        <div class="col-10"> 
+
+        <div class="col-10">
 
             <h1> Letture premiate: il sito per lettori attenti</h1>
             <small class="form-text text-muted blockDisplay mx-auto text-center">...in ricerca di ricompensa per i loro pensieri!</small>
@@ -68,17 +68,18 @@ if (!($_SESSION['loggedin'] === true)) {
             <h2 class="h2subtitle">Scoprire nuove riflessioni: Discovery Page <img src="images/discoveryLogo.png" alt="#" /> </h2>
             <p> È la pagina dove puoi trovare riflessioni e post di persone che ancora non segui.
                 Ottima per fare nuove conoscenze!
+                Se non vedi alcun post probabilmente perché stai seguendo tutte le persone che hanno fatto dei post e quindi li troverai sulla landing page!
             </p>
             </article>
-            
+
             <article id="profileTag">
             <h2 class="h2subtitle">La tua casa (e non solo): Profile Page <img src="<?php echo getUserImage(tmpGetUsernameById($_SESSION["id"]))?>" alt="#" /></h2>
-            <p> È la pagina personale di ogni utente. È l'insieme dei tuoi post e delle tue medaglie. In giro nel sito è possibile accederci cliccando sulla sua immagine profilo o sul nickname dell'utente. 
+            <p> È la pagina personale di ogni utente. È l'insieme dei tuoi post e delle tue medaglie. In giro nel sito è possibile accederci cliccando sulla sua immagine profilo o sul nickname dell'utente.
                 Per accedere a una zona del profilo piuttosto che l'altra, sarà sufficente premere sull'immagine che si vedono sottostante (nel banner dell'utente ovviamente)</p>
             <h3>Zona post <img src="images/libroMedaglieri.png" alt="#" /></h3>
             <p>Semplicemente simili alla discovery e alla landing page, ma in questo caso ci saranno tutti i tuoi post</p>
             <h3>Zona medaglieri <img src="images/logoLetturePremiate.png" alt="#" /></h3>
-            <p>Diamo valore alla tua partecipazione nel nostro progetto e per questo abbiamo deciso di lanciarti una sfida: creare una serie di post per poter 
+            <p>Diamo valore alla tua partecipazione nel nostro progetto e per questo abbiamo deciso di lanciarti una sfida: creare una serie di post per poter
                 collezionare quante più "medaglie" possibili. L'insieme delle "medaglie" forma quindi il "medagliere", questo librone che raccoglie tutti i tuoi successi.
                 Una medaglia è univoca per un libro, e vale per più medaglieri.
                 </p>
@@ -90,7 +91,7 @@ if (!($_SESSION['loggedin'] === true)) {
             <p>Se si sta visitando la profile page di un utente diverso da sè stessi, tali pulsanti, indipendentemente dalla zona visitata, daranno questa possibilità</p>
             <p>È possibile trovare il profilo di un determinato utente cercandolo con l'apposita barra di ricerca presente nella stessa corsia dove sono presenti gli altri pulsanti di controllo</p>
         </article>
-        
+
 
             <article id="commentTag">
             <h2 class="h2subtitle">Un piccolo focus sui commenti: Comment Page / mi piace / ADORO</h2>
@@ -121,7 +122,7 @@ if (!($_SESSION['loggedin'] === true)) {
             <p> Vicino alle icone prima viste, è presente quella di logout (l'ultima, in alto a sinistra), e quella delle notifiche, che mostra le ultime novità che altri utenti hanno effettuato sul tuo profilo</p>
             </article>
 
-        
+
             <article id="acc">
                 <h2> Buone norme di accessibilità.</h2>
                 <p> Mettere una foto del tuo passo preferito è sicuramente il modo più interessante per permettere a molte persone di partecipare
@@ -141,6 +142,6 @@ if (!($_SESSION['loggedin'] === true)) {
         crossorigin="anonymous">
     </script>
 
-    
+
 </body>
 </html>
