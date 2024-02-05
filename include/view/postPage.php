@@ -27,7 +27,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
     $utenteAttuale = $_SESSION['id'];
     $sql = "SELECT * FROM notifica WHERE tipo = 'K' AND utenteId = ? AND utenteIdPost = ? AND dataOraPost = ?;";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iis",$userId, $utenteAttuale, $dataOra);
+    $stmt->bind_param("iis",$userId ,$utenteAttuale ,$dataOra);
 
     $stmt->execute();
 
@@ -40,6 +40,8 @@ function checkIfAlreadyLiked($userId, $dataOra) {
     }
 }
 
+
+
 ?>
 
 
@@ -50,6 +52,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                       echo '<p>Nessun post disponibile in questa sezione.</p>';
                   } else {
                       foreach ($posts as $post):
+                    //print_r($post["elencoTag"]);
                 ?>
                 <article>
                     <div class="card">
