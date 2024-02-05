@@ -309,7 +309,7 @@ function getCommentInfoByPost($userIdPost, $datePost){
 function checkIfPostExist($userId, $dataPost){
     global $conn;
     $sql = "SELECT *
-            from Post P 
+            from post p
             where p.utenteId = ?
             and p.dataOra = ?;";
     $stmt = $conn->prepare($sql);
