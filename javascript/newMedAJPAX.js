@@ -172,6 +172,7 @@ class AJAXManager{
         
         this.showMore(true);
         console.log(arrayMissMeds.length  + " / " + this.basicAmountShow + " / " + (this.basicAmountShow + (this.amountReload * this.amountShowForReload)));
+        
         if (arrayMissMeds.length < (this.basicAmountShow + (this.amountReload * this.amountShowForReload)) ) {
             this.showMore(false);
             ///console.log(arrayMissMeds.length  + " / " + this.basicAmountShow);
