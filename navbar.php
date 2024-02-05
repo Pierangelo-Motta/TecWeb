@@ -42,14 +42,14 @@ if ($userID != 7) {
             <ul class="navbar-nav">
               <li class="nav-item">
                   <a href="infoPoint.php" title="Informazioni"><img src="images/infoimg_no_background.png" alt="Informazioni"></a>
-                </li>  
+                </li>
               <li class="nav-item">
                 <a href="settingPage.php" title="Settings"><img src="images/settingLogo.png" alt="Impostazioni"></a>
               </li>
               <li class="nav-item">
                 <a href="classifica.php" title="Classifica"><img src="images/medagliereNewIcons/medagliaLogo.png" alt="Impostazioni"></a>
               </li>
-              
+
               <?php if($userID != 7): ?>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" title="Notifiche">
@@ -57,19 +57,16 @@ if ($userID != 7) {
                 </a>
                   <ul id="notification-list" class="dropdown-menu">
                   <?php
-                  if($notifications){   
-                    foreach ($notifications as $notification) {
-                        $followerId = $notification["utenteIdPost"];
-                        $followerUsername = getUserName($followerId, $conn);
-                        $notificationMessage = "$followerUsername ha iniziato a seguirti!";
-                        echo '<li><a class="dropdown-item" href="#">' . $notificationMessage . '</a></li>';
+                    if($notifications){
+                      foreach ($notifications as $notification) {
+                          echo '<li><a class="dropdown-item" href="#">' . $notification . '</a></li>';
+                      }
                     }
-                  }
-                    ?>
+                  ?>
                 </ul>
               </li>
               <?php endif; ?>
-                  
+
               <li class="nav-item dropdown">
                 <a href="discoveryPage.php" title="Discovery Page"><img src="images/discoveryLogo.png" alt="Scopri"></a>
               </li>
