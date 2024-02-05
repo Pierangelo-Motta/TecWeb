@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `autore`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `autore` (
-  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `id` int(8) NOT NULL,
   `nome` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ID_AUTORE_IND` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `autore` (
 
 LOCK TABLES `autore` WRITE;
 /*!40000 ALTER TABLE `autore` DISABLE KEYS */;
-INSERT INTO `autore` VALUES (0,'unknow'),(1,'Christian Bobin'),(2,'A.A. Milne'),(3,'Toshikazu Kawaguchi'),(4,'Chandra Candiani'),(5,'Franco Arminio'),(6,'Sanaka Hiiragi'),(7,'Banana Yoshimoto'),(8,'Matteo Bussola'),(9,'Tahar Ben Jelloun'),(10,'Gianrico Carofiglio'),(11,'Francesco Occhetta'),(13,'Satoshi Yagisawa'),(14,'Alan Bradley'),(15,'Flavia de Luce'),(16,'Elisa Rocchi'),(17,'Guus Kuijer'),(19,'Patricia MacLachlan'),(39,'Giovanni Boccaccio'),(40,'Omero'),(41,'Umberto Eco'),(42,'Charlotte Link'),(43,'Ken Follett'),(44,'Fabio Volo'),(45,'George Orwell');
+INSERT INTO `autore` VALUES (0,'unknow'),(1,'Christian Bobin'),(2,'A.A. Milne'),(3,'Toshikazu Kawaguchi'),(4,'Chandra Candiani'),(5,'Franco Arminio'),(6,'Sanaka Hiiragi'),(7,'Banana Yoshimoto'),(8,'Matteo Bussola'),(9,'Tahar Ben Jelloun'),(10,'Gianrico Carofiglio'),(11,'Francesco Occhetta'),(13,'Satoshi Yagisawa'),(14,'Alan Bradley'),(15,'Flavia de Luce'),(16,'Elisa Rocchi'),(17,'Guus Kuijer'),(19,'Patricia MacLachlan');
 /*!40000 ALTER TABLE `autore` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,6 @@ CREATE TABLE `commenti` (
 
 LOCK TABLES `commenti` WRITE;
 /*!40000 ALTER TABLE `commenti` DISABLE KEYS */;
-INSERT INTO `commenti` VALUES (1,'2024-02-05 17:13:40',3,'2024-02-05 17:14:46','bellissimo');
 /*!40000 ALTER TABLE `commenti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,8 +105,8 @@ CREATE TABLE `libro` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `titolo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  UNIQUE KEY `ID_LIBRO_IND` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +115,7 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
-INSERT INTO `libro` VALUES (1,'Questo immenso non sapere'),(2,'Sacro minore'),(3,'L\\\' abito di piume'),(4,'Un buon posto in cui fermarsi'),(5,'L\'urlo'),(6,'Della gentilezza e del coraggio'),(7,'L\'uomo che cammina'),(8,'Fede e giustizia'),(9,'Kitchen'),(10,'Il primo caffè della giornata'),(11,'I miei giorni alla libreria Morisaki'),(12,'Le trecce d\'oro dei defunti'),(13,'Il gatto striato miagola tre volte'),(14,'Talenti non fondamentali'),(15,'Il libro di tutte le cose'),(16,'Geai'),(17,'Una parola dopo l\'altra'),(18,'Winnie Pooh'),(19,'Il magnifico studio fotografico di Hirasaka'),(22,'Libro'),(61,'Il Decamerone'),(62,'Odissea'),(65,'Il nome della rosa'),(66,'La palude'),(67,'La casa delle sorelle'),(68,'L\\\'ultima traccia'),(69,'La scelta decisiva'),(70,'Il terzo gemello'),(71,'I pilastri della terra'),(72,'Le armi della luce'),(73,'Quando tutto inizia'),(74,'Le prime luci del mattino'),(75,'l\'oraa'),(76,'1984'),(97,'default');
+INSERT INTO `libro` VALUES (0,'default'),(1,'Questo immenso non sapere'),(2,'Sacro minore'),(3,'L\\\' abito di piume'),(4,'Un buon posto in cui fermarsi'),(5,'L\'urlo'),(6,'Della gentilezza e del coraggio'),(7,'L\'uomo che cammina'),(8,'Fede e giustizia'),(9,'Kitchen'),(10,'Il primo caffè della giornata'),(11,'I miei giorni alla libreria Morisaki'),(12,'Le trecce d\'oro dei defunti'),(13,'Il gatto striato miagola tre volte'),(14,'Talenti non fondamentali'),(15,'Il libro di tutte le cose'),(16,'Geai'),(17,'Una parola dopo l\'altra'),(18,'Winnie Pooh'),(19,'Il magnifico studio fotografico di Hirasaka'),(22,'Libro');
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +163,7 @@ CREATE TABLE `notifica` (
   UNIQUE KEY `ID_NOTIFICA_IND` (`id`),
   KEY `REF_NOTIF_UTENT_IND` (`utenteId`),
   KEY `REF_NOTIF_POST_IND` (`utenteIdPost`,`dataOraPost`)
-) ENGINE=InnoDB AUTO_INCREMENT=387 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,7 +172,6 @@ CREATE TABLE `notifica` (
 
 LOCK TABLES `notifica` WRITE;
 /*!40000 ALTER TABLE `notifica` DISABLE KEYS */;
-INSERT INTO `notifica` VALUES (382,'2024-02-05 17:12:43','F',2,3,'2024-02-05 17:12:43'),(383,'2024-02-05 17:12:57','F',2,3,'2024-02-05 17:12:57'),(384,'2024-02-05 17:13:57','F',1,3,'2024-02-05 17:13:57'),(385,'2024-02-05 17:14:38','K',1,3,'2024-02-05 17:13:40'),(386,'2024-02-05 17:14:46','C',1,3,'2024-02-05 17:13:40');
 /*!40000 ALTER TABLE `notifica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +203,6 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (1,'2024-02-05 17:13:40','ooooooooooooo','pier__2024_02_05__17_13_40.jpg','ooooooooooooooo',1,0,18),(2,'2024-02-05 17:12:16','wwwww','luca__2024_02_05__17_12_16.jpeg','wwwwww',0,0,6);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,7 +228,7 @@ CREATE TABLE `scrittoda` (
 
 LOCK TABLES `scrittoda` WRITE;
 /*!40000 ALTER TABLE `scrittoda` DISABLE KEYS */;
-INSERT INTO `scrittoda` VALUES (61,39),(62,40),(65,41),(66,42),(67,42),(68,42),(69,42),(70,43),(71,43),(72,43),(75,43),(73,44),(74,44),(45,76);
+INSERT INTO `scrittoda` VALUES (7,1),(16,1),(18,2),(10,3),(1,4),(2,5),(9,6),(19,6),(3,7),(4,8),(5,9),(6,10),(8,11),(11,13),(12,14),(13,15),(14,16),(15,17),(17,19);
 /*!40000 ALTER TABLE `scrittoda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +254,6 @@ CREATE TABLE `segue` (
 
 LOCK TABLES `segue` WRITE;
 /*!40000 ALTER TABLE `segue` DISABLE KEYS */;
-INSERT INTO `segue` VALUES (1,3);
 /*!40000 ALTER TABLE `segue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,7 +277,7 @@ CREATE TABLE `sottoscrive` (
 
 LOCK TABLES `sottoscrive` WRITE;
 /*!40000 ALTER TABLE `sottoscrive` DISABLE KEYS */;
-INSERT INTO `sottoscrive` VALUES (1,0),(2,0),(3,0),(4,0),(5,0),(6,0),(8,0),(9,0),(12,0),(13,0),(14,0),(1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(8,1),(9,1),(12,1),(13,1),(14,1);
+INSERT INTO `sottoscrive` VALUES (1,0),(2,0),(3,0),(4,0),(5,0),(6,0),(8,0),(9,0),(12,0),(1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(8,1),(9,1),(12,1);
 /*!40000 ALTER TABLE `sottoscrive` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -306,7 +302,6 @@ CREATE TABLE `tagperpost` (
 
 LOCK TABLES `tagperpost` WRITE;
 /*!40000 ALTER TABLE `tagperpost` DISABLE KEYS */;
-INSERT INTO `tagperpost` VALUES (1,'2024-02-05 17:13:40',43),(1,'2024-02-05 17:13:40',44),(1,'2024-02-05 17:13:40',45),(2,'2024-02-05 17:12:16',42),(2,'2024-02-05 17:12:16',43),(2,'2024-02-05 17:12:16',44);
 /*!40000 ALTER TABLE `tagperpost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,7 +316,7 @@ CREATE TABLE `tags` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `testo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -330,7 +325,6 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (42,'wow'),(43,'figo'),(44,'bello'),(45,'pooh');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -351,7 +345,7 @@ CREATE TABLE `utente` (
   `descrizione` varchar(150) DEFAULT NULL,
   `stato` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,7 +354,7 @@ CREATE TABLE `utente` (
 
 LOCK TABLES `utente` WRITE;
 /*!40000 ALTER TABLE `utente` DISABLE KEYS */;
-INSERT INTO `utente` VALUES (1,'pier','pier@tecweb.com','$2y$10$gFrPumcEaL5CcXvtGXM9xuMJXNf/UQ01qwAzFXR5XPwsPXbtJV.B6','65a25d1737bf9_Senza_nome.png',0,'Ciao, mi chiamo Pierangelo Motta',0),(2,'luca','luca@webtec.it','$2y$10$OafpmGEbm04ki4c1j18wbuw5CgAimvQApc9IoZeDzHT4oB8145Oe6','65b6b9e60eb74_273754719_4856560301129833_2961398596313220444_n.jpg',0,'Ciao sono LUCA',0),(3,'jacopo','jacopo@webtec.it','$2y$10$42RzrrImDVkkEM3LsluT0ekx6hGZPWod7kTXa/S6.9dhct8TcxskS','659df9bbcb885_incisione.jpg',0,'',0),(4,'user1','user1@tecweb.it','$2y$10$xTlnGZDq.deb1ZDaJdrpT.G7amPo1OH74wWkkmX2upyGf1PDcdMeS','',0,NULL,0),(5,'sara','sara@tecweb.it','$2y$10$YuoPVQMqbSz390utkBmV6.Csh4aDxGO5fyALnG3/xhDbSGkOSunh.','',0,NULL,0),(6,'lory','lory.casa.it','$2y$10$pBfSQJJBR60xqPkhLqi5yuCZC2dagqhc56SPMmRI4qNoEgsfVbLgm','',0,NULL,1),(7,'admin','admin@tecweb.it','$2y$10$3OlMvmQbXDETNgS8Mqdi6.nIi0ZRT88H0ud2JHL4hWZ3tC1VJcn12','65a25733abf6d_root.jpg',1,'System Admin',0),(8,'nuovo','nuovo@gmail.com','$2y$10$qs0x5.a7igiKKM0fCanPneScTRY86bdlasZbQ65stwTYKysml9Oki','65a3fbb56505e_propic_nuovo.jpg',0,NULL,0),(9,'novo','novo@gmail.com','$2y$10$X66ClJRut7T1YW9uNfis8.pZan2NMowVRk5GW8L35lLLUidNlGEnu','',0,NULL,0),(12,'nnovo','nnovo@gmail.com','$2y$10$4yS10rMejYIxjZ8NW18WW.a3f6crGuglqgaSrPIQ93WFg1Xv5ZTFC','',0,NULL,0),(13,'liuk','a@a','$2y$10$b8UYIet7EhFNveWM4KVnquXx.AY2d5v0gVTId2yY.PaspGfjqCt/2','',0,NULL,0),(14,'l','l@a','$2y$10$n4FZLsUDrXQu209nZHJ5EOB8cuUz48F1nwh1p9K8ag2vYOx2pj3jm','',0,NULL,0);
+INSERT INTO `utente` VALUES (1,'pier','pier@tecweb.com','$2y$10$gFrPumcEaL5CcXvtGXM9xuMJXNf/UQ01qwAzFXR5XPwsPXbtJV.B6','65a25d1737bf9_Senza_nome.png',0,'Ciao, mi chiamo Pierangelo Motta',0),(2,'luca','luca@webtec.it','$2y$10$YU5cUJ4u1mijevPHw6/eA.HpBmhiy.V6b/GQ7Ft9XaYWsIuZKW7He','luca.png',0,'Ciao sono LUCA',0),(3,'jacopo','jacopo@webtec.it','$2y$10$42RzrrImDVkkEM3LsluT0ekx6hGZPWod7kTXa/S6.9dhct8TcxskS','659df9bbcb885_incisione.jpg',0,'',0),(4,'user1','user1@tecweb.it','$2y$10$xTlnGZDq.deb1ZDaJdrpT.G7amPo1OH74wWkkmX2upyGf1PDcdMeS','',0,NULL,0),(5,'sara','sara@tecweb.it','$2y$10$YuoPVQMqbSz390utkBmV6.Csh4aDxGO5fyALnG3/xhDbSGkOSunh.','',0,NULL,0),(6,'lory','lory.casa.it','$2y$10$pBfSQJJBR60xqPkhLqi5yuCZC2dagqhc56SPMmRI4qNoEgsfVbLgm','',0,NULL,1),(7,'admin','admin@tecweb.it','$2y$10$3OlMvmQbXDETNgS8Mqdi6.nIi0ZRT88H0ud2JHL4hWZ3tC1VJcn12','65a25733abf6d_root.jpg',1,'System Admin',0),(8,'nuovo','nuovo@gmail.com','$2y$10$qs0x5.a7igiKKM0fCanPneScTRY86bdlasZbQ65stwTYKysml9Oki','65a3fbb56505e_propic_nuovo.jpg',0,NULL,0),(9,'novo','novo@gmail.com','$2y$10$X66ClJRut7T1YW9uNfis8.pZan2NMowVRk5GW8L35lLLUidNlGEnu','',0,NULL,0),(12,'nnovo','nnovo@gmail.com','$2y$10$4yS10rMejYIxjZ8NW18WW.a3f6crGuglqgaSrPIQ93WFg1Xv5ZTFC','',0,NULL,0);
 /*!40000 ALTER TABLE `utente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -373,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-05 17:19:53
+-- Dump completed on 2024-01-23 23:14:37
