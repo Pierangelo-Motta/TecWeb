@@ -65,7 +65,7 @@ CREATE TABLE `commenti` (
 
 LOCK TABLES `commenti` WRITE;
 /*!40000 ALTER TABLE `commenti` DISABLE KEYS */;
-INSERT INTO `commenti` VALUES (3,'0000-00-00 00:00:00',8,'2024-01-27 17:49:11','Ciao a tutti belli e brutti'),(3,'2024-01-25 19:16:18',1,'2024-02-01 01:29:08','Confermo 🥶'),(3,'2024-01-25 19:16:18',2,'2024-02-01 01:30:49','Come quando si esce di sti giorni... Bbrrr\n'),(3,'2024-01-25 19:16:18',2,'2024-02-01 01:31:39','A'),(3,'2024-01-25 19:16:18',2,'2024-02-01 01:32:48','B'),(3,'2024-01-25 19:16:18',8,'2024-02-01 01:19:07','Gelai tantissimo quando lessi questo libro!'),(3,'2024-01-26 15:44:57',8,'2024-01-27 17:50:20','qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq'),(3,'2024-01-26 15:44:57',8,'2024-01-27 17:53:03','wwwwwwwwwwwwwwwwwwwwwwwwwww'),(3,'2024-01-26 15:44:57',8,'2024-01-27 17:53:07','rrrrrrrrrrrrrrrrrrrrrrrrrrrr'),(3,'2024-02-03 00:46:57',3,'2024-02-03 02:47:33','aa'),(3,'2024-02-03 00:46:57',3,'2024-02-03 02:47:53','bb'),(3,'2024-02-03 00:46:57',3,'2024-02-03 02:48:52','cc'),(3,'2024-02-03 00:46:57',3,'2024-02-03 02:50:01','dd'),(3,'2024-02-03 00:46:57',3,'2024-02-03 02:53:28','gg'),(3,'2024-02-03 00:46:57',3,'2024-02-03 13:37:04','rr'),(8,'2024-01-27 17:34:41',3,'2024-01-30 22:59:56','WOW'),(8,'2024-01-27 17:34:41',3,'2024-02-01 22:01:08','l\'orsetto pooh spacca!'),(8,'2024-01-27 17:34:41',8,'2024-01-31 02:02:59','FIGHISSIMO'),(9,'0000-00-00 00:00:00',8,'2024-01-27 17:45:43','asdddd'),(9,'0000-00-00 00:00:00',8,'2024-01-27 17:45:45','sdssss'),(9,'0000-00-00 00:00:00',8,'2024-01-27 17:45:47','ewffff'),(14,'2024-01-25 02:17:36',3,'2024-01-30 23:59:57','Ciao a tutti'),(14,'2024-02-01 22:06:13',3,'2024-02-05 16:28:22','aaaa'),(18,'2024-01-26 02:26:48',3,'2024-01-31 00:33:43','Sante paroleSante paroleSante paroleSante paroleSante paroleSante paroleSante paroleSante paroleSante paroleGunaydin askim😘İyi geceler aşkım🥰Puoi visualizzare le clip come colonna singola, basta toccare l\'icona delle impostazioni sopraPuoi visualizzare le clip come colonna singola, basta toccare l\'icona delle impostazioni sopraSante paroleGunaydin askim😘Perché nel testo riportato sul libro la parola \"poesia\" è scritta poesia, Poesia( e POESIA? If the same fields was cultivate using crop rotation and not monoculture, maybe the harvest would be savedCIAO MONDO√3√3/2  Il cavaliere inesistente oppure \n                                               Il visconte dimezzato\nIl romanzo : La ragazza con l’orecchino di perla  di Tracy Chevalier\nPuoi visualizzare le clip come colonna singola, basta toccare l\'icona delle impostazioni sopraGli Appunti ora supportano le immagini e il testoSante parolePuoi visualizzare le clip come colonna singola, basta toccare l\'icona delle imopraSante parole'),(18,'2024-01-26 02:26:48',8,'2024-01-31 00:03:40','tanto coraggio');
+INSERT INTO `commenti` VALUES (25,'2024-02-05 19:22:22',25,'2024-02-05 19:59:08','s'),(25,'2024-02-05 19:22:46',26,'2024-02-05 19:44:04','fiko'),(26,'2024-02-05 19:26:13',25,'2024-02-05 19:46:27','a'),(26,'2024-02-05 19:26:13',25,'2024-02-05 19:46:36','e'),(26,'2024-02-05 19:26:13',28,'2024-02-05 19:42:09','EH SEH');
 /*!40000 ALTER TABLE `commenti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +164,7 @@ CREATE TABLE `notifica` (
   UNIQUE KEY `ID_NOTIFICA_IND` (`id`),
   KEY `REF_NOTIF_UTENT_IND` (`utenteId`),
   KEY `REF_NOTIF_POST_IND` (`utenteIdPost`,`dataOraPost`)
-) ENGINE=InnoDB AUTO_INCREMENT=214 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=222 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,7 +173,7 @@ CREATE TABLE `notifica` (
 
 LOCK TABLES `notifica` WRITE;
 /*!40000 ALTER TABLE `notifica` DISABLE KEYS */;
-INSERT INTO `notifica` VALUES (117,'2024-01-26 00:56:24','V',3,2,'2024-01-25 19:16:18'),(120,'2024-01-26 01:00:46','V',3,2,'2024-01-25 15:27:40'),(123,'2024-01-26 01:00:56','V',3,2,'2024-01-25 15:28:13'),(124,'2024-01-26 01:00:59','V',13,2,'2024-01-24 23:21:41'),(125,'2024-01-26 01:01:00','V',13,2,'2024-01-24 23:21:17'),(136,'2024-01-26 01:01:26','V',3,2,'2024-01-24 23:06:22'),(137,'2024-01-26 01:01:28','V',8,2,'2024-01-24 22:14:33'),(138,'2024-01-26 01:25:26','F',17,2,'2024-01-26 01:25:26'),(141,'2024-01-26 02:50:54','V',8,18,'2024-01-24 22:14:33'),(142,'2024-01-26 02:51:11','V',3,8,'2024-01-26 02:21:36'),(144,'2024-01-26 15:43:48','F',2,3,'2024-01-26 15:43:48'),(145,'2024-01-26 15:43:49','F',2,3,'2024-01-26 15:43:49'),(148,'2024-01-27 15:39:45','K',3,7,'2024-01-26 02:21:16'),(149,'2024-01-27 15:39:46','V',3,7,'2024-01-26 02:21:16'),(150,'2024-01-31 00:32:18','V',8,3,'2024-01-27 17:34:41'),(151,'2024-01-31 00:42:14','V',13,3,'2024-01-24 23:21:17'),(152,'2024-01-31 00:48:24','K',13,8,'2024-01-24 23:21:06'),(153,'2024-01-31 00:48:25','V',13,8,'2024-01-24 23:20:57'),(154,'2024-01-31 00:48:26','K',13,8,'2024-01-24 23:21:17'),(155,'2024-01-31 02:04:34','V',8,3,'2024-01-24 22:14:33'),(156,'2024-01-31 02:04:35','K',14,3,'2024-01-25 02:17:36'),(157,'2024-01-31 02:10:11','K',20,20,'2024-01-31 02:09:20'),(158,'2024-01-31 02:10:12','V',20,20,'2024-01-31 02:09:20'),(159,'2024-01-31 02:18:16','K',8,20,'2024-01-27 17:34:41'),(160,'2024-01-31 02:18:18','V',8,20,'2024-01-27 17:34:41'),(161,'2024-01-31 02:18:20','K',3,20,'2024-01-26 15:44:57'),(162,'2024-01-31 02:18:21','V',3,20,'2024-01-26 15:44:57'),(163,'2024-01-31 02:18:23','K',18,20,'2024-01-26 02:26:48'),(164,'2024-01-31 02:18:25','V',18,20,'2024-01-26 02:26:48'),(165,'2024-01-31 02:18:27','K',3,20,'2024-01-26 02:21:36'),(166,'2024-01-31 02:18:28','V',3,20,'2024-01-26 02:21:36'),(167,'2024-01-31 02:18:30','K',3,20,'2024-01-26 02:21:16'),(168,'2024-01-31 02:18:31','V',3,20,'2024-01-26 02:21:16'),(169,'2024-01-31 02:18:32','K',16,20,'2024-01-25 19:23:41'),(170,'2024-01-31 02:18:36','V',16,20,'2024-01-25 19:23:41'),(171,'2024-01-31 02:18:38','K',3,20,'2024-01-25 19:16:18'),(172,'2024-01-31 02:18:39','V',3,20,'2024-01-25 19:16:18'),(173,'2024-01-31 02:18:41','K',3,20,'2024-01-25 15:30:10'),(174,'2024-01-31 02:18:42','V',3,20,'2024-01-25 15:30:10'),(175,'2024-01-31 02:18:45','K',3,20,'2024-01-25 15:29:28'),(176,'2024-01-31 02:18:46','V',3,20,'2024-01-25 15:29:28'),(177,'2024-01-31 02:18:47','K',3,20,'2024-01-25 15:28:41'),(178,'2024-01-31 02:18:48','V',3,20,'2024-01-25 15:28:41'),(179,'2024-01-31 02:18:50','K',3,20,'2024-01-25 15:28:13'),(180,'2024-01-31 02:18:51','V',3,20,'2024-01-25 15:28:13'),(181,'2024-02-01 01:16:03','F',19,3,'2024-02-01 01:16:03'),(183,'2024-02-03 00:15:33','F',5,1,'2024-02-03 00:15:33'),(184,'2024-02-03 00:15:34','F',5,1,'2024-02-03 00:15:34'),(185,'2024-02-03 00:15:36','F',5,1,'2024-02-03 00:15:36'),(186,'2024-02-03 00:15:36','F',5,1,'2024-02-03 00:15:36'),(187,'2024-02-03 00:15:36','F',5,1,'2024-02-03 00:15:36'),(188,'2024-02-03 00:15:37','F',5,1,'2024-02-03 00:15:37'),(189,'2024-02-03 00:15:37','F',5,1,'2024-02-03 00:15:37'),(190,'2024-02-03 00:15:37','F',5,1,'2024-02-03 00:15:37'),(191,'2024-02-03 00:15:38','F',5,1,'2024-02-03 00:15:38'),(192,'2024-02-03 00:15:38','F',5,1,'2024-02-03 00:15:38'),(193,'2024-02-03 00:15:38','F',5,1,'2024-02-03 00:15:38'),(194,'2024-02-03 00:15:39','F',5,1,'2024-02-03 00:15:39'),(195,'2024-02-03 00:15:39','F',5,1,'2024-02-03 00:15:39'),(196,'2024-02-03 00:15:39','F',5,1,'2024-02-03 00:15:39'),(197,'2024-02-03 00:15:39','F',5,1,'2024-02-03 00:15:39'),(198,'2024-02-03 00:15:40','F',5,1,'2024-02-03 00:15:40'),(199,'2024-02-03 00:15:40','F',5,1,'2024-02-03 00:15:40'),(201,'2024-02-03 02:53:28','C',3,NULL,'2024-02-03 00:46:57'),(202,'2024-02-03 12:05:47','F',3,21,'2024-02-03 12:05:47'),(203,'2024-02-03 13:37:04','C',3,NULL,'2024-02-03 00:46:57'),(204,'2024-02-03 16:42:33','C',3,NULL,'2024-01-25 19:23:41'),(205,'2024-02-03 23:31:46','F',3,21,'2024-02-03 23:31:46'),(206,'2024-02-04 00:00:56','K',3,8,'2024-02-03 19:09:05'),(207,'2024-02-04 11:55:47','C',24,NULL,'2024-02-03 18:44:23'),(208,'2024-02-05 11:02:50','K',3,24,'2024-02-03 00:46:57'),(209,'2024-02-05 11:03:08','K',14,3,'2024-02-01 22:06:13'),(210,'2024-02-05 14:58:59','K',1,3,'2024-02-03 00:12:16'),(211,'2024-02-05 14:59:21','K',3,24,'2024-02-03 19:09:05'),(212,'2024-02-05 14:59:22','V',3,24,'2024-02-03 19:09:05'),(213,'2024-02-05 16:28:22','C',3,NULL,'2024-02-01 22:06:13');
+INSERT INTO `notifica` VALUES (214,'2024-02-05 19:41:59','F',26,28,'2024-02-05 19:41:59'),(215,'2024-02-05 19:42:01','K',26,28,'2024-02-05 19:26:13'),(216,'2024-02-05 19:42:02','V',26,28,'2024-02-05 19:26:13'),(217,'2024-02-05 19:42:09','C',26,28,'2024-02-05 19:26:13'),(218,'2024-02-05 19:44:04','C',25,26,'2024-02-05 19:22:46'),(219,'2024-02-05 19:46:27','C',26,25,'2024-02-05 19:26:13'),(220,'2024-02-05 19:46:36','C',26,25,'2024-02-05 19:26:13'),(221,'2024-02-05 19:59:08','C',25,25,'2024-02-05 19:22:22');
 /*!40000 ALTER TABLE `notifica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +205,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (1,'2024-02-03 00:12:16','a',NULL,'a',1,0,7),(3,'2024-01-23 23:35:40','Quando ti svegli la mattina, Puh, chiese infine Porcelletto, \"qual è la prima cosa che pensi?\". \"Che cosa c\'è per colazione?\" rispose Puh. \"E tu, Porcelletto?\". \"Io penso: chissà che cosa succederà oggi di emozionante?\" risposte Porcelletto. Puh annuì con','jacopo__2024_01_23__23_35_40.jpeg','La colazione allora è veramente la cosa più importante della giornata!',1,0,18),(3,'2024-01-24 18:57:51',NULL,'jacopo__2024_01_24__18_57_51.jpg','Che bel tramonto',1,1,16),(3,'2024-01-24 23:06:22','a','jacopo__2024_01_24__23_06_22.jpeg','a',0,1,2),(3,'2024-01-24 23:06:47','alfa','jacopo__2024_01_24__23_06_47.jpeg','betaa',0,0,0),(3,'2024-01-24 23:19:29','questo immenso',NULL,'non sapere',0,0,1),(3,'2024-01-25 15:27:40','prova1','jacopo__2024_01_25__15_27_40.jpeg','prova1',0,1,1),(3,'2024-01-25 15:28:13','prova2',NULL,'prova2',1,3,3),(3,'2024-01-25 15:28:41',NULL,'jacopo__2024_01_25__15_28_41.jpeg','prova3',1,1,16),(3,'2024-01-25 15:29:28','prova4','jacopo__2024_01_25__15_29_28.jpeg','prova4',1,2,8),(3,'2024-01-25 15:30:10','alfa','jacopo__2024_01_25__15_30_10.jpeg','omega',2,1,12),(3,'2024-01-25 19:16:18','Gelai','jacopo__2024_01_25__19_16_18.jpg','Frescai',1,3,16),(3,'2024-01-26 02:21:16','a','jacopo__2024_01_26__02_21_16.png','a',2,2,1),(3,'2024-01-26 02:21:36','a',NULL,'s',1,2,6),(3,'2024-01-26 15:44:57','a',NULL,'a',1,1,1),(3,'2024-02-01 22:08:53','immenso',NULL,'no',0,0,1),(3,'2024-02-02 23:33:43','pr1',NULL,'pr1',0,0,2),(3,'2024-02-03 00:46:57','a','jacopo__2024_02_03__00_46_57.png','a',1,0,9),(3,'2024-02-03 18:44:23','a',NULL,'b',0,0,2),(3,'2024-02-03 19:09:05','q',NULL,'w',2,1,18),(8,'2024-01-24 22:14:33','Questo',NULL,'immenso',1,4,1),(8,'2024-01-27 17:34:41','a',NULL,'a',1,2,18),(13,'2024-01-24 23:20:57','questo immens',NULL,'non sap',0,1,1),(13,'2024-01-24 23:21:06','ge',NULL,'ai',1,0,16),(13,'2024-01-24 23:21:17','pollo',NULL,'cotto',1,2,9),(13,'2024-01-24 23:21:41','l\'uomo',NULL,'che cammin',0,2,7),(13,'2024-02-02 23:34:00','pr1',NULL,'pr1',0,0,1),(13,'2024-02-02 23:34:32','pr2',NULL,'pr2',0,0,18),(13,'2024-02-02 23:35:14','pr3',NULL,'pr3',0,0,7),(13,'2024-02-02 23:36:39','primissimo',NULL,'kafè',0,0,10),(14,'2024-01-25 02:17:36','A','c2__2024_01_25__02_17_36.jpg','B',2,0,2),(14,'2024-02-01 22:05:53','yp',NULL,'ghi',0,0,24),(14,'2024-02-01 22:06:13','qqq',NULL,'eee',1,0,1),(16,'2024-01-25 19:23:41','a','c10_fi__2024_01_25__19_23_41.jpeg','a',1,1,6),(18,'2024-01-26 02:26:48','ci vuole un coraggio','nome doppio__2024_01_26__02_26_48.png','bestiale',1,1,6),(20,'2024-01-31 02:09:20','A mia immagine e somiglianza','paolo__2024_01_31__02_09_20.jpg','Certo che rispetto al nostro creatore siamo migliorati',1,1,0);
+INSERT INTO `post` VALUES (25,'2024-02-05 19:22:22',NULL,'jp__2024_02_05__19_22_22.jpeg','sono curiosissimo di inizialo!',0,0,4),(25,'2024-02-05 19:22:46','camminando',NULL,'si impara',0,0,7),(25,'2024-02-05 19:45:38','l\'orsetto pooh','jp__2024_02_05__19_45_38.jpeg','e i suoi amici',0,0,18),(26,'2024-02-05 19:26:13','piume','luca__2024_02_05__19_26_13.jpeg','voleggianti',1,1,3),(27,'2024-02-05 19:28:36','gentile','pier__2024_02_05__19_28_36.jpeg','il coraggio ',0,0,6),(28,'2024-02-05 19:33:40','evviva cristo',NULL,'evviva cristo',0,0,8),(28,'2024-02-05 20:09:22','a',NULL,'a',0,0,2),(28,'2024-02-05 20:10:08','ss','w__2024_02_05__20_10_08.jpeg','qq',0,0,6);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +257,7 @@ CREATE TABLE `segue` (
 
 LOCK TABLES `segue` WRITE;
 /*!40000 ALTER TABLE `segue` DISABLE KEYS */;
-INSERT INTO `segue` VALUES (3,1),(3,8),(3,16),(5,1),(8,1),(8,3),(14,3),(17,2),(19,3);
+INSERT INTO `segue` VALUES (26,28);
 /*!40000 ALTER TABLE `segue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,7 +281,7 @@ CREATE TABLE `sottoscrive` (
 
 LOCK TABLES `sottoscrive` WRITE;
 /*!40000 ALTER TABLE `sottoscrive` DISABLE KEYS */;
-INSERT INTO `sottoscrive` VALUES (1,0),(2,0),(3,0),(4,0),(5,0),(6,0),(8,0),(9,0),(12,0),(13,0),(14,0),(15,0),(16,0),(17,0),(18,0),(19,0),(20,0),(21,0),(22,0),(23,0),(24,0),(1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(8,1),(9,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1),(19,1),(20,1),(21,1),(22,1),(23,1),(24,1),(3,2),(13,2),(17,2),(13,3),(17,3),(13,4),(3,5),(13,5),(3,6),(13,6);
+INSERT INTO `sottoscrive` VALUES (25,0),(26,0),(27,0),(28,0),(29,0),(30,0),(25,1),(26,1),(27,1),(28,1),(29,1),(30,1),(26,2),(25,4),(26,6);
 /*!40000 ALTER TABLE `sottoscrive` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -306,7 +306,7 @@ CREATE TABLE `tagperpost` (
 
 LOCK TABLES `tagperpost` WRITE;
 /*!40000 ALTER TABLE `tagperpost` DISABLE KEYS */;
-INSERT INTO `tagperpost` VALUES (1,'2024-02-03 00:12:16',10),(3,'2024-01-24 23:06:22',3),(3,'2024-01-24 23:06:47',4),(3,'2024-01-25 15:27:40',5),(3,'2024-01-25 15:28:13',6),(3,'2024-01-25 15:29:28',5),(3,'2024-01-25 15:29:28',6),(3,'2024-01-25 15:29:28',7),(3,'2024-01-25 15:29:28',8),(3,'2024-01-25 15:30:10',5),(3,'2024-01-25 15:30:10',6),(3,'2024-01-25 15:30:10',7),(3,'2024-01-25 15:30:10',8),(3,'2024-01-25 19:16:18',9),(3,'2024-01-26 02:21:16',10),(3,'2024-01-26 02:21:36',11),(3,'2024-02-01 22:08:53',10),(3,'2024-02-01 22:08:53',18),(3,'2024-02-01 22:08:53',19),(3,'2024-02-01 22:08:53',20),(3,'2024-02-01 22:08:53',21),(3,'2024-02-01 22:08:53',22),(3,'2024-02-01 22:08:53',23),(3,'2024-02-03 18:44:23',17),(3,'2024-02-03 19:09:05',32),(8,'2024-01-24 22:14:33',2),(8,'2024-01-27 17:34:41',10),(13,'2024-02-02 23:34:32',10),(13,'2024-02-02 23:35:14',24),(13,'2024-02-02 23:35:14',25),(13,'2024-02-02 23:35:14',26),(13,'2024-02-02 23:35:14',27),(13,'2024-02-02 23:35:14',28),(13,'2024-02-02 23:36:39',29),(13,'2024-02-02 23:36:39',30),(13,'2024-02-02 23:36:39',31),(14,'2024-02-01 22:05:53',14),(14,'2024-02-01 22:05:53',15),(14,'2024-02-01 22:05:53',16),(14,'2024-02-01 22:06:13',14),(14,'2024-02-01 22:06:13',17),(16,'2024-01-25 19:23:41',10),(20,'2024-01-31 02:09:20',12),(20,'2024-01-31 02:09:20',13);
+INSERT INTO `tagperpost` VALUES (25,'2024-02-05 19:22:22',34),(25,'2024-02-05 19:22:46',34),(25,'2024-02-05 19:45:38',36),(25,'2024-02-05 19:45:38',37),(25,'2024-02-05 19:45:38',42),(25,'2024-02-05 19:45:38',43),(26,'2024-02-05 19:26:13',34),(26,'2024-02-05 19:26:13',35),(26,'2024-02-05 19:26:13',36),(27,'2024-02-05 19:28:36',37),(27,'2024-02-05 19:28:36',38),(27,'2024-02-05 19:28:36',39),(28,'2024-02-05 19:33:40',37),(28,'2024-02-05 19:33:40',40),(28,'2024-02-05 19:33:40',41),(28,'2024-02-05 20:09:22',44),(28,'2024-02-05 20:10:08',45);
 /*!40000 ALTER TABLE `tagperpost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,7 +321,7 @@ CREATE TABLE `tags` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `testo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -330,7 +330,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (2,'nonSapere'),(3,'c'),(4,'gamma'),(5,'prova1'),(6,'prova2'),(7,'prova3'),(8,'prova4'),(9,'tantoFrio'),(10,'a'),(11,'d'),(12,'Alieni'),(13,'dio'),(14,'qwe'),(15,'qwr'),(16,'qwt'),(17,'qaz'),(18,'a\''),(19,'a{'),(20,'a_'),(21,'a*'),(22,'a£'),(23,'aò'),(24,'che'),(25,'figo'),(26,'di'),(27,'libro'),(28,'che_figo_di_libro'),(29,'il'),(30,'primo'),(31,'c_a'),(32,'plm');
+INSERT INTO `tags` VALUES (34,'qwe'),(35,'piuma'),(36,'leggero'),(37,'wsx'),(38,'piume'),(39,'coraggio'),(40,'cristo'),(41,'fede'),(42,'orsetto'),(43,'okForseNo'),(44,'er'),(45,'aa');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -346,12 +346,12 @@ CREATE TABLE `utente` (
   `username` varchar(80) NOT NULL,
   `email` varchar(80) NOT NULL,
   `pwd` varchar(120) NOT NULL,
-  `immagineProfilo` varchar(255) NOT NULL,
-  `isAdmin` int(1) NOT NULL,
+  `immagineProfilo` varchar(255) DEFAULT NULL,
+  `isAdmin` int(1) NOT NULL DEFAULT 0,
   `descrizione` varchar(150) DEFAULT NULL,
-  `stato` int(1) NOT NULL,
+  `stato` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,7 +360,7 @@ CREATE TABLE `utente` (
 
 LOCK TABLES `utente` WRITE;
 /*!40000 ALTER TABLE `utente` DISABLE KEYS */;
-INSERT INTO `utente` VALUES (1,'pier','pier@tecweb.com','$2y$10$gFrPumcEaL5CcXvtGXM9xuMJXNf/UQ01qwAzFXR5XPwsPXbtJV.B6','65a25d1737bf9_Senza_nome.png',0,'Ciao, mi chiamo Pierangelo Motta',0),(2,'luca','luca@webtec.it','$2y$10$YU5cUJ4u1mijevPHw6/eA.HpBmhiy.V6b/GQ7Ft9XaYWsIuZKW7He','luca.png',0,'Ciao sono LUCA',0),(3,'jacopo','jacopo@webtec.it','$2y$10$J.Rq0Lo1Copo.zN9QLSUtuZMWFWPPOEx8g77.aMBMxBJkfyist3xW','65bc09b850eeb_17068220641977962036564689073481.jpg',1,'ciao a tutti sono Jacopo, studente di 3 anno di Ingegneria e Scienze Informatiche. Non mi fa impazzire leggere libri, ma rimango sempre affascinato da',0),(4,'user1','user1@tecweb.it','$2y$10$xTlnGZDq.deb1ZDaJdrpT.G7amPo1OH74wWkkmX2upyGf1PDcdMeS','',0,NULL,0),(5,'sara','sara@tecweb.it','$2y$10$YuoPVQMqbSz390utkBmV6.Csh4aDxGO5fyALnG3/xhDbSGkOSunh.','',0,NULL,0),(6,'lory','lory.casa.it','$2y$10$pBfSQJJBR60xqPkhLqi5yuCZC2dagqhc56SPMmRI4qNoEgsfVbLgm','',0,NULL,1),(7,'admin','admin@tecweb.it','$2y$10$3OlMvmQbXDETNgS8Mqdi6.nIi0ZRT88H0ud2JHL4hWZ3tC1VJcn12','65a25733abf6d_root.jpg',1,'System Admin',0),(8,'nuovo','nuovo@gmail.com','$2y$10$qs0x5.a7igiKKM0fCanPneScTRY86bdlasZbQ65stwTYKysml9Oki','65a3fbb56505e_propic_nuovo.jpg',0,NULL,0),(9,'novo','novo@gmail.com','$2y$10$X66ClJRut7T1YW9uNfis8.pZan2NMowVRk5GW8L35lLLUidNlGEnu','',0,NULL,0),(12,'nnovo','nnovo@gmail.com','$2y$10$4yS10rMejYIxjZ8NW18WW.a3f6crGuglqgaSrPIQ93WFg1Xv5ZTFC','',0,NULL,0),(13,'c1','c1@gmail.com','$2y$10$TS94P3bchfpJYoRh2CaBAO4x4YEnhWeE.UjjqA5v6iw185pUrECLa','',0,NULL,0),(14,'c2','c2@gmial.com','$2y$10$bLhcbcWxgEwf93LL2JdvBudQohp9pXzOQIa2tCQ2w54FEgn1yMV9a','',0,NULL,0),(15,'123456789123456789','12@gmail.com','$2y$10$iLsSkuX2xojLyNnFF6UQduSvftkzXdORiZNNZpUrWrRajzgEd/Yoy','',0,NULL,0),(16,'c10_fi','c10@g','$2y$10$vBNkux6VusA5SCIP4GJav.HDaN7Jja5LMCXOoAJZ0IuSiESa7QMEO','',0,NULL,0),(17,'simo99','simofigo99@gmail.cum','$2y$10$Hm5IZMb05BBkteoeuz9Vv.14oTEK1Xm/1M27RgzSAJ/oJFkZd.z4q','',0,NULL,0),(18,'nome doppio','nome@a','$2y$10$YxAjYLdrGY4sqRdMfZSQ7Om6LiFL1ZBky5xlZYYyeijbbcWBxkBMC','65b30fd9103ca_Immagine.png',0,'ciao sono l\'utente che ha il nome doppio ahahah',0),(19,'ho un nome molto lungo lunghissimo','a@gmail.com','$2y$10$0p7BbewSWxQTcs2PTLJHhuklmX19qWQOQek8OoYoemxsYS2iFV8R2','',0,NULL,0),(20,'paolo','redpps@libero.it','$2y$10$.4tLF90LdeknyIVBUb.tSulUCbcoyoSJAhKv/FdApKCsV3nC968sW','65b99f68de222_alieno_icona.bmp',0,'Sono bello',0),(21,'carmelinalab','carmelinalab@libero.it','$2y$10$6C.jVvW88n48ZotTtZMnFeHlzqLIHqtexN5BfSa5Zb9KBzsJvBT/m','',0,NULL,0),(22,'a','a@gmail.com','$2y$10$cfVHGrrqlAIZP9omb1TJQOX7eXJvyAWv05orEN7pGz/yFOH5RZMwO','',0,NULL,0),(23,'b','b@gmail.com','$2y$10$rLcdFjuvDk1THJgg2fFtneMqDr.nGCkkziGHKJ0mndc9ZC8CQFmC6','',0,NULL,0),(24,'bb','bb@gmail.com','$2y$10$QjSrRFXUQ4jOSg5Rfe2kn.VeVp5EQu1H2TLYHjMaP2YT/6J3jtR5K','',0,NULL,0);
+INSERT INTO `utente` VALUES (7,'admin','admin@tecweb.it','$2y$10$3OlMvmQbXDETNgS8Mqdi6.nIi0ZRT88H0ud2JHL4hWZ3tC1VJcn12','65a25733abf6d_root.jpg',1,'System Admin',0),(25,'jp','JP@JP.com','$2y$10$t3O2zNr7s92.ZVid64YVauSHXRzGujEE2.WGvpj7avPYscqddBrDC','',0,NULL,0),(26,'luca','luca@luca.com','$2y$10$LTZ0SxXAMLV858ARZDn6tOG1tVvIw60SoGy59QJ5cBZ1GoeTsmZxS','',0,NULL,0),(27,'pier','pier@pier.com','$2y$10$F/96DUJGcVIKtaiqx4u.jeeXPgnLBD53wHQWwpxxcLRcKlLIcC7aq','',0,NULL,0),(28,'w','w@w.com','$2y$10$4FI7N9SpPcAJdVGWzjlCDuIQWJElTUeoeJyaMtYz88HrjWpyhocEC','65c12b3e1b754_sigillo1x_xl_zaky.jpg',0,'sono W',0),(29,'bbbb','pierangelo.motta@icloud.com','$2y$10$F1u/WxGb8aYiStTIJ7YqmulcY0cs5Rf6VnxMwjeuCN5MUSty7QqVC',NULL,0,NULL,0),(30,' ','pierangelo.motta@icloud.com','$2y$10$HDj.n.t/fWgXmXarldTowOT/NvmQs9bVvfVBBqFAbAFo1TiTLMTam',NULL,0,NULL,0);
 /*!40000 ALTER TABLE `utente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -373,4 +373,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-05 17:23:02
+-- Dump completed on 2024-02-05 22:54:49
