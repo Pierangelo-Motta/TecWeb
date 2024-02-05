@@ -344,7 +344,7 @@ function getIdTagByString($stringTag){
 function getPostByTag($tag) {
 
     global $conn;    
-    $sql = "SELECT utenteIdPost, dataOraPost FROM tagperpost WHERE tagId = ?;";
+    $sql = "SELECT utenteIdPost, dataOraPost FROM tagperpost WHERE tagId = ? ORDER BY dataOraPost DESC;";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $tag);
