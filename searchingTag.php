@@ -32,11 +32,16 @@ if ($idTag < 0) {
 $posts = array();
 if ($tagExist) {
     $tmp = getPostByTag($idTag);
+    print_r($tmp);
     foreach ($tmp as $row){
-        // print_r($row);
-        // echo "<br>";
+        echo "<br>";
+        echo "-->";  
+        print_r($row);
+        echo "<br>";
         // print_r();
-        $res =  $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"])[0];
+        $res =  $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]);
+        echo "---->";  
+        print_r($res);
         array_push($posts,$res);
         // print_r($res);
         // print "<br><br>";

@@ -94,7 +94,6 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                                 foreach ($tags as $tag) {
                                                   $tagUrl = 'searchingTag.php?tag=' . urlencode($tag);
                                                   echo '<a href="' . $tagUrl . '">#' . $tag . '</a> ';
-
                                                 }
                                                 ?>
                                             </p>
