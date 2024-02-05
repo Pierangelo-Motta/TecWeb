@@ -32,20 +32,29 @@ if ($idTag < 0) {
 $posts = array();
 if ($tagExist) {
     $tmp = getPostByTag($idTag);
-    print_r($tmp);
-    foreach ($tmp as $row){
+    // print_r($tmp);
+    foreach ($tmp as $row) {
         echo "<br>";
         echo "-->";  
         print_r($row);
         echo "<br>";
-        // print_r();
-        $res =  $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]);
+        $a = $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]);
         echo "---->";  
-        print_r($res);
-        array_push($posts,$res);
-        // print_r($res);
-        // print "<br><br>";
-        // $res .=
+        print_r($a);
+        echo "<br>";
+        // $res =  
+        // // echo "---->";  
+        // // print_r($res);
+        
+        // // // print_r($res);
+        // // // print "<br><br>";
+        // // // $res .=
+
+        // $alfa = $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]);
+        // if (!empty($alfa)){
+        //   array_push($posts,$alfa[0]);
+        //   // print_r($posts);
+        // }
     }
 }
 
