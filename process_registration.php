@@ -12,6 +12,13 @@ $email = $_POST['email'];
 $confirm_password = $_POST['confirm_password'];
 
 
+if (strlen(trim($username))) {
+    header("Location: register.html?log=u");
+    die();
+}
+
+
+
 function checkUser($user){
     $sql = "SELECT username from utente WHERE username = ?";
     global $conn;

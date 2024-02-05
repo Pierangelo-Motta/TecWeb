@@ -33,7 +33,8 @@
             <div class="col-md-4 text-center">
                 <h1>Letture Premiate</h1>
                 <div class="messaggioErrore" id="messaggioErrorePassword">Errore: le password non corrispondono.</div>
-                <div class="messaggioErrore" id="messaggioErroreUsername">Errore: username già presente.</div>
+                <div class="messaggioErrore" id="messaggioErroreUsername">Errore: username già presente o nome non
+                    valido.</div>
             </div>
             <div class="col-md-4">
             </div>
@@ -43,41 +44,47 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <div class="messaggioUtenteRegistrato" id="messaggioUtenteRegistrato">Nuovo utente registrato correttamente</div>
+                        <div class="messaggioUtenteRegistrato" id="messaggioUtenteRegistrato">Nuovo utente registrato
+                            correttamente</div>
                         <form action="process_registration.php" method="post">
                             <div class="form-group row">
-                                <label class="col-sm-5 col-form-label col-form-label-sm text-end" for="username">Username:</label>
+                                <label class="col-sm-5 col-form-label col-form-label-sm text-end"
+                                    for="username">Username:</label>
                                 <div class="col-sm-7">
                                     <input class="form-control" type="text" id="username" name="username" required>
                                 </div>
-                                </div>
-                            
+                            </div>
+
                             <div class="form-group row">
-                                <label class="col-sm-5 col-form-label col-form-label-sm text-end" for="email">Email:</label>
+                                <label class="col-sm-5 col-form-label col-form-label-sm text-end"
+                                    for="email">Email:</label>
                                 <div class="col-sm-7">
                                     <input class="form-control" type="email" id="email" name="email" required>
                                 </div>
-                                </div>
-                           
+                            </div>
+
                             <div class="form-group row">
-                                <label class="col-sm-5 col-form-label col-form-label-sm text-end" for="password">Password:</label>
+                                <label class="col-sm-5 col-form-label col-form-label-sm text-end"
+                                    for="password">Password:</label>
                                 <div class="col-sm-7">
                                     <input class="form-control" type="password" id="password" name="password" required>
                                 </div>
-                                </div>
-                           
+                            </div>
+
                             <div class="form-group row">
-                                <label class="col-sm-5 col-form-label col-form-label-sm text-end" for="confirm_password">Conferma Password:</label>
+                                <label class="col-sm-5 col-form-label col-form-label-sm text-end"
+                                    for="confirm_password">Conferma Password:</label>
                                 <div class="col-sm-7">
-                                    <input class="form-control" type="password" id="confirm_password" name="confirm_password" required>
+                                    <input class="form-control" type="password" id="confirm_password"
+                                        name="confirm_password" required>
                                 </div>
-                                </div>
-                           
+                            </div>
+
                             <div class="form-group row">
                                 <div class="col-sm-12 text-center">
                                     <input class="btn btn-primary" type="submit" value="Registrati">
                                 </div>
-                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -101,17 +108,17 @@
             <div class="col-md-4 text-center">
                 <p id="supporto"><a href="mailto:admin@tecweb.it?subject=Richiesta%20Supporto%20Registrazione">Serve
                         aiuto?</a></p>
-                </div>
-                <div class="col-md-4">
-                </div>
-                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-        <script src="javascript/registration.js"></script>
-    </body>
+    <script src="javascript/registration.js"></script>
+</body>
 
 </html>
