@@ -20,22 +20,24 @@ function getUserName($id, $conn) {
         mysqli_stmt_close($stmt);
     }
     return "Nome utente non disponibile";
-    
+
 }
 
 
 function getNotificationMessage($notification, $conn) {
     $followerId = $notification["utenteIdPost"];
     $followerUsername = getUserName($followerId, $conn);
-    
+
 
     switch ($notification["tipo"]) {
+        case "C":
+          return "$followerUsername ha commentato il tuo post!";
         case "F":
-            return "$followerUsername ha iniziato a seguirti!";
+          return "$followerUsername ha iniziato a seguirti!";
         case "K":
-            return "$followerUsername ha messo like a un tuo post!";
+          return "$followerUsername ha messo like a un tuo post!";
         case "V":
-        return "$followerUsername ha messo love a un tuo post!";
+          return "$followerUsername ha messo love a un tuo post!";
         default:
             return "Nuova notifica!";
     }
