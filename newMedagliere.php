@@ -36,22 +36,32 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
 </head>
 
 <body>
+<?php require('navbarSelect.php'); ?>
+
 
     <section id="cercaMed" class="d-flex">
         <div class="col-1"></div>
         <div class="col-10">
-            <div class="d-flex container-fluid float-right">
+            <div class="p-0 d-flex container-fluid float-right">
                 <form class="d-inline-flex" action="newMedagliere.php" method="post">
                     
                     <h2 id="tit1Sec"><label for="tmpInputSeachingString" id="labelSearchingInput">Ricerca nome medagliere:</label></h2>
 
-                    <input name="searchingMed" 
+                    <div id="acCont" class="flex-fill float-right autocomplete-container mx-3"> <!-- acCont -> autocompleteContainer -->
+                        <input 
+                        type="search"  
                         class="form-control me-2 float-right" 
-                        type="search" 
-                        placeholder="Search" 
-                        aria-label="Search"
                         id="tmpInputSeachingString"
-                        value="<?php echo $res; ?>"/>
+                        name="searchingMed" 
+                        value="<?php echo $res; ?>"
+                        placeholder="Search" 
+                        aria-label="Search"/>
+                        <!-- <input type="text" id="manageThisUser" name="manageThisUser"> -->
+                        <div id="autocompleteBoooksResults" class="autocomplete-results"></div>
+                    </div>
+                    
+
+
                 </form>
             </div>
         </div>

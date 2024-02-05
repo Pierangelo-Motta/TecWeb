@@ -102,9 +102,9 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
 
 
             <?php else : ?>
-            <section id="postNotFoundContainer" class="col-12 col-md-6">
-                <h1> Il post richiesto non esiste! </h1>
-                <button id="retBut" class="flex-fill btn btn-secondary" type="button" data-prevLink="landingPage.php">Indietro</button>
+            <section id="postNotFoundContainer" class="mx-auto col-11 text-center">
+                <h1 class="text-center"> Il post richiesto non esiste! </h1>
+                <button id="retButErr" class="flex-fill btn btn-secondary" type="button" data-prevLink="landingPage.php">Indietro</button>
             </section>
             <?php endif?>
 

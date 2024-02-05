@@ -21,6 +21,8 @@ function parseActTime(){
 parseActTime();
 
 let commentArea = document.getElementById("riflessioneCurrentUser");
+if (commentArea != null){
+    
 const uIDC = commentArea.getAttribute("data-userIDC");
 
 document.getElementById("retBut").addEventListener("click", function msg() {
@@ -111,4 +113,9 @@ document.querySelectorAll("img.myComment").forEach(elem => {
 });
 
 
-
+} else {
+    document.getElementById("retButErr").addEventListener("click", () => {
+        window.history.back();
+    })
+    
+}
