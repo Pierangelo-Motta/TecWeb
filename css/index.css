@@ -22,3 +22,10 @@
 .form-group {
     margin-bottom: 10px;
 }
+
+#messaggioUtenteRegistrato {
+    display: none;
+    color: #0b5ed7;
+    text-align: center;
+
+}

@@ -45,8 +45,9 @@ if ($password === $confirm_password && checkUser($username)) {
         mysqli_stmt_bind_param($stmt, "sss", $username, $hashed_password, $email);
 
         if (mysqli_stmt_execute($stmt)) {
-            echo "<p>Nuovo utente registrato correttamente</>";
-            echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
+            // echo "<p>Nuovo utente registrato correttamente</>";
+            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
+            header("Location: register.html?log=ok");
 
         } else {
             echo "Errore: " . $sql . "<br>" . mysqli_error($conn);
