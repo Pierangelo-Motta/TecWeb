@@ -73,8 +73,8 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
 
         
         <div class="col-10">
-        <h2 id="tit2Sec">Results</h2>
-        <div class="col-12" id="newMedaglieri"></div>
+            <h2 id="tit2Sec">Results</h2>
+            <div class="col-12" id="newMedaglieri"></div>
         </div>
 
 

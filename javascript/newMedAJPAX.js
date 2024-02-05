@@ -32,7 +32,13 @@ let actSearchingString = "";
 class AJAXManager{
 
     rel = new ReloaderPage(500);
+    userId = 0;
+    prevURLquery = "include/controller/newMedagliereController.php?";
 
+    basicAmountShow = 3;
+    amountReload = 0;
+    amountShowForReload = 2;
+    amountChallenged = 0;
     
     constructor() {
         
@@ -41,14 +47,8 @@ class AJAXManager{
         //console.log(searchingSection + " / " +  mainContainer + " / " + footerMore);
         this.showMore(false);
 
-        this.userId = mainContainer.parentElement.getAttribute("data-userId");
-     
-        this.prevURLquery = "include/controller/newMedagliereController.php?";
-
-        this.basicAmountShow = 3;
-        this.amountReload = 0;
-        this.amountShowForReload = 2;
-        this.amountChallenged = 0;
+        console.log("LL __ " + mainContainer.parentElement.parentElement.getAttribute("data-userId"));
+        this.userId = mainContainer.parentElement.parentElement.getAttribute("data-userId");
 
         this.obtainMissMeds(tmpInputSeachingString.getAttribute("value"));
 
@@ -57,7 +57,7 @@ class AJAXManager{
     }
 
     showMore(mustShow){
-        if(mustShow){
+        if(mustShow) {
             footerMore.firstChild.nextSibling.style.display = "block";
         } else {
             footerMore.firstChild.nextSibling.style.display = "none";
@@ -70,20 +70,23 @@ class AJAXManager{
 
     obtainMissMeds(pTitMed){
         this.showLoading();
-        //console.log("pT: " + pTitMed);
+        // console.log("pT: " + pTitMed);
 
         let xhr = new XMLHttpRequest();
         
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
 
-//                console.log("PRE " + arrayMissMeds);
+                // console.log("PRE " + arrayMissMeds);
+                console.log(xhr.responseText);
                 let res = JSON.parse(xhr.responseText);
                 arrayMissMeds = res;
-//                console.log("POST " + arrayMissMeds);
+                console.log("POST " + arrayMissMeds);
                 this.manageResults();
             }
         };
+
+        console.log("CIAO: " + this.userId);
 
         let args = {
             "codeQ" : 10,
@@ -103,6 +106,7 @@ class AJAXManager{
     manageResults(){
         let amountToShow = arrayMissMeds.length;
         this.amountChallenged = 0;
+
         if(amountToShow == 0){
             
             this.showMore(false);
@@ -116,9 +120,8 @@ class AJAXManager{
                 mainContainer.innerHTML = "<h3 class=\"noresults\"> Niente di nuovo qui, torna la prossima volta! </h3>";
                 //TODO: valutare se togliere anche la barra di ricerca
             }
-           
-
             //NO RISULTATI
+
         } else {
             this.amountReload = 0;
             this.byIdsToGraphic(true);
@@ -132,6 +135,7 @@ class AJAXManager{
         
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
+                
                 this.showResult(xhr.responseText, isFirstTime);
             }
         };
