@@ -34,6 +34,7 @@ if(isset($_POST['aggiungiMedagliere'])){
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
     <link rel="stylesheet" type="text/css" href="css/gestioneMedaglieri.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico">
 
     <!-- DataTables JS -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js">
