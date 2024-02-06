@@ -219,7 +219,7 @@ function saveBooks(array $books){
     $stmt = $conn->prepare($sql);
     
     foreach ($books as $book) {
-        $stmt->bind_param('ss', $book['id'], $book['medagliere_id']);
+        $stmt->bind_param('ii', $book['id'], $book['medagliere_id']);
         $stmt->execute();
     }
     
