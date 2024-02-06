@@ -49,7 +49,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
         <div class="col-md-12">
                 <?php
                   if (empty($posts)) {
-                      echo '<p>Nessun post disponibile in questa sezione.</p>';
+                      echo '<p>Nessun post disponibile in questa sezione. Puoi saperne di più nella pagina informazioni! </p>';
                   } else {
                       foreach ($posts as $post):
                     //print_r($post["elencoTag"]);
@@ -88,7 +88,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                     <div class="row">
                                         <p>Sto pensando a... <br/> <?= $post['riflessione']; ?></p>
                                     </div>
-                                     <div class="row"> <!--TODO: perchè doppia row?... --> 
+                                     <div class="row"> <!--TODO: perchè doppia row?... -->
                                       <?php if (!empty($post['elencoTag'])): ?>
                                         <div class="row">
                                             <p>
