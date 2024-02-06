@@ -281,7 +281,7 @@ CREATE TABLE `sottoscrive` (
 
 LOCK TABLES `sottoscrive` WRITE;
 /*!40000 ALTER TABLE `sottoscrive` DISABLE KEYS */;
-INSERT INTO `sottoscrive` VALUES (25,0),(26,0),(27,0),(28,0),(29,0),(30,0),(25,1),(26,1),(27,1),(28,1),(29,1),(30,1),(26,2),(25,4),(26,6);
+INSERT INTO `sottoscrive` VALUES (25,0),(26,0),(27,0),(28,0),(25,1),(26,1),(27,1),(28,1),(26,2),(25,4),(26,6);
 /*!40000 ALTER TABLE `sottoscrive` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -346,12 +346,12 @@ CREATE TABLE `utente` (
   `username` varchar(80) NOT NULL,
   `email` varchar(80) NOT NULL,
   `pwd` varchar(120) NOT NULL,
-  `immagineProfilo` varchar(255) DEFAULT NULL,
-  `isAdmin` int(1) NOT NULL DEFAULT 0,
+  `immagineProfilo` varchar(255) NOT NULL,
+  `isAdmin` int(1) NOT NULL,
   `descrizione` varchar(150) DEFAULT NULL,
-  `stato` int(1) NOT NULL DEFAULT 0,
+  `stato` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,7 +360,7 @@ CREATE TABLE `utente` (
 
 LOCK TABLES `utente` WRITE;
 /*!40000 ALTER TABLE `utente` DISABLE KEYS */;
-INSERT INTO `utente` VALUES (7,'admin','admin@tecweb.it','$2y$10$3OlMvmQbXDETNgS8Mqdi6.nIi0ZRT88H0ud2JHL4hWZ3tC1VJcn12','65a25733abf6d_root.jpg',1,'System Admin',0),(25,'jp','JP@JP.com','$2y$10$t3O2zNr7s92.ZVid64YVauSHXRzGujEE2.WGvpj7avPYscqddBrDC','',0,NULL,0),(26,'luca','luca@luca.com','$2y$10$LTZ0SxXAMLV858ARZDn6tOG1tVvIw60SoGy59QJ5cBZ1GoeTsmZxS','',0,NULL,0),(27,'pier','pier@pier.com','$2y$10$F/96DUJGcVIKtaiqx4u.jeeXPgnLBD53wHQWwpxxcLRcKlLIcC7aq','',0,NULL,0),(28,'w','w@w.com','$2y$10$4FI7N9SpPcAJdVGWzjlCDuIQWJElTUeoeJyaMtYz88HrjWpyhocEC','65c12b3e1b754_sigillo1x_xl_zaky.jpg',0,'sono W',0),(29,'bbbb','pierangelo.motta@icloud.com','$2y$10$F1u/WxGb8aYiStTIJ7YqmulcY0cs5Rf6VnxMwjeuCN5MUSty7QqVC',NULL,0,NULL,0),(30,' ','pierangelo.motta@icloud.com','$2y$10$HDj.n.t/fWgXmXarldTowOT/NvmQs9bVvfVBBqFAbAFo1TiTLMTam',NULL,0,NULL,0);
+INSERT INTO `utente` VALUES (7,'admin','admin@tecweb.it','$2y$10$3OlMvmQbXDETNgS8Mqdi6.nIi0ZRT88H0ud2JHL4hWZ3tC1VJcn12','65a25733abf6d_root.jpg',1,'System Admin',0),(25,'jp','JP@JP.com','$2y$10$t3O2zNr7s92.ZVid64YVauSHXRzGujEE2.WGvpj7avPYscqddBrDC','',0,NULL,0),(26,'luca','luca@luca.com','$2y$10$LTZ0SxXAMLV858ARZDn6tOG1tVvIw60SoGy59QJ5cBZ1GoeTsmZxS','',0,NULL,0),(27,'pier','pier@pier.com','$2y$10$F/96DUJGcVIKtaiqx4u.jeeXPgnLBD53wHQWwpxxcLRcKlLIcC7aq','',0,NULL,0),(28,'w','w@w.com','$2y$10$4FI7N9SpPcAJdVGWzjlCDuIQWJElTUeoeJyaMtYz88HrjWpyhocEC','65c12b3e1b754_sigillo1x_xl_zaky.jpg',0,'sono W',0);
 /*!40000 ALTER TABLE `utente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -373,4 +373,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-05 22:54:49
+-- Dump completed on 2024-02-05 20:25:32

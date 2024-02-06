@@ -113,7 +113,7 @@ function savePostedPhoto($imgRelPath, $userName){
     // nuovo nome della foto
     $newImgName = $newImgName . "__" . $timeStamp . "." . $extension;
 
-    $distanceByRoot = DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "..";
+    $distanceByRoot = DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
 
     // Construct the full path for the source dir
     $fromDir = $currentDirectory . $distanceByRoot . $imgRelPath; //. "images/post/tmp/" . $imageName;
@@ -179,7 +179,7 @@ function getNotifications($userID) {
 
     $notifications = array();
 
-    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOraPost DESC"; // Ordina per data decrescente
+    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOra DESC"; // Ordina per data decrescente
     if ($stmt = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($stmt, "i", $userID);
         mysqli_stmt_execute($stmt);
@@ -250,17 +250,18 @@ function embedTagPost($idTag, $userId, $datetime){
 
 
 function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
-    
+
     //FIXME luca controllami
     global $conn;
     //FIXME luca controllami
     $sql = "INSERT INTO notifica(utenteId, dataOra, utenteIdPost, dataOraPost, tipo) VALUES (?,?,?,?,?);";
+
     //FIXME luca controllami
     $tipo = "C"; //TODO luca controllami
     //FIXME luca controllami
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, "isiss", $who, $when, $userIdPost, $datePost, $tipo);
+        mysqli_stmt_bind_param($stmt, "isiss", $userIdPost, $when, $who, $datePost, $tipo);
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
@@ -272,7 +273,7 @@ function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
 }
 
 function deleteNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
-     
+
     //FIXME luca controllami
     global $conn;
     //FIXME luca controllami

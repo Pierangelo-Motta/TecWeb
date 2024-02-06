@@ -55,10 +55,7 @@ $userID = isset($_SESSION['id']) ? $_SESSION['id'] : null;
                         <ul id="notification-list" class="dropdown-menu">
                             <?php
                             foreach ($notifications as $notification) {
-                                $followerId = $notification["utenteIdPost"];
-                                $followerUsername = getUserName($followerId, $conn);
-                                $notificationMessage = "$followerUsername ha iniziato a seguirti!";
-                                echo '<li><a class="dropdown-item" href="#">' . $notificationMessage . '</a></li>';
+                                echo '<li><a class="dropdown-item" href="#">' . $notification . '</a></li>';
                             }
                             ?>
                         </ul>

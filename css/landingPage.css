@@ -70,6 +70,13 @@ input[name="searchingMed"]{
 
 }
 
+#notification-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+
+
 /* Safari */
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }

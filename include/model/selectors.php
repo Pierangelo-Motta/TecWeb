@@ -309,7 +309,7 @@ function getCommentInfoByPost($userIdPost, $datePost){
 function checkIfPostExist($userId, $dataPost){
     global $conn;
     $sql = "SELECT *
-            from Post P 
+            from post p 
             where p.utenteId = ?
             and p.dataOra = ?;";
     $stmt = $conn->prepare($sql);
@@ -344,7 +344,7 @@ function getIdTagByString($stringTag){
 function getPostByTag($tag) {
 
     global $conn;    
-    $sql = "SELECT utenteIdPost, dataOraPost FROM tagperpost WHERE tagId = ?;";
+    $sql = "SELECT utenteIdPost, dataOraPost FROM tagperpost WHERE tagId = ? ORDER BY dataOraPost DESC;";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $tag);

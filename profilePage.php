@@ -8,7 +8,7 @@ require_once("include/model/selectors.php");
 require_once("include/model/insertOnDB.php");
 require_once("include/view/userBanner.php");
 
-function useIsVisitingAdminPage() {
+function userIsVisitingAdminPage() {
     return ($_SESSION["id"] != 7) && ($_GET["id"] == 7);
 }
 
@@ -25,7 +25,7 @@ if (!isset($_GET["mode"]) || !in_array($_GET["mode"], $modes)) {
     $newValues["post"] = "post";
 }
 
-if (!isset($_GET["id"]) || (existIdUser($_GET["id"]) == -1) || (useIsVisitingAdminPage())) {
+if (!isset($_GET["id"]) || !is_numeric($_GET["id"]) || (existIdUser($_GET["id"]) == -1) || (userIsVisitingAdminPage())) {
     $newValues["id"] = getUserId1($_SESSION["username"]);
 }
 
