@@ -28,16 +28,19 @@ function getNotificationMessage($notification, $conn) {
     $followerId = $notification["utenteIdPost"];
     $followerUsername = getUserName($followerId, $conn);
 
+    $tmp = "<a href='comments.php?userIdPost={$notification['utenteId']}&timePost=" . str_replace(" ", "+", $notification['dataOraPost']) . "'>post</a>";
+
+
 
     switch ($notification["tipo"]) {
         case "C":
-          return "$followerUsername ha commentato il tuo post!";
+          return "$followerUsername ha commentato il tuo $tmp!";
         case "F":
           return "$followerUsername ha iniziato a seguirti!";
         case "K":
-          return "$followerUsername ha messo like a un tuo post!";
+          return "$followerUsername ha messo like a un tuo $tmp!";
         case "V":
-          return "$followerUsername ha messo love a un tuo post!";
+          return "$followerUsername ha messo love a un tuo $tmp!";
         default:
             return "Nuova notifica!";
     }
