@@ -1317,6 +1317,11 @@ Books variable content: array (
   array (
     0 => 
     array (
+<<<<<<< HEAD
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '3',
+=======
       'id' => '16',
       'titolo' => 'X Geai ff',
       'medagliere_id' => '7',
@@ -1326,6 +1331,7 @@ Books variable content: array (
       'id' => '6',
       'titolo' => 'X Della gentilezza e del coraggio',
       'medagliere_id' => '7',
+>>>>>>> ab910892e609f3d1157f04628449f1a550893027
     ),
   ),
 )
@@ -1351,6 +1357,11 @@ Books variable content: array (
   array (
     0 => 
     array (
+<<<<<<< HEAD
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '3',
+=======
       'id' => '6',
       'titolo' => 'XDella gentilezza e del coraggio',
       'medagliere_id' => '7',
@@ -1360,6 +1371,7 @@ Books variable content: array (
       'id' => '16',
       'titolo' => 'XGeai ff',
       'medagliere_id' => '7',
+>>>>>>> ab910892e609f3d1157f04628449f1a550893027
     ),
   ),
 )
