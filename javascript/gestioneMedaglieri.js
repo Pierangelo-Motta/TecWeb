@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let remainingBooks = getRemainingBooks();
             console.log(remainingBooks);
 
-            //TODO: da implementare per salvare lo stato su db
+            // da implementare per salvare lo stato su db
             // Perform an AJAX request to update the database with the remaining books
             // fetch('include/updateMedagliereDB.php', {
             //     method: 'POST',

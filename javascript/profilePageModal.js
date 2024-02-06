@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // element.addEventListener("click", function () {
         element.addEventListener("mouseover", function () {    
             // Extract the number from the ID
-            //TODO: impostare il flusso in maniera tale che l'uid rimanga costante fino alla chiusura del popup..
+            // impostato il flusso in maniera tale che l'uid rimanga costante fino alla chiusura del popup..
             if (uid === 0 || popUpClosed) {
                 uid = this.id.match(/\d+/);
             }
-            console.log("mouseOver -> " + uid );
+            // console.log("mouseOver -> " + uid );
             
             let identificativoSeguiti = "counterSegueUserBannerN" + uid;
             let identificativoFollower = "counterFollowerUserBannerN" + uid;

@@ -135,7 +135,7 @@ if(isset($_POST['aggiungiMedagliere'])){
 
 
                                     <label for="selectedItemDescrizioneInput">Descrizione</label>
-                                    <!-- TODO: settare il linguaggio corretto -->
+                                    
                                     <textarea lang="" class="flexible-input descrizione" rows="4" cols="50"
                                         id="selectedItemDescrizioneInput"
                                         name="selectedItemDescrizioneInput"></textarea>
