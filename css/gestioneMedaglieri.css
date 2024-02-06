@@ -34,3 +34,32 @@
     
 } 
 
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid #333333;
+    z-index: 1000;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.chiudi-popup {
+    text-align: center;
+    margin: 5px;
+    color: #0b5ed7;
+    border: none;
+}

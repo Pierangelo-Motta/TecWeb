@@ -171,7 +171,14 @@ if(isset($_POST['aggiungiMedagliere'])){
                         <div class="text-center">
                         <label for="salvaLibriInMedagliere" hidden>Salva libri in medagliere</label>
                         <input  class="btn btn-primary" id="salvaLibriInMedagliere" value="Salva Libri in Medagliere">
-                        <input type="submit" class="btn btn-primary" value="Certifica Medagliere">
+                        <!-- <input type="submit" class="btn btn-primary" value="Certifica Medagliere"> -->
+                        </div>
+                        
+                        <!-- popup aggiornamento medaglieri -->
+                        <div class="overlay" id="overlay"></div>
+                        <div class="popup" id="popup">
+                            <p>Medagliere aggiornato correttamente</p>
+                            <p class="chiudi-popup" id="chiudi-popup">Chiudi</p>
                         </div>
 
                     </div>

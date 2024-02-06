@@ -234,6 +234,7 @@ document.getElementById('salvaLibriInMedagliere').addEventListener('click', func
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            openPopup();
             // Handle success or error
         })
         .catch(error => {
@@ -269,3 +270,19 @@ document.addEventListener('click', function (event) {
     }
 
 });
+
+
+function openPopup() {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("popup").style.display = "none";
+}
+
+
+document.getElementById('chiudi-popup').addEventListener('click', function () {
+   closePopup();
+}) 
