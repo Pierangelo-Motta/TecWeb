@@ -86,7 +86,6 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-4 text-center">
-                <!-- TODO: label?-->
                 <p>Non sei ancora registrato: <a href="register.html">Registrati</a></p>
             </div>
             <div class="col-md-4">

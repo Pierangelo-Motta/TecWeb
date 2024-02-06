@@ -65,7 +65,6 @@ header("Location: index.php");
                 include('include/changePassword.php');
                 ?>
             </div>
-            <!-- TODO: mostrare correttamente l'informazione sotto.. AJAX? -->
             <div id="passwordChanged" style="display: none;" class="col-md-12 text-center content">
                 <p>La password è stata cambiata correttamente!</p>
             </div>
