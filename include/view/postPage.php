@@ -126,7 +126,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                 $okLE = $isLikeCheck ? "0" : "1";
                                 $okLF = $isLikeCheck ? "1" : "0";
                               ?>
-                              <div class="col-md-1 col-2">
+                              <div class="col-md-1 col-3">
                                 <button class="like-button bi-hand-thumbs-up likeButton" data-utenteID="<?= $post['utenteId']; ?>" data-dataOra="<?= $post['dataOra']; ?>">
                                     <!-- Icona del pollice in su vuota -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up emptyThumb" data-mustShow="<?= $okLE ?>" viewBox="0 0 16 16">
@@ -145,7 +145,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                               $okF = $isCheck ? "1" : "0";
                             ?>
 
-                            <div class="col-md-1 col-5">
+                            <div class="col-md-1 col-3">
                               <button class="love-button bi-suit-heart loveButton" data-utenteID="<?= $post['utenteId']; ?>" data-dataOra="<?= $post['dataOra']; ?>">
                                   <!-- Icona del cuore vuota -->
                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart emptyHeart" data-mustShow="<?= $okE ?>" viewBox="0 0 16 16">
@@ -158,7 +158,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                               </button>
                           </div>
 
-                          <div class="col-md-4 col-5">
+                          <div class="col-md-4 col-6">
                               <a href="comments.php?userIdPost=<?= $post['utenteId']; ?>&timePost=<?=  $b = str_replace(" ","+",$post['dataOra']); ?>">Commenta</a>
                           </div>
                       </div>
