@@ -88,11 +88,14 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                     <div class="row">
                                         <p>Sto pensando a... <br/> <?= $post['riflessione']; ?></p>
                                     </div>
-                                    <div class="row">
+                                     <div class="row"> <!--TODO: perchè doppia row?... --> 
                                       <?php if (!empty($post['elencoTag'])): ?>
                                         <div class="row">
                                             <p>
                                                 <?php
+                                                echo "<br> --- ";
+                                                print_r($post['elencoTag']);
+                                                echo " --- <br>";
                                                 $tags = explode(',', $post['elencoTag']);
                                                 foreach ($tags as $tag) {
                                                   $tagUrl = 'searchingTag.php?tag=' . urlencode($tag);

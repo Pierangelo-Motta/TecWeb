@@ -96,7 +96,7 @@ class Post {
                   GROUP BY
                       p.utenteId, p.dataOra
                   ORDER BY
-                      p.dataOra DESC";
+                      p.dataOra DESC;";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $user_id);
