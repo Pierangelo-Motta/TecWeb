@@ -10,9 +10,9 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="css/basicStyle.css"> -->
+    <link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/popUpStyle.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico">
 
 
 </head>
