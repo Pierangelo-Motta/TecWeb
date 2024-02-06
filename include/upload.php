@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($sourcePath, $destinationPath)) {
 
             // delete old image
-            if (strlen($oldImageName) > 0) {
+            if ($oldImageName != null) {
                 deleteOldImage( $uploadDirectory,$oldImageName);
             }
             // Image upload successful; save $imageName to the database
