@@ -171,7 +171,7 @@ if(isset($_POST['aggiungiMedagliere'])){
                         <div class="text-center">
                         <label for="salvaLibriInMedagliere" hidden>Salva libri in medagliere</label>
                         <input  class="btn btn-primary" id="salvaLibriInMedagliere" value="Salva Libri in Medagliere">
-                        <input type="submit" class="btn btn-primary" value="Certifica Medagliere">
+                        <!-- <input type="submit" class="btn btn-primary" value="Certifica Medagliere"> -->
                         </div>
 
                     </div>
