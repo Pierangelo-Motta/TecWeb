@@ -27,7 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($sourcePath, $destinationPath)) {
 
             // delete old image
-            deleteOldImage( $uploadDirectory,$oldImageName);
+            if ($oldImageName != null) {
+                deleteOldImage( $uploadDirectory,$oldImageName);
+            }
             // Image upload successful; save $imageName to the database
             uploadImageName($_SESSION['username'],$imageName);
             // test echo the image name
@@ -39,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Error uploading the image.";
         }
     } else {
-        echo "Please select an image.";
+        echo "Selezionare un'immagine.";
     }
 }
 ?>

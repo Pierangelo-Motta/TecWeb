@@ -26,6 +26,7 @@ $libriResult = $libri->getLibri();
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon_io/favicon.ico">
     <script src="javascript/libro.js"></script>
 </head>
 

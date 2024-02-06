@@ -49,7 +49,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
         <div class="col-md-12">
                 <?php
                   if (empty($posts)) {
-                      echo '<p>Nessun post disponibile in questa sezione.</p>';
+                      echo '<p>Nessun post disponibile in questa sezione. Puoi saperne di più nella pagina informazioni! </p>';
                   } else {
                       foreach ($posts as $post):
                     //print_r($post["elencoTag"]);
@@ -59,16 +59,27 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                         <div class="card-body">
                             <div class="d-inline-flex w-100">
 
+<<<<<<< HEAD
                               <div class="post flex-fill align-bottom">
+=======
+                              <div class="col-md-2 col-3 text-right post">
+>>>>>>> 5f7b07bb82f751d16009c981f904a90ba9ac311d
                                   <a href="profilePage.php?id=<?= $post['utenteId']; ?>">
                                       <img class="post-img" src="<?= getUserImage($post['username']); ?>" alt="Immagine profilo" />
                                   </a>
                               </div>
 
+<<<<<<< HEAD
                                 <div class="align-bottom w-25">
                                     <p><?= $post['username']; ?></p>
                                 </div>
                                 <div class="flex-fill align-bottom float-left text-end">
+=======
+                                <div class="col-md-5 col-4 text-left">
+                                    <p><?= $post['username']; ?></p>
+                                </div>
+                                <div class="col-md-5 col-5">
+>>>>>>> 5f7b07bb82f751d16009c981f904a90ba9ac311d
                                     <p><?= time_elapsed_string($post['dataOra']); ?></p>
                                 </div>
                             </div>
@@ -88,7 +99,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                     <div class="row">
                                         <p>Sto pensando a... <br/> <?= $post['riflessione']; ?></p>
                                     </div>
-                                     <div class="row"> <!--TODO: perchè doppia row?... --> 
+                                     <div class="row"> <!--TODO: perchè doppia row?... -->
                                       <?php if (!empty($post['elencoTag'])): ?>
                                         <div class="row">
                                             <p>
@@ -126,7 +137,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                 $okLE = $isLikeCheck ? "0" : "1";
                                 $okLF = $isLikeCheck ? "1" : "0";
                               ?>
-                              <div class="col-md-1 col-2">
+                              <div class="col-md-1 col-3">
                                 <button class="like-button bi-hand-thumbs-up likeButton" data-utenteID="<?= $post['utenteId']; ?>" data-dataOra="<?= $post['dataOra']; ?>">
                                     <!-- Icona del pollice in su vuota -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up emptyThumb" data-mustShow="<?= $okLE ?>" viewBox="0 0 16 16">
@@ -145,7 +156,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                               $okF = $isCheck ? "1" : "0";
                             ?>
 
-                            <div class="col-md-1 col-5">
+                            <div class="col-md-1 col-3">
                               <button class="love-button bi-suit-heart loveButton" data-utenteID="<?= $post['utenteId']; ?>" data-dataOra="<?= $post['dataOra']; ?>">
                                   <!-- Icona del cuore vuota -->
                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart emptyHeart" data-mustShow="<?= $okE ?>" viewBox="0 0 16 16">
@@ -158,7 +169,7 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                               </button>
                           </div>
 
-                          <div class="col-md-4 col-5">
+                          <div class="col-md-4 col-6">
                               <a href="comments.php?userIdPost=<?= $post['utenteId']; ?>&timePost=<?=  $b = str_replace(" ","+",$post['dataOra']); ?>">Commenta</a>
                           </div>
                       </div>
