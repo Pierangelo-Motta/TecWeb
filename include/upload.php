@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Error uploading the image.";
         }
     } else {
-        echo "Please select an image.";
+        echo "Selezionare un'immagine.";
     }
 }
 ?>
