@@ -1312,3 +1312,312 @@ Books variable content: array (
     ),
   ),
 )
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '3',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '3',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '3',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '7',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '4',
+    ),
+    1 => 
+    array (
+      'id' => '6',
+      'titolo' => 'X Il primo caffè della giornata',
+      'medagliere_id' => '4',
+    ),
+    2 => 
+    array (
+      'id' => '5',
+      'titolo' => 'X L\'abito di piume',
+      'medagliere_id' => '4',
+    ),
+  ),
+)
