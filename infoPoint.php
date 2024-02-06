@@ -20,7 +20,7 @@ if (!($_SESSION['loggedin'] === true)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New post</title>
+    <title>Informazioni</title>
 
 
     <!-- Bootstrap CSS -->

@@ -7,10 +7,11 @@ include_once("include/model/insertOnDB.php");
 
 $userID = isset($_SESSION['id']) ? $_SESSION['id'] : null;
 
+// $notifications = "";
 // if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 //     $notifications = getNotifications($userID);
 // }
-// $notifications = "";
+
 
 // if ($userID != 7) {
 //   echo "<script src=\"https://code.jquery.com/jquery-3.6.4.min.js\"></script>";

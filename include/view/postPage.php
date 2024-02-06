@@ -57,18 +57,18 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                 <article>
                     <div class="card">
                         <div class="card-body">
-                            <div class="row">
+                            <div class="d-inline-flex w-100">
 
-                              <div class="col-md-1 col-3 text-right post">
+                              <div class="post flex-fill align-bottom">
                                   <a href="profilePage.php?id=<?= $post['utenteId']; ?>">
                                       <img class="post-img" src="<?= getUserImage($post['username']); ?>" alt="Immagine profilo" />
                                   </a>
                               </div>
 
-                                <div class="col-md-7 col-4 text-left">
+                                <div class="align-bottom w-25">
                                     <p><?= $post['username']; ?></p>
                                 </div>
-                                <div class="col-md-3 col-5">
+                                <div class="flex-fill align-bottom float-left text-end">
                                     <p><?= time_elapsed_string($post['dataOra']); ?></p>
                                 </div>
                             </div>

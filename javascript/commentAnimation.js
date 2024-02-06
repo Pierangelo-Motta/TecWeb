@@ -47,7 +47,8 @@ if (commentArea != null){
 
 
     document.getElementById("createComm").addEventListener("click", function () {
-        if (commentArea.value.length > 0) {
+        let actPres = commentArea.value.replace(/\s+/g,' ').trim();
+        if (actPres.length > 0) {
             $.ajax({
                 type: 'POST',
                 url: 'include/controller/commentController.php',
@@ -55,7 +56,7 @@ if (commentArea != null){
                     "userIdP": pG.values.get("userIdPost"),
                     "dateP": pG.values.get("timePost"),
                     "userIdC": uIDC,
-                    "comm": commentArea.value
+                    "comm": actPres
                 },
                 dataType: 'json',
                 success: function(response) {
