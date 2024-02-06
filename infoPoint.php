@@ -57,7 +57,7 @@ if (!($_SESSION['loggedin'] === true)) {
             </article>
 
             <article id="landingTag">
-                <h2 class="h2subtitle">Partiamo dall'inizio: Landing Page  <img src="images/logoLetturePremiate.png" alt="#" /></h2>
+                <h2 class="h2subtitle">Partiamo dall'inizio: Landing Page  <a href="landingPage.php"><img src="images/logoLetturePremiate.png" alt="#" /></a></h2>
                 <p> È la pagina di benvenuto, quella dove si "atterra" subito dopo il login.
                     Se sei nuovo di questo sito probabilmente la vedrai vuota... è normale così!
                     Infatti, in questa pagina vedrai tutti i post degli utenti che decidi di seguire
@@ -65,7 +65,7 @@ if (!($_SESSION['loggedin'] === true)) {
             </article>
 
             <article id="discoveryTag">
-            <h2 class="h2subtitle">Scoprire nuove riflessioni: Discovery Page <img src="images/discoveryLogo.png" alt="#" /> </h2>
+            <h2 class="h2subtitle">Scoprire nuove riflessioni: Discovery Page <a href="discoveryPage.php"> <img src="images/discoveryLogo.png" alt="#" /> </a> </h2>
             <p> È la pagina dove puoi trovare riflessioni e post di persone che ancora non segui.
                 Ottima per fare nuove conoscenze!
                 Se non vedi alcun post probabilmente perché stai seguendo tutte le persone che hanno fatto dei post e quindi li troverai sulla landing page!
@@ -73,7 +73,7 @@ if (!($_SESSION['loggedin'] === true)) {
             </article>
 
             <article id="profileTag">
-            <h2 class="h2subtitle">La tua casa (e non solo): Profile Page <img src="<?php echo getUserImage(tmpGetUsernameById($_SESSION["id"]))?>" alt="#" /></h2>
+            <h2 class="h2subtitle">La tua casa (e non solo): Profile Page <a href="profilePage.php"> <img src="<?php echo getUserImage(tmpGetUsernameById($_SESSION["id"]))?>" alt="#" /> </a> </h2>
             <p> È la pagina personale di ogni utente. È l'insieme dei tuoi post e delle tue medaglie. In giro nel sito è possibile accederci cliccando sulla sua immagine profilo o sul nickname dell'utente.
                 Per accedere a una zona del profilo piuttosto che l'altra, sarà sufficente premere sull'immagine che si vedono sottostante (nel banner dell'utente ovviamente)</p>
             <h3>Zona post <img src="images/libroMedaglieri.png" alt="#" /></h3>
@@ -111,8 +111,8 @@ if (!($_SESSION['loggedin'] === true)) {
             </ul>
             </article>
 
-            <article id="settingPage">
-            <h2 class="h2subtitle">Darsi un pò di stile: Setting Page <img src="images/settingLogo.png" alt="#" /></h2>
+            <article id="settingPage">                              
+            <h2 class="h2subtitle">Darsi un pò di stile: Setting Page <a href="settingPage.php"> <img src="images/settingLogo.png" alt="#" /> </a> </h2>
             <p> È la pagina dove ogni utente può caricare una propria nuova foto profilo o cambiare la propria descrizione</p>
             </article>
 

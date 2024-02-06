@@ -93,9 +93,9 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                         <div class="row">
                                             <p>
                                                 <?php
-                                                echo "<br> --- ";
-                                                print_r($post['elencoTag']);
-                                                echo " --- <br>";
+                                                // echo "<br> --- ";
+                                                // print_r($post['elencoTag']);
+                                                // echo " --- <br>";
                                                 $tags = explode(',', $post['elencoTag']);
                                                 foreach ($tags as $tag) {
                                                   $tagUrl = 'searchingTag.php?tag=' . urlencode($tag);

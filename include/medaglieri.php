@@ -17,6 +17,9 @@ class Medaglieri{
         $sql = "INSERT INTO medagliere (titolo,descrizione) VALUES (?,?)";
         $stmt = mysqli_prepare($this->conn, $sql);
 
+        $titolo = stripslashes($titolo);
+        $descrizione = stripslashes($descrizione);
+
         if ($stmt) {
             mysqli_stmt_bind_param($stmt, "ss", $titolo,$descrizione);
             mysqli_stmt_execute($stmt);
