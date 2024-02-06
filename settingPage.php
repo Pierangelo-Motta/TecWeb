@@ -50,7 +50,7 @@ header("Location: index.php");
                     <?php if (isUserAdmin($_SESSION['username'])) {?>
                     <li><a href="gestioneLibri.php" class='book'>Gestione Libri</a></li>
                     <li><a href="gestioneMedaglieri.php" class='goal'>Gestione Medagliere</a></li>
-                    <li><a href="#" class='delete'>Elimina account</a></li>
+                    <!-- <li><a href="#" class='delete'>Elimina account</a></li> -->
                     <li><a href="#" class='manage'>Gestisci Utenti</a></li>
                     <?php } ?>
                 </ul>
@@ -65,7 +65,6 @@ header("Location: index.php");
                 include('include/changePassword.php');
                 ?>
             </div>
-            <!-- TODO: mostrare correttamente l'informazione sotto.. AJAX? -->
             <div id="passwordChanged" style="display: none;" class="col-md-12 text-center content">
                 <p>La password è stata cambiata correttamente!</p>
             </div>
