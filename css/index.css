@@ -6,15 +6,17 @@
 
 }
 
-.messaggioErroreBan p{
+.messaggioErroreBan {
     display: none;
+}
+
+.messaggioErroreBan p{
     font-weight: bold;
     font-size: 1.5em;
     color: red;
 }
 
 .messaggioErroreBan a{
-    display: none;
     font-weight: bold;
     font-size: 1em;
 }
