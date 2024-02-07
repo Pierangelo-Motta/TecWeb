@@ -35,7 +35,7 @@ function execQ($sql, $isCreate){
     if ($isCreate){
         createNotifyToUserForComment($userIdP, $dateP, $dateC, $userIdC);
     } else {
-        //deleteNotifyToUserForComment($userIdC, $dateC, $userIdP, $dateP);
+        deleteNotifyToUserForComment($userIdC, $dateC, $userIdP, $dateP);
     }
 }
 
@@ -61,7 +61,6 @@ switch ($funcToExec) {
         break;
 
     default:
-        # code...
         break;
 }
 
