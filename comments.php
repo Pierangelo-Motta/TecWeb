@@ -32,7 +32,7 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New post</title>
+    <title>TecWeb - Commenta</title>
 
 
     <!-- Bootstrap CSS -->
