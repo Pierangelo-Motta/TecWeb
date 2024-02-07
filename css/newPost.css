@@ -1,13 +1,15 @@
 
-body main div#mainCont{
-    margin-bottom: 100px;
+div#mainCont {
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 /*************/
 
 body main div > form {
-    display: flex;
+    display: block;
 }
+
 
 body main div#mainCont h1{
     line-height: 2em;
@@ -15,15 +17,9 @@ body main div#mainCont h1{
 
 /*************/
 
-body main div form div#newPostForm_pt1{
-    /* display: inline-block;   */
-}
-
-
 body main div form div div#acCont {
     display: inline-block;
     width: calc(100% - 95px);
-    /* max-width: ; */
 }
 
 body main div form div div#acCont input#nomeLibroId{
@@ -40,8 +36,10 @@ body main div form div#newPostForm_pt1 textarea{
 }
 
 /***************************************/
-
-body main div form div#newPostForm_pt2 p{
+body main div form div#newPostForm_pt2 p {
+    margin-top: 50px;
+    border-top: 1px rgb(204, 204, 204) solid;
+    padding-top: 20px;
     text-align: center;
 }
 
@@ -81,7 +79,6 @@ body main div form div#newPostForm_pt2 div#imgPrevDiv input{
 /**/
 
 body main div form div#newPostForm_pt2 div#imgPrevMods{
-    /* margin-bottom: 10%; */
     display: none;  /*ci pensa eventualmente js a mostrarlo */
     clear: both;
     justify-content: center;
@@ -96,6 +93,8 @@ body main div footer {
 body main div footer p#accessibilityMessage{
     display:block;
     float: right;
+    margin: 0 0 20px;
+    text-align: justify;
 }
 
 body main div footer button{
@@ -121,10 +120,6 @@ textarea{
     margin-top: 10px;
 }
 
-p.accessibilityMessage{
-    margin: 20px 0 0;
-}
-
 #imgPrevMods{
     margin: 30px 0;
 }
@@ -133,37 +128,9 @@ footer#footerNewPost {
     margin: 10px 0 0;
 }
 
-footer#footerNewPost button{
-    /* margin: 10px 0 30px; */
-}
-
 .blockDisplay{
     display: block;
 }
-
-@media only screen and (max-width: 768px) {
-
-    div#mainCont{
-        margin-top: 60px;
-    }
-
-body main div > form{
-    display: block;
-}
-
-body main div form div#newPostForm_pt2 p{
-    margin-top: 50px;
-    border-top: 1px rgb(204, 204, 204) solid;
-    padding-top: 20px;
-    text-align: center;
-}
-
-}
-
-
-
-
-
 
 .autocomplete-container {
     position: relative;
@@ -191,3 +158,20 @@ body main div form div#newPostForm_pt2 p{
 .autocomplete-results div:hover {
     background-color: #f0f0f0;
 }
+
+@media only screen and (min-width: 768px) {
+
+    body main div > form {
+        display: flex;
+    }
+
+    body main div form div#newPostForm_pt2 p{
+        margin-top: 0px;
+        border-top: 0px rgb(204, 204, 204) solid;
+        padding-top: 0px;
+    }
+
+}
+
+
+

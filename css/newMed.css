@@ -5,32 +5,23 @@ body footer button#retBut{
     left: 5%;
 }
 
-
 .allMedInfo {
     width: 100%;
 }
 
-
 div.titlecontainer{
     width: 20%;
 }
-
 
 body section div div.medContainer{
     margin: 5% 0;
     min-height: 300px;
 }
 
-
 body section div div.medContainer div footer button{
     position: relative;
     float: right;
-    /* margin: 5% 0; */
-    /* padding: 5% 0; */
 }
-
-
-
 
 
 img.imgmedagliere{
@@ -46,12 +37,12 @@ img.imgmedagliere{
 
 /***********/
 
-.descrizioneMed{
+.descrizioneMed {
     text-align: justify;
 }
 
 
-p.libroLetto{
+p.libroLetto {
     text-decoration: line-through;
     font-style: italic;
 }
@@ -88,26 +79,23 @@ h2#tit1Sec{
 
 @media only screen and (min-width: 768px) {
 
-
-    body section div div.medContainer{
+    body section div div.medContainer {
         max-height: 500px;
-        /* padding: 5% 0; */
     }
 
-    img.imgmedagliere{
-        /* margin: auto 0; */
+    img.imgmedagliere {
         min-width: 100px;
         max-width: 200px;
     }
     
-    div.infocontainer{
+    div.infocontainer {
         margin: 0 min(5%, 25px) 0 1% ;
         max-height: 450px;
         min-height: 250px;
         width: 75%;
     }
 
-    ol{
+    ol {
         max-height: 200px;
         min-height: 200px;
     }

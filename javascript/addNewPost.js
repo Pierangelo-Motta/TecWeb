@@ -87,6 +87,7 @@ class PostAdder {
         try {
             this.newPostForm.submit(); //prove di inizio progetto
         } catch (error) {
+            
         }
     }
 

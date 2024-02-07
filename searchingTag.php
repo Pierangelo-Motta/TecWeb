@@ -25,49 +25,16 @@ $idTag = getIdTagByString($_GET["tag"]);
 if ($idTag < 0) {
     $tagExist = false;
 }
-// echo "<br>";
-// print_r($idTag);
-// echo "<br>";
 
 $posts = array();
 if ($tagExist) {
     $tmp = getPostByTag($idTag);
-    // print_r($tmp);
     foreach ($tmp as $row) {
-        // echo "<br>";
-        // echo "-->";  
-        // print_r($row);
-        // echo "<br>";
-        // $a = $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]);
-        // echo "---->";  
-        // print_r($a);
-        // echo "<br>";
-        
+        $tmp1 = $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]);
+        array_push($posts,$tmp1[0]);
 
-        $alfa = $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]);
-        array_push($posts,$alfa[0]);
-
-
-        // $res =  
-        // // echo "---->";  
-        // // print_r($res);
-        
-        // // // print_r($res);
-        // // // print "<br><br>";
-        // // // $res .=
-
-        // $alfa = $post->getSpecificPost($row["utenteIdPost"], $row["dataOraPost"]);
-        // if (!empty($alfa)){
-        //   array_push($posts,$alfa[0]);
-        //   // print_r($posts);
-        // }
     }
 }
-
-// print_r($posts);
-
-// Ottenere i post delle persone che stai seguendo (Landing Page)
- //$posts = $post->getIdTagByString($_GET["tag"]);
 
 ?>
 
@@ -94,13 +61,7 @@ if ($tagExist) {
         </div>
         <div class="col-md-8">
           <?php if ($tagExist) {
-
-            // foreach ($res as $post) {
-            //     print_r($post);
-            //     // echo "<br>";
                 require("include/view/postPage.php");
-            // }
-
           } else {
 
             echo "<h3>Nessun utente ha fatto post con questo tag!</h3>";

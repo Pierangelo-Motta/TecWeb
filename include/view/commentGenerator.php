@@ -49,15 +49,6 @@ function createImage($userIdCommentor, $dataComment, $isMyPost){
 function summonComment($userIdCommentor, $dataComment, $comment){
     $username = tmpGetUsernameById($userIdCommentor);
 
-    // print_r($userIdCommentor);
-    // echo "<br>";
-    // print_r($dataComment);
-    // echo "<br>";
-    // print_r($comment);
-    // echo "<br>";
-    // print_r($username);
-    // echo "<br>";
-
     $isMyPost = ($userIdCommentor == $_SESSION["id"]) ? true : false;
 
     $divContainerClass = "comment";
@@ -75,7 +66,7 @@ function collectAllComments($userIdPost, $dataPost){
     $allRes = getCommentInfoByPost($userIdPost, $dataPost);
     
     $final = "";
-    foreach($allRes as $singleRow){ //TODO: PRIMA FONTE ERRORI
+    foreach ($allRes as $singleRow) {
         
         $final .= summonComment($singleRow["utenteIdComm"], $singleRow["dataOraComm"], $singleRow["commento"]);
     }

@@ -159,9 +159,9 @@ document.querySelectorAll(".facciata").forEach((elem, index) => {
     const subtitle = secArt.firstChild;
     const listLibri = subtitle.nextSibling;
 
-    let defaultTitleSize = rel.isLittle ? 22 : 36; //TODO ?OLD controlla 20 
+    let defaultTitleSize = rel.isLittle ? 22 : 36;
     let defaultdescriptSize = rel.isLittle ? 16 : 18;
-    let defaultSubtitleSize = rel.isLittle ? 16 : 25;  //TODO ?OLD controlla 16
+    let defaultSubtitleSize = rel.isLittle ? 16 : 25; 
     let defaultListaLibriHeight = rel.isLittle ? 150 : 200;
 
     const maxCharsTitle = 50;
