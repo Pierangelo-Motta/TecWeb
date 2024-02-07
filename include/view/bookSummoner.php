@@ -6,17 +6,15 @@ $nomeUtente = tmpGetUsernameById($_GET["id"]);
 
 function createStrangeFront(){
     $begin = "<div class='front facciata'>";
-    $middle = "<h3> <a href=\"newMedagliere.php\"> Aggiungi nuovi medaglieri </a> al tuo libro! </h3>"; //TODO : ancorare la pagina di sottomissione a un nuovo medagliere?
+    $middle = "<h3> <a href=\"newMedagliere.php\"> Aggiungi nuovi medaglieri </a> al tuo librone dei medaglieri! </h3>"; // : ancorare la pagina di sottomissione a un nuovo medagliere?
     $end = "</div>";
     return $begin . $middle . $end;
 }
 
 function createFacciataAnteriore(){ 
     $nomeUtente = tmpGetUsernameById($_GET["id"]);
-    // <!-- <h3>2023.<br>Second edition</h3> -->
-    // </div>
     $begin = "<div id='copertinaAvanti' class='front facciata'>";
-    $middle = "<h2>Il medagliere di \"" . $nomeUtente . "\"</h2>"; //TODO c'è modo di risalire al nome dell'utente conoscendo l'id?
+    $middle = "<h2>Il medagliere di \"" . $nomeUtente . "\"</h2>";
     $end = "</div>";
     return $begin . $middle . $end;
 }
@@ -46,8 +44,6 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
         $imgToConsider = "<img class='imgObtainedMed' src='images/medagliaNonOttenuta.png' alt='" . $nomeUtente . " sta leggendo ancora per questa medaglia!' />";
     }
 
-    // print_r($medInfos);
-
     $medTitleClass = "medTitle";
 
     $middle1 = "<article class='titoloMedagliere'>" 
@@ -59,7 +55,7 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
                 "</article>";
 
     $medDescClass = "descrizioneMedagliere";
-    $middle2 = "<article class=\"" . $medDescClass . "\"> <p>" . $medInfos["descrizione"] . "</p> </article>"; //$medInfos["descrizione"]
+    $middle2 = "<article class=\"" . $medDescClass . "\"> <p>" . $medInfos["descrizione"] . "</p> </article>"; 
 
     $listBooks = obtainList($libriInMedagliere, $_GET["id"]);
 
@@ -101,16 +97,13 @@ function createFacciata1($faceType, $medIndex, $exactIndex, $isComplete){
     $medInfos = getMedagliereInfo($medIndex[$exactIndex])[0];
     
     $libriInMedagliere = getLibroEAutoreByMedagliereId($medIndex[$exactIndex]);
-    // print_r($libriInMedagliere);
-
+    
     $imgToConsider = "";
     if ($isComplete){
         $imgToConsider = "<img class='imgObtainedMed' src='images/medagliaOttenuta.png' alt='" . $nomeUtente ." ha ottenuto questa medaglia!' />" ;
     } else {
         $imgToConsider = "<img class='imgObtainedMed' src='images/medagliaNonOttenuta.png' alt='" . $nomeUtente . " sta leggendo ancora per questa medaglia!' />";
     }
-
-    // print_r($medInfos);
 
     $medTitleClass = "medTitle";
 
@@ -120,11 +113,9 @@ function createFacciata1($faceType, $medIndex, $exactIndex, $isComplete){
                 .
                 $imgToConsider
                 ;
-                // .
-                // "</article>";
 
     $medDescClass = "descrizioneMedagliere";
-    $middle2 = "<p class=\"" . $medDescClass . "\"> " . $medInfos["descrizione"] . "</p> </article>"; //$medInfos["descrizione"]
+    $middle2 = "<p class=\"" . $medDescClass . "\"> " . $medInfos["descrizione"] . "</p> </article>";
 
     $listBooks = obtainList($libriInMedagliere, $_GET["id"]);
 
@@ -165,11 +156,6 @@ function createFront($medIndex, $exactIndex, $isComplete){
     return createFacciata1("front facciata", $medIndex, $exactIndex, $isComplete);
 }
 
-
-// public createPage($medIndex, $amountComplete, $actIndex){
-    
-// }
-
 function createPage($frontHTML, $backHTML){
     $begin = "<div class='page'>";
     $end = "</div>";
@@ -182,7 +168,7 @@ function createBook($medIndex, $amountComplete){
 
     for ($i=0; $i <= $amountPages; $i++) { 
         $tmpPages = "";
-        // echo (intdiv((sizeof($medIndex)+1),2));
+
         switch ($i) {
             
             case 0:
@@ -191,7 +177,6 @@ function createBook($medIndex, $amountComplete){
                 break;
             
             case ($amountPages):
-                // echo "index-- " . $i;
                 if((sizeof($medIndex) % 2) === 0){
                     $middle1 = createFacciata1("front facciata", $medIndex, (($i*2)-1), (($i*2)-1 < $amountComplete));
                 } else {
@@ -205,6 +190,7 @@ function createBook($medIndex, $amountComplete){
                 $middle2 = createBack($medIndex, ($i*2), (($i*2) < $amountComplete));
                 break;
         }
+
         $tmpPages = createPage($middle1, $middle2);
         $pages = $pages . $tmpPages;
     }

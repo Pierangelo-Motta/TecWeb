@@ -168,7 +168,7 @@ function byIdsToGUI() {
 }
 
 
-function createSubmission(){
+function createSubmission() {
     
     $userID = $_GET["userId"];
     $medID = $_GET["medId"];

@@ -4,7 +4,6 @@ body section#userDescription{
 
 div#textInfo{
     line-height: 1.2;
-    /* overflow: hidden; */
 }
 
 div#textInfo h1{
@@ -20,8 +19,6 @@ div.mainInfos div.imgPropicCont{
 }
 
 div.mainInfos div.imgPropicCont img{
-    /* max-width: 100px; */
-    /* width: 80%; */
     width: 100%;
     box-shadow: -15px 15px 16px -16px #0a65d56a;
     margin: auto auto;
@@ -30,12 +27,8 @@ div.mainInfos div.imgPropicCont img{
 
 .containerUserInfos{
     padding-left: 10px;
-    /* max-width: 60%; */
-    /* width: 60%; */
     overflow-x: hidden;
     max-width: 600px;
-    /* width: 400px; */
-    /* max-width: calc(300px); */
 }
 
 
@@ -87,20 +80,11 @@ body main{
 @media only screen and (min-width: 576px){
     .containerUserInfos{
         max-width: 200px;
-        /* max-width: 60%; */
-        /* width: 60%; */
-        /* overflow-x: hidden; */
-        /* width: 400px; */
-    }
-    
+    }    
 }
-@media only screen and (min-width: 1000px){
+
+@media only screen and (min-width: 1000px) {
     .containerUserInfos{
         max-width: 700px;
-        /* max-width: 60%; */
-        /* width: 60%; */
-        /* overflow-x: hidden; */
-        /* width: 400px; */
     }
-    
 }

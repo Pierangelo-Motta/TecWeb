@@ -118,9 +118,7 @@ class AJAXManager{
                     "\"! </h3>";
             } else {
                 mainContainer.innerHTML = "<h3 class=\"noresults\"> Niente di nuovo qui, torna la prossima volta! </h3>";
-                //TODO: valutare se togliere anche la barra di ricerca
             }
-            //NO RISULTATI
 
         } else {
             this.amountReload = 0;

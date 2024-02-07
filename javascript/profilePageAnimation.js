@@ -1,8 +1,8 @@
 
-const pGaa = new PHPGet();
-
 
 class Swapper{
+
+    pG = new PHPGet();
 
     constructor() {
 
@@ -28,7 +28,7 @@ class Swapper{
     }
 
     redirectTo(){
-        let pageMod = pGaa.values.get("mode");
+        let pageMod = this.pG.values.get("mode");
         if (pageMod == "post") {
             window.location = "newPost.php";
         } else {
@@ -39,10 +39,10 @@ class Swapper{
     adaptPortal(portalImg, abbrPortalImg, link, altText, otherImg){
         let userName = abbrPortalImg.getAttribute("title");
         abbrPortalImg.setAttribute("title", altText + userName);
-        //TODO occhio al riutilizzo
+        
         portalImg.setAttribute("alt", altText + userName);
         
-        portalImg.addEventListener("click", () => location.replace("profilePage.php?mode=" + link + "&id=" + pGaa.values.get("id")));
+        portalImg.addEventListener("click", () => location.replace("profilePage.php?mode=" + link + "&id=" + this.pG.values.get("id")));
 
         let actImg = portalImg.getAttribute("src");
 
