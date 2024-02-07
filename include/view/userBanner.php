@@ -212,8 +212,6 @@ function obtainMainInfosUserBanner($userId){
         </div>";
 // FINE PARTE POPUP
         
-// echo "<button onclick=\"openPopup()\">Open Popup</button>";
-
     return $initMainContainter . $first . $second . $finMainContainer . $popupContent;
 
 }
