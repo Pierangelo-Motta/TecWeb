@@ -60,18 +60,22 @@ body main{
     h1{
         margin-top: 10px;
     }
+
     div#portalDiv{
         min-width: 50px;
         width: 50%;
         max-width: 100px;
     }
+
     div.mainInfos{
         align-items: center;
         text-align: center;
     }
+
     div.imgPropicCont{
         margin: auto 0;
     }
+    
     div.containerUserInfos{
         max-width: auto;
     }

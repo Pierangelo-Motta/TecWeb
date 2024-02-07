@@ -42,7 +42,6 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
     <link rel="stylesheet" type="text/css" href="css/commentsStyle.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
 
-
     <link rel="icon" href="images/favicon_io/favicon.ico">
 
 
@@ -64,15 +63,9 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
                 <h2> Il tuo commento: </h2>
                 <form action="#" method="post">
                     <div class="d-flex w-100" id="userCommentControls">
-                        <!-- <div class="flex-fill"> solo per far andare il flex fill che tanto non vaaaaaaaaaaa - -->
                         <button id="retBut" class="flex-fill btn btn-secondary" type="button" data-prevLink="landingPage.php">Indietro</button>
-                        <!-- </div> -->
-
                         <div class="flex-fill riempitivo"></div>
-
-                        <!-- <div class="flex-fill"> -->
                         <button id="createComm" class="flex-fill btn btn-primary" type="button">Condividi!</button>
-                        <!-- </div> -->
                     </div>
 
                     <textarea class="form-control"
@@ -113,10 +106,6 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
     </div>
 
 
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
@@ -129,10 +118,5 @@ if(!isset($_GET["userIdPost"]) || !isset($_GET["timePost"]) || !checkIfPostExist
     <script src="javascript/lovePost.js"></script>
     <script src="javascript/commentAnimation.js"></script>
 
-
-
-    <!-- <script src="javascript/addNewPost.js"></script> -->
-    <!-- <script src="javascript/addNewPost.js"></script> -->
-    <!-- <script src="javascript/newMedAJPAX.js"></script> -->
 </body>
 </html>

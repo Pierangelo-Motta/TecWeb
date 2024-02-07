@@ -1,42 +1,4 @@
 
-// NOT USED
-// document.addEventListener('DOMContentLoaded', function () {
-//     let tableRows = document.querySelectorAll('.medaglieri-row');
-
-//     tableRows.forEach(function (row) {
-//         row.addEventListener('click', function () {
-//             // this.style.color = "red";
-//             let description = this.getAttribute('data-description');
-//             document.getElementById('descriptionContainer').innerHTML = description;
-//             console.log("000: " + description);
-//         });
-//     });
-// });
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     // const dropdownButton = document.getElementById('dropdownButton');
-//     const dropdownMenu = document.getElementById('dropdownMenu');
-//     // console.log(dropdownMenu);
-//     const selectedItemText = document.getElementById('selectedItemTitolo');
-//     // console.log("selectedItemText:" + selectedItemText.value);
-//     const selectedItemDescription = document.getElementById('selectedItemDescrizione');
-
-//     dropdownMenu.addEventListener('click', function (event) {
-//         const selectedValue = event.target.getAttribute('titolo');
-//         const selectedItemDescriptionValue = event.target.getAttribute('descrizione');
-//         console.log("selectedValue:" + selectedValue);
-//         console.log("selectedItemDescriptionValue:" + selectedItemDescriptionValue);
-
-//         if (selectedValue) {
-//             selectedItemText.innerText = selectedValue;
-//         }
-//         if (selectedValue) {
-//             selectedItemDescription.innerText = selectedItemDescriptionValue;
-//         }
-//     });
-
-// });
-
 let medagliereid;
 
 $('#dropdownMenu p').on('click', function () {
@@ -48,17 +10,6 @@ $('#dropdownMenu p').on('click', function () {
     $('#selectedItemTitoloInput').val(titolo);
     $('#selectedItemDescrizioneInput').val(descrizione);
 
-    // Perform an AJAX request to the server
-    // let xhr = new XMLHttpRequest();
-    // xhr.open("GET", "include/libriInMedagliere.php?idLibro=" + id + "", true);
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState == 4 && xhr.status == 200) {
-    //         // Handle the response from the server
-    //         let data = JSON.parse(xhr.responseText);
-    //         console.log(data);
-    //     }
-    // };
-    // xhr.send();
     fetch('include/libriInMedagliere.php?idLibro=' + medagliereid)
         .then(response => response.json())
         // .then(data => console.log(data))
@@ -67,19 +18,6 @@ $('#dropdownMenu p').on('click', function () {
         .catch(error => console.error('Error:', error));
 });
 
-// let dropdown = document.getElementById('dropdownButton');
-
-// dropdown.addEventListener('change', function () {
-//     // Get the selected value
-//     let selectedValue = dropdown.value;
-//     console.log("selectedValue: " + selectedValue);
-//     // Perform a GET request or any other action with the selected value
-//     // Example: You can use fetch API to make a GET request
-//     fetch('include/libriInMedagliere.php?idLibro=' + selectedValue)
-//         .then(response => response.json())
-//         .then(data => console.log(data))
-//         .catch(error => console.error('Error:', error));
-// })
 
 // renderizzo i libri appartenenti al medagliere
 function addLibriToList(libriInMedagliere) {
@@ -127,21 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(remainingBooks);
 
             // da implementare per salvare lo stato su db
-            // Perform an AJAX request to update the database with the remaining books
-            // fetch('include/updateMedagliereDB.php', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ action: 'update', books: remainingBooks }),
-            // })
-            //     .then(response => response.json())
-            //     .then(data => console.log(data))
-            //     .catch(error => console.error('Error:', error));
-
+            
 
         }
-
 
     });
 
@@ -199,14 +125,6 @@ $(document).ready(function () {
         // chiamo la funzione per aggiungere libri all'elenco del medagliere
         addBookToLibriList(bookId, bookTitle);
 
-        // Check if the bookId should not be hidden
-        // if (!isBookIdInArray(bookId, getRemainingBooks())) {
-        //     console.log("not to hide");
-        // } else {
-        //     // Hide the clicked row if the bookId should be hidden
-        //     $(this).hide();
-        // }
-
         $(this).hide();
 
         // console.log("aggiunto libro id: " + bookId);
@@ -243,14 +161,6 @@ document.getElementById('salvaLibriInMedagliere').addEventListener('click', func
         });
 
 })
-
-// Function to check if a bookId is in the array of 
-// NOT USED
-// function isBookIdInArray(bookId, booksArray) {
-//     return booksArray.some(function (book) {
-//         return book.id === bookId;
-//     });
-// }
 
 document.addEventListener('click', function (event) {
     // Code to be executed on each click

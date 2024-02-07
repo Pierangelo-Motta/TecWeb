@@ -15,7 +15,6 @@ $password = $_POST['password'];
 // }
 
 if (isUserBanned($username)) {
-    // die("<h1>Utente Bannato!</h1><h2><a href=\"mailto:admin@tecweb.it?subject=Utente%20Bannato\">Contatta l'amministratore</a></h2>");
     header("Location: index.php?log=b");
     die();
 }
@@ -26,8 +25,6 @@ if (isLoginOk($conn, $username, $password)) {
     $_SESSION['id'] = getUserId($conn, $username, $password);
     header("Location: landingPage.php");
 } else {
-    // echo "Nome utente o password non corretti. Riprova per favore.";
-    // header("Location: indexError.html");
     header("Location: index.php?log=e");
 }
 

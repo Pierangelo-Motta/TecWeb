@@ -47,16 +47,12 @@ function showAutocomplete(inputValue, tipologia, classe) {
             autocompleteResults.style.display = filteredUsers.length > 0 ? 'block' : 'none';
             autocompleteResults.style.color = "#0b5ed7";
             // console.log(autocompleteResults);
-
-
         }
     };
 
     xhr.open('GET', 'include/userList.php', true);
-
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // linea aggiunta per settare l' "X-Requested-With header" che indica che questa è una richiesta AJAX.
     xhr.send();
-
     // console.log("xhr done: inside");
 
 }

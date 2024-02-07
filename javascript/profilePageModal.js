@@ -85,14 +85,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 // this.style.width = "100px";
                 // this.style.boxshadow = "-15px 15px 16px - 16px #0a65d56a";
                 // this.style.fontSize = "1.1em";
-                
             };
+
             let mouseOutFunction = function () {
                 this.style.color = '#000'; // your colour change
                 this.style.textShadow = '';
                 // this.style.border = '1px solid #fff';
                 // this.style.fontSize = "1em";
             };
+
             seguiti.onmouseover = mouseOverFunction;
             seguiti.onmouseleave = mouseOutFunction;
             followers.onmouseover = mouseOverFunction;
@@ -116,13 +117,3 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // });
 });
 
-
-// // Add event listener to the document body to close the popup on click outside
-// document.body.addEventListener("click", function (event) {
-//     if (!event.target.closest('.popup')) {
-//         // Close all popups when clicking outside of a popup
-//         document.querySelectorAll('.popup').forEach(function (popup) {
-//             popup.style.display = 'none';
-//         });
-//     }
-// });

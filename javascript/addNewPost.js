@@ -106,7 +106,6 @@ class PostAdder {
         this.manageImgChange();
     }
 
-
 }
 
 a = new PostAdder(false, false); //default values

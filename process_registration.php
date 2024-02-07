@@ -27,14 +27,12 @@ function checkUser($user){
     $stmt->execute();
     $result = $stmt->get_result();
     $stmt->close();
-    //$conn->close();
     
     if ($result->num_rows == 0){
         return true;
     } 
     else{
-        //return false;
-        // die("Nome utente già presente");
+        // Nome utente già presente
         header("Location: register.html?log=u");
         die();
     }
@@ -48,12 +46,9 @@ if ($password === $confirm_password && checkUser($username)) {
     $sql = "INSERT INTO utente (username, pwd, email) VALUES (?, ?, ?)";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        // mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
         mysqli_stmt_bind_param($stmt, "sss", $username, $hashed_password, $email);
 
         if (mysqli_stmt_execute($stmt)) {
-            // echo "<p>Nuovo utente registrato correttamente</>";
-            // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
             header("Location: register.html?log=ok");
 
         } else {
@@ -63,7 +58,6 @@ if ($password === $confirm_password && checkUser($username)) {
 
     mysqli_stmt_close($stmt);
 
-
     // sottoscrive un nuovo utente al/ai medaglieri standard
     $defaultMedIndex = array(0,1);
     $userId = getUserId1($username);
@@ -71,13 +65,10 @@ if ($password === $confirm_password && checkUser($username)) {
     foreach ($defaultMedIndex as $medId) {
         $sql = "INSERT INTO sottoscrive (medagliereId, utenteId) VALUES (?, ?)";
         if ($stmt = mysqli_prepare($conn, $sql)) {
-            // mysqli_stmt_bind_param($stmt, "ss", $username, $hashed_password);
             mysqli_stmt_bind_param($stmt, "ii", $medId, $userId);
     
             if (mysqli_stmt_execute($stmt)) {
-                // echo "<p>Nuovo utente registrato correttamente</>";
-                // echo "<p>Torna alla <a href=\"index.php\">Login Page</a></p>";
-    
+
             } else {
                 echo "Errore: " . $sql . "<br>" . mysqli_error($conn);
             }

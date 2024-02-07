@@ -51,7 +51,7 @@ if(isset($_POST['aggiungiMedagliere'])){
     </div>
     <?php
     if (!isUserAdmin($_SESSION['username'])) {
-    // Utente non admin
+        // Utente non admin
         die("Per accedede alla pagina occorre loggarsi come utente amministratore!");
         exit();
     }
@@ -149,19 +149,6 @@ if(isset($_POST['aggiungiMedagliere'])){
                                     Elenco Libri
                                     <ul class="list-group" id="libriList">
                                         
-                                        <?php //$libriInMedagliere = getLibriMedaglieri($medagliereId)?>
-                                        <?php //foreach($libriInMedagliere as $libro){?>
-                                        <!-- <li class="list-group-item"> -->
-                                            <!-- reperire correttamente l'id del libro -->
-                                            <!-- <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_1">X</button> -->
-                                            <!-- AAA -->
-                                        <!-- </li> -->
-                                        <!-- <li class="list-group-item"> -->
-                                            <!-- <button class="btn btn-danger btn-sm m-2 removebtn" id="btn_2">X</button> -->
-                                            <!-- BBB -->
-                                            <?php //echo $libro['titolo'] ?>
-                                        <!-- </li> -->
-                                        <?php //}?>
                                     </ul>
                                 </div>
                             </div>
@@ -171,7 +158,6 @@ if(isset($_POST['aggiungiMedagliere'])){
                         <div class="text-center">
                         <label for="salvaLibriInMedagliere" hidden>Salva libri in medagliere</label>
                         <input  class="btn btn-primary" id="salvaLibriInMedagliere" value="Salva Libri in Medagliere">
-                        <!-- <input type="submit" class="btn btn-primary" value="Certifica Medagliere"> -->
                         </div>
                         
                         <!-- popup aggiornamento medaglieri -->
@@ -235,7 +221,6 @@ if(isset($_POST['aggiungiMedagliere'])){
     </script>
 
     <script src="javascript/gestioneMedaglieri.js"></script>
-    <!-- <script src="javascript/gm.js"></script> -->
     <script src="javascript/libri.js"></script>
 
 

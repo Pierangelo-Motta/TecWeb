@@ -1,30 +1,17 @@
 
 const pG = new PHPGet();
 
-function adaptUnit(toAdapt) {
-    if (toAdapt < 10){
-        return "0" + toAdapt;
-    } else {
-        return toAdapt + "";
-    }
+function refresh() {
+    window.location.reload();
 }
-
-function parseActTime(){
-    const date = new Date();
-    let res = date.getFullYear() + "-";
-    res += adaptUnit(date.getMonth() + 1) + "-";
-    res += adaptUnit(date.getDate()) + " ";
-    res += adaptUnit(date.getHours()) + ":";
-    res += adaptUnit(date.getMinutes()) + ":";
-    res += adaptUnit(date.getSeconds());
-}
-parseActTime();
 
 let commentArea = document.getElementById("riflessioneCurrentUser");
-if (commentArea != null){
+
+if (commentArea != null) {
+
     const uIDC = commentArea.getAttribute("data-userIDC");
 
-    document.getElementById("retBut").addEventListener("click", function msg() {
+    document.getElementById("retBut").addEventListener("click", () => {
         if(commentArea.value.length == 0 || confirm("Sicuro di voler tornare indietro?")){
             window.history.back(); 
         }
@@ -33,16 +20,17 @@ if (commentArea != null){
     commentArea.addEventListener("input", () => {
         let counter = document.querySelector("label[for=riflessioneCurrentUser]").firstChild.nextElementSibling;
         const maxCharsForComment = 1020;
-        console.log(commentArea.value.length);
+        //console.log(commentArea.value.length);
         let newCalc = maxCharsForComment - commentArea.value.length;
         counter.innerHTML = newCalc;
 
-        if (newCalc <= 0) {
+        if (newCalc <= 0 || (commentArea.value.length == 0)) {
             document.getElementById("createComm").disabled = true;
         } else {
             document.getElementById("createComm").disabled = false;
         }
     })
+    document.getElementById("createComm").disabled = true;
 
 
     document.getElementById("createComm").addEventListener("click", function () {
@@ -58,20 +46,19 @@ if (commentArea != null){
                     "comm": actPres
                 },
                 dataType: 'json',
+                
                 success: function(response) {
-                    console.log("OK");
+                    //console.log("OK");
                 },
                 error: function(xhr, status, error) {
-                    console.log("NO OK");
-                    console.error("Errore durante la richiesta AJAX:", status, error);
-                    console.log(xhr.responseText);
+                    commentArea.value = "";
+                    window.location.reload();
                 }
             });
         } else {
-            console.log(commentArea.value.length);
+            //console.log(commentArea.value.length);
         }
-        commentArea.value = "";
-        window.location.reload();
+        
     })
 
 
@@ -94,6 +81,12 @@ if (commentArea != null){
                         "dateC": elem.getAttribute("data-thisdate")
                     },
                     dataType: 'json',
+                    success: function(response) {
+                    },
+                    error: function(xhr, status, error) {
+                        // commentArea.value = "";
+                        window.location.reload();
+                    }
                 });
                 elem.parentElement.parentElement.style.display = "none";
             }
@@ -115,6 +108,6 @@ if (commentArea != null){
     } else {
         document.getElementById("retButErr").addEventListener("click", () => {
             window.history.back();
-        })
+    })
     
 }

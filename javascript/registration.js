@@ -7,19 +7,16 @@ let utenteRegistratoMessaggio = document.getElementById('messaggioUtenteRegistra
 
 document.addEventListener("DOMContentLoaded", function () {
     messaggioErroreUtente.style.display = "none";
-    // console.log("here");
     if (window.location.href.endsWith("log=u")) {
         messaggioErroreUtente.style.display = "block";
     }
 
     messaggioErrorePassword.style.display = "none";
-    // console.log("here");
     if (window.location.href.endsWith("log=p")) {
         messaggioErrorePassword.style.display = "block";
     }
 
     //utente registrato correttamente
-    //utenteRegistrato.style.display = "none";
     if (window.location.href.endsWith("log=ok")) {
         utenteRegistratoForm.style.display = "none";
         utenteRegistratoMessaggio.style.display = "block";

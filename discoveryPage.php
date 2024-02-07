@@ -1,19 +1,19 @@
 <?php
-  session_start();
+session_start();
 
-  if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    //user is not logged in go to login page
-    header("Location: index.php");
-    exit;
-  }
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+  //user is not logged in go to login page
+  header("Location: index.php");
+  exit;
+}
 
-  require_once 'include/post.php';
+require_once 'include/post.php';
 
-  $post = new Post($conn);
-  $posts = $post->getDiscoveryPosts($_SESSION['id']);
-
+$post = new Post($conn);
+$posts = $post->getDiscoveryPosts($_SESSION['id']);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="it">
   <head>

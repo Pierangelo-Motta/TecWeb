@@ -42,8 +42,7 @@ if(isPresentImg($imgInterestedName)){
 }
 
 //vecchio strcmp($_POST["sB"], "ok"): ho fatto in modo che sB valesse:
-//1 se si vuole condividere
-//0 se si vuole tornare indietro
+//1 se si vuole condividere - 0 se si vuole tornare indietro
 if (isset($_POST["sB"])) {
     $parsed = intval($_POST["sB"]);
     if($parsed == 1){
@@ -93,7 +92,7 @@ if (isset($_POST["sB"])) {
 
     
     } else {
-        //// errors print
+        //// error status
         print_r($_POST);
         $dirPath = "images/post/tmp";
         $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
@@ -140,9 +139,6 @@ if (isset($_POST["sB"])) {
                     
                     <div class="col-md-6 col-12" id="newPostForm_pt1">
 
-                        <!-- Dropdown menu for selecting a user -->
-                            <!-- <label for="manageThisUser">Seleziona Utente:</label> -->
-                            
                         <label for="nomeLibroId"> Nome libro: </label>
                         <div id="acCont" class="my-1 my-md-0 autocomplete-container"> <!-- acCont -> autocompleteContainer -->
                             <input type="text" 
@@ -151,7 +147,6 @@ if (isset($_POST["sB"])) {
                             name="<?php echo $nomeLibroName ?>"
                             value="<?php echo $nomeLibroNameValue ?>"
                             />
-                            <!-- <input type="text" id="manageThisUser" name="manageThisUser"> -->
                             <div id="autocompleteBoooksResults" class="autocomplete-results"></div>
                         </div>
 
@@ -181,8 +176,6 @@ if (isset($_POST["sB"])) {
 
                     </div>
 
-                    <!-- <div class="col-1"></div> -->
-
                     <div class="col-md-6 col-12" id="newPostForm_pt2">
                         <p class="my-1 my-md-0 align-bottom m-0 mt-2">Inserisci qui sotto una foto:</p>
                         <div id="imgPrevDiv">
@@ -206,8 +199,6 @@ if (isset($_POST["sB"])) {
                             </button>
                         </div>
                     </div>
-
-                <!-- </div> -->
             </form>
 
             <footer id="footerNewPost">

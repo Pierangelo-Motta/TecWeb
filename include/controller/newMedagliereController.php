@@ -57,7 +57,6 @@ function getCorrectImg($amountLeastBooks){
         }
     }
 
-    //magari implementare ricerca binaria?
     switch ($category){
         case 0:
             $imgName = "medagliaFacile.png";
@@ -118,7 +117,6 @@ function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
 
                         "<div class=\"allMedInfo d-md-flex\">" . 
                             "<div class=\"mx-auto titlecontainer order-md-1\" id=\"titlecontainer" . $toAdd . "\">" . 
-                                //d-flex justify-content-center 
                                 "<img " .
                                     "src=\"images/medagliereNewIcons/" . $imgToAdd . "\" " .
                                     "alt=\"" . $altImg . "\" " .

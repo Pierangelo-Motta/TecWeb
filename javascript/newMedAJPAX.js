@@ -8,10 +8,8 @@ function prepareURLwithOkGet(arrKV){
 
         if ( Array.isArray(value) ){
             let tmp = ""
-            value.forEach(v => tmp += v + "§"); //anche qui gestire caso stringhe
+            value.forEach(v => tmp += v + "§");
             toAdd += tmp.substring(0, tmp.length-1);
-        } else if (false) {
-            //se è stringa, ma ancora non ho avuto modo di farlo
         } else {
             toAdd += value;
         }

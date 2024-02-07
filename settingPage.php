@@ -2,8 +2,8 @@
 session_start();
 
 if (!($_SESSION['loggedin'] === true)) {
-//user is not logged in go to login page
-header("Location: index.php");
+    //user is not logged in go to login page
+    header("Location: index.php");
 }
 ?>
 
@@ -50,7 +50,6 @@ header("Location: index.php");
                     <?php if (isUserAdmin($_SESSION['username'])) {?>
                     <li><a href="gestioneLibri.php" class='book'>Gestione Libri</a></li>
                     <li><a href="gestioneMedaglieri.php" class='goal'>Gestione Medagliere</a></li>
-                    <!-- <li><a href="#" class='delete'>Elimina account</a></li> -->
                     <li><a href="#" class='manage'>Gestisci Utenti</a></li>
                     <?php } ?>
                 </ul>
@@ -90,17 +89,9 @@ header("Location: index.php");
 
             <!-- Content for "Gestisci Libri" -->
             <div id="bookContent"   class="col-md-12 text-center content">
-                <!-- Content for books -->
-                <!-- <strong>Gestisci Libri</strong> -->
-
+           
             </div>
 
-            <!-- Content for "Gestisci Medagliere" -->
-            <!-- <div id="goalContent"   class="col-md-12 text-center content"> -->
-            <!-- Content for goals -->
-            <!-- <strong>Gestione Medagliere</strong> -->
-            <!-- <?php //include('include/MedagliereManagement.php'); ?> -->
-            <!-- </div> -->
 
             <!-- Content for "Elimina account" -->
             <div id="deleteContent"   class="col-md-12 text-center content">
@@ -112,9 +103,7 @@ header("Location: index.php");
 
             <!-- Content for "GEstisci account" -->
             <div id="manageContent"   class="col-md-12 text-center content">
-                <!-- Content for deleting account -->
                 <strong>Gestisci Profilo Utente</strong>
-
                 <?php include('include/manageUser.php'); ?>
             </div>
         </div>

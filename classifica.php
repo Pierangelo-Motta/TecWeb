@@ -62,27 +62,13 @@ if (!($_SESSION['loggedin'] === true)) {
                     <th>Numero Medaglieri</th>
                 </tr>";
                     $utenti = getListaElencoUtenti();
-                    // print_r($utenti);
-
-                    //// Define a custom comparison function
-                    // function compareByAmountComplete($a, $b) {
-                    //     $amountCompleteA = sizeof(getMedCompletatiByUserId($a['id']));
-                    //     $amountCompleteB = sizeof(getMedCompletatiByUserId($b['id']));
                     
-                    //     // Compare the number of completed medals
-                    //     return $amountCompleteB - $amountCompleteA;
-                    // }
-                    
-                    // // Use usort to sort the $utenti array using the custom comparison function
-                    // usort($utenti, 'compareByAmountComplete');
-
-                    // print_r($_SESSION);
                     foreach ($utenti as &$user) {
                         $user['medalsCompleted'] = sizeof(getMedCompletatiByUserId($user['id']));
                     }
-                    // print_r($utenti);
                     // Use array_column to get the 'medalsCompleted' values
                     $ids = array_column($utenti, 'medalsCompleted');
+                    
                     // Use array_multisort to sort the array by 'id'
                     array_multisort($ids, SORT_DESC, $utenti);
                     $classe = "";

@@ -1,4 +1,3 @@
-<!-- handle_cookie_consent.php -->
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

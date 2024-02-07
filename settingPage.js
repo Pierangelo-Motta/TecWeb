@@ -27,11 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
             hideAllContent();
         document.getElementById('bookContent').style.display = 'block';
     });}
-    // questo codice, lancia un'eccezione se non  sono admin (book non esiste sulla pagina)
-    // document.querySelector('.book').addEventListener('click', function () {
-    //     hideAllContent();
-    //     document.getElementById('bookContent').style.display = 'block';
-    // });
 
     // Click event for "Gestisci Medagliere"
     let goal = document.querySelector('.goal');
@@ -41,13 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('goalContent').style.display = 'block';
         });
     }
-    // questo codice, lancia un'eccezione se non  sono admin (goal non esiste sulla pagina)
-    // document.querySelector('.goal').addEventListener('click', function () {
-    //     hideAllContent();
-    //     document.getElementById('goalContent').style.display = 'block';
-    // });
-
-    
+        
     // Click event for "Elimina account"
     let deleteUser = document.querySelector('.delete');
     if (deleteUser) {
@@ -57,13 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
-    // questo codice, lancia un'eccezione se non  sono admin (delete non esiste sulla pagina)
-    // document.querySelector('.delete').addEventListener('click', function () {
-    //     hideAllContent();
-    //     document.getElementById('deleteContent').style.display = 'block';
-    // });
-
-
+    
     // Click event for "Cambia password"
     let manage = document.querySelector('.manage');
     if (manage) {
@@ -72,12 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('manageContent').style.display = 'block';
         });
     }
-    // questo codice, lancia un'eccezione se non  sono admin (manage non esiste sulla pagina)
-    // document.querySelector('.manage').addEventListener('click', function () {
-    //     hideAllContent();
-    //     document.getElementById('manageContent').style.display = 'block';
-    // });
-
+    
     function hideAllContent() {
         // Hide all content divs
         let contentDivs = document.querySelectorAll('.content');
