@@ -1,6 +1,6 @@
 # Info Database #
 
-Il nome del database utilizzato: __letturepremiate__
+Il nome del database utilizzato (e da creare su mysql): __letturepremiate__
 
 ## BackUp del database ##
 
