@@ -19,7 +19,7 @@ class PHPGet {
     obtainNewQuery(){
         let q = "?";
         this.values.forEach (function(value, key) {
-            q += key + '=' + value + "&"; //TODO: funziona solo con valori atomici, non con array o stringhe con spazi (per ora)!
+            q += key + '=' + value + "&"; 
         })
         return q.substring(0, q.length-1);
     }

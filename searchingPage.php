@@ -34,10 +34,8 @@ if (!empty($tmp)){
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-  <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
-  <!-- <link rel="stylesheet" type="text/css" href="css/JPBook.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/userInfoBanner.css">
   <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
   <link rel="stylesheet" type="text/css" href="css/searchingPageAddtionalStyle.css">
   
@@ -62,7 +60,7 @@ if (!empty($tmp)){
               
             }
             foreach($a as $userId){
-                echo getUserBannerById($userId, "search"); // "post" "goal"
+                echo getUserBannerById($userId, "search");
             }
             
             ?>
@@ -77,7 +75,6 @@ if (!empty($tmp)){
         crossorigin="anonymous">
     </script>
     <script src="javascript/searchingPageAnimation.js"></script>
-    <!-- <script src="javascript/profilePageAnimation.js"></script> si protrebbe anche includere ma devo aggiustare una cosa-->
     <script src="javascript/profilePageModal.js"></script>
 
 

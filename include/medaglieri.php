@@ -75,7 +75,7 @@ if(isset($_POST['aggiungiMedagliere'])){
             $descrizione = "Un nuovo medagliere ti aspetta!";
         }
     $medaglieri->aggiungiMedagliere($titolo,$descrizione);
-    //FIXME: ? se ritrasmetto la pagina registra il libro/medagliere nuovamente
+    // gestire refresh pagina (F5) ?-> doppia registrazione medagliere
 }
 
 

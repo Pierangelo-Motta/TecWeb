@@ -110,7 +110,6 @@ if(isset($_POST['aggiungiMedagliere'])){
                             Medaglieri
                         </button>
                         <p></p>
-                        <!-- FIXME: manca l'id del medagliere -->
                         <?php $medaglieriResult = $medaglieri->getmedaglieri();?>
                         <ul class="dropdown-menu" id="dropdownMenu">
                             <?php foreach($medaglieriResult as $medagliere): ?>

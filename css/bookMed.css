@@ -1,3 +1,6 @@
+/* Deliberamente ispirato a: */
+/* https://stackoverflow.com/questions/76972952/how-to-make-a-flip-page-effect-in-book-without-using-absolute-position-or-make */
+
 ol{
     overflow-y: auto;
 }
@@ -5,14 +8,10 @@ ol{
 section#userGoal{
     /* or any other parent wrapper */
     margin: auto;
-
-    /* background-color: linear-gradient(top to bottom, #0042c5 80%, black 100%) ; */
-
 }
 
 .book {
     pointer-events: none;
-    
     margin: 25px auto 10px;
 }
 
@@ -23,11 +22,11 @@ p.libroLetto{
 
 
 div#copertinaAvanti{
-    /* background-color: #123456; */
     padding: 20% 5%;
     background-image: linear-gradient(to right ,#001c42 0.3%, #123456 0.6%, #001c42 0.9%,  #123465 99%, white 100%);
     text-align: center;
 }
+
 div#copertinaIndietro{
     background-image: linear-gradient(to left,#001c42 0.3%, #123456 0.6%, #001c42 0.9%,  #123465 99%, white 100%);
 }
@@ -37,7 +36,6 @@ div#copertinaAvanti h2{
 }
 
 div#copriCopertina{
-    /* backface-visibility: visible; così non si chiude */
     background-color: #123456;
     display: block;
 }
@@ -46,7 +44,6 @@ div#copriCopertina{
 .page img {
     max-width: 18%;
     object-fit: cover;
-    /* width: 39%; */
     aspect-ratio: 1;
 }
 
@@ -68,8 +65,6 @@ article.titoloMedagliere h2 {
     display: block;
     clear: left;
     text-align: justify;
-    /* min-height: 3em;
-    height: 40%; */
 }
 
 
@@ -101,7 +96,7 @@ article.titoloMedagliere img{
 
 
 
-
+/* global rule for admin view*/
 
 div#userGoalPageAdmin{
     height: 400px;
@@ -135,40 +130,17 @@ section#userGoal{
     
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-    /* background-color: linear-gradient(top to bottom, #0042c5 80%, black 100%) ; */
-
     background-image: linear-gradient(to bottom, white 10%, #57585a 90%);
-    /* linear-gradient(to top, #57585a 20%) ; */
-    /* align-content: center;
-    align-self: center;
-    align-items: center; */
-    /* padding: 0 40px; */
+   
 }
   
 .book {
-/**/
     display: flex;
-    /* overflow: visible; */
     max-width: 90%;
     width: 90%;
     min-width: 90%;
     align-items: center;
     margin: 0 5%;
-    /*
-   
-    */
-
-    /*align-items: center; */
-    /* calc( var(--sizing) * 2); */
-    /* width: 30%; var(--phone-size); */
-    /* height: var(--sizing) * 1;  */
-    /* 1.61803; */
-
-    /*1* let pointer event go trough pages of lower Z than .book */
-    /* transform-style: preserve-3d;
-    transition: translate 1s;
-    translate: calc(min(var(--c), 1) * 50%) 0%; */
-
 }
 
 .page {
@@ -188,19 +160,14 @@ section#userGoal{
     width: 18%;
     min-width: 75px;
     margin: 0 0 5px 5px;
-    /* margin-left: 6px; */
     aspect-ratio: 1;
     float: right;
-    /* margin-bottom: 10px; */
 }
-
 
 
 .facciata{
     background-color: #fff;
     border: black 1px solid;
-    /* overflow: visible; */
-    /* --phone-size: 30%; */
     min-width: 100%;
     width: 100%; 
     max-width: 100%;
@@ -219,13 +186,6 @@ section#userGoal{
     padding: 5%;
     z-index: 20;
     border: black 1px solid;
-}
-
-
-
-article.titoloMedagliere{
-    /* display:inline; */
-    /* vertical-align: middle; */
 }
 
 
@@ -304,10 +264,9 @@ div#copertinaAvanti h2{
 
 @media only screen and (min-width: 768px) { /* PC rules*/
     
-    /* https://stackoverflow.com/questions/76972952/how-to-make-a-flip-page-effect-in-book-without-using-absolute-position-or-make */
+    
     section#userGoal{
         display: flex;
-        /* height: 100dvh; */
         overflow: hidden;
         font-family: 'Times New Roman', Times, serif;
         
@@ -364,9 +323,7 @@ div#copertinaAvanti h2{
     }
     
     div#copertinaAvanti h2{
-        /* margin-top: 10%; */
         font-size: 60px;
-        
     }
     
     .front,
@@ -390,36 +347,6 @@ div#copertinaAvanti h2{
         translate: -100% 0;
         rotate: 0 1 0 180deg;
     }
-    
-
-    /***********//***********//***********/
-
-    /* article.titoloMedagliere {
-        display: block;
-    } */
-
-    /* article.titoloMedagliere h2 {
-        word-wrap: break-word;
-        text-align: left;
-        float: left;
-        width: 70%;
-    } */
-    
-    /* article.titoloMedagliere img{
-        text-align: right;
-        float: right;
-    } */
-
-    /* .descrizioneMedagliere{
-        display: block;
-        clear: left;
-        text-align: justify;
-        min-height: 3em;
-        height: 40%;
-    } */
-
-    /***********/
-
 
     article.libriNecessari{
         font-size: 16px;

@@ -22,8 +22,6 @@ $pensieroNameValue = isset($_POST[$pensieroName]) ? $_POST[$pensieroName] : "";
 $tagsAreaName = "tagsArea";
 $tagsAreaNameValue = isset($_POST[$tagsAreaName]) ? $_POST[$tagsAreaName] : "";
 
-// global $pathSep = DIRECTORY_SEPARATOR;
-
 if(empty($nomeLibroNameValue) &&
     empty($citazioneNameValue) &&
     empty($pensieroNameValue) &&
@@ -31,17 +29,12 @@ if(empty($nomeLibroNameValue) &&
         $tmp = __DIR__;
         $remain = DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "post" . DIRECTORY_SEPARATOR . "tmp" . DIRECTORY_SEPARATOR;
         $myDir = $tmp . $remain;
-        // echo $myDir;
         $who = $_SESSION["username"];
-        // $complete = $myDir . 
         foreach (glob($myDir . $who . "*.*") as $nomefile) {
             unlink($nomefile);
-            // echo $nomefile;
-            // echo "Dimensione " . $nomefile . ": " . filesize($nomefile) . "\n";
         }
 
 }
-
 
 if(isPresentImg($imgInterestedName)){
     //gestisci caricamento della foto nella cartella tmp
@@ -67,13 +60,10 @@ if (isset($_POST["sB"])) {
             $actImgName = $file;
         }
 
-        // TODO : tanto ce n'è solo 1, ma si può migliorare?
-
         if(!empty($actImgName)){ 
             $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);            
         } 
 
-        // TODO SOLVED l'ultimo 0 deve essere convertito in un id del libro!!
         createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, getLibroIdFromLibroWhereTitle($nomeLibroNameValue));
         ////////////   
 
@@ -117,7 +107,6 @@ if (isset($_POST["sB"])) {
     header("Location: profilePage.php");
 } 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -132,8 +121,7 @@ if (isset($_POST["sB"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
-    <link rel="stylesheet" type="text/css" href="css/JPNewPost.css">
+    <link rel="stylesheet" type="text/css" href="css/newPost.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
 
     <link rel="icon" href="images/favicon_io/favicon.ico">
@@ -156,7 +144,7 @@ if (isset($_POST["sB"])) {
                             <!-- <label for="manageThisUser">Seleziona Utente:</label> -->
                             
                         <label for="nomeLibroId"> Nome libro: </label>
-                        <div id="acCont" class="autocomplete-container"> <!-- acCont -> autocompleteContainer -->
+                        <div id="acCont" class="my-1 my-md-0 autocomplete-container"> <!-- acCont -> autocompleteContainer -->
                             <input type="text" 
                             class="form-control"
                             id="nomeLibroId" 
@@ -168,7 +156,7 @@ if (isset($_POST["sB"])) {
                         </div>
 
                         <label for="citazioneTextId" class="notDisplay">Citazione: </label>
-                        <textarea class="form-control" 
+                        <textarea class="my-1 my-md-0 form-control" 
                             id="citazioneTextId" 
                             name=<?php echo "'".$citazioneName."'"?>
                             rows="10" 
@@ -176,7 +164,7 @@ if (isset($_POST["sB"])) {
                             placeholder="Inserisci qui la citazione"><?php echo "".$citazioneNameValue.""?></textarea>
 
                         <label for="pensieroTextId" class="notDisplay">Pensiero: </label>
-                        <textarea class="form-control" 
+                        <textarea class="my-1 my-md-0 form-control" 
                             id="pensieroTextId" 
                             name=<?php echo "'".$pensieroName."'"?>
                             rows="10" 
@@ -184,7 +172,7 @@ if (isset($_POST["sB"])) {
                             placeholder="Inserisci qui il tuo pensiero"><?php echo "".$pensieroNameValue.""?></textarea>
                         
                         <label for="tagsAreaId" class="notDisplay">Tags: </label>
-                        <textarea class="form-control" 
+                        <textarea class="my-1 my-md-0 form-control" 
                             id="tagsAreaId" 
                             name=<?php echo "'".$tagsAreaName."'"?>
                             rows="10" 
@@ -196,7 +184,7 @@ if (isset($_POST["sB"])) {
                     <!-- <div class="col-1"></div> -->
 
                     <div class="col-md-6 col-12" id="newPostForm_pt2">
-                        <p class="align-bottom m-0 mt-2">Inserisci qui sotto una foto:</p>
+                        <p class="my-1 my-md-0 align-bottom m-0 mt-2">Inserisci qui sotto una foto:</p>
                         <div id="imgPrevDiv">
                             <label id="imgLabel" for="imgPrevInput">
                                 <img id="imgPrev" 

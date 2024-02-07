@@ -12,7 +12,7 @@ function adaptUnit(toAdapt) {
 function parseActTime(){
     const date = new Date();
     let res = date.getFullYear() + "-";
-    res += adaptUnit(date.getMonth()+1) + "-";
+    res += adaptUnit(date.getMonth() + 1) + "-";
     res += adaptUnit(date.getDate()) + " ";
     res += adaptUnit(date.getHours()) + ":";
     res += adaptUnit(date.getMinutes()) + ":";
@@ -37,8 +37,7 @@ if (commentArea != null){
         let newCalc = maxCharsForComment - commentArea.value.length;
         counter.innerHTML = newCalc;
 
-        //TODO SOLVED: decidere se disabilitare il bottone o fare l'alert di avviso
-        if(newCalc < 0){
+        if (newCalc <= 0) {
             document.getElementById("createComm").disabled = true;
         } else {
             document.getElementById("createComm").disabled = false;

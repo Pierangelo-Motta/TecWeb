@@ -22,7 +22,7 @@ function updateOnFileSystem(string $where, string $nameInputImg, string $newImgN
 
             // Get the absolute path to the current directory
             $currentDirectory = __DIR__;
-            $backDirs = '/../../'; //TODO da porre attenzione se questo file viene spostato!!
+            $backDirs = '/../../'; //da porre attenzione se questo file viene spostato!!
 
             // Construct the full path for the destination directory
             $uploadDirectory = $currentDirectory . $backDirs . $where;

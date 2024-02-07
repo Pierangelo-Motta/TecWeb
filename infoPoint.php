@@ -9,10 +9,6 @@ if (!($_SESSION['loggedin'] === true)) {
     header("Location: index.php");
 }
 
-// require_once('include/model/uploadImage.php'); //per gestire il caricamento della foto
-// require_once('include/model/insertOnDB.php'); //per gestire la query di INSERT INTO
-// require_once("include/model/selectors.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +22,6 @@ if (!($_SESSION['loggedin'] === true)) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="css/JPNewPost.css"> -->
 
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
     <link rel="stylesheet" type="text/css" href="css/infopointStyle.css">

@@ -13,13 +13,11 @@ function userIsVisitingAdminPage() {
 }
 
 if (!($_SESSION['loggedin'] === true)) {
-    //user is not logged in go to login page
     header("Location: index.php");
 }
 
 $modes = array("post", "goal");
 
-//$modified = 0;
 $newValues = array();
 if (!isset($_GET["mode"]) || !in_array($_GET["mode"], $modes)) {
     $newValues["post"] = "post";
@@ -67,9 +65,6 @@ if ($user_id !== null) {
     echo "Errore: Profilo non specificato.";
 }
 
-
-
-// print_r($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -85,10 +80,9 @@ if ($user_id !== null) {
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
-  <link rel="stylesheet" type="text/css" href="css/JPUserInfoBanner.css">
-  <link rel="stylesheet" type="text/css" href="css/JPbook.css">
+  <link rel="stylesheet" type="text/css" href="css/userInfoBanner.css">
+  <link rel="stylesheet" type="text/css" href="css/bookMed.css">
   <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
 
 

@@ -21,8 +21,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- <link rel="stylesheet" type="text/css" href="css/JPfirstAttemp.css"> -->
-    <link rel="stylesheet" type="text/css" href="css/JPNewMed.css">
+    <link rel="stylesheet" type="text/css" href="css/newMed.css">
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
 
     <link rel="icon" href="images/favicon_io/favicon.ico">
@@ -31,8 +30,6 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
     </script>
-    <!-- <script type="module" src="javascript/ReloaderPage.js"></script> -->
-
 </head>
 
 <body>
@@ -47,7 +44,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
                     
                     <h2 id="tit1Sec"><label for="tmpInputSeachingString" id="labelSearchingInput">Ricerca nome medagliere:</label></h2>
 
-                    <div id="acCont" class="flex-fill float-right autocomplete-container mx-3"> <!-- acCont -> autocompleteContainer -->
+                    <div id="acCont" class="flex-fill float-right autocomplete-container mx-3">
                         <input 
                         type="search"  
                         class="form-control me-2 float-right" 
@@ -56,7 +53,6 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
                         value="<?php echo $res; ?>"
                         placeholder="Search" 
                         aria-label="Search"/>
-                        <!-- <input type="text" id="manageThisUser" name="manageThisUser"> -->
                         <div id="autocompleteBoooksResults" class="autocomplete-results"></div>
                     </div>
                     

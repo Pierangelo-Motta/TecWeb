@@ -188,7 +188,7 @@ function addBookToLibriList(bookId, bookTitle) {
 }
 
 // permette di selezionare libri dalla tabella libri e aggiungerli all'elenco del medagliere
-// TODO: inserire il btn per l'eliminazione con id del libro....
+
 $(document).ready(function () {
     // Click event handler for the libriTable
     $('#libriTable').on('click', 'tbody tr', function () {

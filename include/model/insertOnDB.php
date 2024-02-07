@@ -140,7 +140,7 @@ function manageFollow($userIDFrom, $userIDTo, $query){
             $tipo = 'F';
             createNotification($userIDTo, $userIDFrom, $tipo);
         } else {
-            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //tenuto per debug
         }
     }
 
@@ -205,7 +205,7 @@ function subscribeUserToMed($userID, $medID){
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
-            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //tenuto per debug
         }
     }
 
@@ -222,7 +222,7 @@ function createNewTag($textToInsert){
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
-            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //tenuto per debug
         }
     }
 
@@ -239,7 +239,7 @@ function embedTagPost($idTag, $userId, $datetime){
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
-            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //tenuto per debug
         }
     }
 

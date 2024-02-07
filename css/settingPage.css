@@ -10,6 +10,11 @@
     margin-bottom: 1rem;
 }
 
+.content {
+    display: none;
+    text-align: center;    
+}
+
 .du-autocomplete-container {
     position: relative;
 }
