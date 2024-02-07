@@ -48,7 +48,7 @@ function createNewPost($userID, $date, $citTex, $citImg, $riflessione, $libroID)
     $sql = $sql . $querys . $end2; // completo la seconda parte della query
 
     /////////creazione della stringa di binding
-    $startBiding = "is"; //indexUser, TODO date
+    $startBiding = "is"; //indexUser, date
     $endBiding = "siii"; //riflessione, counter1, counter2, libroID
 
     $betweenBiding = ""; //vedo cosa devo aggiungere
@@ -116,7 +116,7 @@ function savePostedPhoto($imgRelPath, $userName){
     $distanceByRoot = DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
 
     // Construct the full path for the source dir
-    $fromDir = $currentDirectory . $distanceByRoot . $imgRelPath; //. "images/post/tmp/" . $imageName;
+    $fromDir = $currentDirectory . $distanceByRoot . $imgRelPath;
     // e per la destination directory
     $toDir = $currentDirectory . $distanceByRoot . "images/post/posted/" . $userName;
 
@@ -257,7 +257,7 @@ function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
-            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //tenuto per debug
         }
     }
 
@@ -274,7 +274,7 @@ function deleteNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
-            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //tenuto per debug
         }
     }
 

@@ -26,7 +26,7 @@ function execQ($sql, $isCreate){
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
-            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //tenuto per debug
         }
     }
 

@@ -46,7 +46,7 @@ class Medaglieri{
 
         // Bind the parameter
         $stmt->bind_param("i", $medagliereId);
-            // Execute the statement
+        // Execute the statement
         $stmt->execute();
         // Get the result
         $result = $stmt->get_result();

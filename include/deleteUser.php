@@ -1,7 +1,5 @@
 <?php
 require_once('login.model.php');
-//require_once('userList.php');
-
 ?>
 
 
