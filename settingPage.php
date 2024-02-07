@@ -58,52 +58,52 @@ header("Location: index.php");
             <div class="col-md-4">
             </div>
             <!-- Content for "Cambia password" -->
-            <div id="passwordContent" style="display: none;" class="col-md-12 text-center content">
+            <div id="passwordContent" class="content"  class="col-md-12 text-center content">
                 <!-- Content for changing password -->
                 <strong>Cambia la tua Password</strong>
                 <?php
                 include('include/changePassword.php');
                 ?>
             </div>
-            <div id="passwordChanged" style="display: none;" class="col-md-12 text-center content">
+            <div id="passwordChanged" class="content"  class="col-md-12 text-center content">
                 <p>La password è stata cambiata correttamente!</p>
             </div>
-            <div id="passwordNotChanged2" style="display: none;" class="col-md-12 text-center content">
+            <div id="passwordNotChanged2" class="content"  class="col-md-12 text-center content">
                 <p>Errore: vecchia password non corretta!</p>
             </div>
-            <div id="passwordNotChanged1" style="display: none;" class="col-md-12 text-center content">
+            <div id="passwordNotChanged1" class="content"  class="col-md-12 text-center content">
                 <p>Errore: le password non corrispondono.</p>
             </div>            
             <!-- Content for "Modifica la tua descrizione utente" -->
-            <div id="descriptionContent" style="display: none;" class="col-md-12 text-center content">
+            <div id="descriptionContent" class="content"  class="col-md-12 text-center content">
                 <!-- Content for modifying user description -->
                 <strong>Modifica Descrizione Utente</strong>
                 <?php include('include/changeUserDescription.php'); ?>
             </div>
 
             <!-- Content for \"Cambia immagine del profilo\" -->
-            <div id="profileContent" style="display: none;" class="col-md-12 text-center content">
+            <div id="profileContent" class="content"  class="col-md-12 text-center content">
                 <!-- Content for changing profile image -->
                 <strong>Modifica Immagine Profilo</strong>
                 <?php include('include/changeUserImage.php'); ?>
             </div>
 
             <!-- Content for "Gestisci Libri" -->
-            <div id="bookContent" style="display: none;" class="col-md-12 text-center content">
+            <div id="bookContent" class="content"  class="col-md-12 text-center content">
                 <!-- Content for books -->
                 <!-- <strong>Gestisci Libri</strong> -->
 
             </div>
 
             <!-- Content for "Gestisci Medagliere" -->
-            <!-- <div id="goalContent" style="display: none;" class="col-md-12 text-center content"> -->
+            <!-- <div id="goalContent" class="content"  class="col-md-12 text-center content"> -->
             <!-- Content for goals -->
             <!-- <strong>Gestione Medagliere</strong> -->
             <!-- <?php //include('include/MedagliereManagement.php'); ?> -->
             <!-- </div> -->
 
             <!-- Content for "Elimina account" -->
-            <div id="deleteContent" style="display: none;" class="col-md-12 text-center content">
+            <div id="deleteContent" class="content"  class="col-md-12 text-center content">
                 <!-- Content for deleting account -->
                 <strong>Elimina Profilo Utente</strong>
                 <?php include('include/deleteUser.php'); ?>
@@ -111,7 +111,7 @@ header("Location: index.php");
             </div>
 
             <!-- Content for "GEstisci account" -->
-            <div id="manageContent" style="display: none;" class="col-md-12 text-center content">
+            <div id="manageContent" class="content"  class="col-md-12 text-center content">
                 <!-- Content for deleting account -->
                 <strong>Gestisci Profilo Utente</strong>
 

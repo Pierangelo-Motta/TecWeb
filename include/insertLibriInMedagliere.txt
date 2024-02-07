@@ -2015,3 +2015,26 @@ Books variable content: array (
     ),
   ),
 )
+Books variable content: array (
+  'books' => 
+  array (
+    0 => 
+    array (
+      'id' => '8',
+      'titolo' => 'XFede e giustizia',
+      'medagliere_id' => '9',
+    ),
+    1 => 
+    array (
+      'id' => '13',
+      'titolo' => 'XIl gatto striato miagola tre volte',
+      'medagliere_id' => '9',
+    ),
+    2 => 
+    array (
+      'id' => '11',
+      'titolo' => 'X I miei giorni alla libreria Morisaki',
+      'medagliere_id' => '9',
+    ),
+  ),
+)
