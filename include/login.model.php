@@ -186,8 +186,6 @@ function saveBooks(array $books){
     
     $sql = "INSERT INTO compone (libroId, medagliereId) VALUES (?, ?)";
     
-
-    // Assuming $books array has 'id' and 'medagliere_id' keys
     $medagliereId = $books[0]['medagliere_id'];
 
     // Check if the medagliere already exists
@@ -198,11 +196,9 @@ function saveBooks(array $books){
     $checkResult = $checkStmt->get_result();
     $row = $checkResult->fetch_assoc();
 
-    // If the conta is greater than 0, the medagliere already exists
+    // Se il medagliere esiste..
     if ($row['conta'] > 0) {
-        // TODO: Decide what to do when the medagliere already exists
-        // For example, update existing records or skip insertion
-        // echo "Medagliere already exists. You may want to update existing records or skip insertion.";
+        
         $sqlDelete = "DELETE FROM compone WHERE medagliereId = ?";
     
         $stmtDelete = $conn->prepare($sqlDelete);
