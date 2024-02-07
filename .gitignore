@@ -1,5 +1,4 @@
 # per evitare che il nostro tmp venga committato
-*tmp
 tmp.html
 
 # ignore all files starting with . or ~

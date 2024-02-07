@@ -30,9 +30,6 @@ body main div form label[for=nomeLibroId]{
     width: 90px;
 }
 
-body main div form div#newPostForm_pt1 textarea{
-    resize: none;
-}
 
 /***************************************/
 body main div form div#newPostForm_pt2 p {
@@ -115,8 +112,9 @@ body main div footer button#shareButton{
 .notDisplay{
     display: none;
 }
-textarea{
-    margin-top: 10px;
+body main div form div#newPostForm_pt1 textarea{
+    margin: 10px 0 0;
+    resize: none;
 }
 
 #imgPrevMods{
@@ -165,9 +163,9 @@ footer#footerNewPost {
     }
 
     body main div form div#newPostForm_pt2 p{
-        margin-top: 0px;
+        /* margin-top: 0px; */
         border-top: 0px rgb(204, 204, 204) solid;
-        padding-top: 0px;
+        /* padding-top: 0px; */
     }
 
 }
