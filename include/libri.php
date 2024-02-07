@@ -26,18 +26,7 @@ class Libri {
     }
 
     private function associaLibroAutore($libroId, $autoreId) {
-        if ($autoreId == "altro") {
-            $nuovoAutore = mysqli_real_escape_string($this->conn, $_POST['nuovoAutore']);
-            $sqlNuovoAutore = "INSERT INTO autore (nome) VALUES (?)";
-            $stmtNuovoAutore = $this->prepareAndExecute($sqlNuovoAutore, "s", $nuovoAutore);
-
-            if ($stmtNuovoAutore) {
-                mysqli_stmt_close($stmtNuovoAutore);
-                $autoreId = mysqli_insert_id($this->conn);
-            } else {
-                echo "Errore: " . mysqli_error($this->conn);
-            }
-        }
+        $autoreId = $this->gestisciAutore($autoreId);
 
         $sqlAssocia = "INSERT INTO scrittoda (libroId, autoreId) VALUES (?, ?)";
         $stmtAssocia = $this->prepareAndExecute($sqlAssocia, "ii", $libroId, $autoreId);
@@ -48,17 +37,16 @@ class Libri {
     }
 
     public function getLibri() {
-    $sql = "SELECT l.id, l.titolo, a.id as autoreId, a.nome FROM libro l, autore a, scrittoda s WHERE l.id = s.libroId AND a.id = s.autoreId ORDER BY a.nome";
-    return mysqli_query($this->conn, $sql);
-}
+      $sql = "SELECT l.id, l.titolo, a.id as autoreId, a.nome FROM libro l, autore a, scrittoda s WHERE l.id = s.libroId AND a.id = s.autoreId ORDER BY a.nome";
+      return mysqli_query($this->conn, $sql);
+    }
 
+    public function getAutori() {
+        $sql = "SELECT DISTINCT  * FROM autore a ORDER BY a.nome ASC";
+        return mysqli_query($this->conn, $sql);
+    }
 
-      public function getAutori() {
-          $sql = "SELECT DISTINCT  * FROM autore a ORDER BY a.nome ASC";
-          return mysqli_query($this->conn, $sql);
-      }
-
-      public function modificaLibro($id, $titolo, $autoreId) {
+    public function modificaLibro($id, $titolo, $autoreId) {
       $sql = "UPDATE libro SET titolo = ? WHERE id = ?";
       $stmt = mysqli_prepare($this->conn, $sql);
 
@@ -66,7 +54,7 @@ class Libri {
           mysqli_stmt_bind_param($stmt, "si", $titolo, $id);
           mysqli_stmt_execute($stmt);
           mysqli_stmt_close($stmt);
-
+          $autoreId = $this->gestisciAutore($autoreId);
           $this->aggiornaAutoreLibro($id, $autoreId);
       } else {
           echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
@@ -85,7 +73,6 @@ class Libri {
           echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
       }
     }
-
 
     public function eliminaLibro($id) {
         $autoreId = $this->getAutoreIdByLibroId($id);
@@ -122,6 +109,48 @@ class Libri {
 
         if (!$stmt) {
             echo "Errore: " . mysqli_error($this->conn);
+        }
+    }
+
+    private function gestisciAutore($autoreId) {
+       if ($autoreId == "altro") {
+           $nuovoAutore = mysqli_real_escape_string($this->conn, $_POST['nuovoAutore']);
+           $autoreId = $this->getAutoreIdByName($nuovoAutore);
+
+           if (!$autoreId) {
+               $autoreId = $this->aggiungiAutore($nuovoAutore);
+           }
+       }
+
+       return $autoreId;
+   }
+
+   private function getAutoreIdByName($autoreNome) {
+         $sql = "SELECT id FROM autore WHERE nome = ?";
+         $stmt = $this->prepareAndExecute($sql, "s", $autoreNome);
+
+         if ($stmt) {
+             mysqli_stmt_bind_result($stmt, $autoreId);
+             mysqli_stmt_fetch($stmt);
+             mysqli_stmt_close($stmt);
+
+             return $autoreId;
+         } else {
+             echo "Errore: " . mysqli_error($this->conn);
+             return null;
+         }
+     }
+
+     private function aggiungiAutore($autoreNome) {
+        $sql = "INSERT INTO autore (nome) VALUES (?)";
+        $stmt = $this->prepareAndExecute($sql, "s", $autoreNome);
+
+        if ($stmt) {
+            mysqli_stmt_close($stmt);
+            return mysqli_insert_id($this->conn);
+        } else {
+            echo "Errore: " . mysqli_error($this->conn);
+            return null;
         }
     }
 

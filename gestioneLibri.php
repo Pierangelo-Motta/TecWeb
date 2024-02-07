@@ -70,7 +70,7 @@ $libriResult = $libri->getLibri();
                               <option value="altro">Altro</option>
                             </select>
 
-                            <div id="altroAutore" style="display: none;">
+                            <div id="altroAutore" class="hide">
                                 <label for="nuovoAutore">Nuovo Autore</label>
                                 <input type="text" id="nuovoAutore" placeholder="Nuovo Autore" name="nuovoAutore" class="form-control">
                             </div>
@@ -146,9 +146,8 @@ $libriResult = $libri->getLibri();
                                 <label for="tit_lib<?php echo $row['id'];?>">Titolo libro</label>
                                 <input type="text" id="tit_lib<?php echo $row['id'];?>" placeholder="Titolo libro" name="titolo" class="form-control" value="<?php echo $row['titolo']; ?>" required>
                                 <br>
-
                                 <label for="autore_modifica_<?php echo $row['id']; ?>">Autore</label>
-                                <select id="autore_modifica_<?php echo $row['id']; ?>" name="autore" class="form-control" required>
+                                <select id="autore_modifica_<?php echo $row['id']; ?>" name="autore" class="form-control autore_modifica" required>
                                   <option value="" disabled>Scegli un autore</option>
                                   <?php
                                   $resultAutori = $libri->getAutori();
@@ -160,12 +159,7 @@ $libriResult = $libri->getLibri();
                                   <option value="altro">Altro</option>
                                 </select>
 
-
-
-
-
-
-                                <div id="altroAutore_lib<?php echo $row['id'];?>" style="display: none;">
+                                <div id="altroAutore_lib<?php echo $row['id'];?>" class="hide altroAutore">
                                     <label for="nuovoAutore_lib<?php echo $row['id'];?>">Nuovo Autore</label>
                                     <input type="text" id="nuovoAutore_lib<?php echo $row['id'];?>" placeholder="Nuovo Autore" name="nuovoAutore" class="form-control">
                                 </div>

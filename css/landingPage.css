@@ -73,6 +73,10 @@ input[name="searchingMed"]{
     overflow-y: auto;
 }
 
+.hide {
+  display: none;
+}
+
 
 
 /* Safari */
