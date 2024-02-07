@@ -70,5 +70,5 @@ Mettere una foto del tuo passo preferito è sicuramente il modo più interessant
 
 ## Note Tecniche ##
 
-* Database utilizzato: Mysql
-* Il dump del database si trova nella [directory database](database) 
+* Database utilizzato: Mysql (nome database "letturepremiate")
+* Il dump del database si trova nella [directory database](database)
