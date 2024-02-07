@@ -5,7 +5,6 @@ require_once("config.php");
 require_once ("medaglieri.php");
 
 $result = $medaglieri->getLibriMedaglieri($_GET['idLibro']);
-// $result = $medaglieri->getLibriMedaglieri(1);
 
 // Convert the result to a JSON response
 $rows = array();

@@ -1,11 +1,6 @@
 <div class="row justify-content-center">
 
     <div class="card">
-        <!-- <p>According to <cite>The Art of War</cite> by Sun Tzu, "Opportunities multiply as they are seized."</p>
-        <blockquote class="blockquote">
-            <p>The only way to do great work is to love what you do.</p>
-            <footer class="blockquote-footer">Steve Jobs</footer>
-        </blockquote> -->
         <div class="card-body">
             <form action="include/updatePassword.php" method="post">
                 <div class="form-group row">

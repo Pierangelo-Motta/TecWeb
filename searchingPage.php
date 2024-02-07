@@ -36,7 +36,7 @@ if (!empty($tmp)){
 
   <link rel="stylesheet" type="text/css" href="css/landingPage.css">
   <link rel="stylesheet" type="text/css" href="css/userInfoBanner.css">
-  <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
+  <link rel="stylesheet" type="text/css" href="css/popupBootstrapModel.css">
   <link rel="stylesheet" type="text/css" href="css/searchingPageAddtionalStyle.css">
 
   <link rel="icon" href="images/favicon_io/favicon.ico">

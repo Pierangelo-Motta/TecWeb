@@ -44,6 +44,7 @@ function getCorrectImg($amountLeastBooks){
     $altImg = "";
     $limits = array(5,15);
     $category = 0;
+
     while ($amountLeastBooks > 0 && $category < sizeof($limits)){
         $delta = $limits[$category];
         if ($category > 0) {
@@ -57,24 +58,28 @@ function getCorrectImg($amountLeastBooks){
         }
     }
 
-    switch ($category){
+    switch ($category) {
         case 0:
             $imgName = "medagliaFacile.png";
             $altImg = "Ce l'hai quasi fatta!";
             break;
+
         case 1:
             $imgName = "medagliaMedia.png";
             $altImg = "Non manca troppo dai...";
             break;
+
         case 2:
             $imgName = "medagliaDifficile.png";
             $altImg = "Meglio se guardi altrove!";
             break;
+
         default:
             $imgName = "err.png";
             $altImg = "err.png";
             break;
     }
+
     return array($imgName, $altImg);
     
 }
@@ -94,11 +99,8 @@ function createOneMed($medToPrint, $indexToConsider, $libriLetti, $who){
     $remainsBook = array_diff($medBookIndex, $libriLetti);
     $canReclame = empty($remainsBook);
 
-
     $titleMed = $infos["titolo"];
-    
     $descMed = $infos["descrizione"];
-
     $books = obtainList($libriInMedagliere, $who);
 
     $buttonText = "Sfidami!";
@@ -180,7 +182,7 @@ function createSubmission() {
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
-            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //TODO tenuto per debug
+            echo "Errore: " . $sql . "<br>" . mysqli_error($conn); //tenuto per debug
         }
     }
 

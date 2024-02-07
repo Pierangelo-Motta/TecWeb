@@ -8,9 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $logMessage = date("Ymd-His") . ": Utente " . $selectedUser . " cancellato dal DB!\n";
     error_log($logMessage, 3, "phplogfile_deletedUsers.log");
     
-    
-    // deleteUserFromDb($selectedUser); 
-    
     $_SESSION['risultato'] = 1;
     
     header('Location: ../settingPage.php?userdel=1');

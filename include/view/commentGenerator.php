@@ -30,7 +30,7 @@ function createImage($userIdCommentor, $dataComment, $isMyPost){
         "class" => $propicClass,
         "src" => $userImg
     );
-    if($isMyPost){
+    if ($isMyPost) {
        $imgDef["data-thisdate"] = $dataComment;
     }
 
@@ -67,15 +67,9 @@ function collectAllComments($userIdPost, $dataPost){
     
     $final = "";
     foreach ($allRes as $singleRow) {
-        
         $final .= summonComment($singleRow["utenteIdComm"], $singleRow["dataOraComm"], $singleRow["commento"]);
     }
     return $final;
 }
-
-
-
-
-
 
 ?>

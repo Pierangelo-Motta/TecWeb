@@ -6,7 +6,7 @@ $nomeUtente = tmpGetUsernameById($_GET["id"]);
 
 function createStrangeFront(){
     $begin = "<div class='front facciata'>";
-    $middle = "<h3> <a href=\"newMedagliere.php\"> Aggiungi nuovi medaglieri </a> al tuo librone dei medaglieri! </h3>"; // : ancorare la pagina di sottomissione a un nuovo medagliere?
+    $middle = "<h3> <a href=\"newMedagliere.php\"> Aggiungi nuovi medaglieri </a> al tuo librone dei medaglieri! </h3>"; 
     $end = "</div>";
     return $begin . $middle . $end;
 }
@@ -35,7 +35,6 @@ function createFacciata($faceType, $medIndex, $exactIndex, $isComplete){
     $medInfos = getMedagliereInfo($medIndex[$exactIndex])[0];
     
     $libriInMedagliere = getLibroEAutoreByMedagliereId($medIndex[$exactIndex]);
-    // print_r($libriInMedagliere);
 
     $imgToConsider = "";
     if ($isComplete){

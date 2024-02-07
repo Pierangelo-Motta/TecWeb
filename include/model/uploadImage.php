@@ -6,7 +6,6 @@ function isPresentImg(string $nameInputImg){
 }
 
 //NOTA BENE: questa funzione ha solo lo scopo di spostare l'immagine appena caricata in una directory preposta
-
 //NOTA BENE: in nameInputImg bisogna mettere il name del campo!
 //$where indirizzo preciso a partire dalla root
 //$newImageName eventuale nuovo nome dell'immagine, mettere "" altrimenti
@@ -18,16 +17,12 @@ function updateOnFileSystem(string $where, string $nameInputImg, string $newImgN
         // Check if a file is selected
         if (isset($_FILES[$nameInputImg]) && $_FILES[$nameInputImg]["error"] == 0) {
 
-            ///erasing old photo : ci pensa la chiamante
-
             // Get the absolute path to the current directory
             $currentDirectory = __DIR__;
             $backDirs = '/../../'; //da porre attenzione se questo file viene spostato!!
 
             // Construct the full path for the destination directory
             $uploadDirectory = $currentDirectory . $backDirs . $where;
-
-            //creare una cartella se non esiste. Anche questo ci pensa la chiamante
 
             $tmp1 = explode(".", $_FILES[$nameInputImg]["name"]);
             $extension = $tmp1[sizeof($tmp1)-1];
@@ -38,8 +33,6 @@ function updateOnFileSystem(string $where, string $nameInputImg, string $newImgN
             // Generate a unique name for the uploaded image
             $_FILES[$nameInputImg]["name"] = $imageName;
             
-            // echo "<br>";
-            // echo strcmp($newImgName, "");
             $sourcePath = $_FILES[$nameInputImg]["tmp_name"]; //getAtcPos;
 
             // Set the path for the uploaded image
@@ -75,7 +68,6 @@ function updateImg(string $where, string $nameInputImg) {
     }
 
 }
-
 
 // $a = date("Y-m-d H:i:s", time());
 // // echo $a . "<br>";

@@ -8,22 +8,18 @@ require_once("include/model/insertOnDB.php");
 
 require_once("include/view/formattators.php");
 
-//TODO : sarebbe da pulire sta porcata...
 $userIdLogged = $_SESSION["id"];
 $userIdvisited = isset($_GET["id"]) ? $_GET["id"] : -1;
 $imFollowU = checkIfUserFollowUser($userIdLogged, $userIdvisited);
 $nameFollowingButton = "followButton";
 if (isset($_POST[$nameFollowingButton])) {
-    // echo $_SESSION["id"] . " " . $userIdvisited;
     if ($imFollowU) {
-        destroyFollow($_SESSION["id"], $userIdvisited);
+        destroyFollow($userIdLogged, $userIdvisited);
     } else {
-        createFollow($_SESSION["id"], $userIdvisited);
+        createFollow($userIdLogged, $userIdvisited);
     }
     header("Location: " . $_SERVER['REQUEST_URI']);
 }
-
-
 
 function getPictureOfPortalImage($typeOfView){
     $portalImg="images/";
@@ -121,35 +117,14 @@ function obtainMainInfosUserBanner($userId){
 
     $pathUserImage = getUserImage($nameInterestedUser); //immagine utente
     $listaFollower = ottieniFollower($userId);
-    //var_dump($listaFollower);
-    // print_r($listaFollower);
     $counterFollower = sizeof(ottieniFollower($userId)); //numero follow1
     $counterSeguo = sizeof(ottieniSegue($userId)); //numero follow2
     $listaSegue = ottieniSegue($userId);
-    // print_r("<br/>");
-    // print_r($listaSegue);
     
-    // echo "<!-- INIZIO: per la valorizzazione del modal-->" . "\n";
-    // foreach($listaFollower as $f){
-    //     echo "<div class=\"modalFollower\" id=\"modalFollowerId" . $f['seguenteId'] . "\" hidden>";
-    //     echo $f['seguenteId'];
-    //     echo "</div>\n";
-    // }
-
-    // foreach($listaSegue as $s){
-    //     echo "<div class=\"modalSeguiti\" id=\"modalSeguitoId" . $s['seguitoId'] . "\" hidden>";
-    //     echo $s['seguitoId'];
-    //     echo "</div>\n";
-    // }
-    // foreach($listaSegue as $s){
-    //     echo 'seguo: ' . $s['seguitoId'] ;
-    // }
-    // echo "<!-- FINE per la valorizzazione del modal-->" . "\n";
- 
     
-    $amountComplete = sizeof(getMedCompletatiByUserId($userId)); //amountMedaglieriCompletati
+    $amountComplete = sizeof(getMedCompletatiByUserId($userId)); 
 
-    $classMainContainer = "d-sm-inline-flex align-items-center p-2  mainInfos"; //w-25 flex-fill
+    $classMainContainer = "d-sm-inline-flex align-items-center p-2  mainInfos"; 
     
     $initMainContainter = "<div id=\"mainInfosUserBannerN" . $userId . "\" 
     class=\"" . $classMainContainer . "\">";
@@ -162,12 +137,6 @@ function obtainMainInfosUserBanner($userId){
     "alt=\"Immagine Profilo\" "  .
     "class=\"" . $classForImg . "\"> " .
     "</div>";
-    
-    //$classForMed = "";
-    // $med =  "<div" . 
-    //         //" id=\"divContainerImgUserBannerN" . $userId . "\"" . 
-    //         " class=\"" . $classForMed . "\">" .
-    //     "</div>";
     
     $classForContainerInfos = "containerUserInfos";
     $classForInfos = "card-text";
@@ -190,7 +159,12 @@ function obtainMainInfosUserBanner($userId){
         <div class=\"titoloPopUp\">Followers</div>";
 
     foreach($listaFollower as $f) {
-        $popupContent .= "<div class=\"rigaUtente\"><img src=\"" . getUserImage(tmpGetUsernameById($f['seguenteId'])) . "\" alt=\"Immagine Profilo\" class=\"immagineProfilo\"><a   href=\"profilePage.php?mode=post&id=" . $f['seguenteId'] . "\">" . tmpGetUsernameById($f['seguenteId']) . "</a></div>\n";
+        $popupContent .= "<div class=\"rigaUtente\">" . 
+                            "<img src=\"" . getUserImage(tmpGetUsernameById($f['seguenteId'])) .
+                                "\" alt=\"Immagine Profilo\" class=\"immagineProfilo\">
+                            <a href=\"profilePage.php?mode=post&id=" . $f['seguenteId'] . "\">" 
+                            . tmpGetUsernameById($f['seguenteId']) . 
+                        "</a></div>\n";
     }
 
     $popupContent .= "
@@ -210,7 +184,7 @@ function obtainMainInfosUserBanner($userId){
     $popupContent .= "
             </div>
         </div>";
-// FINE PARTE POPUP
+    // FINE PARTE POPUP
         
     return $initMainContainter . $first . $second . $finMainContainer . $popupContent;
 
@@ -220,15 +194,13 @@ function obtainPortalsUserBanner($userId, $typeView){
 
     $nameInterestedUser = tmpGetUsernameById($userId); //nome
 
-    $classMainContainer = "d-md-inline-flex justify-content-center align-items-center p-2  w-auto"; //w-25 flex-fill
+    $classMainContainer = "d-md-inline-flex justify-content-center align-items-center p-2  w-auto"; 
     $initMainContainter = "<div id=\"portalsUserBannerN" . $userId . "\" class=\"" . $classMainContainer . "\">";
 
     $portalImg = getPictureOfPortalImage($typeView);
 
 
     $classFirstContainer = "order-md-1 w-auto justify-content-center align-items-center mx-auto";
-    //per ora un utente gli metto solo il buttone "vedi di più" : non personalizzo l'ID al portale
-    //UserBannerN . $userId
     $classImgAbbr = "AbbrImgPortal";
     $first = "<div id=\"portalDiv" . "" . "\" class=\"" . $classFirstContainer . "\">" . 
                 "<abbr id=\"portalAbbr" . $userId . "\" lang=\"it\" title=\"" . $nameInterestedUser . "\" class=\"" . $classImgAbbr . "\">" .
@@ -264,8 +236,6 @@ function obtainPortalsUserBanner($userId, $typeView){
 //post --> bottone "nuovoPost"/"Segui" + libro per medaglieri
 function getUserBannerById($userId, $typeView){
 
-    //$userIdvisited = $_GET["id"]; // è il parametro della funzioen
-
     $classMainContainer = "card singleBannerUnit"; //bootstrap flags
     $classSubContainer = "d-sm-inline-flex align-items-md-between align-items-center w-100"; //bootstrap flags
 
@@ -277,7 +247,6 @@ function getUserBannerById($userId, $typeView){
     $between = "<div " . 
                 " class=\"" . $classForMet . "\"" . 
                 "> </div> ";
-    // $between = "";
 
     $fin = " </div> </div> </div>";
 

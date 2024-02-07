@@ -207,7 +207,6 @@ function saveBooks(array $books){
         $stmtDelete->execute();
     
         $stmtDelete->close();
-        //return;
     }
 
     $checkStmt->close();
@@ -222,36 +221,5 @@ function saveBooks(array $books){
     $stmt->close();
 
 };
-
-// function deleteMedagliere(int $id){
-//     global $conn;
-//     $sqlDelete = "DELETE FROM compone WHERE medagliereId = ?";
-//     $stmtDelete = $conn->prepare($sqlDelete);
-//     $stmtDelete->bind_param('i', $id);
-//     $stmtDelete->execute();
-//     $stmtDelete->close();
-// }
-
-
-// function medagliereHasBooks(int $id){
-//     global $conn;
-    
-//     $checkSql = "SELECT COUNT(*) as numeroMed FROM compone WHERE medagliereId = ?";
-//     $checkStmt = $conn->prepare($checkSql);
-//     $checkStmt->bind_param('i', $medagliereId);
-//     $checkStmt->execute();
-//     $checkResult = $checkStmt->get_result();
-//     $row = $checkResult->fetch_assoc();
-//     $valore = $row['numeroMed']; 
-//     $checkStmt->close();
-
-//     if ($valore > 0) {
-//         return 1;
-//     }else {
-//         return 0;
-//     }
-
-// }
-
 
 ?>
