@@ -16,7 +16,7 @@ if (!($_SESSION['loggedin'] === true)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informazioni</title>
+    <title>TecWeb - Informazioni</title>
 
 
     <!-- Bootstrap CSS -->
@@ -104,7 +104,7 @@ if (!($_SESSION['loggedin'] === true)) {
             </ul>
             </article>
 
-            <article id="settingPage">                              
+            <article id="settingPage">
             <h2 class="h2subtitle">Darsi un pò di stile: Setting Page <a href="settingPage.php"> <img src="images/settingLogo.png" alt="#" /> </a> </h2>
             <p> È la pagina dove ogni utente può caricare una propria nuova foto profilo o cambiare la propria descrizione</p>
             </article>

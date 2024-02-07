@@ -72,7 +72,7 @@ if ($user_id !== null) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile page</title>
+  <title>TecWeb - Profilo</title>
  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
   <!-- Bootstrap CSS -->

@@ -48,7 +48,7 @@ if (isset($_POST["sB"])) {
     if($parsed == 1){
         $userIDtmp = $_SESSION["id"]; //chi
         $date = date("Y-m-d H:i:s", time()); //quando
-        
+
         /////////get name of photo
         $dirPath = "images/post/tmp";
         $files = glob($dirPath . "/" . $_SESSION["username"]. "*");
@@ -59,18 +59,18 @@ if (isset($_POST["sB"])) {
             $actImgName = $file;
         }
 
-        if(!empty($actImgName)){ 
-            $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);            
-        } 
+        if(!empty($actImgName)){
+            $newImgName = savePostedPhoto($actImgName, $_SESSION["username"]);
+        }
 
         createNewPost($userIDtmp, $date, $citazioneNameValue, $newImgName, $pensieroNameValue, getLibroIdFromLibroWhereTitle($nomeLibroNameValue));
-        ////////////   
+        ////////////
 
         //////// creazione tags
-        
+
         $tags = explode(" ", $tagsAreaNameValue);
         $tagIndex = array();
-        
+
         foreach ($tags as $t) {
             $newT = trim($t);
             if (strlen($newT > 0)){
@@ -82,7 +82,7 @@ if (isset($_POST["sB"])) {
                 array_push($tagIndex, $tmp);
             }
         }
-        
+
         $ntI = array_unique($tagIndex);
 
         foreach ($ntI as $ti) {
@@ -90,7 +90,7 @@ if (isset($_POST["sB"])) {
         }
         //////////////
 
-    
+
     } else {
         //// error status
         print_r($_POST);
@@ -104,7 +104,7 @@ if (isset($_POST["sB"])) {
     }
     //force return to profile page
     header("Location: profilePage.php");
-} 
+}
 
 ?>
 
@@ -113,7 +113,7 @@ if (isset($_POST["sB"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New post</title>
+    <title>TecWeb - New post</title>
 
 
     <!-- Bootstrap CSS -->
@@ -124,7 +124,7 @@ if (isset($_POST["sB"])) {
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
 
     <link rel="icon" href="images/favicon_io/favicon.ico">
-  
+
 
 </head>
 <body>
@@ -136,14 +136,14 @@ if (isset($_POST["sB"])) {
         <div id="mainCont" class="col-10">
             <h1>Crea un nuovo post!</h1>
             <form id="newPostForm" class="form-group" action="newPost.php" method="post" enctype="multipart/form-data">
-                    
+
                     <div class="col-md-6 col-12" id="newPostForm_pt1">
 
                         <label for="nomeLibroId"> Nome libro: </label>
                         <div id="acCont" class="my-1 my-md-0 autocomplete-container"> <!-- acCont -> autocompleteContainer -->
-                            <input type="text" 
+                            <input type="text"
                             class="form-control"
-                            id="nomeLibroId" 
+                            id="nomeLibroId"
                             name="<?php echo $nomeLibroName ?>"
                             value="<?php echo $nomeLibroNameValue ?>"
                             />
@@ -151,27 +151,27 @@ if (isset($_POST["sB"])) {
                         </div>
 
                         <label for="citazioneTextId" class="notDisplay">Citazione: </label>
-                        <textarea class="my-1 my-md-0 form-control" 
-                            id="citazioneTextId" 
+                        <textarea class="my-1 my-md-0 form-control"
+                            id="citazioneTextId"
                             name=<?php echo "'".$citazioneName."'"?>
-                            rows="10" 
-                            cols="100" 
+                            rows="10"
+                            cols="100"
                             placeholder="Inserisci qui la citazione"><?php echo "".$citazioneNameValue.""?></textarea>
 
                         <label for="pensieroTextId" class="notDisplay">Pensiero: </label>
-                        <textarea class="my-1 my-md-0 form-control" 
-                            id="pensieroTextId" 
+                        <textarea class="my-1 my-md-0 form-control"
+                            id="pensieroTextId"
                             name=<?php echo "'".$pensieroName."'"?>
-                            rows="10" 
-                            cols="100" 
+                            rows="10"
+                            cols="100"
                             placeholder="Inserisci qui il tuo pensiero"><?php echo "".$pensieroNameValue.""?></textarea>
-                        
+
                         <label for="tagsAreaId" class="notDisplay">Tags: </label>
-                        <textarea class="my-1 my-md-0 form-control" 
-                            id="tagsAreaId" 
+                        <textarea class="my-1 my-md-0 form-control"
+                            id="tagsAreaId"
                             name=<?php echo "'".$tagsAreaName."'"?>
-                            rows="10" 
-                            cols="100" 
+                            rows="10"
+                            cols="100"
                             placeholder="Via con i tags!"><?php echo "".$tagsAreaNameValue."" ?></textarea>
 
                     </div>
@@ -180,14 +180,14 @@ if (isset($_POST["sB"])) {
                         <p class="my-1 my-md-0 align-bottom m-0 mt-2">Inserisci qui sotto una foto:</p>
                         <div id="imgPrevDiv">
                             <label id="imgLabel" for="imgPrevInput">
-                                <img id="imgPrev" 
-                                    src="<?php 
+                                <img id="imgPrev"
+                                    src="<?php
                                         if (!isPresentImg($imgInterestedName)){
                                             echo "images/caricaFoto.png";
                                         } else {
                                             echo "images/post/tmp/" . $_FILES[$imgInterestedName]["name"];
                                         }?>"
-                                    alt="Carica la foto" /> 
+                                    alt="Carica la foto" />
                             </label>
                             <input type="file" id="imgPrevInput" name="imgPrevInputName" accept="image/png, image/jpeg" />
                         </div>
@@ -204,22 +204,22 @@ if (isset($_POST["sB"])) {
             <footer id="footerNewPost">
                 <p id="accessibilityMessage">Rendi il contenuto del tuo pensiero accessibile a tutti! <a href=<?php echo "\"" . $linkForMoreInfos . "#acc\"" ?>> Per più informazioni</a></p>
 
-                <button class="btn btn-secondary" 
-                    form="newPostForm" 
-                    type="submit" 
+                <button class="btn btn-secondary"
+                    form="newPostForm"
+                    type="submit"
                     id="retBut"
                     name="sB"
                     value="0">Indietro
-                </button><button class="btn btn-secondary" 
-                    form="newPostForm" 
-                    type="submit" 
+                </button><button class="btn btn-secondary"
+                    form="newPostForm"
+                    type="submit"
                     id="shareButton"
                     name="sB"
                     value="1">Condividi</button>
             </footer>
         </div>
 
-        <div class="col-1"></div>   
+        <div class="col-1"></div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

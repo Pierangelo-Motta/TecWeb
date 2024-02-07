@@ -15,7 +15,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuovi medaglieri</title>
+    <title>TecWeb - Nuovi medaglieri</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,7 +25,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
     <link rel="stylesheet" type="text/css" href="css/landingPage.css">
 
     <link rel="icon" href="images/favicon_io/favicon.ico">
-  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
@@ -41,21 +41,21 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
         <div class="col-10">
             <div class="p-0 d-flex container-fluid float-right">
                 <form class="d-inline-flex" action="newMedagliere.php" method="post">
-                    
+
                     <h2 id="tit1Sec"><label for="tmpInputSeachingString" id="labelSearchingInput">Ricerca nome medagliere:</label></h2>
 
                     <div id="acCont" class="flex-fill float-right autocomplete-container mx-3">
-                        <input 
-                        type="search"  
-                        class="form-control me-2 float-right" 
+                        <input
+                        type="search"
+                        class="form-control me-2 float-right"
                         id="tmpInputSeachingString"
-                        name="searchingMed" 
+                        name="searchingMed"
                         value="<?php echo $res; ?>"
-                        placeholder="Search" 
+                        placeholder="Search"
                         aria-label="Search"/>
                         <div id="autocompleteBoooksResults" class="autocomplete-results"></div>
                     </div>
-                    
+
 
 
                 </form>
@@ -67,7 +67,7 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
     <section class="d-flex" data-userId="<?php echo $_SESSION["id"];?>">
         <div class="col-1"></div>
 
-        
+
         <div class="col-10">
             <h2 id="tit2Sec">Results</h2>
             <div class="col-12" id="newMedaglieri"></div>
@@ -83,15 +83,15 @@ $res = isset($_POST["searchingMed"]) ? $_POST["searchingMed"] : "";
 
         <div class="col-10">
             <div id="moreRes" class="d-flex float-right justify-content-end">
-                    <button id="loadMore" 
-                        class="btn btn-secondary float-right" 
-                        
-                        type="button" 
+                    <button id="loadMore"
+                        class="btn btn-secondary float-right"
+
+                        type="button"
                         name="amountLoad"> Mostra di più
                     </button>
             </div>
         </div>
-        
+
         <div class="col-1"></div>
     </section>
 

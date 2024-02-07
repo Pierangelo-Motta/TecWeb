@@ -27,7 +27,7 @@ if (!empty($tmp)){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>profile page</title>
+  <title>TecWeb - SearchingPage</title>
 
 
   <!-- Bootstrap CSS -->
@@ -38,31 +38,31 @@ if (!empty($tmp)){
   <link rel="stylesheet" type="text/css" href="css/userInfoBanner.css">
   <link rel="stylesheet" type="text/css" href="css/PMpopup.css">
   <link rel="stylesheet" type="text/css" href="css/searchingPageAddtionalStyle.css">
-  
+
   <link rel="icon" href="images/favicon_io/favicon.ico">
 
 </head>
 <body>
-    
+
     <?php require('navbarSelect.php'); ?>
 
     <main class="d-flex">
         <div class="col-1"></div>
 
         <div class="col-10">
-            <?php 
+            <?php
             if(empty($a)){
               if(empty($tmp)){
                 echo "<h2> Per cercare qualcuno ho bisogno di almeno un carattere! </h2>";
               } else {
                 echo "<h2> Nessun utente trovato con \"" . $tmp . "\"! </h2>";
               }
-              
+
             }
             foreach($a as $userId){
                 echo getUserBannerById($userId, "search");
             }
-            
+
             ?>
         </div>
 
