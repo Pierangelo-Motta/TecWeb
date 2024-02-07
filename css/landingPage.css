@@ -10,21 +10,12 @@
     margin: 0 6px;
 }
 
-.post img {
- 
-  
-}
-
 .post a {
     width: 100%;
-  /* width: 50px; */
-  /* height: auto; */
 }
 
 .post .post-img {
     width: 100%;
-  /* width: 50px; */
-  /* height: auto; */
 }
 
 .post p {
@@ -32,8 +23,6 @@
 }
 
 .post {
-    
-    
     margin: 0 5px 0 0;
     max-width: 50px;
     width: 50px;
@@ -49,7 +38,7 @@
 }
 
 #navbarSupportedContent li.nav-item {
-    margin: 0 2px; /* Aggiusta il margine come desideri */
+    margin: 0 2px;
 }
 
 form{
@@ -64,9 +53,6 @@ form{
 input[name="searchingMed"]{
     display: block;
 }
-
-
-
 
 .loader {
     border: 16px solid #f3f3f3;

@@ -261,7 +261,7 @@ function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
     //FIXME luca controllami
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, "isiss", $userIdPost, $when, $who, $datePost, $tipo);
+        mysqli_stmt_bind_param($stmt, "isiss", $who, $when, $userIdPost, $datePost, $tipo);
 
         if (mysqli_stmt_execute($stmt)) {
         } else {
