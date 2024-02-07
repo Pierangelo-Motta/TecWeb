@@ -3,19 +3,8 @@ include_once("include/login.controller.php");
 include_once("include/login.model.php");
 include_once("include/model/insertOnDB.php");
 
-// $userID = isset($_SESSION["userID"]) ? $_SESSION["userID"] : null;
-
 $userID = isset($_SESSION['id']) ? $_SESSION['id'] : null;
 
-// $notifications = "";
-// if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-//     $notifications = getNotifications($userID);
-// }
-
-
-// if ($userID != 7) {
-//   echo "<script src=\"https://code.jquery.com/jquery-3.6.4.min.js\"></script>";
-// }
 
 ?>
 

@@ -10,11 +10,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 require_once 'include/post.php';
 
 $post = new Post($conn);
-
-// Ottenere i post delle persone che stai seguendo (Landing Page)
 $posts = $post->getLandingPosts($_SESSION['id']);
 
-// Se non ci sono post, puoi impostare un messaggio di avviso
 if (empty($posts)) {
     $no_posts_message = 'Non stai seguendo nessuno. Inizia a seguire qualcuno per vedere i loro post.';
 }

@@ -41,7 +41,6 @@ function checkIfAlreadyLiked($userId, $dataOra) {
 }
 
 
-
 ?>
 
 
@@ -52,7 +51,6 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                       echo '<p>Nessun post disponibile in questa sezione. Puoi saperne di più nella pagina informazioni! </p>';
                   } else {
                       foreach ($posts as $post):
-                    //print_r($post["elencoTag"]);
                 ?>
                 <article>
                     <div class="card">
@@ -88,14 +86,11 @@ function checkIfAlreadyLiked($userId, $dataOra) {
                                     <div class="row">
                                         <p>Sto pensando a... <br/> <?= $post['riflessione']; ?></p>
                                     </div>
-                                     <div class="row"> <!--TODO: perchè doppia row?... -->
+                                     <div class="row"> 
                                       <?php if (!empty($post['elencoTag'])): ?>
                                         <div class="row">
                                             <p>
                                                 <?php
-                                                // echo "<br> --- ";
-                                                // print_r($post['elencoTag']);
-                                                // echo " --- <br>";
                                                 $tags = explode(',', $post['elencoTag']);
                                                 foreach ($tags as $tag) {
                                                   $tagUrl = 'searchingTag.php?tag=' . urlencode($tag);
@@ -172,6 +167,3 @@ function checkIfAlreadyLiked($userId, $dataOra) {
         </div>
         <div class="col-md-2 d-none d-md-block"></div>
 </section>
-<?php
-// }
-?>

@@ -163,7 +163,6 @@ function createNotification($userIDTo, $userIDFrom, $tipo) {
     $notification_query = "INSERT INTO notifica(tipo, utenteId, utenteIdPost, dataOraPost) VALUES (?, ?, ?, NOW())";
 
     if ($stmt = mysqli_prepare($conn, $notification_query)) {
-        // "s" è usato per una stringa
         mysqli_stmt_bind_param($stmt, "sii", $tipo, $userIDTo, $userIDFrom);
 
         if (!mysqli_stmt_execute($stmt)) {
@@ -179,7 +178,7 @@ function getNotifications($userID) {
 
     $notifications = array();
 
-    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOra DESC"; // Ordina per data decrescente
+    $query = "SELECT * FROM notifica WHERE utenteId = ? ORDER BY dataOra DESC";
     if ($stmt = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($stmt, "i", $userID);
         mysqli_stmt_execute($stmt);
@@ -246,19 +245,12 @@ function embedTagPost($idTag, $userId, $datetime){
     mysqli_stmt_close($stmt);
 }
 
-
-
-
 function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
 
-    //FIXME luca controllami
     global $conn;
-    //FIXME luca controllami
     $sql = "INSERT INTO notifica(utenteId, dataOra, utenteIdPost, dataOraPost, tipo) VALUES (?,?,?,?,?);";
 
-    //FIXME luca controllami
-    $tipo = "C"; //TODO luca controllami
-    //FIXME luca controllami
+    $tipo = "C";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "isiss", $who, $when, $userIdPost, $datePost, $tipo);
@@ -274,11 +266,8 @@ function createNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
 
 function deleteNotifyToUserForComment($userIdPost, $datePost, $when, $who) {
 
-    //FIXME luca controllami
     global $conn;
-    //FIXME luca controllami
     $sql = "DELETE FROM notifica WHERE utenteId = ? AND dataOra = ? AND utenteIdPost = ? AND dataOraPost = ?;";
-    //FIXME luca controllami
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "isis", $who, $when, $userIdPost, $datePost);
