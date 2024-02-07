@@ -1,5 +1,7 @@
 # Info Database #
 
+Il nome del database utilizzato: __letturepremiate__
+
 ## BackUp del database ##
 
 mysqldump -u username -p database_name > data-dump.sql
